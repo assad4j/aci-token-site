@@ -1,0 +1,9 @@
+
+{
+  "welcome": "Bienvenue sur la prévente officielle du token ACI",
+  "presaleEnds": "Fin de la prévente dans : {{days}}j {{hours}}h {{minutes}}m {{seconds}}s",
+  "buy": "Acheter des ACI",
+  "buyAndStake": "Acheter & Staker",
+  "startsIn": "Début de la prévente dans {{count}} jour",
+  "startsIn_plural": "Début de la prévente dans {{count}} jours"
+}

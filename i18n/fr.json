@@ -1,0 +1,22 @@
+{
+  "home": {
+    "title": "ACI Meta Coach",
+    "description": "Votre coach IA pour devenir un investisseur complet : stratégie, mindset, gestion du risque et progression mesurable."
+  },
+  "tradingBot": {
+    "title": "Coach IA",
+    "description": "Analyse de vos performances, plans hebdomadaires personnalisés et routines mindset pour tenir vos objectifs."
+  },
+  "formations": {
+    "title": "Formations intelligentes",
+    "description": "Parcours interactifs mêlant vidéo et IA : crypto, forex, risk management et psychologie du trader."
+  },
+  "axePsychologique": {
+    "title": "Meta Track",
+    "description": "Suivez votre progression semaine après semaine avec objectifs, routines et rappels pilotés par l’IA."
+  },
+  "faq": {
+    "title": "FAQ",
+    "description": "Toutes les réponses sur le Coach IA, les formations et le Meta Coach Token."
+  }
+}

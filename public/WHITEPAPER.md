@@ -1,0 +1,134 @@
+# ACI Meta Coach — Whitepaper
+
+## 0. Résumé exécutif
+
+ACI Meta Coach est un assistant 3D intelligent qui accompagne chaque investisseur comme un coach personnel : il écoute la voix, comprend l’état émotionnel, adapte les parcours d’apprentissage et récompense la discipline via le token ACI. Ce document détaille la vision, les mécanismes techniques et économiques, ainsi que la feuille de route pour déployer l’écosystème ACI.
+
+---
+
+## 1. Vision et problématique
+
+### 1.1 Constat
+- Les traders particuliers sont submergés d’informations et restent souvent seuls face au stress des marchés.
+- Les plateformes de formation actuelles sont passives, peu contextualisées émotionnellement.
+- Les modèles « learn-to-earn » existants ne relient pas directement émotion et progression.
+
+### 1.2 Vision
+Créer l’entraîneur sportif des marchés financiers : un coach IA 3D empathique qui synchronise formation, staking et gouvernance.
+
+### 1.3 Objectifs (24 mois)
+1. Réduire de 30 % le stress perçu.
+2. Augmenter de 40 % le taux de complétion des parcours.
+3. Atteindre 75 % du supply ACI en staking 12 mois après la prévente.
+4. Organiser au moins trois votes de gouvernance la première année.
+
+---
+
+## 2. Écosystème ACI
+
+### 2.1 Token ACI
+- Rôle : carburant économique, outil de gouvernance, levier de gamification.
+- Objectif : aligner utilisateurs, coachs et partenaires en finançant l’amélioration continue de l’IA et en récompensant la discipline.
+- Utilité : accès premium, réductions marketplace, unlock tiers, staking, récompenses missions.
+
+### 2.2 Coach IA 3D
+- Avatar animé, ton « meilleur ami » ou « tactical coach ».
+- Analyse voix/caméra, knowledge base, fallback local.
+
+### 2.3 Parcours Meta Coach
+- Tracks trading, mindset, gestion du risque.
+- Routines journalières, exercices vocaux, journaling.
+
+### 2.4 Marketplace
+- Modules IA, masterclass, packs coach humains, outils.
+- Paiement en ACI ou stablecoins (avec conversion).
+- Revenue share créateurs.
+
+---
+
+## 3. Architecture technique
+
+### 3.1 Frontend
+- React 18, Tailwind, Three.js, fallback offline.
+
+### 3.2 Backend IA
+- Modèle propriétaire ACI (entraîné sur contenus internes), knowledge index, pipeline vocal (STT/TTS), monitoring fiabilité/sécurité.
+
+### 3.3 Smart contracts
+- Prévente, staking, scripts Hardhat/Foundry, audits, multisig.
+
+### 3.4 Observabilité
+- Logs anonymisés, Prometheus/Grafana, Sentry, alertes latence IA.
+
+---
+
+## 4. Coach IA — fonctionnement
+
+- Pipeline : voix → STT → features émotionnelles → contextualisation plan → réponse + nudge.
+- Persona adaptable, fallback local.
+- Analyse voix : RMS, variance, pitch, fillers/minute, baseline adaptative.
+- Caméra optionnelle (Human.js) pour expression faciale.
+
+---
+
+## 5. Parcours & marketplace
+
+- Construction du plan : diagnostic, onboarding, cycle hebdomadaire, review émotionnelle.
+- Marketplace : routines IA, masterclass, packs coach humains, outils.
+- KPIs : voice minutes, Net Emotional Score, progression plan, TVL staking, MRR marketplace.
+
+---
+
+## 6. Tokenomics
+
+- Allocation indicative : 35 % prévente, 20 % team/advisors, 15 % trésor R&D, 20 % rewards staking/missions, 10 % liquidité/ops.
+- Staking : APR 10-25 %, lock 30-180 jours, bonus tiers, rewards modules premium + XP plan.
+- Utilité ACI : accès premium, réductions marketplace, gouvernance, priorité presales, récompenses missions.
+
+---
+
+## 7. Roadmap
+
+- **Alpha (0-6 mois)** : prévente, coach IA voix + KB, staking pilote, marketplace MVP, tests émotion.
+- **Beta (6-12 mois)** : coach IA v2, marketplace ouverte, app mobile, sessions hybrides, votes de signal.
+- **Growth (12-24 mois)** : DAO complète, API plan IA, white-label coach, extension DeFi, buy-back, expansion internationale.
+
+---
+
+## 8. Gouvernance & communauté
+
+- DAO progressive, delegation.
+- Conseil communautaire, rapports trimestriels.
+- Programmes ambassadeurs, AMA, hackathons.
+
+---
+
+## 9. Sécurité & conformité
+
+- Audits indépendants, multisig Gnosis Safe.
+- RGPD : consentement voix/cam, stockage local par défaut.
+- Limitation IA : rate limit, modération, red teaming.
+- Bug bounty (Immunefi/HackerOne).
+
+---
+
+## 10. Indicateurs clés
+
+- Voice engagement, variation stress/confidence, TVL staking, revenus marketplace, participation gouvernance, support, fallback IA.
+
+---
+
+## 11. Risques & mitigation
+
+- Dépendance IA → fallback local, multi-prestataires.
+- Volatilité token → diversification trésor, pricing adaptatif.
+- Régulation voix → mode texte-only, consentement renforcé.
+- Adoption → programmes ambassadeurs, partenariats.
+- Coût IA → optimisation prompts, caching, monitoring.
+- RGPD → anonymisation, stockage local.
+
+---
+
+## 12. Conclusion
+
+ACI Meta Coach fusionne intelligence émotionnelle, tokenomics et coaching interactif pour aider les traders à rester disciplinés et engagés.

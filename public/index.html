@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACI Meta Coach</title>
+    <meta
+      name="description"
+      content="ACI Meta Coach combine intelligence artificielle, trading et éducation financière pour guider votre progression."
+    />
+    <link rel="canonical" href="https://acipresale.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ACI Meta Coach" />
+    <meta
+      property="og:description"
+      content="Découvrez le Coach IA, les formations intelligentes et le Meta Coach Token (ACI) pour accélérer votre progression."
+    />
+    <meta property="og:url" content="https://acipresale.com/" />
+    <meta property="og:image" content="/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ACI Meta Coach" />
+    <meta
+      name="twitter:description"
+      content="Profitez du Coach IA, des parcours de formation et des avantages du Meta Coach Token."
+    />
+    <meta name="twitter:image" content="/logo.png" />
+
+    <!-- Style global pour body -->
+    <style>
+      body {
+        margin: 0;
+        background-color: black;
+        overflow-x: hidden;
+      }
+
+      video#background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+      }
+    </style>
+    <script>
+      (function () {
+        var analyticsId = "%REACT_APP_ANALYTICS_ID%";
+        if (!analyticsId) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag("js", new Date());
+        window.gtag("config", analyticsId);
+        var script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=" + analyticsId;
+        document.head.appendChild(script);
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ✅ Fond vidéo permanent, hors React -->
+    <video
+      id="background-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="/videos/background.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
+
+    <!-- React root -->
+    <div id="root"></div>
+  </body>
+</html>

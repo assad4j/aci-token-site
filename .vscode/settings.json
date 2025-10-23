@@ -1,0 +1,13 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "javascript": "javascript",
+    "javascriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw\\(([^)]*)\\)",
+    "tw\\.[a-zA-Z]+`([^`]*)"
+  ],
+  "CodeGPT.apiKey": "OpenAI"
+}
