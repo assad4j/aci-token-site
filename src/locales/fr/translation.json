@@ -355,12 +355,12 @@
   },
   "homePage": {
     "ribbon": {
-      "label": "🎯 Prévente ACI en cours",
+      "label": "🎯 Prévente ACI",
       "details": " — Prix actuel : {{price}} $ — Se termine dans : {{countdown}}",
       "cta": "Acheter des ACI"
     },
     "hero": {
-      "badge": "PRÉVENTE ACI EN COURS",
+      "badge": "PRÉVENTE ACI",
       "title": "Prévente ACI en cours",
       "description": "Achetez vos tokens ACI et rejoignez l’écosystème Meta Coach : IA, formations, staking et récompenses.",
       "priceLabel": "Prix du token",
