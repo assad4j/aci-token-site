@@ -33,87 +33,6 @@ export default function Coach3DModule() {
   const [step, setStep] = useState(0);
   const [partial, setPartial] = useState('');
   const [typingRole, setTypingRole] = useState(null);
-  const currentUtteranceRef = useRef(null);
-  const spokenStepRef = useRef(-1);
-  const canSpeak = useMemo(
-    () => typeof window !== 'undefined' && typeof window.speechSynthesis !== 'undefined',
-    [],
-  );
-
-  const speakText = useMemo(() => {
-    if (!canSpeak) return () => {};
-    return text => {
-      try {
-        const synth = window.speechSynthesis;
-        synth.cancel();
-        const voices = synth.getVoices();
-        const maleHints = [
-          'thomas',
-          'paul',
-          'antoine',
-          'nicolas',
-          'guillaume',
-          'fabien',
-          'serge',
-          'google français (canada)',
-          'google français (france)',
-        ];
-        const preferred =
-          voices.find(
-            v =>
-              v.lang?.toLowerCase().startsWith('fr') &&
-              maleHints.some(hint => v.name?.toLowerCase().includes(hint)),
-          ) ||
-          voices.find(v => maleHints.some(hint => v.name?.toLowerCase().includes(hint))) ||
-          voices.find(v => v.lang?.toLowerCase().startsWith('fr')) ||
-          voices[0];
-        const segments = text.split(/(mindset)/i).filter(Boolean);
-        const parts =
-          segments.length > 0
-            ? segments.map(segment => {
-                const isMindset = segment.toLowerCase() === 'mindset';
-                return {
-                  text: segment,
-                  voice: preferred,
-                  lang: isMindset ? 'en-US' : preferred?.lang || 'fr-FR',
-                  rate: isMindset ? 0.96 : 0.92,
-                  pitch: isMindset ? 0.98 : 0.9,
-                  volume: 0.95,
-                };
-              })
-            : [
-                {
-                  text,
-                  voice: preferred,
-                  lang: preferred?.lang || 'fr-FR',
-                  rate: 0.92,
-                  pitch: 0.9,
-                  volume: 0.95,
-                },
-              ];
-
-        let lastUtterance = null;
-        parts.forEach((part, index) => {
-          const partUtterance = new SpeechSynthesisUtterance(part.text);
-          if (part.voice) partUtterance.voice = part.voice;
-          partUtterance.lang = part.lang;
-          partUtterance.rate = part.rate;
-          partUtterance.pitch = part.pitch;
-          partUtterance.volume = part.volume;
-          partUtterance.onend = () => {
-            if (index === parts.length - 1 && currentUtteranceRef.current === partUtterance) {
-              currentUtteranceRef.current = null;
-            }
-          };
-          synth.speak(partUtterance);
-          if (index === parts.length - 1) lastUtterance = partUtterance;
-        });
-        currentUtteranceRef.current = lastUtterance;
-      } catch (err) {
-        console.warn('[coach-demo] speech failed', err);
-      }
-    };
-  }, [canSpeak]);
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -147,21 +66,6 @@ export default function Coach3DModule() {
     let index = 0;
     setTypingRole(currentMessage);
 
-    if (currentMessage.role === 'coach' && canSpeak && spokenStepRef.current !== step) {
-      spokenStepRef.current = step;
-      const speakNow = () => speakText(fullText);
-      const synth = window.speechSynthesis;
-      if (synth.getVoices().length === 0) {
-        const handler = () => {
-          speakNow();
-          synth.removeEventListener('voiceschanged', handler);
-        };
-        synth.addEventListener('voiceschanged', handler);
-      } else {
-        speakNow();
-      }
-    }
-
     const interval = setInterval(() => {
       if (cancelled) return;
       index += 1;
@@ -183,7 +87,7 @@ export default function Coach3DModule() {
       cancelled = true;
       clearInterval(interval);
     };
-  }, [MESSAGE_SEQUENCE, canSpeak, isActive, speakText, step]);
+  }, [MESSAGE_SEQUENCE, isActive, step]);
 
   return (
     <section ref={sectionRef} className="mt-16 grid gap-8 lg:grid-cols-[520px_1fr] lg:items-start">
