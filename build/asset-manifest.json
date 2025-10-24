@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.166b28cd.css",
-    "main.js": "/static/js/main.8f17922f.js",
+    "main.css": "/static/css/main.2d1ed012.css",
+    "main.js": "/static/js/main.1a8e3899.js",
     "static/js/9012.dc828327.chunk.js": "/static/js/9012.dc828327.chunk.js",
-    "static/js/4604.0f7703c2.chunk.js": "/static/js/4604.0f7703c2.chunk.js",
+    "static/js/6031.3d57a74c.chunk.js": "/static/js/6031.3d57a74c.chunk.js",
     "static/js/5248.fe812df5.chunk.js": "/static/js/5248.fe812df5.chunk.js",
     "static/js/1045.2b01456d.chunk.js": "/static/js/1045.2b01456d.chunk.js",
     "static/js/337.9d09421b.chunk.js": "/static/js/337.9d09421b.chunk.js",
@@ -64,7 +64,7 @@
     "static/js/7889.9765822e.chunk.js": "/static/js/7889.9765822e.chunk.js",
     "static/js/2111.41f9fe73.chunk.js": "/static/js/2111.41f9fe73.chunk.js",
     "static/js/8013.fcb81645.chunk.js": "/static/js/8013.fcb81645.chunk.js",
-    "static/js/3928.08a0ee4f.chunk.js": "/static/js/3928.08a0ee4f.chunk.js",
+    "static/js/3928.33903c96.chunk.js": "/static/js/3928.33903c96.chunk.js",
     "static/js/9466.055d5a49.chunk.js": "/static/js/9466.055d5a49.chunk.js",
     "static/js/583.95b6e258.chunk.js": "/static/js/583.95b6e258.chunk.js",
     "static/js/6189.79fe1300.chunk.js": "/static/js/6189.79fe1300.chunk.js",
@@ -73,14 +73,14 @@
     "static/js/3717.823aa39a.chunk.js": "/static/js/3717.823aa39a.chunk.js",
     "static/js/2477.bcc30637.chunk.js": "/static/js/2477.bcc30637.chunk.js",
     "static/js/1392.e22a60dd.chunk.js": "/static/js/1392.e22a60dd.chunk.js",
-    "static/js/2267.844afe51.chunk.js": "/static/js/2267.844afe51.chunk.js",
-    "static/js/8698.c4d9300b.chunk.js": "/static/js/8698.c4d9300b.chunk.js",
+    "static/js/2267.0f0fdf13.chunk.js": "/static/js/2267.0f0fdf13.chunk.js",
+    "static/js/8839.c6ac019e.chunk.js": "/static/js/8839.c6ac019e.chunk.js",
     "static/js/1636.fd498ccd.chunk.js": "/static/js/1636.fd498ccd.chunk.js",
     "static/media/logo.png": "/static/media/logo.91b13d70f912ad1e4502.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.166b28cd.css",
-    "static/js/main.8f17922f.js"
+    "static/css/main.2d1ed012.css",
+    "static/js/main.1a8e3899.js"
   ]
 }

@@ -11,7 +11,7 @@ export default function Coach3DModule() {
         role: 'coach',
         label: 'Coach ACI',
         accent: 'text-emerald-300',
-        text: 'Salut 👋 Je suis ton coach IA ACI. Prêt à stabiliser ton mindset ?',
+        text: 'Salut, je suis ton coach IA ACI. On démarre ensemble pour stabiliser ton mindset ?',
       },
       {
         role: 'user',
@@ -23,7 +23,7 @@ export default function Coach3DModule() {
         role: 'coach',
         label: 'Coach ACI',
         accent: 'text-emerald-300',
-        text: 'Je détecte ton énergie, j’analyse ta voix et je te propose le prochain défi précis. La version interactive arrive très vite ✨',
+        text: 'Je détecte ton énergie, j’analyse ta voix et je choisis ton prochain défi précis. La version interactive arrive très vite, on se retrouve pour la suite.',
       },
     ],
     [],
@@ -46,19 +46,69 @@ export default function Coach3DModule() {
       try {
         const synth = window.speechSynthesis;
         synth.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
         const voices = synth.getVoices();
+        const maleHints = [
+          'thomas',
+          'paul',
+          'antoine',
+          'nicolas',
+          'guillaume',
+          'fabien',
+          'serge',
+          'google français (canada)',
+          'google français (france)',
+        ];
         const preferred =
-          voices.find(v => v.lang?.startsWith('fr') && v.name?.toLowerCase().includes('google')) ||
-          voices.find(v => v.lang?.startsWith('fr')) ||
+          voices.find(
+            v =>
+              v.lang?.toLowerCase().startsWith('fr') &&
+              maleHints.some(hint => v.name?.toLowerCase().includes(hint)),
+          ) ||
+          voices.find(v => maleHints.some(hint => v.name?.toLowerCase().includes(hint))) ||
+          voices.find(v => v.lang?.toLowerCase().startsWith('fr')) ||
           voices[0];
-        if (preferred) utterance.voice = preferred;
-        utterance.lang = 'fr-FR';
-        utterance.rate = 0.9;
-        utterance.pitch = 1.0;
-        utterance.volume = 0.9;
-        synth.speak(utterance);
-        currentUtteranceRef.current = utterance;
+        const segments = text.split(/(mindset)/i).filter(Boolean);
+        const parts =
+          segments.length > 0
+            ? segments.map(segment => {
+                const isMindset = segment.toLowerCase() === 'mindset';
+                return {
+                  text: segment,
+                  voice: preferred,
+                  lang: isMindset ? 'en-US' : preferred?.lang || 'fr-FR',
+                  rate: isMindset ? 0.96 : 0.92,
+                  pitch: isMindset ? 0.98 : 0.9,
+                  volume: 0.95,
+                };
+              })
+            : [
+                {
+                  text,
+                  voice: preferred,
+                  lang: preferred?.lang || 'fr-FR',
+                  rate: 0.92,
+                  pitch: 0.9,
+                  volume: 0.95,
+                },
+              ];
+
+        let lastUtterance = null;
+        parts.forEach((part, index) => {
+          const partUtterance = new SpeechSynthesisUtterance(part.text);
+          if (part.voice) partUtterance.voice = part.voice;
+          partUtterance.lang = part.lang;
+          partUtterance.rate = part.rate;
+          partUtterance.pitch = part.pitch;
+          partUtterance.volume = part.volume;
+          partUtterance.onend = () => {
+            if (index === parts.length - 1 && currentUtteranceRef.current === partUtterance) {
+              currentUtteranceRef.current = null;
+            }
+          };
+          synth.speak(partUtterance);
+          if (index === parts.length - 1) lastUtterance = partUtterance;
+        });
+        currentUtteranceRef.current = lastUtterance;
       } catch (err) {
         console.warn('[coach-demo] speech failed', err);
       }
@@ -132,10 +182,6 @@ export default function Coach3DModule() {
     return () => {
       cancelled = true;
       clearInterval(interval);
-      if (currentUtteranceRef.current && canSpeak) {
-        window.speechSynthesis.cancel();
-        currentUtteranceRef.current = null;
-      }
     };
   }, [MESSAGE_SEQUENCE, canSpeak, isActive, speakText, step]);
 
