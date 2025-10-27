@@ -35,7 +35,7 @@ const stakingAbi = [
 ];
 
 export const ACI_TOKEN = '0x8257194Ae124EDEA0E434a3D1479e52C5a5C59C4';
-export const STAKING   = '0x4A27EcF1b872F4Fd59019d09f6351B761F0935a0';
+export const STAKING   = '0xb151450F16Efef1F312D72E740Ca4b54698755cD';
 export const CHAIN_ID  = 1;
 
 // Min stake (ENV ou fallback)

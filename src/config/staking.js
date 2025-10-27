@@ -3,7 +3,7 @@ import { PRESALE_CONFIG } from './presale';
 
 const fallbackContract =
   process.env.REACT_APP_STAKING_CONTRACT_ADDRESS ??
-  '0xF7dc4A9A7d4b3D989295C76E5ace1fA390bb5e03';
+  '0xb151450F16Efef1F312D72E740Ca4b54698755cD';
 
 const fallbackToken =
   process.env.REACT_APP_STAKING_TOKEN_ADDRESS ??

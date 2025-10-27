@@ -10,7 +10,7 @@ import {
   usePublicClient,
   useWalletClient,
 } from 'wagmi';
-import { formatEther, formatUnits, parseUnits, isAddress } from 'ethers';
+import { formatUnits, parseUnits, isAddress } from 'ethers';
 import { useTranslation } from 'react-i18next';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
@@ -20,7 +20,7 @@ import stakingAbi from '../abis/stakingAbi.json';
 import erc20Abi from '../abis/erc20.json';
 import { STAKING_CONFIG } from '../config/staking';
 
-const STAKING_POOL_CAP = 50_000_000; // For percentage display
+const STAKING_POOL_CAP = 12_000_000_000; // For percentage display
 
 export default function StakingScreen() {
   const { t } = useTranslation();
@@ -51,6 +51,10 @@ export default function StakingScreen() {
 
   const isMainnet = chain?.id === STAKING_CONFIG.chainId;
   const selectedPoolId = 0;
+  const poolCapDisplay = useMemo(
+    () => STAKING_POOL_CAP.toLocaleString(undefined, { maximumFractionDigits: 0 }),
+    []
+  );
 
   const { data: stakeData, refetch: refetchStake } = useContractRead({
     address: isStakingAddressValid ? stakingAddress : undefined,
@@ -128,6 +132,22 @@ export default function StakingScreen() {
       enabled: shouldReadTokenBalance,
     },
     watch: shouldReadTokenBalance,
+  });
+
+  const {
+    data: contractBalanceData,
+    status: contractBalanceStatus,
+    error: contractBalanceError,
+  } = useContractRead({
+    address: isTokenAddressValid ? tokenAddress : undefined,
+    abi: erc20Abi,
+    functionName: 'balanceOf',
+    args: isTokenAddressValid && isStakingAddressValid ? [stakingAddress] : undefined,
+    chainId: STAKING_CONFIG.chainId,
+    query: {
+      enabled: isTokenAddressValid && isStakingAddressValid,
+    },
+    watch: isTokenAddressValid && isStakingAddressValid,
   });
 
   const {
@@ -249,11 +269,36 @@ export default function StakingScreen() {
     }
   }, [balanceData]);
 
-  const formattedStaked = formatEther(stakedWei ?? 0n);
-  const formattedPending = formatEther(pendingWei ?? 0n);
+  const contractBalanceWei = useMemo(() => {
+    if (typeof contractBalanceData === 'bigint') return contractBalanceData;
+    if (contractBalanceData == null) return 0n;
+    try {
+      return BigInt(contractBalanceData);
+    } catch {
+      return 0n;
+    }
+  }, [contractBalanceData]);
+
+  const formattedStaked = useMemo(() => {
+    try {
+      return formatUnits(stakedWei ?? 0n, decimalsSafe);
+    } catch {
+      return '0';
+    }
+  }, [stakedWei, decimalsSafe]);
+
+  const formattedPending = useMemo(() => {
+    try {
+      return formatUnits(pendingWei ?? 0n, decimalsSafe);
+    } catch {
+      return '0';
+    }
+  }, [pendingWei, decimalsSafe]);
   const decimalReady = tokenDecimalsStatus === 'success' && tokenDecimalsError == null;
   const balanceReady = balanceStatus === 'success' && balanceError == null;
   const allowanceReady = allowanceStatus === 'success' && allowanceError == null;
+  const contractBalanceReady =
+    contractBalanceStatus === 'success' && contractBalanceError == null;
 
   const hasSigner = Boolean(walletClient);
 
@@ -291,9 +336,9 @@ export default function StakingScreen() {
   const stakeReady = canStake && Boolean(stakeWriteAsync);
 
   const poolPercent = useMemo(() => {
-    const staked = parseFloat(formattedStaked);
-    if (!Number.isFinite(staked) || staked === 0) return '0.00';
-    return ((staked / STAKING_POOL_CAP) * 100).toFixed(2);
+    const stakedNumeric = Number(formattedStaked);
+    if (!Number.isFinite(stakedNumeric) || STAKING_POOL_CAP <= 0) return '0.00';
+    return ((stakedNumeric / STAKING_POOL_CAP) * 100).toFixed(2);
   }, [formattedStaked]);
 
   const dailyRewards = useMemo(() => {
@@ -302,12 +347,22 @@ export default function StakingScreen() {
     return (pending / 365).toFixed(2);
   }, [formattedPending]);
 
-  const annualRatePercent = useMemo(() => {
-    if (!rateData) return '0';
+  const annualRateValue = useMemo(() => {
+    if (rateData == null) return 0;
     const numeric = Number(rateData);
-    if (!Number.isFinite(numeric)) return '0';
-    return (numeric / 100).toFixed(2);
+    if (!Number.isFinite(numeric)) return 0;
+    return numeric / 100;
   }, [rateData]);
+
+  const annualRateDisplay = useMemo(
+    () => annualRateValue.toFixed(2),
+    [annualRateValue]
+  );
+
+  const threeYearRateDisplay = useMemo(
+    () => (annualRateValue * 3).toFixed(2),
+    [annualRateValue]
+  );
 
   const lockPeriodDays = useMemo(() => {
     if (!lockPeriodData) return 0;
@@ -334,6 +389,25 @@ export default function StakingScreen() {
     if (!Number.isFinite(numeric)) return formattedBalance;
     return numeric.toLocaleString(undefined, { maximumFractionDigits: 4 });
   }, [formattedBalance]);
+
+  const contractBalanceDisplay = useMemo(() => {
+    if (!contractBalanceReady) return '0';
+    try {
+      const numeric = Number(formatUnits(contractBalanceWei, decimalsSafe));
+      if (!Number.isFinite(numeric)) return '0';
+      return numeric.toLocaleString(undefined, { maximumFractionDigits: 4 });
+    } catch {
+      return '0';
+    }
+  }, [contractBalanceReady, contractBalanceWei, decimalsSafe]);
+
+  const rewardHighlightSub = useMemo(() => {
+    const parts = [t('statCurrentRewardSub', { daily: dailyRewards })];
+    if (contractBalanceReady) {
+      parts.push(t('statContractBalanceSub', { balance: contractBalanceDisplay }));
+    }
+    return parts.join(' • ');
+  }, [t, dailyRewards, contractBalanceReady, contractBalanceDisplay]);
 
   const shortAddress = useMemo(() => {
     if (!address) return null;
@@ -682,6 +756,9 @@ export default function StakingScreen() {
   if (!isStakingAddressValid) configIssues.push(t('stakingConfigErrorContract'));
   if (tokenAddress && !isTokenAddressValid) configIssues.push(t('stakingConfigErrorToken'));
 
+  const hasLiquidityIssue =
+    contractBalanceReady && pendingWei > 0n && contractBalanceWei < pendingWei;
+
   const showConnectPrompt = !isConnected;
   const showWrongNetwork = isConnected && !isMainnet;
 
@@ -782,6 +859,13 @@ export default function StakingScreen() {
               <AlertBanner key={issue} type="error" message={issue} />
             ))}
 
+            {hasLiquidityIssue && (
+              <AlertBanner
+                type="warning"
+                message={t('stakingContractBalanceWarning', { balance: contractBalanceDisplay })}
+              />
+            )}
+
             {status && <AlertBanner type={status.type} message={status.message} />}
           </div>
 
@@ -804,17 +888,27 @@ export default function StakingScreen() {
                 <HighlightCard
                   label={t('statStakedTitle')}
                   value={`${formattedStakedDisplay} ACI`}
-                  sub={poolPercent ? t('statPoolPercentSub', { staked: formattedStakedDisplay }) : undefined}
+                  sub={
+                    poolPercent
+                      ? t('statPoolPercentSub', {
+                          staked: formattedStakedDisplay,
+                          cap: poolCapDisplay,
+                        })
+                      : undefined
+                  }
                 />
                 <HighlightCard
                   label={t('statTotalRewardTitle')}
                   value={`${formattedPendingDisplay} ACI`}
-                  sub={t('statCurrentRewardSub', { daily: dailyRewards })}
+                  sub={rewardHighlightSub}
                 />
                 <HighlightCard
                   label={t('statRateTitle')}
-                  value={`${annualRatePercent}%`}
-                  sub={t('statRateSub', { rate: annualRatePercent })}
+                  value={`${annualRateDisplay}%`}
+                  sub={t('statRateSub', {
+                    rateYear: annualRateDisplay,
+                    rateThree: threeYearRateDisplay,
+                  })}
                 />
               </div>
             </div>
@@ -859,7 +953,10 @@ export default function StakingScreen() {
             <StatCard
               title={t('statPoolPercentTitle')}
               value={`${poolPercent}%`}
-              sub={t('statPoolPercentSub', { staked: formattedStakedDisplay })}
+              sub={t('statPoolPercentSub', {
+                staked: formattedStakedDisplay,
+                cap: poolCapDisplay,
+              })}
             />
             <StatCard
               title={t('statCurrentRewardTitle')}
