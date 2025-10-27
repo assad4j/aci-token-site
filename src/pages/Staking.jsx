@@ -332,9 +332,6 @@ export default function StakingScreen() {
     enoughBal &&
     enoughAllow;
 
-  const approveReady = canApprove && Boolean(approveWriteAsync);
-  const stakeReady = canStake && Boolean(stakeWriteAsync);
-
   const poolPercent = useMemo(() => {
     const stakedNumeric = Number(formattedStaked);
     if (!Number.isFinite(stakedNumeric) || STAKING_POOL_CAP <= 0) return '0.00';
@@ -485,6 +482,9 @@ export default function StakingScreen() {
     isLoading: stakeSubmitting,
     error: stakeError,
   } = useContractWrite(stakeConfig);
+
+  const approveReady = canApprove && Boolean(approveWriteAsync);
+  const stakeReady = canStake && Boolean(stakeWriteAsync);
 
   const { isLoading: stakeMining } = useWaitForTransaction({
     hash: stakeTx?.hash,
