@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {
   useAccount,
   useSwitchNetwork,
@@ -12,8 +13,6 @@ import {
 } from 'wagmi';
 import { formatUnits, parseUnits, isAddress } from 'ethers';
 import { useTranslation } from 'react-i18next';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-
 import PageWrapper from '../components/PageWrapper';
 import AlertBanner from '../components/AlertBanner';
 import stakingAbi from '../abis/stakingAbi.json';
@@ -406,10 +405,28 @@ export default function StakingScreen() {
     return parts.join(' • ');
   }, [t, dailyRewards, contractBalanceReady, contractBalanceDisplay]);
 
-  const shortAddress = useMemo(() => {
-    if (!address) return null;
-    return `${address.slice(0, 6)}...${address.slice(-4)}`;
-  }, [address]);
+  const balanceTokenValue = useMemo(() => formattedBalance ?? null, [formattedBalance]);
+
+  const allowanceTokenValue = useMemo(() => {
+    if (!allowanceReady) return null;
+    try {
+      return formatUnits(allowanceWei, decimalsSafe);
+    } catch {
+      return null;
+    }
+  }, [allowanceReady, allowanceWei, decimalsSafe]);
+
+  const stakedTokenValue = useMemo(() => formattedStaked, [formattedStaked]);
+
+  const formatToken = useCallback((value) => {
+    if (value == null || value === '') return '0 ACI';
+    const numeric = Number(value);
+    if (Number.isFinite(numeric)) {
+      const formatted = numeric.toLocaleString(undefined, { maximumFractionDigits: 4 });
+      return `${formatted.replace(/\s/g, '\u202f')}\u202fACI`;
+    }
+    return `${String(value).replace(/\s/g, '\u202f')}\u202fACI`;
+  }, []);
 
   const refetchAll = useCallback(() => {
     refetchStake?.();
@@ -764,7 +781,7 @@ export default function StakingScreen() {
 
   return (
     <PageWrapper>
-      <div className="min-h-screen px-4 py-16 text-white sm:px-8">
+      <div className="min-h-screen px-4 pt-6 pb-16 text-white sm:px-8 sm:pt-8 lg:pt-10">
         <div className="mx-auto max-w-6xl space-y-10">
           <header className="space-y-4 text-center">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -774,66 +791,6 @@ export default function StakingScreen() {
               {t('stakingDesc')}
             </p>
           </header>
-
-          <section className="space-y-6 rounded-3xl border border-white/15 bg-white/5 p-6 shadow-2xl shadow-black/40 backdrop-blur">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="space-y-1 text-balance">
-                <h2 className="text-2xl font-semibold">Mon portefeuille</h2>
-                <p className="text-sm text-white/70">
-                  {shortAddress ?? t('stakingConnectPrompt')}
-                </p>
-              </div>
-              <div className="flex flex-col items-start gap-2 text-left md:items-end md:text-right">
-                <ConnectButton chainStatus="icon" showBalance={false} />
-                {address && (
-                  <button
-                    onClick={async () => {
-                      if (typeof window === 'undefined' || !window.ethereum) return;
-                      try {
-                        await window.ethereum.request({
-                          method: 'wallet_watchAsset',
-                          params: {
-                            type: 'ERC20',
-                            options: {
-                              address: tokenAddress,
-                              symbol: tokenSymbol,
-                              decimals: decimalsSafe,
-                            },
-                          },
-                        });
-                      } catch (error) {
-                        console.warn('wallet_watchAsset error', error);
-                      }
-                    }}
-                    className="rounded-full border border-white/20 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/80 hover:bg-white/10"
-                  >
-                  Ajouter ACI
-                </button>
-              )}
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-              <p className="text-xs text-white/60">{t('stakingBalanceTitle')}</p>
-              <p className="mt-2 text-2xl font-semibold text-emerald-300">
-                  {formattedBalanceDisplay ?? '0'} ACI
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                <p className="text-xs text-white/60">Allowance</p>
-                <p className="mt-2 text-xl font-semibold text-white">
-                  {allowanceReady ? Number(formatUnits(allowanceWei, decimalsSafe)).toLocaleString(undefined, { maximumFractionDigits: 4 }) : t('stakingBalanceLoading')}
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                <p className="text-xs text-white/60">{t('statStakedTitle')}</p>
-                <p className="mt-2 text-xl font-semibold text-white">
-                  {formattedStakedDisplay} ACI
-                </p>
-              </div>
-            </div>
-          </section>
 
           <div className="mx-auto max-w-3xl space-y-3">
             {showConnectPrompt && <AlertBanner type="info" message={t('stakingConnectPrompt')} />}
@@ -869,22 +826,32 @@ export default function StakingScreen() {
             {status && <AlertBanner type={status.type} message={status.message} />}
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+          <div className="flex flex-col gap-6">
             <div className="rounded-3xl border border-[#10b981]/40 bg-gradient-to-br from-[#10b981]/20 via-black/50 to-black/80 p-6 sm:p-8 shadow-2xl shadow-[#10b981]/20">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.45em] text-emerald-200/80">ACI</p>
                   <h2 className="mt-1 text-2xl font-semibold text-emerald-100">
                     {t('statStakedTitle')}
                   </h2>
                 </div>
-                {lockPeriodDays > 0 && (
-                  <span className="rounded-full border border-[#10b981]/60 bg-black/30 px-4 py-1 text-xs text-emerald-200">
-                    {t('stakingLockPeriod', { days: lockPeriodDays })}
-                  </span>
-                )}
+                <div className="flex flex-col items-start gap-3 sm:items-end">
+                  <ConnectButton chainStatus="icon" accountStatus="address" showBalance={false} />
+                  {lockPeriodDays > 0 && (
+                    <span className="rounded-full border border-[#10b981]/60 bg-black/30 px-4 py-1 text-xs text-emerald-200">
+                      {t('stakingLockPeriod', { days: lockPeriodDays })}
+                    </span>
+                  )}
+                </div>
               </div>
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {isConnected && (
+                <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
+                  <MiniStat title="Solde ACI disponible" value={formatToken(balanceTokenValue)} />
+                  <MiniStat title="Allowance" value={formatToken(allowanceTokenValue)} />
+                  <MiniStat title="Solde staké" value={formatToken(stakedTokenValue)} />
+                </div>
+              )}
+              <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
                 <HighlightCard
                   label={t('statStakedTitle')}
                   value={`${formattedStakedDisplay} ACI`}
@@ -911,40 +878,40 @@ export default function StakingScreen() {
                   })}
                 />
               </div>
-            </div>
-
-            <div className="rounded-3xl border border-[#10b981]/30 bg-black/70 p-6 shadow-xl shadow-[#10b981]/10">
-              <h3 className="text-lg font-semibold text-emerald-200 text-balance">
-                {t('stakingBalanceTitle')}
-              </h3>
-              <p className="mt-2 text-sm text-white/70 leading-relaxed text-balance">
-                {formattedBalanceDisplay != null
-                  ? t('stakingBalanceValue', { balance: formattedBalanceDisplay })
-                  : balanceStatus === 'pending' || tokenDecimalsStatus === 'pending'
-                    ? t('stakingBalanceLoading')
-                    : t('stakingBalanceUnknown')}
-              </p>
-              {hasMinStake && (
-                <p className="mt-1 text-xs text-white/50 leading-relaxed">
-                  {t('stakingMinLabel', { min: minStakeDisplay })}
-                </p>
-              )}
-
-              <div className="mt-6 flex flex-col gap-3">
-                <button
-                  onClick={handleClaim}
-                  disabled={!claimWrite || actionPending || pendingWei === 0n}
-                  className="w-full rounded-full bg-[#10b981] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#00fff7] disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {claimSubmitting || claimMining ? t('stakingProcessing') : t('claimButton')}
-                </button>
-                <button
-                  onClick={handleUnstake}
-                  disabled={!unstakeWrite || actionPending || stakedWei === 0n}
-                  className="w-full rounded-full bg-transparent px-5 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/10 hover:text-emerald-200 disabled:cursor-not-allowed disabled:opacity-50 border border-emerald-300/60"
-                >
-                  {unstakeSubmitting || unstakeMining ? t('stakingProcessing') : t('unstakeButton')}
-                </button>
+              <div className="mt-8 flex flex-col items-center gap-4 rounded-2xl border border-[#10b981]/35 bg-black/60 px-6 py-6 text-center shadow-lg shadow-[#10b981]/10">
+                <div>
+                  <h3 className="text-lg font-semibold text-emerald-200 text-balance">
+                    {t('stakingBalanceTitle')}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/70 leading-relaxed text-balance">
+                    {formattedBalanceDisplay != null
+                      ? t('stakingBalanceValue', { balance: formattedBalanceDisplay })
+                      : balanceStatus === 'pending' || tokenDecimalsStatus === 'pending'
+                        ? t('stakingBalanceLoading')
+                        : t('stakingBalanceUnknown')}
+                  </p>
+                  {hasMinStake && (
+                    <p className="mt-1 text-xs text-white/50 leading-relaxed">
+                      {t('stakingMinLabel', { min: minStakeDisplay })}
+                    </p>
+                  )}
+                </div>
+                <div className="w-full max-w-md flex flex-col gap-3 sm:flex-row sm:justify-center">
+                  <button
+                    onClick={handleClaim}
+                    disabled={!claimWrite || actionPending || pendingWei === 0n}
+                    className="w-full rounded-full bg-[#10b981] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#00fff7] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                  >
+                    {claimSubmitting || claimMining ? t('stakingProcessing') : t('claimButton')}
+                  </button>
+                  <button
+                    onClick={handleUnstake}
+                    disabled={!unstakeWrite || actionPending || stakedWei === 0n}
+                    className="w-full rounded-full border border-emerald-300/60 bg-transparent px-5 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/10 hover:text-emerald-200 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                  >
+                    {unstakeSubmitting || unstakeMining ? t('stakingProcessing') : t('unstakeButton')}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1018,10 +985,18 @@ export default function StakingScreen() {
 
 function StatCard({ title, value, sub }) {
   return (
-    <div className="min-w-0 rounded-3xl border border-[#10b981]/25 bg-black/60 p-6 shadow-lg shadow-[#10b981]/15">
-      <p className="text-xs uppercase tracking-[0.18em] text-emerald-200/80">{title}</p>
-      <p className="mt-3 text-2xl font-semibold text-white break-words">{value}</p>
-      {sub && <p className="mt-2 text-sm text-white/60 leading-relaxed break-words">{sub}</p>}
+    <div className="min-w-0 rounded-3xl border border-[#10b981]/25 bg-black/60 px-5 py-4 shadow-lg shadow-[#10b981]/15">
+      <p className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.24em] text-emerald-200/80 text-balance">
+        {title}
+      </p>
+      <p className="mt-2 text-xs sm:text-sm font-semibold text-white break-words whitespace-nowrap">
+        {value}
+      </p>
+      {sub && (
+        <p className="mt-1 text-[0.65rem] sm:text-[0.7rem] text-white/60 leading-relaxed break-words text-balance">
+          {sub}
+        </p>
+      )}
     </div>
   );
 }
@@ -1029,17 +1004,30 @@ function StatCard({ title, value, sub }) {
 function HighlightCard({ label, value, sub }) {
   return (
     <div className="min-w-0 rounded-2xl border border-[#10b981]/35 bg-black/60 px-5 py-4 shadow-lg shadow-[#10b981]/10">
-      <p className="text-xs uppercase tracking-[0.2em] text-emerald-200/80 text-balance">
+      <p className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.24em] text-emerald-200/80 text-balance">
         {label}
       </p>
-      <p className="mt-3 text-2xl font-semibold text-white break-words">
+      <p className="mt-2 text-xs sm:text-sm font-semibold text-white break-words whitespace-nowrap">
         {value}
       </p>
       {sub && (
-        <p className="mt-2 text-xs text-white/60 leading-relaxed break-words text-balance">
+        <p className="mt-1 text-[0.65rem] sm:text-[0.7rem] text-white/60 leading-relaxed break-words text-balance">
           {sub}
         </p>
       )}
+    </div>
+  );
+}
+
+function MiniStat({ title, value }) {
+  return (
+    <div className="min-w-0 rounded-2xl border border-[#10b981]/35 bg-black/60 px-5 py-4 shadow-lg shadow-[#10b981]/10">
+      <p className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.24em] text-emerald-200/80 text-balance">
+        {title}
+      </p>
+      <p className="mt-2 text-xs sm:text-sm font-semibold text-white break-words whitespace-nowrap">
+        {value}
+      </p>
     </div>
   );
 }

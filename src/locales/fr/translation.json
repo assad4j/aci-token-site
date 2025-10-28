@@ -25,9 +25,11 @@
       {
         "phase": "Phase 2",
         "title": "Lancement du Coach IA (v1)",
-        "description": "Première version du Coach IA ACI, capable d’analyser la voix, le ton et la régularité de l’utilisateur. L’IA devient un véritable assistant personnel, aidant à améliorer la discipline, la confiance et la gestion émotionnelle.",
+        "description": "Première version du Coach IA ACI, capable d’analyser vos performances de trading, votre profil business et votre état émotionnel pour proposer des recommandations alignées. L’IA devient un copilote complet qui renforce la discipline, la confiance et l’exécution de vos projets.",
         "objectives": [
           "Module d’analyse vocale et émotionnelle",
+          "Générateur d’idées business et routes de lancement",
+          "Analyse des trades et suivi des résultats",
           "Système de suivi des routines & performances",
           "Feedback IA en temps réel",
           "Accès anticipé pour les premiers stakers ACI"
@@ -79,12 +81,14 @@
       },
       {
         "phase": "Phase 7",
-        "title": "Application IA d’accompagnement (R&D -> Beta)",
-        "description": "Développement d’une application IA bien-être & trading, pensée pour l’accompagnement émotionnel. L’utilisateur peut activer sa caméra/micro pour dialoguer avec l’IA lorsque le stress apparaît. L’IA observe, écoute et propose des routines adaptées, sans stockage de données non consenties.",
+        "title": "Application IA d’accompagnement global (R&D -> Beta)",
+        "description": "Développement d’une application IA qui combine bien-être, trading et accompagnement business. L’utilisateur active caméra/micro pour dialoguer avec l’IA, analyser ses trades, valider ses projets, réduire son stress et organiser ses déplacements, sans stockage de données non consenties.",
         "objectives": [
-          "Application mobile/desktop \"ACI MindCare\"",
+          "Application mobile/desktop \"ACI Copilot\"",
           "Analyse faciale + vocale locale (aucune donnée partagée)",
           "Mode \"SOS\" et routines anti-stress personnalisées",
+          "Conciergerie entrepreneuriale : voyages, rendez-vous, sourcing partenaires",
+          "Assistant business & trading plan interactif",
           "Intégration Meta Track (journal IA, badges, suivi émotionnel)",
           "Beta fermée réservée aux stakers ACI",
           "Validation éthique & sécurité via la DAO"
@@ -93,11 +97,12 @@
       {
         "phase": "Phase 8",
         "title": "Lancement public de l’application IA",
-        "description": "Publication officielle de l’application sur stores (iOS / Android / desktop). Intégration complète à l’écosystème ACI (token, staking, Meta Track). Partenariats bien-être et collaborations avec institutions éducatives.",
+        "description": "Publication officielle de l’application sur stores (iOS / Android / desktop). Intégration complète à l’écosystème ACI (token, staking, Meta Track) avec modules trading, business, mindset et conciergerie. Partenariats bien-être, entrepreneurial et collaborations avec institutions éducatives.",
         "objectives": [
           "Lancement grand public",
           "Synchronisation avec compte ACI + staking",
-          "Routines IA multi-niveaux (coach + suivi émotionnel)",
+          "Routines IA multi-niveaux (business, trading, mindset, conciergerie)",
+          "Marketplace de services experts reliée au coach IA",
           "Certification \"Secure AI\" par la DAO",
           "Déploiement mondial"
         ]
@@ -173,15 +178,15 @@
     }
   },
   "coachIASection": {
-    "badge": "IA + Trading + Mindset",
-    "titleHome": "Un assistant intelligent qui suit vos progrès et optimise vos décisions.",
-    "titlePage": "Un assistant intelligent qui analyse vos performances et pilote votre plan d’entraînement.",
-    "subtitle": "Progressez chaque semaine avec un plan d’action clair. Mesurez, ajustez, performez.",
+    "badge": "IA Trading, Business & Mindset",
+    "titleHome": "Un assistant intelligent qui optimise vos trades et bâtit votre business.",
+    "titlePage": "Le Coach IA ACI : stratégie de trading, opportunités business et conciergerie sur-mesure.",
+    "subtitle": "Analyse marché, recommandations business, suivi émotionnel et conciergerie : un seul coach pour tout synchroniser.",
     "bullets": [
-      "Analyse de vos trades et recommandations personnalisées.",
-      "Plans hebdomadaires « Stratégie + Mindset + Risque ».",
-      "Suivi des progrès avec objectifs, routines et rappels.",
-      "Accès prioritaire avec le Meta Coach Token (ACI)."
+      "Analyse vos positions de trading, votre trésorerie et propose des idées business alignées sur vos objectifs.",
+      "Plans d’action combinés : stratégie de marché, développement business, marketing et cash-flow.",
+      "Conciergerie IA : prise de rendez-vous, réservation de voyages, sourcing de partenaires et experts.",
+      "Détection des émotions, routines anti-stress et suivi des KPI via le Meta Coach Token (ACI)."
     ],
     "cta": {
       "contact": "Discuter avec un coach",
@@ -190,7 +195,7 @@
   },
   "coachIAPage": {
     "title": "Coach IA",
-    "intro": "ACI Meta Coach combine des modèles d’intelligence artificielle et une méthodologie de coaching pour transformer votre pratique du trading : stratégie, mindset et gestion du risque."
+    "intro": "ACI Meta Coach devient un copilote global : il analyse vos trades, vos idées business, vos émotions et diminue le stress grâce à un accompagnement stratégique et à sa conciergerie intégrée."
   },
   "navigation": {
     "menu": {

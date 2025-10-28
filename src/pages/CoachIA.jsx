@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import CoachIASection from '../components/CoachIASection';
 import EmotionDetectionModule from '../components/EmotionDetectionModule';
+import CoachBusinessModule from '../components/coach/CoachBusinessModule';
 import Coach3DModule from '../components/coach/Coach3DModule';
 
 export default function CoachIAPage() {
@@ -27,6 +28,7 @@ export default function CoachIAPage() {
         </p>
       </div>
       <CoachIASection variant="page" />
+      <CoachBusinessModule />
       <EmotionDetectionModule
         onEmotionStateChange={setEmotionSnapshot}
         onSessionToggle={setSessionActive}

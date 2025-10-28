@@ -1,18 +1,24 @@
 // src/walletConfig.jsx
 
 import '@rainbow-me/rainbowkit/styles.css';
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { connectorsForWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { metaMaskWallet, walletConnectWallet, coinbaseWallet } from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { mainnet, goerli, sepolia } from 'wagmi/chains';
 import { PRESALE_CONFIG } from './config/presale';
 
-// WalletConnect Project ID (must be set in .env: REACT_APP_WALLETCONNECT_PROJECT_ID)
-const projectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
+const rawProjectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
+const projectId =
+  rawProjectId && rawProjectId.trim() && rawProjectId.trim() !== 'TON_PROJECT_ID_ICI'
+    ? rawProjectId.trim()
+    : null;
+
 if (!projectId) {
-  throw new Error(
-    'Missing WalletConnect projectId. Please set REACT_APP_WALLETCONNECT_PROJECT_ID in your .env file. See https://www.rainbowkit.com/docs/installation#configure'
+  // eslint-disable-next-line no-console
+  console.warn(
+    '[walletConfig] WalletConnect projectId is missing or placeholder. WalletConnect connector disabled. Add REACT_APP_WALLETCONNECT_PROJECT_ID to enable it.'
   );
 }
 
@@ -51,12 +57,18 @@ const { chains, publicClient } = configureChains(
   providers
 );
 
-// Set up default wallet connectors (includes WalletConnect v2 with provided projectId)
-const { connectors } = getDefaultWallets({
-  appName: 'ACI Meta Coach',
-  projectId,
-  chains,
-});
+const walletList = [
+  metaMaskWallet({ chains }),
+  coinbaseWallet({ appName: 'ACI Meta Coach', chains }),
+  ...(projectId ? [walletConnectWallet({ projectId, chains })] : []),
+];
+
+const connectors = connectorsForWallets([
+  {
+    groupName: 'Recommandé',
+    wallets: walletList,
+  },
+]);
 
 // Create Wagmi configuration
 const wagmiConfig = createConfig({

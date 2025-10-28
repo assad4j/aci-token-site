@@ -1,11 +1,17 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AstronautHeroVideo from '../AstronautHeroVideo';
 
-export default function Coach3DModule() {
+export default function Coach3DModule({
+  orientation = 'video-left',
+  title,
+  description,
+  messageSequence,
+}) {
   const sectionRef = useRef(null);
   const hasStartedRef = useRef(false);
   const [isActive, setIsActive] = useState(false);
-  const MESSAGE_SEQUENCE = useMemo(
+
+  const defaultSequence = useMemo(
     () => [
       {
         role: 'coach',
@@ -28,6 +34,17 @@ export default function Coach3DModule() {
     ],
     [],
   );
+
+  const resolvedSequence = useMemo(
+    () => (Array.isArray(messageSequence) && messageSequence.length > 0 ? messageSequence : defaultSequence),
+    [messageSequence, defaultSequence],
+  );
+
+  const resolvedTitle = title ?? 'Coach IA (démo animée)';
+  const resolvedDescription =
+    description ??
+    'Aperçu du Coach IA : l’astronaute échange un court dialogue automatique pour illustrer l’expérience à venir. La version interactive (voix, émotions, routines) sera bientôt disponible.';
+  const videoLeft = orientation !== 'video-right';
 
   const [messages, setMessages] = useState([]);
   const [step, setStep] = useState(0);
@@ -55,13 +72,13 @@ export default function Coach3DModule() {
   useEffect(() => {
     if (!isActive) return undefined;
     let cancelled = false;
-    if (step >= MESSAGE_SEQUENCE.length) {
+    if (step >= resolvedSequence.length) {
       setTypingRole(null);
       setPartial('');
       return undefined;
     }
 
-    const currentMessage = MESSAGE_SEQUENCE[step];
+    const currentMessage = resolvedSequence[step];
     const fullText = currentMessage.text;
     let index = 0;
     setTypingRole(currentMessage);
@@ -87,43 +104,63 @@ export default function Coach3DModule() {
       cancelled = true;
       clearInterval(interval);
     };
-  }, [MESSAGE_SEQUENCE, isActive, step]);
+  }, [resolvedSequence, isActive, step]);
 
-  return (
-    <section ref={sectionRef} className="mt-16 grid gap-8 lg:grid-cols-[520px_1fr] lg:items-start">
-      <AstronautHeroVideo width={520} />
-      <div className="space-y-4 text-white/80">
-        <h2 className="text-2xl font-semibold text-white">Coach IA (démo animée)</h2>
-        <p className="leading-relaxed">
-          Aperçu du Coach IA : l’astronaute échange un court dialogue automatique pour illustrer
-          l’expérience à venir. La version interactive (voix, émotions, routines) sera bientôt
-          disponible.
-        </p>
-          <div className="rounded-2xl border border-white/10 bg-black/40 p-4 text-sm leading-relaxed text-white/80">
-            <div className="flex flex-col gap-4">
-              {messages.map(message => (
-                <div key={`${message.role}-${message.text}`}>
-                  <span className={`font-semibold ${message.accent}`}>{message.label}</span>
-                <p className="mt-1 text-white/75">{message.text}</p>
-              </div>
-            ))}
-            {typingRole && (
-              <div>
-                <span className={`font-semibold ${typingRole.accent}`}>{typingRole.label}</span>
-                <p className="mt-1 text-white/70">
-                  {partial}
-                  <span className="ml-1 animate-pulse">▮</span>
-                </p>
-              </div>
-            )}
-            {!typingRole && messages.length === 0 && (
-              <p className="text-xs uppercase tracking-[0.22em] text-white/40">
-                Faites défiler pour lancer la démo
+  const textBlock = (
+    <div className="space-y-4 text-white/80">
+      <h2 className="text-2xl font-semibold text-white">{resolvedTitle}</h2>
+      <p className="leading-relaxed">{resolvedDescription}</p>
+      <div className="rounded-2xl border border-white/10 bg-black/40 p-4 text-sm leading-relaxed text-white/80">
+        <div className="flex flex-col gap-4">
+          {messages.map(message => (
+            <div key={`${message.role}-${message.text}`}>
+              <span className={`font-semibold ${message.accent}`}>{message.label}</span>
+              <p className="mt-1 text-white/75">{message.text}</p>
+            </div>
+          ))}
+          {typingRole && (
+            <div>
+              <span className={`font-semibold ${typingRole.accent}`}>{typingRole.label}</span>
+              <p className="mt-1 text-white/70">
+                {partial}
+                <span className="ml-1 animate-pulse">▮</span>
               </p>
-            )}
-          </div>
+            </div>
+          )}
+          {!typingRole && messages.length === 0 && (
+            <p className="text-xs uppercase tracking-[0.22em] text-white/40">
+              Faites défiler pour lancer la démo
+            </p>
+          )}
         </div>
       </div>
+    </div>
+  );
+
+  const astronautOrientation = videoLeft ? 'right' : 'left';
+
+  const videoBlock = (
+    <div className="mx-auto w-full max-w-[520px] min-[320px]:max-w-[420px] sm:max-w-[480px]">
+      <AstronautHeroVideo width={520} orientation={astronautOrientation} />
+    </div>
+  );
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`mt-16 grid gap-8 lg:items-start ${videoLeft ? 'lg:grid-cols-[520px_1fr]' : 'lg:grid-cols-[1fr_520px]'}`}
+    >
+      {videoLeft ? (
+        <>
+          {videoBlock}
+          {textBlock}
+        </>
+      ) : (
+        <>
+          {textBlock}
+          {videoBlock}
+        </>
+      )}
     </section>
   );
 }
