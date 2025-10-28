@@ -14,12 +14,18 @@ import { mainnet, goerli, sepolia } from 'wagmi/chains';
 import { PRESALE_CONFIG } from './config/presale';
 
 const rawProjectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
-const projectId =
+const sanitizedProjectId =
   rawProjectId && rawProjectId.trim() && rawProjectId.trim() !== 'TON_PROJECT_ID_ICI'
     ? rawProjectId.trim()
     : null;
 
-const hasProjectId = Boolean(projectId);
+const projectId = sanitizedProjectId ?? 'YOUR_PROJECT_ID';
+const hasProjectId = Boolean(sanitizedProjectId);
+
+if (!hasProjectId) {
+  // eslint-disable-next-line no-console
+  console.warn('[walletConfig] WalletConnect projectId not configured; using placeholder (limited functionality).');
+}
 
 const chainMap = {
   [mainnet.id]: mainnet,
@@ -59,11 +65,7 @@ const { chains, publicClient } = configureChains(
 const walletList = [
   metaMaskWallet({ chains }),
   coinbaseWallet({ appName: 'ACI Meta Coach', chains }),
-  walletConnectWallet(
-    hasProjectId
-      ? { chains, projectId }
-      : { chains, version: '1' },
-  ),
+  walletConnectWallet({ chains, projectId }),
 ];
 
 const connectors = connectorsForWallets([
