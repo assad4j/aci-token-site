@@ -51,9 +51,12 @@ export default function Home() {
   );
 
   // ✅ Fin de prévente = aujourd'hui + 5 mois
-  const presaleEnd = new Date();
-  presaleEnd.setMonth(presaleEnd.getMonth() + 5);
-  presaleEnd.setHours(23, 59, 59, 999);
+  const presaleEnd = useMemo(() => {
+    const end = new Date();
+    end.setMonth(end.getMonth() + 5);
+    end.setHours(23, 59, 59, 999);
+    return end;
+  }, []);
 
   const { isConnected } = useAccount();
   const { chain } = useNetwork();
@@ -665,6 +668,7 @@ export default function Home() {
               <form className="flex w-full max-w-xl flex-col gap-3 sm:flex-row">
                 <input
                   type="email"
+                  name="metaTrackEmail"
                   placeholder={t('homePage.metaTrack.emailPlaceholder')}
                   className="flex-1 rounded-full border border-white/20 bg-black/60 px-4 py-3 text-sm text-white placeholder-white/40 focus:border-[#10b981] focus:outline-none focus:ring-2 focus:ring-[#10b981]/30"
                 />

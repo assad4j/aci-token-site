@@ -1,6 +1,6 @@
 // src/index.js
 import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './i18n';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,7 +16,14 @@ if (typeof window !== 'undefined') {
   });
 }
 
-ReactDOM.render(
+const container = document.getElementById('root');
+if (!container) {
+  throw new Error('Root element was not found. Ensure index.html contains a div#root.');
+}
+
+const root = createRoot(container);
+
+root.render(
   <React.StrictMode>
     <Suspense fallback={<div>Chargement…</div>}>
       <WalletProvider>
@@ -26,5 +33,4 @@ ReactDOM.render(
       </WalletProvider>
     </Suspense>
   </React.StrictMode>,
-  document.getElementById('root')
 );

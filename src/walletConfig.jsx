@@ -13,25 +13,15 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { mainnet, goerli, sepolia } from 'wagmi/chains';
 import { PRESALE_CONFIG } from './config/presale';
 
-const FALLBACK_WALLETCONNECT_PROJECT_ID = '21fef48091f12692cad574a6f7753643';
 const rawProjectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
-const normalizedProjectId = rawProjectId && rawProjectId.trim() && rawProjectId.trim() !== 'TON_PROJECT_ID_ICI'
-  ? rawProjectId.trim()
-  : FALLBACK_WALLETCONNECT_PROJECT_ID;
+const trimmedProjectId =
+  rawProjectId && rawProjectId.trim() && rawProjectId.trim() !== 'TON_PROJECT_ID_ICI'
+    ? rawProjectId.trim()
+    : null;
 
-const usingFallbackProjectId = normalizedProjectId === FALLBACK_WALLETCONNECT_PROJECT_ID;
+const hasProjectId = Boolean(trimmedProjectId);
 
-if (usingFallbackProjectId) {
-  // eslint-disable-next-line no-console
-  console.warn('[walletConfig] WalletConnect projectId not configured; using shared fallback (development only).');
-}
-
-const projectId = normalizedProjectId;
-const walletConnectWallet = params => (
-  usingFallbackProjectId
-    ? rainbowWalletConnectWallet({ ...params, version: '1' })
-    : rainbowWalletConnectWallet(params)
-);
+const projectId = trimmedProjectId;
 
 const chainMap = {
   [mainnet.id]: mainnet,
@@ -63,54 +53,28 @@ const providers = [
 ].filter(Boolean);
 
 // Configure supported chains and providers
-const { chains, publicClient } = configureChains(
-  supportedChains,
-  providers
-);
+const { chains, publicClient } = configureChains(supportedChains, providers);
 
-let walletConnectEntry = null;
-try {
-  walletConnectEntry = walletConnectWallet({ chains, projectId });
-} catch (error) {
-  // eslint-disable-next-line no-console
-  console.error('[walletConfig] WalletConnect initialisation failed:', error?.message ?? error);
-}
-
-const walletList = [
+const recommendedWallets = [
   metaMaskWallet({ chains }),
   coinbaseWallet({ appName: 'ACI Meta Coach', chains }),
-  ...(walletConnectEntry ? [walletConnectEntry] : []),
 ];
 
-// eslint-disable-next-line no-console
-console.debug('[walletConfig] Wallet list initialised:', walletList.map(wallet => wallet.id).join(', '));
+if (hasProjectId) {
+  recommendedWallets.push(
+    rainbowWalletConnectWallet({
+      chains,
+      projectId,
+    })
+  );
+}
 
-const connectorsFactory = connectorsForWallets([
+const connectors = connectorsForWallets([
   {
     groupName: 'Recommandé',
-    wallets: walletList,
+    wallets: recommendedWallets,
   },
 ]);
-
-const fallbackConnectorsFactory = connectorsForWallets([
-  {
-    groupName: 'Recommandé',
-    wallets: walletList.filter(wallet => wallet.id !== 'walletConnect'),
-  },
-]);
-
-const connectors = () => {
-  try {
-    return connectorsFactory();
-  } catch (error) {
-    if (error?.message?.includes('WalletConnect Cloud projectId')) {
-      // eslint-disable-next-line no-console
-      console.error('[walletConfig] WalletConnect initialisation threw:', error.message);
-      return fallbackConnectorsFactory();
-    }
-    throw error;
-  }
-};
 
 // Create Wagmi configuration
 const wagmiConfig = createConfig({
