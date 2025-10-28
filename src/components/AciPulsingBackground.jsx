@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import useIsMobile from '../hooks/useIsMobile';
 
 /**
  * ACI Meta Coach — Pulsing AI Background v2 (richer visual effects)
@@ -25,6 +26,7 @@ export default function AciPulsingBackground({
   children,
 }) {
   const [reducedMotion, setReducedMotion] = useState(false);
+  const isMobile = useIsMobile(900);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && 'matchMedia' in window) {
@@ -37,19 +39,21 @@ export default function AciPulsingBackground({
   }, []);
 
   const paused = disabled || reducedMotion;
+  const lightweight = isMobile;
 
   const { glowScaleFrom, glowScaleTo, glowOpacity, sweepSpeed, noiseOpacity, railOpacity } = useMemo(() => {
     const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
-    const i = clamp(intensity, 0.4, 1.6);
+    const baseIntensity = lightweight ? Math.min(intensity, 0.8) : intensity;
+    const i = clamp(baseIntensity, 0.35, lightweight ? 1.1 : 1.6);
     return {
-      glowScaleFrom: 0.95 + (i - 1) * 0.1,
-      glowScaleTo: 1.1 + (i - 1) * 0.12,
-      glowOpacity: 0.3 * i,
-      sweepSpeed: 60 / i,
-      noiseOpacity: 0.035 * i,
-      railOpacity: 0.65 * Math.min(1, i + 0.2),
+      glowScaleFrom: 0.95 + (i - 1) * 0.08,
+      glowScaleTo: 1.08 + (i - 1) * 0.1,
+      glowOpacity: 0.28 * i,
+      sweepSpeed: lightweight ? 85 / i : 60 / i,
+      noiseOpacity: lightweight ? 0.022 * i : 0.035 * i,
+      railOpacity: lightweight ? 0.52 * Math.min(1, i + 0.12) : 0.65 * Math.min(1, i + 0.2),
     };
-  }, [intensity]);
+  }, [intensity, lightweight]);
 
   return (
     <div
@@ -102,26 +106,32 @@ export default function AciPulsingBackground({
         <>
           <div
             aria-hidden
-            className="pointer-events-none absolute left-0 top-0 h-full w-[22vw] max-w-[360px]"
+            className="pointer-events-none absolute left-0 top-0 h-full"
             style={{
+              width: lightweight ? '38vw' : '22vw',
+              maxWidth: lightweight ? '200px' : '360px',
               opacity: railOpacity,
             }}
           >
             {/* layered rails */}
-            <NeuralRail paused={paused} side="left" />
+            <NeuralRail paused={paused} side="left" compact={lightweight} />
           </div>
           <div
             aria-hidden
-            className="pointer-events-none absolute right-0 top-0 h-full w-[22vw] max-w-[360px]"
-            style={{ opacity: railOpacity }}
+            className="pointer-events-none absolute right-0 top-0 h-full"
+            style={{
+              width: lightweight ? '38vw' : '22vw',
+              maxWidth: lightweight ? '200px' : '360px',
+              opacity: railOpacity,
+            }}
           >
-            <NeuralRail paused={paused} side="right" />
+            <NeuralRail paused={paused} side="right" compact={lightweight} />
           </div>
         </>
       )}
 
       {/* Orbiting nano-nodes (parallax) */}
-      <NanoNodes paused={paused} />
+      <NanoNodes paused={paused} compact={lightweight} />
 
       {/* Hex grid hint (very subtle) */}
       <div
@@ -157,7 +167,7 @@ export default function AciPulsingBackground({
           backgroundImage:
             "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"120\" viewBox=\"0 0 120 120\"><filter id=\"n\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"2\" stitchTiles=\"stitch\"/></filter><rect width=\"120\" height=\"120\" filter=\"url(%23n)\" opacity=\"0.6\"/></svg>')",
           backgroundSize: 'cover',
-          animation: paused ? 'none' : `aci-noise-shift 2.5s steps(2,end) infinite`,
+          animation: paused ? 'none' : `aci-noise-shift 3s steps(2,end) infinite`,
         }}
       />
 
@@ -180,7 +190,7 @@ export default function AciPulsingBackground({
 }
 
 /** NeuralRail — side animated circuitry with flowing streaks + SVG paths */
-function NeuralRail({ paused, side = 'left' }) {
+function NeuralRail({ paused, side = 'left', compact = false }) {
   const flip = side === 'right' ? 1 : -1;
   const originX = side === 'right' ? '100%' : '0%';
   return (
@@ -234,15 +244,15 @@ function NeuralRail({ paused, side = 'left' }) {
             strokeWidth="1.2"
             style={{
               strokeDasharray: '8 12',
-              animation: paused ? 'none' : `dash-flow ${10 + i * 2}s linear infinite`,
-              opacity: 0.8 - i * 0.12,
+              animation: paused ? 'none' : `dash-flow ${compact ? 14 : 10 + i * 2}s linear infinite`,
+              opacity: (compact ? 0.55 : 0.8) - i * 0.12,
             }}
           />
         ))}
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="rgba(0,200,255,0.0)" />
-            <stop offset="50%" stopColor="rgba(0,200,255,0.8)" />
+            <stop offset="50%" stopColor={compact ? 'rgba(0,200,255,0.6)' : 'rgba(0,200,255,0.8)'} />
             <stop offset="100%" stopColor="rgba(0,200,255,0.0)" />
           </linearGradient>
         </defs>
@@ -257,26 +267,27 @@ function NeuralRail({ paused, side = 'left' }) {
 }
 
 /** NanoNodes — small orbiting dots for AI vibe */
-function NanoNodes({ paused }) {
+function NanoNodes({ paused, compact = false }) {
+  const count = compact ? 6 : 10;
   return (
     <div className="pointer-events-none absolute inset-0">
-      {[...Array(10)].map((_, idx) => (
+      {[...Array(count)].map((_, idx) => (
         <div key={idx} className="absolute left-1/2 top-1/2" style={{
           width: 0, height: 0,
-          transform: `translate(-50%, -50%) rotate(${(360/10)*idx}deg)`,
+          transform: `translate(-50%, -50%) rotate(${(360/count)*idx}deg)`,
         }}>
           <div
             className="absolute"
             style={{
-              left: `${20 + (idx%5)*8}vmax`,
-              top: `${(idx%3)*2-1}vmax`,
-              width: '6px',
-              height: '6px',
+              left: `${20 + (idx % 4) * (compact ? 5 : 8)}vmax`,
+              top: `${(idx % 3) * (compact ? 1.5 : 2) - 1}vmax`,
+              width: compact ? '4px' : '6px',
+              height: compact ? '4px' : '6px',
               borderRadius: '9999px',
-              boxShadow: '0 0 12px rgba(0,210,255,0.9)',
+              boxShadow: '0 0 12px rgba(0,210,255,0.8)',
               background: 'radial-gradient(circle, rgba(180,255,255,0.95), rgba(0,210,255,0.8) 60%, rgba(0,210,255,0.0) 70%)',
-              animation: paused ? 'none' : `node-orbit ${12 + (idx%5)*2}s ease-in-out infinite alternate`,
-              opacity: 0.65,
+              animation: paused ? 'none' : `node-orbit ${12 + (idx % 5) * 2}s ease-in-out infinite alternate`,
+              opacity: 0.55,
               transformOrigin: 'center',
             }}
           />

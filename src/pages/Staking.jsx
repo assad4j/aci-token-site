@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {
   useAccount,
   useSwitchNetwork,
@@ -18,6 +17,7 @@ import AlertBanner from '../components/AlertBanner';
 import stakingAbi from '../abis/stakingAbi.json';
 import erc20Abi from '../abis/erc20.json';
 import { STAKING_CONFIG } from '../config/staking';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const STAKING_POOL_CAP = 12_000_000_000; // For percentage display
 

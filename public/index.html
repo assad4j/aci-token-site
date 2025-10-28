@@ -28,7 +28,7 @@
 
     <!-- Style global pour body -->
     <style>
-      body {
+      html, body {
         margin: 0;
         background-color: black;
         overflow-x: hidden;
@@ -43,6 +43,16 @@
         object-fit: cover;
         z-index: -1;
         pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        video#background-video {
+          opacity: 0.55;
+        }
+        body {
+          background-color: #07090c;
+          color: #ffffff;
+        }
       }
     </style>
     <script>

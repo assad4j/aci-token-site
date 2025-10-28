@@ -1,9 +1,23 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, useGLTF, Clone } from '@react-three/drei';
 import * as THREE from 'three';
 
 const GLTF_URL = process.env.REACT_APP_AVATAR_GLTF || '/assets/aci-coach.glb';
+
+function isWebGLAvailable() {
+  if (typeof window === 'undefined') {
+    return true;
+  }
+  try {
+    const canvas = document.createElement('canvas');
+    const gl =
+      canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    return !!(window.WebGLRenderingContext && gl);
+  } catch (error) {
+    return false;
+  }
+}
 
 function AstronautModel({ url }) {
   const { scene } = useGLTF(url);
@@ -82,6 +96,35 @@ function AnimatedAstronaut({ url, orientation = 'right' }) {
 
 export default function AstronautHeroVideo({ width = 520, className = '', orientation = 'right' }) {
   const maxWidthValue = typeof width === 'number' ? `${width}px` : width;
+  const [webglSupported, setWebglSupported] = useState(() => isWebGLAvailable());
+
+  useEffect(() => {
+    setWebglSupported(isWebGLAvailable());
+  }, []);
+
+  if (!webglSupported) {
+    return (
+      <div
+        className={`relative w-full ${className}`}
+        style={{ maxWidth: maxWidthValue, minWidth: 'min(280px, 100%)' }}
+      >
+        <div className="pointer-events-none absolute inset-0 -z-20 rounded-[28px] bg-gradient-to-br from-[#52ffe6]/20 via-transparent to-[#fcd34d]/25 blur-[38px]" />
+        <div className="pointer-events-none absolute inset-[6%] -z-30 rounded-[48px] border border-white/5" />
+        <div className="relative flex aspect-square w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-[22px] border border-emerald-200/35 bg-[radial-gradient(65%_60%_at_50%_15%,rgba(255,220,128,0.18),rgba(6,10,18,0.95))] p-6 text-center text-sm text-white/70 shadow-[0_25px_70px_-28px_rgba(16,185,129,0.65)]">
+          <span className="rounded-full border border-white/20 bg-black/60 px-4 py-1 text-[0.65rem] uppercase tracking-[0.3em] text-emerald-200">
+            Mode statique
+          </span>
+          <p className="max-w-[220px] leading-relaxed">
+            WebGL n’est pas disponible sur cet appareil. Le coach 3D sera affiché sur un
+            navigateur compatible (ordinateur ou mobile récent).
+          </p>
+          <p className="text-xs text-white/50">
+            Aucun blocage : le reste de l’expérience fonctionne normalement.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

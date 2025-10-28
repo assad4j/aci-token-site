@@ -1,6 +1,5 @@
 // StakingDashboard.jsx
 import React from 'react';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {
   useAccount,
   useConfig,
@@ -10,6 +9,7 @@ import {
   useSwitchNetwork,
 } from 'wagmi';
 import { writeContract } from 'wagmi/actions';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { formatUnits, parseUnits } from 'viem';
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
@@ -164,7 +164,7 @@ export default function StakingDashboard() {
           )}
         </div>
         <div className="flex flex-col items-start gap-2 text-left md:items-end md:text-right">
-          <ConnectButton chainStatus="icon" showBalance={false} />
+          <ConnectButton showBalance={false} chainStatus="icon" />
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-white/60">Solde wallet</p>
             <p className="text-2xl font-semibold text-emerald-300">
