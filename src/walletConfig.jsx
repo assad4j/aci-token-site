@@ -27,8 +27,6 @@ if (usingFallbackProjectId) {
 }
 
 const projectId = normalizedProjectId;
-const hasProjectId = !usingFallbackProjectId;
-
 const walletConnectWallet = params => (
   usingFallbackProjectId
     ? rainbowWalletConnectWallet({ ...params, version: '1' })
@@ -71,13 +69,11 @@ const { chains, publicClient } = configureChains(
 );
 
 let walletConnectEntry = null;
-if (hasProjectId) {
-  try {
-    walletConnectEntry = walletConnectWallet({ chains, projectId });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('[walletConfig] WalletConnect initialisation failed:', error?.message ?? error);
-  }
+try {
+  walletConnectEntry = walletConnectWallet({ chains, projectId });
+} catch (error) {
+  // eslint-disable-next-line no-console
+  console.error('[walletConfig] WalletConnect initialisation failed:', error?.message ?? error);
 }
 
 const walletList = [
