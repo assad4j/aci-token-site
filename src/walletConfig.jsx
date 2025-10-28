@@ -2,7 +2,11 @@
 
 import '@rainbow-me/rainbowkit/styles.css';
 import { connectorsForWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { metaMaskWallet, walletConnectWallet, coinbaseWallet } from '@rainbow-me/rainbowkit/wallets';
+import {
+  metaMaskWallet,
+  walletConnectWallet,
+  coinbaseWallet,
+} from '@rainbow-me/rainbowkit/wallets';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
@@ -15,12 +19,7 @@ const projectId =
     ? rawProjectId.trim()
     : null;
 
-if (!projectId) {
-  // eslint-disable-next-line no-console
-  console.warn(
-    '[walletConfig] WalletConnect projectId is missing or placeholder. WalletConnect connector disabled. Add REACT_APP_WALLETCONNECT_PROJECT_ID to enable it.'
-  );
-}
+const hasProjectId = Boolean(projectId);
 
 const chainMap = {
   [mainnet.id]: mainnet,
@@ -60,7 +59,11 @@ const { chains, publicClient } = configureChains(
 const walletList = [
   metaMaskWallet({ chains }),
   coinbaseWallet({ appName: 'ACI Meta Coach', chains }),
-  ...(projectId ? [walletConnectWallet({ projectId, chains })] : []),
+  walletConnectWallet(
+    hasProjectId
+      ? { chains, projectId }
+      : { chains, version: '1' },
+  ),
 ];
 
 const connectors = connectorsForWallets([
