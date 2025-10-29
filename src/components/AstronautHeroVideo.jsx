@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, useGLTF, Clone } from '@react-three/drei';
 import * as THREE from 'three';
+import useIsMobile from '../hooks/useIsMobile';
 
 const GLTF_URL = process.env.REACT_APP_AVATAR_GLTF || '/assets/aci-coach.glb';
 
@@ -97,6 +98,7 @@ function AnimatedAstronaut({ url, orientation = 'right' }) {
 export default function AstronautHeroVideo({ width = 520, className = '', orientation = 'right' }) {
   const maxWidthValue = typeof width === 'number' ? `${width}px` : width;
   const [webglSupported, setWebglSupported] = useState(() => isWebGLAvailable());
+  const isMobile = useIsMobile(768);
 
   useEffect(() => {
     setWebglSupported(isWebGLAvailable());
@@ -157,7 +159,11 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
           </React.Suspense>
         </Canvas>
 
-        <div className="pointer-events-none absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-emerald-200/20 bg-black/65 px-5 py-4 backdrop-blur">
+        <div
+          className={`pointer-events-none absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-emerald-200/20 px-5 py-4 backdrop-blur ${
+            isMobile ? 'bg-black/40' : 'bg-black/65'
+          }`}
+        >
           <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.3em] text-emerald-100/80">
             Mode focus
             <span className="rounded-full bg-emerald-300/15 px-3 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-emerald-100">
