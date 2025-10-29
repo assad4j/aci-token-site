@@ -16,32 +16,31 @@
         "title": "Aufbau des ACI-Ökosystems",
         "description": "Gestaltung der ACI-Meta-Coach-Identität, Entwicklung der offiziellen Website und Erstellung des ACI-Tokens (ERC-20) auf Ethereum. Ziel: die technischen und visuellen Grundlagen vor dem Launch aufbauen.",
         "objectives": [
-          "Visuelle Identität und Brand-Guideline von ACI",
-          "Website und Lernplattform (v1)",
+          "Visuelle Identität + ACI-Brandbook",
+          "Website + Plattform (Dashboard)",
           "Deployment des ACI-Tokens auf Ethereum",
-          "Whitepaper plus Presale-Smart-Contract"
+          "Whitepaper + Presale-Smart-Contract"
         ]
       },
       {
         "phase": "Phase 2",
-        "title": "Launch des Coach IA (v1)",
+        "title": "Launch des KI-Coachs (v1)",
         "description": "Erste Version des ACI-KI-Coachs, der Stimme, Ton und Regelmäßigkeit der Nutzer analysiert. Die KI wird zum persönlichen Assistenten für Disziplin, Selbstvertrauen und Emotionsmanagement.",
         "objectives": [
-          "Modul zur Sprach- und Emotionsanalyse",
-          "System zur Routine- und Performanceverfolgung",
-          "KI-Feedback in Echtzeit",
-          "Frühzeitiger Zugang für die ersten ACI-Staker"
+          "Emotionale KI (Stimme, Ton, Stress) für Live-Coaching",
+          "Basis-Concierge: Erinnerungen, Agenda, einfache Automationen",
+          "Business Finder (Web-Demo): 3 passende Ideen + erste Aktionspläne",
+          "Trading-Coach KI (Disziplin, Routinen, Ausführungs-Checklisten)"
         ]
       },
       {
         "phase": "Phase 3",
-        "title": "Intelligente Trainings + Meta Track",
+        "title": "Intelligente Schulungen + Meta Track",
         "description": "Start interaktiver KI-Trainings zu Krypto, Trading, Sicherheit und Psychologie. Meta Track analysiert den Fortschritt und passt Inhalte an jedes Profil an. Fortgeschrittene Module werden über ACI-Staking freigeschaltet.",
         "objectives": [
-          "Launch von Meta Track (adaptives KI-Lernen)",
-          "Video-Trainings plus KI-Übungen",
-          "Intelligentes Fortschritts-Dashboard",
-          "Module via ACI-Staking freischalten"
+          "Interaktive Kurse (Trading, Business, Psychologie)",
+          "Meta Track: KI-gestütztes Fortschritts-Tracking, XP, Routinen",
+          "Staking-Integration zum Freischalten von ACI-Modulen"
         ]
       },
       {
@@ -49,10 +48,10 @@
         "title": "Staking (live)",
         "description": "Einführung des ACI-Stakings, damit Holder das Ökosystem unterstützen, Rewards erhalten und exklusive Vorteile (Trainings, KI, Meta Track) nutzen können.",
         "objectives": [
-          "Bereitstellung des sicheren Staking-Contracts",
-          "Rewards und Benefits in ACI",
-          "Level-System je nach Staking-Dauer",
-          "Mehr Liquidität und Transparenz"
+          "Sicherer Staking-Vertrag",
+          "Belohnungen + Vorteile in ACI",
+          "Neues UI-Design für Staking",
+          "Erhöhte transparente Liquidität"
         ]
       },
       {
@@ -60,34 +59,34 @@
         "title": "DAO + internationale Expansion",
         "description": "Start der ACI-DAO, damit Tokenholder abstimmen und strategische Entscheidungen mitgestalten. Internationaler Rollout des KI-Coachs mit übersetzten Trainings.",
         "objectives": [
-          "DAO: Voting, Proposals, Community-Governance",
-          "Mehrsprachiger Rollout (EN, ES, FR, AR)",
-          "Web3- und akademische Partnerschaften",
+          "DAO (Votes, Vorschläge, Community-Fonds)",
+          "Mehrregionale Rollouts (EN, ES, FR, AR)",
+          "Web3- & akademische Partnerschaften",
           "ACI-Botschafter-Netzwerk"
         ]
       },
       {
         "phase": "Phase 6",
-        "title": "ACI MetaVerse & fortgeschrittene KI",
+        "title": "ACI Metaverse & fortgeschrittene KI",
         "description": "Aufbau einer immersiven ACI-Welt, in der Nutzer mit ihrem KI-Coach in einem virtuellen Lernuniversum interagieren. Leistung schaltet Fortschritts-Badges und erweiterte Zugänge frei.",
         "objectives": [
-          "3D-KI-Avatar und Sprachinteraktionen",
-          "Virtuelle Workshops mit Live-Feedback",
-          "Fortschritts-Badges und KI-Einblicke",
-          "Immersives, gamifiziertes Ökosystem"
+          "KI-Avatar + Interaktionen in Echtzeit",
+          "Sprachanalysen + In-App-Feedback",
+          "Fortschritts-Badges & KI-Insights",
+          "Immersives & gamifiziertes Ökosystem"
         ]
       },
       {
         "phase": "Phase 7",
-        "title": "KI-Begleit-App (F&E -> Beta)",
+        "title": "Globale KI-Begleiter-App (F&E → Beta)",
         "description": "Entwicklung einer KI-App für Wohlbefinden und Trading mit Fokus auf emotionale Unterstützung. Nutzer können Kamera/Mikro aktivieren, um bei Stress, Angst oder Panik mit der KI zu sprechen. Die KI beobachtet, hört zu und schlägt individuelle Routinen vor – ohne nicht genehmigte Datenspeicherung.",
         "objectives": [
-          "Mobile/Desktop-App \"ACI MindCare\"",
-          "Lokale Gesichts- und Sprachanalyse (keine Datenweitergabe)",
-          "„SOS“-Modus mit personalisierten Anti-Stress-Routinen",
-          "Meta-Track-Integration (KI-Tagebuch, Badges, Emotionstracking)",
-          "Geschlossene Beta exklusiv für ACI-Staker",
-          "Ethik- und Sicherheitsfreigabe über die DAO"
+          "App „ACI Copilot“ (mobile/desktop)",
+          "SOS-Modus: Stress-Alerts, priorisierte Aufgaben, Anker",
+          "Concierge: Buchungen, Reisen, Meetings, Notizen, Partner",
+          "Business Finder → interaktiver 90-Tage-Plan (Ziele, Aufgaben, KPIs)",
+          "Meta Track + Trading-Plan Integration (emotionale Routinen)",
+          "Geschlossene Beta + Nutzerfeedback, Sicherheit & Compliance"
         ]
       },
       {
@@ -95,11 +94,12 @@
         "title": "Öffentlicher Launch der KI-App",
         "description": "Offizielle Veröffentlichung der App in den Stores (iOS / Android / Desktop). Vollständige Integration in das ACI-Ökosystem (Token, Staking, Meta Track). Wellbeing-Partnerschaften und Kooperationen mit Bildungseinrichtungen.",
         "objectives": [
-          "Öffentlicher Launch",
-          "Synchronisation mit ACI-Account plus Staking",
-          "Mehrstufige KI-Routinen (Coach + Emotionstracking)",
-          "\"Secure AI\"-Zertifizierung durch die DAO",
-          "Globaler Rollout"
+          "Release auf iOS/Android/Desktop",
+          "Synchronisation ACI-Konto ↔ Staking",
+          "Multifokus-Routinen: Business, Trading, Mindset, Concierge",
+          "Service-/KI-Marktplatz verbunden mit dem Coach",
+          "„Secure DAO“-Governance (KYC falls erforderlich)",
+          "Weltweiter Rollout"
         ]
       }
     ]

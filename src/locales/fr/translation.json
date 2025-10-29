@@ -16,8 +16,8 @@
         "title": "Création de l’écosystème ACI",
         "description": "Conception de l’identité ACI Meta Coach, développement du site officiel et création du token ACI (ERC-20) sur Ethereum. L’objectif est de bâtir les fondations techniques et visuelles du projet avant son lancement.",
         "objectives": [
-          "Identité visuelle & charte ACI",
-          "Site web & plateforme éducative (v1)",
+          "Identité visuelle + charte ACI",
+          "Site web + plateforme (dashboard)",
           "Déploiement du token ACI sur Ethereum",
           "Whitepaper + smart contract de prévente"
         ]
@@ -27,12 +27,10 @@
         "title": "Lancement du Coach IA (v1)",
         "description": "Première version du Coach IA ACI, capable d’analyser vos performances de trading, votre profil business et votre état émotionnel pour proposer des recommandations alignées. L’IA devient un copilote complet qui renforce la discipline, la confiance et l’exécution de vos projets.",
         "objectives": [
-          "Module d’analyse vocale et émotionnelle",
-          "Générateur d’idées business et routes de lancement",
-          "Analyse des trades et suivi des résultats",
-          "Système de suivi des routines & performances",
-          "Feedback IA en temps réel",
-          "Accès anticipé pour les premiers stakers ACI"
+          "IA émotionnelle (voix, ton, stress) pour coaching en temps réel",
+          "Conciergerie de base : rappels, agenda, automatisations simples",
+          "Business Finder (démo web) : 3 idées adaptées + premiers plans d’action",
+          "Coach IA Trading (discipline, routine, checklists d’exécution)"
         ]
       },
       {
@@ -40,10 +38,9 @@
         "title": "Formations intelligentes + Meta Track",
         "description": "Lancement des formations interactives IA : crypto, trading, sécurité et psychologie. Le système Meta Track analyse la progression et adapte les contenus à chaque profil. L’accès aux modules avancés se fait via le staking des tokens ACI.",
         "objectives": [
-          "Lancement du Meta Track (apprentissage adaptatif IA)",
-          "Formations vidéo + exercices IA",
-          "Tableau de bord de progression intelligent",
-          "Déblocage des modules via staking ACI"
+          "Cursus interactifs (trading, business, psychologie)",
+          "Meta Track : suivi IA de la progression, XP, routines",
+          "Lien avec le staking pour débloquer des modules ACI"
         ]
       },
       {
@@ -51,10 +48,10 @@
         "title": "Staking (live)",
         "description": "Mise en ligne du staking ACI, permettant aux détenteurs de token de soutenir l’écosystème, d’obtenir des récompenses et d’accéder à des avantages exclusifs (formations, IA, Meta Track).",
         "objectives": [
-          "Déploiement du contrat de staking sécurisé",
-          "Récompenses et avantages en ACI",
-          "Système de niveaux selon durée de staking",
-          "Liquidité et transparence accrues"
+          "Contrat de staking sécurisé",
+          "Récompenses + avantages en ACI",
+          "Nouveau design de l’UI de staking",
+          "Liquidité transparente accrue"
         ]
       },
       {
@@ -62,8 +59,8 @@
         "title": "DAO + expansion internationale",
         "description": "Lancement de la DAO ACI, permettant aux détenteurs de tokens de voter et participer aux décisions stratégiques. Déploiement international du Coach IA et des formations traduites.",
         "objectives": [
-          "DAO : vote, propositions, gouvernance communautaire",
-          "Déploiement multilingue (EN, ES, FR, AR)",
+          "DAO (votes, propositions, fonds communautaire)",
+          "Déploiements multi-régions (EN, ES, FR, AR)",
           "Partenariats Web3 & académiques",
           "Réseau d’ambassadeurs ACI"
         ]
@@ -73,25 +70,23 @@
         "title": "ACI MetaVerse & IA avancée",
         "description": "Création d’un environnement immersif ACI, où les utilisateurs interagissent avec leur Coach IA dans un univers virtuel éducatif. Les performances débloquent des badges de progression et des accès avancés.",
         "objectives": [
-          "Avatar IA 3D & interactions vocales",
-          "Ateliers virtuels & feedback en temps réel",
-          "Badges de progression et insights IA",
+          "Avatar IA + interactions temps réel",
+          "Analyses vocales + feedback in-app",
+          "Badges de progression & insights IA",
           "Écosystème immersif & gamifié"
         ]
       },
       {
         "phase": "Phase 7",
-        "title": "Application IA d’accompagnement global (R&D -> Beta)",
+        "title": "Application IA d’accompagnement global (R&D → Bêta)",
         "description": "Développement d’une application IA qui combine bien-être, trading et accompagnement business. L’utilisateur active caméra/micro pour dialoguer avec l’IA, analyser ses trades, valider ses projets, réduire son stress et organiser ses déplacements, sans stockage de données non consenties.",
         "objectives": [
-          "Application mobile/desktop \"ACI Copilot\"",
-          "Analyse faciale + vocale locale (aucune donnée partagée)",
-          "Mode \"SOS\" et routines anti-stress personnalisées",
-          "Conciergerie entrepreneuriale : voyages, rendez-vous, sourcing partenaires",
-          "Assistant business & trading plan interactif",
-          "Intégration Meta Track (journal IA, badges, suivi émotionnel)",
-          "Beta fermée réservée aux stakers ACI",
-          "Validation éthique & sécurité via la DAO"
+          "App “ACI Copilote” (mobile/desktop)",
+          "Mode SOS : alertes stress, tâches prioritaires, ancrages",
+          "Conciergerie : réservations, voyages, rendez-vous, notes, partenaires",
+          "Business Finder → plan 90 jours interactif (objectifs, tâches, KPI)",
+          "Intégration Meta Track + Trading plan (routines émotionnelles)",
+          "Bêta fermée + retours utilisateurs, sécurité & conformité"
         ]
       },
       {
@@ -99,11 +94,11 @@
         "title": "Lancement public de l’application IA",
         "description": "Publication officielle de l’application sur stores (iOS / Android / desktop). Intégration complète à l’écosystème ACI (token, staking, Meta Track) avec modules trading, business, mindset et conciergerie. Partenariats bien-être, entrepreneurial et collaborations avec institutions éducatives.",
         "objectives": [
-          "Lancement grand public",
-          "Synchronisation avec compte ACI + staking",
-          "Routines IA multi-niveaux (business, trading, mindset, conciergerie)",
-          "Marketplace de services experts reliée au coach IA",
-          "Certification \"Secure AI\" par la DAO",
+          "Publication iOS/Android/desktop",
+          "Synchronisation compte ACI ↔ staking",
+          "Routines multi-volets : business, trading, mindset, conciergerie",
+          "Marketplace de services/IA reliée au coach",
+          "Gouvernance “Secure DAO” (KYC si requis)",
           "Déploiement mondial"
         ]
       }

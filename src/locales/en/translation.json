@@ -1,4 +1,3 @@
-
 {
   "home": "Home",
   "about": "About",
@@ -7,7 +6,6 @@
   "faq": "FAQ",
   "staking": "Staking",
   "tradingBot": "Trading Bot",
-
   "roadmap": {
     "title": "ACI Meta Coach - Official Roadmap",
     "visionTitle": "Final vision",
@@ -15,35 +13,34 @@
     "items": [
       {
         "phase": "Phase 1",
-        "title": "Building the ACI ecosystem",
+        "title": "Building the ACI Ecosystem",
         "description": "Design the ACI Meta Coach identity, develop the official site, and create the ACI token (ERC-20) on Ethereum. Goal: lay the technical and visual foundations before launch.",
         "objectives": [
-          "ACI visual identity and brand charter",
-          "Website and education platform (v1)",
-          "Deployment of the ACI token on Ethereum",
-          "Whitepaper plus presale smart contract"
+          "Visual identity + ACI brand book",
+          "Website + platform (dashboard)",
+          "ACI token deployment on Ethereum",
+          "Whitepaper + presale smart contract"
         ]
       },
       {
         "phase": "Phase 2",
-        "title": "AI Coach launch (v1)",
+        "title": "AI Coach Launch (v1)",
         "description": "First version of the ACI AI Coach, able to analyse voice, tone, and user consistency. The AI becomes a real personal assistant that boosts discipline, confidence, and emotional balance.",
         "objectives": [
-          "Voice and emotional analysis module",
-          "Routine and performance tracking system",
-          "Realtime AI feedback",
-          "Early access for the first ACI stakers"
+          "Emotional AI (voice, tone, stress) for real-time coaching",
+          "Basic concierge: reminders, agenda, simple automations",
+          "Business Finder (web demo): 3 tailored ideas + first action plans",
+          "Trading Coach AI (discipline, routines, execution checklists)"
         ]
       },
       {
         "phase": "Phase 3",
-        "title": "Smart trainings + Meta Track",
+        "title": "Intelligent Training + Meta Track",
         "description": "Launch interactive AI trainings for crypto, trading, security, and psychology. Meta Track analyses progress and adapts content to each profile. Advanced modules unlock through ACI staking.",
         "objectives": [
-          "Meta Track launch (adaptive AI learning)",
-          "Video trainings plus AI exercises",
-          "Intelligent progression dashboard",
-          "Modules unlocked via ACI staking"
+          "Interactive curricula (trading, business, psychology)",
+          "Meta Track: AI progression tracking, XP, routines",
+          "Staking integration to unlock ACI modules"
         ]
       },
       {
@@ -51,62 +48,62 @@
         "title": "Staking (live)",
         "description": "Launch ACI staking so holders support the ecosystem, earn rewards, and access exclusive perks (trainings, AI, Meta Track).",
         "objectives": [
-          "Deployment of the secure staking contract",
-          "Rewards and perks paid in ACI",
-          "Tier system based on staking duration",
-          "Greater liquidity and transparency"
+          "Secure staking smart contract",
+          "Rewards + perks in ACI",
+          "New staking UI design",
+          "Enhanced transparent liquidity"
         ]
       },
       {
         "phase": "Phase 5",
-        "title": "DAO + international expansion",
+        "title": "DAO + International Expansion",
         "description": "Launch the ACI DAO so token holders can vote and steer strategic decisions. Deploy the AI Coach worldwide with translated trainings.",
         "objectives": [
-          "DAO: voting, proposals, community governance",
-          "Multilingual rollout (EN, ES, FR, AR)",
-          "Web3 and academic partnerships",
-          "ACI ambassador network"
+          "DAO (votes, proposals, community treasury)",
+          "Multi-region rollout (EN, ES, FR, AR)",
+          "Web3 & academic partnerships",
+          "ACI ambassadors network"
         ]
       },
       {
         "phase": "Phase 6",
-        "title": "ACI MetaVerse & advanced AI",
+        "title": "ACI Metaverse & Advanced AI",
         "description": "Create an immersive ACI world where users interact with their AI Coach inside a virtual learning universe. Performance unlocks progression badges and advanced access tiers.",
         "objectives": [
-          "3D AI avatar and voice interactions",
-          "Virtual workshops with realtime feedback",
-          "Progression badges and AI insights",
-          "Immersive, gamified ecosystem"
+          "AI avatar + real-time interactions",
+          "Voice analytics + in-app feedback",
+          "Progress badges & AI insights",
+          "Immersive & gamified ecosystem"
         ]
       },
       {
         "phase": "Phase 7",
-        "title": "AI companion app (R&D -> Beta)",
+        "title": "Global AI Companion App (R&D → Beta)",
         "description": "Develop a wellbeing and trading AI companion app focused on emotional support. Users can enable camera/mic to talk to the AI when stress, fear, or panic appears. The AI listens, observes, and suggests tailored routines with no unconsented data storage.",
         "objectives": [
-          "\"ACI MindCare\" mobile/desktop app",
-          "On-device facial and voice analysis (no data sharing)",
-          "\"SOS\" mode with personalised anti-stress routines",
-          "Meta Track integration (AI journal, badges, emotional tracking)",
-          "Closed beta reserved for ACI stakers",
-          "Ethical and security validation through the DAO"
+          "“ACI Copilot” app (mobile/desktop)",
+          "SOS mode: stress alerts, priority tasks, anchors",
+          "Concierge: booking, travel, meetings, notes, partners",
+          "Business Finder → interactive 90-day plan (goals, tasks, KPIs)",
+          "Meta Track + Trading plan integration (emotional routines)",
+          "Closed beta + user feedback, security & compliance"
         ]
       },
       {
         "phase": "Phase 8",
-        "title": "Public launch of the AI app",
+        "title": "Public Launch of the AI App",
         "description": "Official release of the app on stores (iOS / Android / desktop). Full integration with the ACI ecosystem (token, staking, Meta Track). Wellbeing partnerships and collaborations with educational institutions.",
         "objectives": [
-          "Public launch",
-          "Sync with ACI account plus staking",
-          "Multi-level AI routines (coach plus emotional tracking)",
-          "\"Secure AI\" certification granted by the DAO",
+          "Release on iOS/Android/Desktop",
+          "ACI account ↔ staking sync",
+          "Multi-track routines: business, trading, mindset, concierge",
+          "Service/AI marketplace linked to the coach",
+          "“Secure DAO” governance (KYC if required)",
           "Global rollout"
         ]
       }
     ]
   },
-
   "formations": {
     "hero": {
       "title": "Intelligent Training",
@@ -231,7 +228,6 @@
     "txInProgress": "Transaction in progress...",
     "connectPrompt": "Connect your wallet to buy and unlock the premium training, trading bot, and private payments powered by ACI."
   },
-
   "botLabelHeadline": "TRADING",
   "botTitle": "ACI Trading Bot",
   "botSubtitle": "Automate your strategy with our predictive intelligence—risk management, instant execution, and live monitoring in one tool.",
@@ -274,7 +270,6 @@
   "botChecklistRisk": "Clear understanding of market risks and bot limits",
   "botDisclaimer": "The bot does not guarantee profits. Manage your exposure and stay in control of your funds.",
   "whitepaper": "Whitepaper",
-
   "welcome": "Welcome to the Official ACI Meta Coach Presale",
   "tagline": "ACI unlocks premium Forex & crypto training, an exclusive trading bot, and a private payment rail.",
   "presaleEnds": "Presale ends in: {{months}} mo {{days}} d {{hours}} h {{minutes}} m {{seconds}} s",
@@ -295,16 +290,13 @@
   "statsError": "Unable to fetch stats. Please try again shortly.",
   "statsUpdated": "Last updated: {{time}}",
   "limitsLabel": "Limits: minimum {{min}} ETH — maximum {{max}} ETH.",
-
   "presaleProgressTitle": "Presale Progress",
   "collectedLabel": "Collected:",
   "approxAciReceived": "≈ {{count}} ACI",
   "raisedLabel": "${{raised}} / ${{goal}}",
-
   "inputPlaceholderUsd": "Amount in $",
   "buy": "Buy ACI",
   "buyAndStake": "Buy & Stake",
-
   "featuresTitle": "Why Buy the ACI Meta Coach?",
   "featureSecurityTitle": "🔒 Security",
   "featureSecurityDesc": "Built on Ethereum with audited smart contracts. Transactions are traceable yet anonymous.",
@@ -314,12 +306,10 @@
   "featurePrivacyDesc": "Use ACI as a private payment method without traditional banking supervision.",
   "featureTradingBotTitle": "🤖 AI Trading Bot",
   "featureTradingBotDesc": "Gain access to our proprietary trading bot for advanced market execution.",
-
   "subscribeTitle": "Get ACI Updates",
   "subscribeDesc": "Be the first to know about project developments and next steps.",
   "subscribePlaceholderEmail": "Your email address",
   "subscribeButton": "Subscribe",
-
   "roadmapTitle": "ACI Project Roadmap",
   "phase2024": "2024 — Idea & Concept",
   "phase2024Desc": "ACI project inception, focused on security and education.",
@@ -333,7 +323,6 @@
   "phase2025EduDesc": "Launch of a crypto/forex training platform exclusively for ACI holders.",
   "phase2026": "2026 — Advanced Development",
   "phase2026Desc": "Integration of ACI payments into external tools + AI-driven education.",
-
   "valueTrainingTitle": "Premium Training",
   "valueTrainingDesc": "Get ACI Meta Coach mentorship to master Forex and crypto markets.",
   "valueTradingBotTitle": "Exclusive Trading Bot",
@@ -358,7 +347,6 @@
   "homeValueCommunityDesc": "Join a worldwide network of coached investors.",
   "homeValueSecurityTitle": "Security & transparency",
   "homeValueSecurityDesc": "Audited contracts, public dashboards, and community oversight.",
-
   "founderMessageTitle": "Founder’s Message",
   "founderMessageText": "ACI was born from a simple conviction: mass adoption demands three pillars. First, education, with premium training available from day one. Second, performance, thanks to our proprietary trading bot. Third, financial freedom, through a private yet transparent payment rail. Joining ACI means joining a global community that truly masters its tools.",
   "founderMessage": {
@@ -490,16 +478,37 @@
     "directDisclaimer": "No financial advice. We provide educational and technical information only.",
     "form": {
       "title": "Send a message",
-      "firstName": { "label": "First name", "placeholder": "Alice" },
-      "lastName": { "label": "Last name", "placeholder": "Smith" },
-      "email": { "label": "Professional email", "placeholder": "you@example.com" },
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Alice"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Smith"
+      },
+      "email": {
+        "label": "Professional email",
+        "placeholder": "you@example.com"
+      },
       "topic": {
         "label": "Topic",
         "topics": [
-          { "value": "coach", "label": "Discover the AI Coach" },
-          { "value": "formations", "label": "Trainings & Meta Track" },
-          { "value": "token", "label": "Meta Coach Token (ACI)" },
-          { "value": "partnership", "label": "Partnership / Media" }
+          {
+            "value": "coach",
+            "label": "Discover the AI Coach"
+          },
+          {
+            "value": "formations",
+            "label": "Trainings & Meta Track"
+          },
+          {
+            "value": "token",
+            "label": "Meta Coach Token (ACI)"
+          },
+          {
+            "value": "partnership",
+            "label": "Partnership / Media"
+          }
         ]
       },
       "message": {
@@ -554,11 +563,26 @@
     "progressTag": "The token that powers your progression",
     "tokenomicsTitle": "Tokenomics",
     "tokenomics": [
-      { "label": "Public sale", "value": "40%" },
-      { "label": "Team & AI development", "value": "20%" },
-      { "label": "Staking & rewards", "value": "20%" },
-      { "label": "Marketing & partnerships", "value": "10%" },
-      { "label": "Strategic reserve", "value": "10%" }
+      {
+        "label": "Public sale",
+        "value": "40%"
+      },
+      {
+        "label": "Team & AI development",
+        "value": "20%"
+      },
+      {
+        "label": "Staking & rewards",
+        "value": "20%"
+      },
+      {
+        "label": "Marketing & partnerships",
+        "value": "10%"
+      },
+      {
+        "label": "Strategic reserve",
+        "value": "10%"
+      }
     ],
     "tokenomicsNote": "Part of the allocation funds AI R&D, strategic partnerships, and a reserve to support international expansion and the future launch of the Meta Coach DAO.",
     "accessTitle": "Priority access to the AI Coach",
@@ -639,12 +663,10 @@
     "cta": "Request the whitepaper",
     "versionNote": "Draft version: updated after the Coach AI v1 launch."
   },
-
   "disclaimerTitle": "Disclaimer",
   "disclaimerText": "Always do your own research. Nothing here is financial advice.",
   "copyright": "© 2025 ACI Meta Coach. All rights reserved.",
   "contact": "Contact: support@aci-token.net",
-
   "aboutSectionTitle": "About the ACI Project",
   "aboutMissionTitle": "ACI’s Mission",
   "aboutMissionDesc": "ACI is an innovative cryptocurrency built on two pillars: an untraceable payment method and exclusive crypto training. In a world where digital transaction surveillance is pervasive, ACI offers a private and fully free payment solution, empowering users to reclaim financial autonomy.",
@@ -660,57 +682,93 @@
   ],
   "aboutCommunityTitle": "Community‑Driven",
   "aboutCommunityDesc": "ACI is not just another crypto: it’s a new Web3 vision where every holder becomes an active participant. Thanks to our training system, users holding a certain amount of tokens can access exclusive courses on trading, security, and cryptocurrencies. Together, let’s build a secure, free, and educational alternative for tomorrow’s world.",
-
   "tokenomicsTitle": "Tokenomics",
   "tokenomicsDesc": "Here are the full details on ACI token distribution, total supply, allocations, etc.",
-
   "raiseGoalTitle": "Fundraising Goal",
   "raiseGoalAmount": "$12,000,000",
   "raiseGoalText": "We aim to raise {{amount}} to fully fund the ACI project.",
-
   "founderRemunerationTitle": "Founder Remuneration",
   "founderRemunerationPercent": "15%",
   "founderRemunerationText": "As founder, a remuneration of {{percent}} is allocated to cover development, strategic direction, branding, management, and full project creation.",
-
   "fundAllocationTitle": "Fund Allocation",
   "fundAllocationPoints": [
-    { "percentage": "25%", "text": "Technical development (smart contracts, security, web infrastructure, AI)" },
-    { "percentage": "30%", "text": "Marketing, partnerships, influencers, social media" },
-    { "percentage": "15%", "text": "Liquidity reserve for exchanges" },
-    { "percentage": "10%", "text": "Audits, bug bounty, security compliance" },
-    { "percentage": "3%",  "text": "Legal fees (lawyers, legal registration, potential litigation)" },
-    { "percentage": "2%",  "text": "Miscellaneous (hosting, SaaS services, unforeseen expenses)" }
+    {
+      "percentage": "25%",
+      "text": "Technical development (smart contracts, security, web infrastructure, AI)"
+    },
+    {
+      "percentage": "30%",
+      "text": "Marketing, partnerships, influencers, social media"
+    },
+    {
+      "percentage": "15%",
+      "text": "Liquidity reserve for exchanges"
+    },
+    {
+      "percentage": "10%",
+      "text": "Audits, bug bounty, security compliance"
+    },
+    {
+      "percentage": "3%",
+      "text": "Legal fees (lawyers, legal registration, potential litigation)"
+    },
+    {
+      "percentage": "2%",
+      "text": "Miscellaneous (hosting, SaaS services, unforeseen expenses)"
+    }
   ],
-
   "tokenSupplyTitle": "Token Supply",
   "tokenSupplyTotal": "120,000,000,000 ACI",
   "tokenSupplyText": "The total number of ACI tokens minted is {{total}}. They will be distributed under strict rules to ensure transparency and stability.",
-
   "howtoTitle": "How to Buy",
   "howtoStepsTitle": "Steps to Buy ACI Meta Coach",
   "howtoSteps": [
-    { "step": "1", "text": "Install MetaMask (or a compatible wallet)" },
-    { "step": "2", "text": "Connect your wallet via the top button" },
-    { "step": "3", "text": "Select the USD amount to invest" },
-    { "step": "4", "text": "Confirm the transaction in your wallet" },
-    { "step": "5", "text": "Receive your ACI automatically" },
-    { "step": "6", "text": "Access exclusive trainings (if applicable)" }
+    {
+      "step": "1",
+      "text": "Install MetaMask (or a compatible wallet)"
+    },
+    {
+      "step": "2",
+      "text": "Connect your wallet via the top button"
+    },
+    {
+      "step": "3",
+      "text": "Select the USD amount to invest"
+    },
+    {
+      "step": "4",
+      "text": "Confirm the transaction in your wallet"
+    },
+    {
+      "step": "5",
+      "text": "Receive your ACI automatically"
+    },
+    {
+      "step": "6",
+      "text": "Access exclusive trainings (if applicable)"
+    }
   ],
-
   "howtoFaqTitle": "Frequently Asked Questions",
   "howtoFaq": [
-    { "question": "Is KYC required?", "answer": "No, everything is decentralized." },
-    { "question": "Can I buy from mobile?", "answer": "Yes, via MetaMask." },
-    { "question": "Can I buy with a credit card?", "answer": "No, crypto only (ETH)." }
+    {
+      "question": "Is KYC required?",
+      "answer": "No, everything is decentralized."
+    },
+    {
+      "question": "Can I buy from mobile?",
+      "answer": "Yes, via MetaMask."
+    },
+    {
+      "question": "Can I buy with a credit card?",
+      "answer": "No, crypto only (ETH)."
+    }
   ],
-
   "howtoSecurityTitle": "Security Tips",
   "howtoSecurity": [
     "Never share your seed phrase.",
     "Only buy on the official site: acipresale.com",
     "Always verify the smart contract address before transacting."
   ],
-
   "faqTitle": "Frequently Asked Questions",
   "faqItems": [
     {
@@ -750,7 +808,6 @@
       "answer": "No, crypto only (ETH)."
     }
   ],
-
   "stakingTitle": "Welcome to ACI Staking",
   "stakingDesc": "Stake your ACI tokens to earn passive rewards. The longer you stake, the more you earn.",
   "stakingConnectPrompt": "Connect your wallet to access ACI staking.",
@@ -833,7 +890,7 @@
       "generic": "The coach is unavailable. Please try again later.",
       "microDenied": "Microphone not available. Allow access in your browser settings.",
       "avatarLoad": "3D avatar unavailable. A simplified visualization is displayed.",
-      "cameraUnavailable": "Camera control is managed by the emotion detection module. Enable it from the detection card." 
+      "cameraUnavailable": "Camera control is managed by the emotion detection module. Enable it from the detection card."
     },
     "conversation": {
       "emotionLabels": {
