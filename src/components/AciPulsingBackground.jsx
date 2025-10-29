@@ -49,9 +49,9 @@ export default function AciPulsingBackground({
       glowScaleFrom: 0.95 + (i - 1) * 0.08,
       glowScaleTo: 1.08 + (i - 1) * 0.1,
       glowOpacity: 0.28 * i,
-      sweepSpeed: lightweight ? 85 / i : 60 / i,
-      noiseOpacity: lightweight ? 0.022 * i : 0.035 * i,
-      railOpacity: lightweight ? 0.52 * Math.min(1, i + 0.12) : 0.65 * Math.min(1, i + 0.2),
+      sweepSpeed: lightweight ? 95 / i : 60 / i,
+      noiseOpacity: lightweight ? 0.012 * i : 0.035 * i,
+      railOpacity: lightweight ? 0.42 * Math.min(1, i + 0.1) : 0.65 * Math.min(1, i + 0.2),
     };
   }, [intensity, lightweight]);
 
@@ -97,7 +97,7 @@ export default function AciPulsingBackground({
         style={{
           background:
             'conic-gradient(from 0deg at 50% 50%, rgba(0,180,255,0.08), rgba(0,0,0,0) 25%, rgba(0,255,255,0.06) 50%, rgba(0,0,0,0) 75%, rgba(0,180,255,0.08))',
-          animation: paused ? 'none' : `aci-rotate ${sweepSpeed}s linear infinite`,
+          animation: paused || lightweight ? 'none' : `aci-rotate ${sweepSpeed}s linear infinite`,
         }}
       />
 
@@ -151,12 +151,18 @@ export default function AciPulsingBackground({
         background:
           'radial-gradient(120%_120% at 50%_60%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.78) 100%)',
       }}/>
-      <div aria-hidden className="pointer-events-none absolute inset-0 mix-blend-soft-light" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
-        backgroundSize: '100% 3px',
-        animation: paused ? 'none' : `aci-scan 6s linear infinite`,
-        opacity: 0.25,
-      }}/>
+      {!lightweight && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 mix-blend-soft-light"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '100% 3px',
+            animation: paused ? 'none' : `aci-scan 6s linear infinite`,
+            opacity: 0.25,
+          }}
+        />
+      )}
 
       {/* Subtle animated noise */}
       <div
@@ -167,7 +173,7 @@ export default function AciPulsingBackground({
           backgroundImage:
             "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"120\" viewBox=\"0 0 120 120\"><filter id=\"n\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"2\" stitchTiles=\"stitch\"/></filter><rect width=\"120\" height=\"120\" filter=\"url(%23n)\" opacity=\"0.6\"/></svg>')",
           backgroundSize: 'cover',
-          animation: paused ? 'none' : `aci-noise-shift 3s steps(2,end) infinite`,
+          animation: paused || lightweight ? 'none' : `aci-noise-shift 3s steps(2,end) infinite`,
         }}
       />
 

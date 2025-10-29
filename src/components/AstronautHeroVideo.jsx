@@ -146,8 +146,15 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
 
         <Canvas
           camera={{ position: [0, 1.6, 4], fov: 32 }}
-          gl={{ antialias: true, alpha: true, preserveDrawingBuffer: false }}
+          dpr={isMobile ? [1, 1.2] : [1, 2]}
           frameloop="always"
+          gl={{
+            antialias: !isMobile,
+            alpha: true,
+            preserveDrawingBuffer: false,
+            powerPreference: isMobile ? 'low-power' : 'high-performance',
+          }}
+          performance={isMobile ? { min: 0.25, max: 0.8, debounce: 200 } : undefined}
           style={{ width: '100%', height: '100%' }}
         >
           <StarsBackdrop />
