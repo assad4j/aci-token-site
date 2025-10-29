@@ -552,27 +552,93 @@
     "tokenomicsTitle": "Tokenomics",
     "tokenomics": [
       {
-        "label": "Öffentlicher Verkauf",
-        "value": "40%"
+        "label": "Vorverkauf (ICO)",
+        "value": "10 %"
+      },
+      {
+        "label": "Staking & Community",
+        "value": "15 %"
       },
       {
         "label": "Team & KI-Entwicklung",
-        "value": "20%"
-      },
-      {
-        "label": "Staking & Rewards",
-        "value": "20%"
+        "value": "20 %"
       },
       {
         "label": "Marketing & Partnerschaften",
-        "value": "10%"
+        "value": "25 %"
       },
       {
-        "label": "Strategische Reserve",
-        "value": "10%"
+        "label": "Reserve & Liquidität (DEX/CEX)",
+        "value": "25 %"
+      },
+      {
+        "label": "DAO & zukünftiges Ökosystem",
+        "value": "5 %"
       }
     ],
-    "tokenomicsNote": "Ein Teil der Mittel fließt in KI-Forschung, strategische Partnerschaften und eine Reserve, um die internationale Expansion sowie den künftigen Start der Meta-Coach-DAO zu unterstützen.",
+    "tokenomicsNote": "Diese Verteilung balanciert Wachstum, Community-Belohnungen, KI-Innovation und langfristige Liquidität, damit das Projekt nachhaltig skalieren kann.",
+    "tokenomicsBreakdown": {
+      "tagline": "Strategische Aufteilung",
+      "title": "Verteilung der 120 Milliarden ACI-Token",
+      "subtitle": "Eine übersichtliche Tabelle, die zeigt, wie das Angebot auf Wachstum, Community, Innovation und Reserven verteilt wird.",
+      "totalSupplyLabel": "Gesamtangebot",
+      "totalSupplyValue": "120 000 000 000 ACI",
+      "headers": {
+        "segment": "Segment",
+        "percentage": "Allokation",
+        "amount": "Volumen"
+      },
+      "rows": [
+        {
+          "id": "presale",
+          "icon": "presale",
+          "label": "Vorverkauf (ICO)",
+          "percentage": "10 %",
+          "amount": "12 000 000 000 ACI",
+          "description": "Launch-Finanzierung und Onboarding der ersten Unterstützer."
+        },
+        {
+          "id": "community",
+          "icon": "community",
+          "label": "Staking & Community",
+          "percentage": "15 %",
+          "amount": "18 000 000 000 ACI",
+          "description": "Staking-Rewards, Community-Incentives und Botschafterprogramme."
+        },
+        {
+          "id": "team",
+          "icon": "team",
+          "label": "Team & KI-Entwicklung",
+          "percentage": "20 %",
+          "amount": "24 000 000 000 ACI",
+          "description": "Vergütung, KI-Forschung, Infrastruktur und Sicherheit."
+        },
+        {
+          "id": "marketing",
+          "icon": "marketing",
+          "label": "Marketing & Partnerschaften",
+          "percentage": "25 %",
+          "amount": "30 000 000 000 ACI",
+          "description": "Nutzergewinnung, Reichweite und B2B-Kooperationen."
+        },
+        {
+          "id": "reserve",
+          "icon": "reserve",
+          "label": "Reserve & Liquidität (DEX/CEX)",
+          "percentage": "25 %",
+          "amount": "30 000 000 000 ACI",
+          "description": "Exchange-Liquidität, Listing-Unterstützung und Treasury-Management."
+        },
+        {
+          "id": "dao",
+          "icon": "dao",
+          "label": "DAO & zukünftiges Ökosystem",
+          "percentage": "5 %",
+          "amount": "6 000 000 000 ACI",
+          "description": "Seed-Fonds für die künftige DAO und Ökosystem-Initiativen."
+        }
+      ]
+    },
     "accessTitle": "Bevorzugter Zugang zum KI-Coach",
     "accessDescription": "Mit ACI aktivierst du den KI-Coach, schaltest personalisierte Pläne frei und erhältst exklusive Vorteile in den kommenden Meta-Track- und DAO-Phasen. Keine Finanzberatung – behalte deine Exponierung im Blick.",
     "deepDiveTitle": "Why the ACI token exists",
@@ -645,11 +711,64 @@
     }
   },
   "whitepaperPage": {
-    "title": "ACI Meta Coach Whitepaper",
-    "intro": "Ein strategisches Dokument, das unsere KI- und Coaching-Vision, die Smart-Contract-Architektur und den Produktfahrplan erklärt. Lade das PDF herunter (bald verfügbar) oder kontaktiere uns für die aktuelle Version.",
-    "pending": "Die finale PDF-Version erscheint nach der internen Freigabe von Coach KI v1. Bis dahin teilen wir das strategische Briefing auf Anfrage.",
-    "cta": "Whitepaper anfordern",
-    "versionNote": "Vorab-Version: wird nach dem Launch von Coach KI v1 aktualisiert."
+    "hero": {
+      "badge": "Offizielles Whitepaper",
+      "title": {
+        "line1": "ACI Meta Coach",
+        "line2": "Strategie & Architektur"
+      },
+      "description": "Tauche ein in die komplette Vision des KI-Coachs, seine Tokenomics und die technischen Grundlagen, die emotionales Coaching, tokenisierte Belohnungen und Community-Governance verbinden.",
+      "actions": {
+        "download": "PDF herunterladen",
+        "contact": "Mit dem Team sprechen"
+      }
+    },
+    "timeline": [
+      {
+        "label": "Aktuelle Version",
+        "value": "v1.0",
+        "accentClass": "text-emerald-300"
+      },
+      {
+        "label": "Letztes Update",
+        "value": "Januar 2025",
+        "accentClass": "text-emerald-200"
+      },
+      {
+        "label": "Format",
+        "value": "PDF",
+        "accentClass": "text-white/80"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Vision & Produkt",
+        "points": [
+          "Emotionaler 3D-KI-Coach, personalisierte Routinen und ein Journey-Marktplatz.",
+          "Omnikanal-Ansatz: Stimme, Emotionserkennung und Business-Concierge."
+        ]
+      },
+      {
+        "title": "Token-Ökonomie",
+        "points": [
+          "ACI-Utility: Premium-Zugang, Staking, Governance und Missionsbelohnungen.",
+          "Ausgewogene Verteilung zwischen Presale, F&E, Community und Liquidität."
+        ]
+      },
+      {
+        "title": "Roadmap",
+        "points": [
+          "Alpha → Sprach-KI-Coach, Staking-Pilot und Marketplace-MVP.",
+          "Beta → Mobile App, hybride Sessions, Governance-Votings und progressive DAO."
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Möchtest du das PDF erhalten oder an einer privaten Session teilnehmen?",
+      "subtitle": "Teile deine E-Mail und wir senden dir das PDF nach Veröffentlichung zusammen mit einer Executive Summary.",
+      "inputPlaceholder": "Deine E-Mail-Adresse",
+      "submit": "PDF erhalten"
+    }
   },
   "disclaimerTitle": "Disclaimer",
   "disclaimerText": "Always do your own research. Nothing here is financial advice.",

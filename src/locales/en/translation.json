@@ -564,27 +564,93 @@
     "tokenomicsTitle": "Tokenomics",
     "tokenomics": [
       {
-        "label": "Public sale",
-        "value": "40%"
-      },
-      {
-        "label": "Team & AI development",
-        "value": "20%"
-      },
-      {
-        "label": "Staking & rewards",
-        "value": "20%"
-      },
-      {
-        "label": "Marketing & partnerships",
+        "label": "Presale (ICO)",
         "value": "10%"
       },
       {
-        "label": "Strategic reserve",
-        "value": "10%"
+        "label": "Staking & Community",
+        "value": "15%"
+      },
+      {
+        "label": "Team & AI Development",
+        "value": "20%"
+      },
+      {
+        "label": "Marketing & Partnerships",
+        "value": "25%"
+      },
+      {
+        "label": "Reserve & Liquidity (DEX/CEX)",
+        "value": "25%"
+      },
+      {
+        "label": "DAO & Future Ecosystem",
+        "value": "5%"
       }
     ],
-    "tokenomicsNote": "Part of the allocation funds AI R&D, strategic partnerships, and a reserve to support international expansion and the future launch of the Meta Coach DAO.",
+    "tokenomicsNote": "This allocation balances go-to-market growth, community rewards, AI innovation, and long-term liquidity so the project can scale responsibly.",
+    "tokenomicsBreakdown": {
+      "tagline": "Strategic allocation",
+      "title": "Distribution of the 120 billion ACI tokens",
+      "subtitle": "A clear breakdown showing how the supply is aligned across growth, community, innovation, and long-term reserves.",
+      "totalSupplyLabel": "Total supply",
+      "totalSupplyValue": "120,000,000,000 ACI",
+      "headers": {
+        "segment": "Segment",
+        "percentage": "Allocation",
+        "amount": "Volume"
+      },
+      "rows": [
+        {
+          "id": "presale",
+          "icon": "presale",
+          "label": "Presale (ICO)",
+          "percentage": "10%",
+          "amount": "12,000,000,000 ACI",
+          "description": "Launch financing and onboarding the earliest supporters."
+        },
+        {
+          "id": "community",
+          "icon": "community",
+          "label": "Staking & Community",
+          "percentage": "15%",
+          "amount": "18,000,000,000 ACI",
+          "description": "Rewards, staking incentives, and ambassador initiatives."
+        },
+        {
+          "id": "team",
+          "icon": "team",
+          "label": "Team & AI Development",
+          "percentage": "20%",
+          "amount": "24,000,000,000 ACI",
+          "description": "Compensation, AI R&D, infrastructure, and security."
+        },
+        {
+          "id": "marketing",
+          "icon": "marketing",
+          "label": "Marketing & Partnerships",
+          "percentage": "25%",
+          "amount": "30,000,000,000 ACI",
+          "description": "User acquisition, influence, media exposure, and B2B deals."
+        },
+        {
+          "id": "reserve",
+          "icon": "reserve",
+          "label": "Reserve & Liquidity (DEX/CEX)",
+          "percentage": "25%",
+          "amount": "30,000,000,000 ACI",
+          "description": "Exchange liquidity, listings support, and treasury management."
+        },
+        {
+          "id": "dao",
+          "icon": "dao",
+          "label": "DAO & Future Ecosystem",
+          "percentage": "5%",
+          "amount": "6,000,000,000 ACI",
+          "description": "Seeding the future DAO and ecosystem partnerships."
+        }
+      ]
+    },
     "accessTitle": "Priority access to the AI Coach",
     "accessDescription": "Holding ACI activates the AI Coach, unlocks personalised plans, and grants exclusive perks during the upcoming Meta Track and DAO phases. No financial advice—stay in control of your exposure.",
     "deepDiveTitle": "Why the ACI token exists",
@@ -657,11 +723,64 @@
     }
   },
   "whitepaperPage": {
-    "title": "ACI Meta Coach Whitepaper",
-    "intro": "A strategic document explaining our AI + coaching vision, smart-contract architecture, and product roadmap. Download the PDF (coming soon) or contact us for the current version.",
-    "pending": "The final PDF will be published after the internal validation of Coach AI v1. Meanwhile, we share the strategic brief on request.",
-    "cta": "Request the whitepaper",
-    "versionNote": "Draft version: updated after the Coach AI v1 launch."
+    "hero": {
+      "badge": "Official Whitepaper",
+      "title": {
+        "line1": "ACI Meta Coach",
+        "line2": "Strategy & Architecture"
+      },
+      "description": "Dive into the full vision of the AI Coach, its tokenomics, and the technical foundations that fuse emotional coaching, tokenized rewards, and community governance.",
+      "actions": {
+        "download": "Download the PDF",
+        "contact": "Talk with the team"
+      }
+    },
+    "timeline": [
+      {
+        "label": "Current version",
+        "value": "v1.0",
+        "accentClass": "text-emerald-300"
+      },
+      {
+        "label": "Last update",
+        "value": "January 2025",
+        "accentClass": "text-emerald-200"
+      },
+      {
+        "label": "Format",
+        "value": "PDF",
+        "accentClass": "text-white/80"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Vision & Product",
+        "points": [
+          "Emotional 3D AI coach, tailored routines, and a journey marketplace.",
+          "Omnichannel approach: voice, emotional analytics, and business concierge."
+        ]
+      },
+      {
+        "title": "Token Economy",
+        "points": [
+          "ACI utility: premium access, staking, governance, and mission rewards.",
+          "Balanced distribution between presale, R&D, community, and liquidity."
+        ]
+      },
+      {
+        "title": "Roadmap",
+        "points": [
+          "Alpha → voice AI coach, pilot staking, marketplace MVP.",
+          "Beta → mobile app, hybrid sessions, governance votes, progressive DAO."
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Want it as a PDF or to join a private session?",
+      "subtitle": "Share your email and we’ll send the PDF as soon as it’s released, along with an executive summary.",
+      "inputPlaceholder": "Your email address",
+      "submit": "Get the PDF"
+    }
   },
   "disclaimerTitle": "Disclaimer",
   "disclaimerText": "Always do your own research. Nothing here is financial advice.",

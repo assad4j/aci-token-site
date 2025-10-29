@@ -565,27 +565,93 @@
     "tokenomicsTitle": "Tokenomics",
     "tokenomics": [
       {
-        "label": "Vente publique",
-        "value": "40%"
+        "label": "Prévente (ICO)",
+        "value": "10 %"
       },
       {
-        "label": "Équipe & Dév IA",
-        "value": "20%"
+        "label": "Staking & Communauté",
+        "value": "15 %"
       },
       {
-        "label": "Staking & Récompenses",
-        "value": "20%"
+        "label": "Équipe & Développement IA",
+        "value": "20 %"
       },
       {
         "label": "Marketing & Partenariats",
-        "value": "10%"
+        "value": "25 %"
       },
       {
-        "label": "Réserve stratégique",
-        "value": "10%"
+        "label": "Réserve & Liquidité (DEX/CEX)",
+        "value": "25 %"
+      },
+      {
+        "label": "DAO & Écosystème futur",
+        "value": "5 %"
       }
     ],
-    "tokenomicsNote": "Une partie des allocations finance la R&D IA, les partenariats stratégiques et la constitution d’une réserve pour soutenir l’expansion internationale et le futur lancement de la DAO Meta Coach.",
+    "tokenomicsNote": "Cette allocation équilibre le financement de la croissance (marketing, partenariats), l’innovation IA, la rémunération de l’équipe et la construction d’un écosystème communautaire durable.",
+    "tokenomicsBreakdown": {
+      "tagline": "Répartition stratégique",
+      "title": "Distribution des 120 milliards de tokens ACI",
+      "subtitle": "Une table lisible pour comprendre comment l’offre est ventilée entre croissance, communauté, innovation et réserve long terme.",
+      "totalSupplyLabel": "Supply total",
+      "totalSupplyValue": "120 000 000 000 ACI",
+      "headers": {
+        "segment": "Segment",
+        "percentage": "Allocation",
+        "amount": "Volume"
+      },
+      "rows": [
+        {
+          "id": "presale",
+          "icon": "presale",
+          "label": "Prévente (ICO)",
+          "percentage": "10 %",
+          "amount": "12 000 000 000 ACI",
+          "description": "Phase initiale pour financer le lancement et onboarder les early adopters."
+        },
+        {
+          "id": "community",
+          "icon": "community",
+          "label": "Staking & Communauté",
+          "percentage": "15 %",
+          "amount": "18 000 000 000 ACI",
+          "description": "Récompenses staking, incentives communautaires et programmes ambassadeurs."
+        },
+        {
+          "id": "team",
+          "icon": "team",
+          "label": "Équipe & Développement IA",
+          "percentage": "20 %",
+          "amount": "24 000 000 000 ACI",
+          "description": "Rémunération, R&D IA, sécurité et maintien des infrastructures."
+        },
+        {
+          "id": "marketing",
+          "icon": "marketing",
+          "label": "Marketing & Partenariats",
+          "percentage": "25 %",
+          "amount": "30 000 000 000 ACI",
+          "description": "Acquisition utilisateurs, influence, partenariats médias et B2B."
+        },
+        {
+          "id": "reserve",
+          "icon": "reserve",
+          "label": "Réserve & Liquidité (DEX/CEX)",
+          "percentage": "25 %",
+          "amount": "30 000 000 000 ACI",
+          "description": "Liquidités sur exchanges, soutien aux listings et gestion de trésorerie."
+        },
+        {
+          "id": "dao",
+          "icon": "dao",
+          "label": "DAO & Écosystème futur",
+          "percentage": "5 %",
+          "amount": "6 000 000 000 ACI",
+          "description": "Fonds dédié à la future DAO et aux initiatives partenaires."
+        }
+      ]
+    },
     "accessTitle": "Accès prioritaire au Coach IA",
     "accessDescription": "Détenir des ACI permet d’activer le Coach IA, de débloquer des plans personnalisés et de bénéficier d’avantages exclusifs pendant les phases Meta Track et DAO à venir. Aucun conseil financier : gérez votre exposition et restez maître de vos décisions.",
     "deepDiveTitle": "Pourquoi un token ACI ?",
@@ -658,11 +724,64 @@
     }
   },
   "whitepaperPage": {
-    "title": "Whitepaper ACI Meta Coach",
-    "intro": "Un document stratégique détaillant notre vision IA + coaching, l’architecture des smart contracts et la feuille de route produit. Téléchargez la version PDF (bientôt disponible) ou contactez-nous pour recevoir la version en cours.",
-    "pending": "La version PDF finale sera publiée après la validation interne de la phase Coach IA v1. En attendant, nous partageons le condensé stratégique sur demande.",
-    "cta": "Demander le whitepaper",
-    "versionNote": "Version provisoire : mise à jour après le lancement du Coach IA v1."
+    "hero": {
+      "badge": "Whitepaper Officiel",
+      "title": {
+        "line1": "ACI Meta Coach",
+        "line2": "Stratégie & Architecture"
+      },
+      "description": "Plongez dans la vision complète du Coach IA, sa tokenomics et les fondations techniques qui permettent de fusionner coaching émotionnel, récompenses tokenisées et gouvernance communautaire.",
+      "actions": {
+        "download": "Télécharger le PDF",
+        "contact": "Échanger avec l’équipe"
+      }
+    },
+    "timeline": [
+      {
+        "label": "Version actuelle",
+        "value": "v1.0",
+        "accentClass": "text-emerald-300"
+      },
+      {
+        "label": "Dernière mise à jour",
+        "value": "Janvier 2025",
+        "accentClass": "text-emerald-200"
+      },
+      {
+        "label": "Format",
+        "value": "PDF",
+        "accentClass": "text-white/80"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Vision & produit",
+        "points": [
+          "Coach IA 3D émotionnel, routines personnalisées et marketplace de parcours.",
+          "Approche omnicanale : voix, analyse émotionnelle, conciergerie business."
+        ]
+      },
+      {
+        "title": "Économie du token",
+        "points": [
+          "Utilité ACI : accès premium, staking, gouvernance, récompenses mission.",
+          "Distribution équilibrée entre prévente, R&D, communauté et liquidités."
+        ]
+      },
+      {
+        "title": "Feuille de route",
+        "points": [
+          "Alpha → coach IA voix + staking pilote + marketplace MVP.",
+          "Beta → app mobile, sessions hybrides, votes de gouvernance, DAO progressive."
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Vous souhaitez le recevoir en PDF ou participer à une session privée ?",
+      "subtitle": "Partagez votre email et nous vous enverrons la version PDF dès sa publication, accompagnée d’un résumé exécutif.",
+      "inputPlaceholder": "Votre adresse e-mail",
+      "submit": "Recevoir le PDF"
+    }
   },
   "disclaimerTitle": "Clause de non‑responsabilité",
   "disclaimerText": "Faites toujours vos propres recherches. Rien ici n'est un conseil financier.",
