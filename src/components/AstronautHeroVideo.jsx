@@ -167,8 +167,8 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
         </Canvas>
 
         <div
-          className={`pointer-events-none absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-emerald-200/20 px-5 py-4 backdrop-blur ${
-            isMobile ? 'bg-black/40' : 'bg-black/65'
+          className={`pointer-events-none absolute inset-x-6 bottom-6 z-20 rounded-2xl px-5 py-4 backdrop-blur ${
+            isMobile ? 'border border-emerald-200/10 bg-black/20' : 'border border-emerald-200/20 bg-black/65'
           }`}
         >
           <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.3em] text-emerald-100/80">
