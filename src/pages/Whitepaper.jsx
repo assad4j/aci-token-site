@@ -1,187 +1,139 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaFileDownload, FaArrowRight } from 'react-icons/fa';
 
-const SECTION_DATA = [
+const HIGHLIGHTS = [
   {
-    id: 'executive-summary',
-    title: '0. Résumé exécutif',
-    content: [
-      "ACI Meta Coach est un assistant 3D intelligent qui accompagne chaque investisseur comme un coach personnel. Il écoute la voix, comprend l’état émotionnel, adapte les parcours d’apprentissage et récompense la discipline via le token ACI."
+    title: 'Vision & produit',
+    points: [
+      'Coach IA 3D émotionnel, routines personnalisées et marketplace de parcours.',
+      'Approche omnicanale : voix, analyse émotionnelle, conciergerie business.',
     ],
   },
   {
-    id: 'vision',
-    title: '1. Vision & problématique',
-    content: [
-      "Les traders particuliers sont submergés d’informations tout en restant seuls face au stress. Les plateformes actuelles sont passives et déconnectées des émotions. Notre ambition est de proposer " +
-        "un entraîneur sportif des marchés: un coach IA 3D, empathique, qui synchronise formation, staking et gouvernance.",
-      "Objectifs 24 mois : -30 % de stress perçu, +40 % de complétion des parcours, 75 % du supply en staking un an après la prévente, 3 votes de gouvernance la première année."
+    title: 'Économie du token',
+    points: [
+      'Utilité ACI : accès premium, staking, gouvernance, récompenses mission.',
+      'Distribution équilibrée entre prévente, R&D, communauté et liquidités.',
     ],
   },
   {
-    id: 'ecosystem',
-    title: '2. Écosystème ACI',
-    content: [
-      "Token ACI : carburant économique, outil de gouvernance et levier de gamification. Il aligne utilisateurs, coachs et partenaires et finance l’amélioration continue de l’IA.",
-      "Coach IA 3D : avatar animé, personnalité \"meilleur ami\", analyse voix/caméra, knowledge base, fallback local.",
-      "Parcours Meta Coach : tracks trading, mindset, gestion du risque, routines journalières et journaling.",
-      "Marketplace : modules IA, masterclass, packs coach humains, outils premium. Paiement en ACI ou stablecoins avec conversion."
-    ],
-  },
-  {
-    id: 'architecture',
-    title: '3. Architecture technique',
-    content: [
-      "Frontend : React 18, Tailwind, Three.js, fallback offline, sécurité CSP/SRI.",
-      "Backend IA : modèle propriétaire ACI entraîné sur nos contenus de formation et modules comportementaux, avec knowledge index, pipeline vocal (STT/TTS) et monitoring fiabilité/sécurité.",
-      "Smart contracts : prévente, staking, scripts Hardhat/Foundry, audits indépendants, multi-signature.",
-      "Observabilité : logs anonymisés, Prometheus/Grafana, Sentry, alertes latence IA." 
-    ],
-  },
-  {
-    id: 'coach-ai',
-    title: '4. Coach IA — fonctionnement',
-    content: [
-      "Pipeline : voix → STT → features émotionnelles → contextualisation plan → réponse + nudge.",
-      "Persona : tutoiement, humour léger, modes \"Best Friend\" / \"Tactical Coach\".",
-      "Analyse voix & caméra : RMS, variance, pitch, fillers/minute, baseline adaptative, caméra Human.js optionnelle.",
-      "Fallback : knowledge base locale même sans backend externe pour garantir une réponse."
-    ],
-  },
-  {
-    id: 'training',
-    title: '5. Parcours & marketplace',
-    content: [
-      "Construction du plan : diagnostic, onboarding, cycle hebdomadaire, review émotionnelle.",
-      "Marketplace : routines IA, masterclass traders, packs coach humains, outils — revenue share créateurs.",
-      "KPIs : sessions voix/semaine, Net Emotional Score, progression plan, TVL staking, MRR marketplace."
-    ],
-  },
-  {
-    id: 'tokenomics',
-    title: '6. Tokenomics',
-    content: [
-      "Allocation indicative : 35 % prévente, 20 % team/advisors, 15 % trésor R&D, 20 % rewards staking/missions, 10 % liquidité/ops.",
-      "Staking : APR modulable (10-25 %), lock 30-180 jours, bonus tiers, rewards (tokens, modules premium, XP plan).",
-      "Utilité ACI : accès premium, réductions marketplace, gouvernance, priorités presales, récompenses missions."
-    ],
-  },
-  {
-    id: 'roadmap',
-    title: '7. Roadmap',
-    content: [
-      "Alpha (0-6 mois) : prévente, coach IA voix + KB, staking pilote, marketplace MVP, tests émotion.",
-      "Beta (6-12 mois) : coach IA v2, marketplace ouverte, app mobile, sessions hybrides, votes de signalisation.",
-      "Growth (12-24 mois) : DAO complète, API plan IA, white-label coach, extension DeFi, programmes buy-back, expansion internationale."
-    ],
-  },
-  {
-    id: 'governance',
-    title: '8. Gouvernance & communauté',
-    content: [
-      "DAO progressive (staking-weighted voting, delegation).",
-      "Conseil communautaire (utilisateurs, créateurs, mentors).",
-      "Rapports trimestriels, programmes ambassadeurs, AMA, hackathons."
-    ],
-  },
-  {
-    id: 'security',
-    title: '9. Sécurité & conformité',
-    content: [
-      "Audits indépendants, multisig Gnosis Safe.",
-      "RGPD : consentement explicite voix/cam, stockage local par défaut.",
-      "Limitation IA : rate limit, modération, red teaming.",
-      "Bug bounty via Immunefi/HackerOne."
-    ],
-  },
-  {
-    id: 'metrics',
-    title: '10. Indicateurs clés',
-    content: [
-      "Voice engagement, variation stress/confidence, TVL staking, revenus marketplace, participation gouvernance, support client, taux fallback IA."
-    ],
-  },
-  {
-    id: 'risks',
-    title: '11. Risques & mitigation',
-    content: [
-      "Dépendance IA → fallback local, multi-prestataires.",
-      "Volatilité token → diversification trésor, pricing adaptatif.",
-      "Régulation voix → mode texte-only, consentement renforcé.",
-      "Adoption → programmes ambassadeurs, partenariats.",
-      "Coût IA → optimisation prompts, caching, monitoring.",
-      "RGPD/data → anonymisation, stockage local par défaut."
-    ],
-  },
-  {
-    id: 'conclusion',
-    title: '12. Conclusion',
-    content: [
-      "ACI Meta Coach fusionne intelligence émotionnelle, tokenomics et coaching interactif pour aider les traders à rester disciplinés et engagés."
+    title: 'Feuille de route',
+    points: [
+      'Alpha → coach IA voix + staking pilote + marketplace MVP.',
+      'Beta → app mobile, sessions hybrides, votes de gouvernance, DAO progressive.',
     ],
   },
 ];
 
+const TIMELINE = [
+  { label: 'Version actuelle', value: 'v1.2', accent: 'text-emerald-300' },
+  { label: 'Dernière mise à jour', value: 'Janvier 2025', accent: 'text-emerald-200' },
+  { label: 'Format', value: 'Markdown & PDF (à venir)', accent: 'text-white/80' },
+];
+
 export default function WhitepaperPage() {
-  const sections = useMemo(() => SECTION_DATA, []);
-
   return (
-    <div className="py-16 text-white">
-      <header className="space-y-4 text-center">
-        <h1 className="text-4xl font-bold sm:text-5xl">ACI Meta Coach — Whitepaper</h1>
-        <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/70">
-          Découvrez l’architecture complète de la plateforme ACI, le rôle du token et la feuille de route pour construire un coach 3D émotionnellement intelligent.
-        </p>
-        <div className="flex justify-center gap-4 text-sm text-white/60">
-          <a
-            className="rounded-full border border-white/20 px-5 py-2 transition hover:border-emerald-400/80 hover:text-emerald-200"
-            href="/WHITEPAPER.md"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Télécharger la version markdown
-          </a>
-          <Link
-            className="rounded-full bg-[#10b981] px-5 py-2 font-semibold text-black transition hover:bg-[#00fff7]"
-            to="/contact"
-          >
-            Contacter l’équipe
-          </Link>
-        </div>
-      </header>
+    <div className="relative min-h-screen bg-gradient-to-br from-black via-[#0a101d] to-[#020409] px-6 py-20 text-white">
+      <div className="mx-auto flex max-w-6xl flex-col gap-16">
+        {/* Hero */}
+        <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 px-8 py-12 shadow-[0_40px_120px_-30px_rgba(16,185,129,0.35)] backdrop-blur">
+          <div className="absolute left-1/2 top-0 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/20 blur-3xl" />
+          <div className="relative flex flex-col items-center gap-6 text-center">
+            <span className="rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.45em] text-emerald-200">
+              Whitepaper Officiel
+            </span>
+            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
+              ACI Meta Coach<br className="hidden sm:block" />Stratégie & Architecture
+            </h1>
+            <p className="max-w-3xl text-base leading-relaxed text-white/70">
+              Plongez dans la vision complète du Coach IA, sa tokenomics et les fondations techniques qui permettent de
+              fusionner coaching émotionnel, récompenses tokenisées et gouvernance communautaire.
+            </p>
 
-      <div className="mt-14 grid gap-10 lg:grid-cols-[260px_1fr]">
-        <nav className="sticky top-24 hidden h-max flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70 backdrop-blur lg:flex">
-          <span className="text-xs uppercase tracking-[0.3em] text-white/40">Sommaire</span>
-          <ul className="mt-3 space-y-2">
-            {sections.map(section => (
-              <li key={section.id}>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="flex flex-col items-stretch gap-3 sm:flex-row">
                 <a
-                  href={`#${section.id}`}
-                  className="block rounded-xl px-3 py-2 transition hover:bg-white/10 hover:text-emerald-200"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#10b981] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#00fff7]"
+                  href="/WHITEPAPER.pdf"
+                  download
                 >
-                  {section.title}
+                  <FaFileDownload className="text-base" />
+                  Télécharger le PDF
                 </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <article className="space-y-12">
-          {sections.map(section => (
-            <section key={section.id} id={section.id} className="scroll-mt-28 space-y-4">
-              <header className="space-y-2">
-                <h2 className="text-2xl font-semibold text-emerald-200">{section.title}</h2>
-                <div className="h-1 w-16 rounded-full bg-emerald-400/50" />
-              </header>
-              <div className="space-y-4 text-base leading-relaxed text-white/75">
-                {section.content.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+                <a
+                  className="inline-flex items-center justify-center gap-3 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400/60 hover:text-emerald-200"
+                  href="/WHITEPAPER.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Consulter la version Markdown
+                </a>
               </div>
-            </section>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400/60 hover:text-emerald-200"
+              >
+                Échanger avec l’équipe
+                <FaArrowRight className="text-xs" />
+              </Link>
+            </div>
+
+            <div className="mt-6 grid w-full gap-4 rounded-2xl border border-white/10 bg-black/30 p-4 text-xs uppercase tracking-[0.35em] text-white/60 sm:grid-cols-3">
+              {TIMELINE.map(item => (
+                <div key={item.label} className="flex flex-col gap-1 rounded-xl bg-white/5 px-4 py-3 text-left">
+                  <span>{item.label}</span>
+                  <span className={`text-sm font-semibold normal-case tracking-normal ${item.accent}`}>
+                    {item.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Highlights */}
+        <section className="grid gap-6 md:grid-cols-3">
+          {HIGHLIGHTS.map(section => (
+            <div
+              key={section.title}
+              className="rounded-3xl border border-emerald-400/20 bg-white/5 p-6 shadow-[0_20px_80px_-35px_rgba(16,185,129,0.5)]"
+            >
+              <h2 className="text-xl font-semibold text-emerald-200">{section.title}</h2>
+              <ul className="mt-4 space-y-3 text-sm text-white/75">
+                {section.points.map(point => (
+                  <li key={point} className="flex items-start gap-3">
+                    <span className="mt-2 inline-block h-2 w-2 rounded-full bg-emerald-300" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </article>
+        </section>
+
+        {/* Secondary CTA */}
+        <section className="rounded-3xl border border-white/10 bg-gradient-to-r from-emerald-500/10 via-transparent to-cyan-500/10 px-8 py-10 text-center text-white/80">
+          <h2 className="text-2xl font-semibold text-white">
+            Vous souhaitez le recevoir en PDF ou participer à une session privée ?
+          </h2>
+          <p className="mt-3 text-sm text-white/60">
+            Partagez votre email et nous vous enverrons la version PDF dès sa publication, accompagnée d’un résumé exécutif.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <input
+              type="email"
+              placeholder="Votre adresse e-mail"
+              className="w-full max-w-sm rounded-full border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder-white/40 focus:border-[#10b981] focus:outline-none focus:ring-2 focus:ring-[#10b981]/40"
+            />
+            <button
+              type="button"
+              className="rounded-full bg-[#10b981] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#00fff7]"
+            >
+              Recevoir le PDF
+            </button>
+          </div>
+        </section>
       </div>
     </div>
   );
