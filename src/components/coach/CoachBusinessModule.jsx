@@ -2,64 +2,88 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AstronautHeroVideo from '../AstronautHeroVideo';
 
+const DEFAULT_MESSAGES = [
+  {
+    role: 'coach',
+    label: 'Coach ACI',
+    text: "Je viens d’analyser ton profil et ta façon de travailler : tu veux que je cible un business rentable ou que je renforce ta présence actuelle ?",
+  },
+  {
+    role: 'user',
+    label: 'Toi',
+    text: 'Je veux un plan clair et un business qui correspond à mon énergie, sans perdre de temps.',
+  },
+  {
+    role: 'coach',
+    label: 'Coach ACI',
+    text: 'Je sélectionne trois idées alignées sur tes compétences, je réserve les rendez-vous nécessaires et j’active la conciergerie paiement et déplacement.',
+  },
+];
+
+const ROLE_ACCENTS = {
+  coach: 'text-emerald-300',
+  user: 'text-amber-300',
+};
+
 export default function CoachBusinessModule() {
   const sectionRef = useRef(null);
   const hasStartedRef = useRef(false);
   const [isActive, setIsActive] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const ROLE_ACCENTS = {
-    coach: 'text-emerald-300',
-    user: 'text-amber-300',
-  };
+  const localizedMessages = useMemo(() => {
+    const value = t('coachBusinessModule.messages', { returnObjects: true });
+    return Array.isArray(value) ? value : [];
+  }, [t, i18n.language]);
 
-  const localizedMessages = t('coachBusinessModule.messages', { returnObjects: true }) ?? [];
-
-  const messageSequence = useMemo(
-    () =>
-      localizedMessages.map(entry => ({
-        role: entry.role ?? 'coach',
-        label: entry.label ?? '',
+  const messageSequence = useMemo(() => {
+    const source = localizedMessages.length ? localizedMessages : DEFAULT_MESSAGES;
+    return source.map(entry => {
+      const role = entry.role ?? 'coach';
+      return {
+        role,
+        label: entry.label ?? (role === 'coach' ? 'Coach ACI' : 'Toi'),
         text: entry.text ?? '',
-        accent: ROLE_ACCENTS[entry.role] ?? ROLE_ACCENTS.coach,
-      })),
-    [localizedMessages],
-  );
+        accent: ROLE_ACCENTS[role] ?? ROLE_ACCENTS.coach,
+      };
+    });
+  }, [localizedMessages]);
 
-  const moduleTitle = t('coachBusinessModule.title');
-  const moduleDescription = t('coachBusinessModule.description');
-  const scrollHint = t('coachBusinessModule.scrollHint');
-
-  const fallbackSequence = useMemo(
-    () => [
-      {
-        role: 'coach',
-        label: 'Coach ACI',
-        text: "Je viens d’analyser ton profil et ta façon de travailler : tu veux que je cible un business rentable ou que je renforce ta présence actuelle ?",
-        accent: ROLE_ACCENTS.coach,
-      },
-      {
-        role: 'user',
-        label: 'Toi',
-        text: 'Je veux un plan clair et un business qui correspond à mon énergie, sans perdre de temps.',
-        accent: ROLE_ACCENTS.user,
-      },
-      {
-        role: 'coach',
-        label: 'Coach ACI',
-        text: 'Je sélectionne trois idées alignées sur tes compétences, je réserve les rendez-vous nécessaires et j’active la conciergerie paiement et déplacement.',
-        accent: ROLE_ACCENTS.coach,
-      },
-    ],
-    [],
-  );
-
-  const resolvedMessages = messageSequence.length > 0 ? messageSequence : fallbackSequence;
+  const moduleTitle = t('coachBusinessModule.title', {
+    defaultValue: 'Coach IA business pro (démo animée)',
+  });
+  const moduleDescription = t('coachBusinessModule.description', {
+    defaultValue:
+      "Aperçu du mode business : l’IA analyse votre profil, identifie les opportunités adaptées et active la conciergerie pour organiser paiements, rendez-vous et déplacements.",
+  });
+  const scrollHint = t('coachBusinessModule.scrollHint', {
+    defaultValue: 'Faites défiler pour lancer la démo',
+  });
 
   const [messages, setMessages] = useState([]);
   const [step, setStep] = useState(0);
   const [partial, setPartial] = useState('');
   const [typingRole, setTypingRole] = useState(null);
+
+  useEffect(() => {
+    setMessages([]);
+    setStep(0);
+    setPartial('');
+    setTypingRole(null);
+    hasStartedRef.current = false;
+    setIsActive(false);
+
+    const element = sectionRef.current;
+    if (element) {
+      requestAnimationFrame(() => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          hasStartedRef.current = true;
+          setIsActive(true);
+        }
+      });
+    }
+  }, [i18n.language]);
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -82,13 +106,13 @@ export default function CoachBusinessModule() {
   useEffect(() => {
     if (!isActive) return undefined;
     let cancelled = false;
-    if (step >= resolvedMessages.length) {
+    if (step >= messageSequence.length) {
       setTypingRole(null);
       setPartial('');
       return undefined;
     }
 
-    const currentMessage = resolvedMessages[step];
+    const currentMessage = messageSequence[step];
     const fullText = currentMessage.text;
     let index = 0;
     setTypingRole(currentMessage);
@@ -114,7 +138,7 @@ export default function CoachBusinessModule() {
       cancelled = true;
       clearInterval(interval);
     };
-  }, [resolvedMessages, isActive, step]);
+  }, [messageSequence, isActive, step]);
 
   return (
     <section

@@ -188,37 +188,20 @@
       "token": "Den Meta Coach Token entdecken"
     }
   },
-  "coachBusinessModule": {
-    "title": "KI-Business-Coach (animierte Demo)",
-    "description": "Ein Blick auf den Business-Modus: Die KI analysiert dein Profil, erkennt passende Chancen und aktiviert die Concierge, um Zahlungen, Termine und Logistik zu organisieren.",
-    "scrollHint": "Zum Starten der Demo nach unten scrollen",
-    "messages": [
-      {
-        "role": "coach",
-        "label": "Coach ACI",
-        "text": "Ich habe gerade dein Profil und deinen Arbeitsstil analysiert. Sollen wir einen profitablen Geschäftswinkel finden oder dein aktuelles Projekt stärken?"
-      },
-      {
-        "role": "user",
-        "label": "Du",
-        "text": "Ich brauche einen klaren Plan und ein Business, das zu meiner Energie passt – ohne Zeit zu verlieren."
-      },
-      {
-        "role": "coach",
-        "label": "Coach ACI",
-        "text": "Perfekt. Ich stelle drei Ideen zusammen, die zu deinen Stärken passen, plane die wichtigsten Termine und aktiviere die Concierge für Zahlungen und Reisen."
-      }
-    ]
+  "coachIAPage": {
+    "title": "Coach KI",
+    "intro": "ACI Meta Coach verbindet KI-Modelle mit Coaching-Methodik, um dein Trading zu transformieren – Strategie, Mindset und Risikomanagement im Einklang.",
+    "loading": "Interaktive Module werden geladen…"
   },
   "coach3DModule": {
-    "title": "KI-Coach (animierte Demo)",
-    "description": "Ein Vorgeschmack auf den KI-Coach: Der Astronaut führt ein kurzes Skript aus, um die kommende Erfahrung zu zeigen. Die interaktive Version (Stimme, Emotionen, Routinen) erscheint in Kürze.",
-    "scrollHint": "Zum Starten der Demo nach unten scrollen",
+    "title": "KI-Coach (Demo)",
+    "description": "Kurzer Einblick in den KI-Coach. Interaktive Sprachversion mit Emotionen und Routinen folgt bald.",
+    "scrollHint": "Scrollen, um die Demo zu starten",
     "messages": [
       {
         "role": "coach",
-        "label": "Coach ACI",
-        "text": "Hallo, ich bin dein ACI KI-Coach. Bereit, gemeinsam dein Mindset zu stabilisieren?"
+        "label": "ACI Coach",
+        "text": "Hi 👋 Ich bin dein KI-Coach. Bereit, dein Mindset zu stabilisieren?"
       },
       {
         "role": "user",
@@ -227,188 +210,49 @@
       },
       {
         "role": "coach",
-        "label": "Coach ACI",
-        "text": "Ich erkenne deine Energie, analysiere deine Stimme und wähle deine nächste präzise Herausforderung. Die interaktive Version kommt bald."
+        "label": "ACI Coach",
+        "text": "Wir analysieren Ziele, Verhalten und Stresslevel, um Wochenpläne aufzubauen."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Strategie + Mindset + Risiko. Fortschritt mit klaren Kennzahlen, Rewards und Erinnerungen."
       }
     ]
   },
-  "astronautVideo": {
-    "loading": "Coach wird geladen…",
-    "badge": "Coach ACI",
-    "fallback": {
-      "title": "Statischer Modus",
-      "description": "WebGL ist auf diesem Gerät nicht verfügbar. Der 3D-Coach erscheint in einem kompatiblen Browser (aktueller Desktop oder mobiles Gerät).",
-      "note": "Kein Problem: Der Rest der Experience funktioniert weiterhin."
-    },
-    "focus": {
-      "title": "Fokusmodus",
-      "tag": "KI-Concierge",
-      "items": [
-        {
-          "title": "Profil",
-          "value": "Verhaltensanalyse bereit"
-        },
-        {
-          "title": "Business",
-          "value": "3 qualifizierte Ideen"
-        },
-        {
-          "title": "Concierge",
-          "value": "Termine laufen"
-        },
-        {
-          "title": "Mindset",
-          "value": "Anti-Stress-Routine aktiv"
-        }
-      ]
-    }
-  },
-  "emotionDetection": {
-    "placeholder": {
-      "title": "Emotionsanalyse-Modul",
-      "description": "Diese Demo ist derzeit auf Französisch verfügbar. Vollständig lokalisierte Versionen mit übersetzter Sprach- und Kameraauswertung folgen in Kürze.",
-      "cta": "Frühen Zugang anfragen",
-      "note": "Du möchtest eine Live-Demo? Melde dich – wir führen dich gern persönlich durch das Modul."
-    },
-    "labels": {
-      "angry": "Wütend",
-      "disgusted": "Angewidert",
-      "disgust": "Ekel",
-      "fear": "Ängstlich",
-      "fearful": "Ängstlich",
-      "happy": "Fröhlich",
-      "sad": "Traurig",
-      "surprise": "Überrascht",
-      "surprised": "Überrascht",
-      "neutral": "Neutral",
-      "calm": "Gelassen",
-      "bored": "GelLangweilt",
-      "sleepy": "Müde",
-      "serious": "Ernst",
-      "confused": "Verwirrt",
-      "excited": "Begeistert",
-      "smile": "Lächeln"
-    },
-    "fillerWords": ["äh", "ähm", "hm", "hmm", "also"],
-    "ui": {
-      "badge": "ACI Meta Coach",
-      "title": "Emotionsanalyse-Modul (Stimme + Kamera)",
-      "description": "Analyse deiner Stimme in Echtzeit, damit der Coach seine Hinweise anpasst: dominante Emotion, Stress, Selbstvertrauen, Sprechtempo und Füllwörter. Aktiviere die Kamera, um das Feedback über Gesichtsausdrücke zu ergänzen (100 % lokal im Browser verarbeitet).",
-      "voiceHint": "Live-Sprachanalyse, damit dein Coaching sofort reagiert.",
-      "toggle": {
-        "tooltipSession": "Beende die Session, um die Videoanalyse zu ändern.",
-        "tooltipActive": "Videoanalyse deaktivieren",
-        "tooltipInactive": "Videoanalyse aktivieren",
-        "textChecking": "Kamerazugriff wird angefragt…",
-        "textEnabled": "Videoanalyse aktiv",
-        "textDisabled": "Videoanalyse aktivieren"
+  "coach3DModuleFallback": {
+    "title": "KI-Coach (Demo)",
+    "description": "Kurzer Einblick in den KI-Coach. Interaktive Sprachversion mit Emotionen und Routinen folgt bald.",
+    "scrollHint": "Scrollen, um die Demo zu starten",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Hi 👋 Ich bin dein KI-Coach. Bereit, dein Mindset zu stabilisieren?"
       },
-      "consent": {
-        "title": "Zustimmung erforderlich",
-        "description": "Um die Emotionsanalyse zu starten, erlaube den Mikrofonzugriff. Der Audiostream bleibt lokal – es werden nur die berechneten Kennzahlen angezeigt.",
-        "button": "Sprachanalyse erlauben"
+      {
+        "role": "user",
+        "label": "Du",
+        "text": "Beeindruckend! Wie personalisierst du meine Routine?"
       },
-      "preSession": {
-        "intro": "Alles bereit für eine Sprachsession. Klicke auf Start und sprich wie in einer echten Situation. Du kannst jederzeit stoppen, um den Bericht anzusehen.",
-        "startButton": "Session starten",
-        "previousSummaryNote": "Vorheriges Ergebnis unten verfügbar."
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Wir analysieren Ziele, Verhalten und Stresslevel, um Wochenpläne aufzubauen."
       },
-      "session": {
-        "title": "Session läuft",
-        "description": "Die Kennzahlen werden alle 750 ms aktualisiert, damit die Anzeige flüssig bleibt.",
-        "stopButton": "Stoppen und Bericht anzeigen",
-        "videoConfidence": "{{value}}% Vertrauen",
-        "metricEmotion": "Emotion",
-        "metricSpeechRate": "Sprechtempo",
-        "metricFillers": "Füllwörter pro Minute",
-        "metricVoiceAi": "KI-Sprachinsights",
-        "voiceInsightsHint": "Ich beobachte Tonfall, Energie und Stabilität, damit dein Coaching sofort angepasst wird.",
-        "coachLabel": "Coach"
-      },
-      "summary": {
-        "title": "Sessionsbericht",
-        "legend": "Stress (rosa) • Vertrauen (grün) über {{points}} Punkte",
-        "stress": "Durchschnittlicher Stress",
-        "confidence": "Durchschnittliches Vertrauen",
-        "pace": "Gesamttempo",
-        "paceUnit": "Wörter/min",
-        "fillers": "Durchschnittliche Füllwörter",
-        "fillersUnit": "pro Minute",
-        "videoTitle": "Erkannte Gesichtsemotionen",
-        "dominant": "Dominant: {{label}}",
-        "adviceTitle": "3 Tipps für das nächste Mal",
-        "restartButton": "Neue Session starten",
-        "restartNote": "Daten bleiben lokal im Browser. Starte die Analyse, wann immer du willst."
-      },
-      "chart": {
-        "empty": "Für diese Session liegen keine Daten vor."
-      },
-      "coachMessageLabel": "Coach-Insight",
-      "sessionStatus": "Session läuft"
-    },
-    "errors": {
-      "micUnavailable": "Das Mikrofon ist in diesem Browser nicht verfügbar.",
-      "micDenied": "Mikrofonzugriff verweigert. Prüfe die Browserberechtigungen.",
-      "cameraUnavailable": "Die Kamera ist in diesem Browser nicht verfügbar.",
-      "cameraDenied": "Kamerazugriff verweigert. Prüfe die Browserberechtigungen.",
-      "analysisUnavailable": "Analyse nicht verfügbar. Stelle sicher, dass das Mikro erreichbar ist.",
-      "videoModelsFailed": "Videoanalyse-Modelle konnten nicht geladen werden.",
-      "videoFallback": "Kamera konnte nicht aktiviert werden. Wechsel in den reinen Sprachmodus.",
-      "voiceAiFallback": "KI-Sprachanalyse nicht verfügbar. Lokale Kennzahlen werden genutzt."
-    },
-    "status": {
-      "videoChecking": "Kamerazugriff wird angefragt…",
-      "videoReady": "Kamera bereit",
-      "videoEnabled": "Kamera aktiv",
-      "videoDisabled": "Kamera aktivieren",
-      "videoAnalysis": "Videoanalyse läuft…",
-      "videoReminder": "Kamera bereit – halte dein Gesicht im Bild."
-    },
-    "coachCue": {
-      "highStress": "Atme 10 Sekunden tief durch, lockere die Schultern und fahre ruhiger fort.",
-      "lowConfidenceFillers": "Formuliere dein Ziel in einem klaren Satz, bevor du weitermachst.",
-      "energetic": "Tolle Energie! Nimm dir zwei Minuten, um ein Argument kraftvoll auszubauen.",
-      "lowConfidence": "Zwei tiefe Atemzüge und fokussiere dich auf eine zentrale Aussage.",
-      "balanced": "Bleib bei diesem klaren Ton. Orientiere dich an deinem Plan und geh Schritt für Schritt voran."
-    },
-    "voiceSummary": {
-      "awaiting": "Ich höre zu – sprich weiter für eine vollständige Analyse.",
-      "highStressLowConfidence": "Hohe Anspannung erkannt: verlangsame und entspanne die Schultern, bevor du weitergehst.",
-      "highStress": "Viel Energie! Kanalisiere sie, indem du dein nächstes Anliegen klar formulierst.",
-      "highConfidence": "Stimme stabil und sicher – ideal, um deinen Plan auszuführen.",
-      "lowConfidence": "Ruhiger, aber unsicherer Ton: formuliere deine nächste Idee in einem starken Satz.",
-      "highPitch": "Die Stimme steigt deutlich – atme und reduziere das Tempo für mehr Klarheit.",
-      "balanced": "Ausgewogene Stimme: behalte dieses Tempo und betone die Kerngedanken."
-    },
-    "advice": {
-      "reset": "Lege dir vor der nächsten Session ein kurzes Reset-Ritual (Atmung, Grounding) zurecht.",
-      "intention": "Schreibe deine Intention in einen Schlüsselsatz und sprich ihn laut aus, bevor du startest.",
-      "pause": "Übe bewusste Pausen – stoppe, sobald du eine “äh”-Phase spürst.",
-      "slowDown": "Arbeite am Tempo: lies eine Passage langsam, um dich an ein ruhigeres Sprechen zu gewöhnen.",
-      "challenge": "Bonus: Erkläre beim nächsten Mal eine komplexe Idee in 120 Sekunden.",
-      "structure": "Nutze die Struktur „Situation – Aktion – Ergebnis“, um deinen Vortrag zu glätten.",
-      "setup": "Sorge für eine ruhige Umgebung und checke dein Audio-Setup im Voraus.",
-      "hydrate": "Trinke etwa 10 Minuten vor der Session etwas, um deine Stimme zu unterstützen."
-    },
-    "emotionNames": {
-      "fallback": "Fokussiert",
-      "stressed": "Gestresst",
-      "confident": "Selbstsicher",
-      "calm": "Ruhig",
-      "tense": "Angespannt"
-    }
-  },
-  "coachIAPage": {
-    "title": "Coach KI",
-    "intro": "ACI Meta Coach verbindet KI-Modelle mit Coaching-Methodik, um dein Trading zu transformieren – Strategie, Mindset und Risikomanagement im Einklang.",
-    "loading": "Interaktive Module werden geladen …"
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Strategie + Mindset + Risiko. Fortschritt mit klaren Kennzahlen, Rewards und Erinnerungen."
+      }
+    ]
   },
   "navigation": {
     "menu": {
       "home": "Startseite",
       "coach": "Coach KI",
       "formations": "Trainings",
-      "token": "Tokenomics",
+      "token": "ACI Token",
       "staking": "Staking",
       "roadmap": "Roadmap",
       "whitepaper": "Whitepaper",
@@ -750,7 +594,7 @@
     "intro": "Eine Acht-Phasen-Vision: Identität, KI-Coach, intelligente Trainings, Staking, DAO, MetaVerse, Wohlfühl-App und globaler Launch. Jeder Meilenstein stärkt das ACI-Ökosystem und den Token-Wert."
   },
   "tokenPage": {
-    "title": "Tokenomics",
+    "title": "Meta Coach Token (ACI)",
     "intro": "Der ACI-Token treibt das Ökosystem an: Zugang zum KI-Coach, Rabatte auf Trainings, Staking und zukünftige Governance. Er steht im Zentrum unserer Meta-Coach-Vision – smarte Tools, menschliche Begleitung und Anreize, die auf deinen Fortschritt abgestimmt sind.",
     "utilitiesTitle": "Wichtigste Nutzen",
     "utilities": [
@@ -1303,5 +1147,49 @@
         "gratitude": "feierliche Verankerung"
       }
     }
+  },
+  "coachBusinessModule": {
+    "title": "KI-Business-Coach (animierte Demo)",
+    "description": "Ein Blick darauf, wie der Concierge dein Profil analysiert, Geschäftsideen hervorbringt und die nächsten Schritte koordiniert.",
+    "scrollHint": "Scrollen, um die Business-Demo zu starten",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Ich habe dein Profil und deinen Stil geprüft. Suchen wir einen neuen profitablen Ansatz oder stärken wir dein aktuelles Geschäft?"
+      },
+      {
+        "role": "user",
+        "label": "Du",
+        "text": "Ich will einen klaren, energiegeladenen Plan – keine Zeitverschwendung."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Perfekt. Ich stelle drei Ideen zusammen, plane die wichtigsten Termine und aktiviere den Concierge für Zahlungen und Logistik."
+      }
+    ]
+  },
+  "coachBusinessModuleFallback": {
+    "title": "KI-Business-Coach (animierte Demo)",
+    "description": "Ein Blick darauf, wie der Concierge dein Profil analysiert, Geschäftsideen hervorbringt und die nächsten Schritte koordiniert.",
+    "scrollHint": "Scrollen, um die Business-Demo zu starten",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Ich habe dein Profil und deinen Stil geprüft. Suchen wir einen neuen profitablen Ansatz oder stärken wir dein aktuelles Geschäft?"
+      },
+      {
+        "role": "user",
+        "label": "Du",
+        "text": "Ich will einen klaren, energiegeladenen Plan – keine Zeitverschwendung."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Perfekt. Ich stelle drei Ideen zusammen, plane die wichtigsten Termine und aktiviere den Concierge für Zahlungen und Logistik."
+      }
+    ]
   }
 }

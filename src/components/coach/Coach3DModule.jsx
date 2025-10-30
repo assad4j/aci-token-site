@@ -8,12 +8,19 @@ export default function Coach3DModule({
   description,
   messageSequence,
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const sectionRef = useRef(null);
   const hasStartedRef = useRef(false);
   const [isActive, setIsActive] = useState(false);
 
-  const localizedDefault = t('coach3DModule', { returnObjects: true }) ?? {};
+  const localizedDefault = useMemo(
+    () => t('coach3DModule', { returnObjects: true }) ?? {},
+    [t, i18n.language],
+  );
+  const fallbackContent = useMemo(
+    () => t('coach3DModuleFallback', { returnObjects: true }) ?? {},
+    [t, i18n.language],
+  );
 
   const roleAccents = {
     coach: 'text-emerald-300',
@@ -21,55 +28,58 @@ export default function Coach3DModule({
   };
 
   const defaultSequence = useMemo(() => {
-    const rawMessages = Array.isArray(localizedDefault.messages) ? localizedDefault.messages : [];
-    const mapped = rawMessages.map(entry => ({
+    const rawMessages =
+      Array.isArray(localizedDefault.messages) && localizedDefault.messages.length
+        ? localizedDefault.messages
+        : Array.isArray(fallbackContent.messages)
+          ? fallbackContent.messages
+          : [];
+    return rawMessages.map(entry => ({
       role: entry.role ?? 'coach',
       label: entry.label ?? '',
       text: entry.text ?? '',
       accent: roleAccents[entry.role] ?? roleAccents.coach,
     }));
-    if (mapped.length > 0) {
-      return mapped;
-    }
-    return [
-      {
-        role: 'coach',
-        label: 'Coach ACI',
-        text: 'Salut, je suis ton coach IA ACI. On démarre ensemble pour stabiliser ton mindset ?',
-        accent: roleAccents.coach,
-      },
-      {
-        role: 'user',
-        label: 'Toi',
-        text: 'Impressionnant ! Comment vas-tu personnaliser ma routine ?',
-        accent: roleAccents.user,
-      },
-      {
-        role: 'coach',
-        label: 'Coach ACI',
-        text: 'Je détecte ton énergie, j’analyse ta voix et je choisis ton prochain défi précis. La version interactive arrive très vite, on se retrouve pour la suite.',
-        accent: roleAccents.coach,
-      },
-    ];
-  }, [localizedDefault.messages]);
+  }, [fallbackContent, localizedDefault.messages, i18n.language]);
 
   const resolvedSequence = useMemo(
     () => (Array.isArray(messageSequence) && messageSequence.length > 0 ? messageSequence : defaultSequence),
-    [messageSequence, defaultSequence],
+    [messageSequence, defaultSequence, i18n.language],
   );
 
-  const resolvedTitle = title ?? localizedDefault.title ?? 'Coach IA (demo)';
+  const resolvedTitle = title ?? localizedDefault.title ?? fallbackContent.title ?? 'Coach IA (démo animée)';
   const resolvedDescription =
     description ??
     localizedDefault.description ??
-    'Aperçu du Coach IA.';
-  const scrollHint = localizedDefault.scrollHint ?? 'Faites défiler pour lancer la démo';
+    fallbackContent.description ??
+    'Aperçu du Coach IA : l’astronaute échange un court dialogue automatique pour illustrer l’expérience à venir. La version interactive (voix, émotions, routines) sera bientôt disponible.';
+  const scrollHint = localizedDefault.scrollHint ?? fallbackContent.scrollHint ?? 'Faites défiler pour lancer la démo';
   const videoLeft = orientation !== 'video-right';
 
   const [messages, setMessages] = useState([]);
   const [step, setStep] = useState(0);
   const [partial, setPartial] = useState('');
   const [typingRole, setTypingRole] = useState(null);
+
+  useEffect(() => {
+    setMessages([]);
+    setStep(0);
+    setPartial('');
+    setTypingRole(null);
+    hasStartedRef.current = false;
+    setIsActive(false);
+
+    const element = sectionRef.current;
+    if (element) {
+      requestAnimationFrame(() => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          hasStartedRef.current = true;
+          setIsActive(true);
+        }
+      });
+    }
+  }, [i18n.language]);
 
   useEffect(() => {
     const element = sectionRef.current;

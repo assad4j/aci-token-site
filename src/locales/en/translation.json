@@ -188,227 +188,71 @@
       "token": "Discover the Meta Coach Token"
     }
   },
-  "coachBusinessModule": {
-    "title": "AI business coach (animated demo)",
-    "description": "Preview the business mode: the AI analyses your profile, surfaces tailored opportunities and activates the concierge to manage payments, meetings and logistics.",
-    "scrollHint": "Scroll to launch the demo",
-    "messages": [
-      {
-        "role": "coach",
-        "label": "ACI Coach",
-        "text": "I’ve just analysed your profile and your working style. Should I focus on a profitable business angle or reinforce your current activity?"
-      },
-      {
-        "role": "user",
-        "label": "You",
-        "text": "I need a clear plan and a business that matches my energy—no time wasted."
-      },
-      {
-        "role": "coach",
-        "label": "ACI Coach",
-        "text": "Perfect. I’ll shortlist three ideas aligned with your strengths, schedule the key calls and activate concierge support for payments and travel."
-      }
-    ]
-  },
-  "coach3DModule": {
-    "title": "AI coach (animated demo)",
-    "description": "A glimpse of the AI Coach: the astronaut runs a scripted conversation to showcase the upcoming experience. The fully interactive version (voice, emotions, routines) is coming soon.",
-    "scrollHint": "Scroll to launch the demo",
-    "messages": [
-      {
-        "role": "coach",
-        "label": "ACI Coach",
-        "text": "Hi, I’m your ACI AI coach. Ready to stabilise your mindset together?"
-      },
-      {
-        "role": "user",
-        "label": "You",
-        "text": "Impressive! How will you tailor my routine?"
-      },
-      {
-        "role": "coach",
-        "label": "ACI Coach",
-        "text": "I detect your energy, analyse your voice and select your next precise challenge. The interactive version is landing very soon."
-      }
-    ]
-  },
-  "astronautVideo": {
-    "loading": "Loading coach…",
-    "badge": "ACI Coach",
-    "fallback": {
-      "title": "Static mode",
-      "description": "WebGL isn’t available on this device. The 3D coach will display on a compatible browser (recent desktop or mobile).",
-      "note": "No blocker: the rest of the experience still works."
-    },
-    "focus": {
-      "title": "Focus mode",
-      "tag": "AI Concierge",
-      "items": [
-        {
-          "title": "Profile",
-          "value": "Behavior analysis ready"
-        },
-        {
-          "title": "Business",
-          "value": "3 qualified ideas"
-        },
-        {
-          "title": "Concierge",
-          "value": "Meetings in progress"
-        },
-        {
-          "title": "Mindset",
-          "value": "Anti-stress routine active"
-        }
-      ]
-    }
-  },
-  "emotionDetection": {
-    "placeholder": {
-      "title": "Emotion detection module",
-      "description": "This demo is available in French today. Fully localised versions—with translated voice, camera feedback and insights—are on the way.",
-      "cta": "Request early access",
-      "note": "Need a guided walkthrough? Reach out and we’ll demo the module live with you."
-    },
-    "labels": {
-      "angry": "Angry",
-      "disgusted": "Disgusted",
-      "disgust": "Disgust",
-      "fear": "Fearful",
-      "fearful": "Fearful",
-      "happy": "Happy",
-      "sad": "Sad",
-      "surprise": "Surprised",
-      "surprised": "Surprised",
-      "neutral": "Neutral",
-      "calm": "Calm",
-      "bored": "Bored",
-      "sleepy": "Sleepy",
-      "serious": "Serious",
-      "confused": "Confused",
-      "excited": "Excited",
-      "smile": "Smile"
-    },
-    "fillerWords": ["uh", "um", "hmm", "er", "like"],
-    "ui": {
-      "badge": "ACI Meta Coach",
-      "title": "Emotion detection module (voice + camera)",
-      "description": "Real-time voice analysis to help the coach adapt messages: dominant emotion, stress, confidence, speech rhythm and hesitation. Turn on the camera to enrich the analysis with facial expressions (100% local processing in the browser).",
-      "voiceHint": "Live voice analysis to adjust your coaching in real time.",
-      "toggle": {
-        "tooltipSession": "Stop the session to change video analysis.",
-        "tooltipActive": "Disable video analysis",
-        "tooltipInactive": "Enable video analysis",
-        "textChecking": "Camera permission…",
-        "textEnabled": "Video analysis enabled",
-        "textDisabled": "Enable video analysis"
-      },
-      "consent": {
-        "title": "Permission required",
-        "description": "To start emotion detection, allow microphone access. The audio stream stays local; only the computed metrics are displayed.",
-        "button": "Allow voice analysis"
-      },
-      "preSession": {
-        "intro": "Everything is ready for a voice session. Click start and speak as you would in a live situation. Stop anytime to view the session summary.",
-        "startButton": "Start a session",
-        "previousSummaryNote": "Previous result available below."
-      },
-      "session": {
-        "title": "Session in progress",
-        "description": "Metrics update every 750 ms to keep the display fluid.",
-        "stopButton": "Stop and show the report",
-        "videoConfidence": "{{value}}% confidence",
-        "metricEmotion": "Emotion",
-        "metricSpeechRate": "Speech pace",
-        "metricFillers": "Fillers per minute",
-        "metricVoiceAi": "AI voice insights",
-        "voiceInsightsHint": "I track tone, energy and stability so your coaching adapts in real time.",
-        "coachLabel": "Coach"
-      },
-      "summary": {
-        "title": "Session summary",
-        "legend": "Stress (pink) • Confidence (green) over {{points}} points",
-        "stress": "Average stress",
-        "confidence": "Average confidence",
-        "pace": "Overall pace",
-        "paceUnit": "wpm",
-        "fillers": "Average fillers",
-        "fillersUnit": "per minute",
-        "videoTitle": "Detected facial emotions",
-        "dominant": "Dominant: {{label}}",
-        "adviceTitle": "3 suggestions for next time",
-        "restartButton": "Start another session",
-        "restartNote": "Data stays in your browser. Restart detection whenever you want."
-      },
-      "chart": {
-        "empty": "No data available for this session."
-      },
-      "coachMessageLabel": "Coach insight",
-      "sessionStatus": "Session in progress"
-    },
-    "errors": {
-      "micUnavailable": "The microphone isn’t available in this browser.",
-      "micDenied": "Microphone access was denied. Check your browser permissions.",
-      "cameraUnavailable": "The camera isn’t available in this browser.",
-      "cameraDenied": "Camera access denied. Check your browser permissions.",
-      "analysisUnavailable": "Analysis unavailable. Make sure the microphone is accessible.",
-      "videoModelsFailed": "Unable to load the video analysis models.",
-      "videoFallback": "Unable to activate the camera. Switching to voice-only mode.",
-      "voiceAiFallback": "AI voice analysis unavailable. Using local metrics."
-    },
-    "status": {
-      "videoChecking": "Camera permission…",
-      "videoReady": "Camera ready",
-      "videoEnabled": "Camera on",
-      "videoDisabled": "Enable camera",
-      "videoAnalysis": "Video analysis running…",
-      "videoReminder": "Camera ready—keep your face in view."
-    },
-    "coachCue": {
-      "highStress": "Take 10 seconds to breathe, drop your shoulders and resume at a calmer pace.",
-      "lowConfidenceFillers": "State your goal in one clear sentence before continuing—it clarifies the message.",
-      "energetic": "Great energy! Challenge yourself to push one argument for two minutes.",
-      "lowConfidence": "Take two deep breaths and focus on one key idea before moving on.",
-      "balanced": "Keep that clear tone. Stay aligned with your plan and move forward step by step."
-    },
-    "voiceSummary": {
-      "awaiting": "I’m listening—keep speaking for a full analysis.",
-      "highStressLowConfidence": "High tension detected: slow down and relax your shoulders before continuing.",
-      "highStress": "Lots of energy! Channel it by clarifying what you want to say next.",
-      "highConfidence": "Stable, confident voice—perfect to roll out your plan.",
-      "lowConfidence": "Calm but hesitant: craft your next point in a strong sentence.",
-      "highPitch": "Pitch is rising—slow down and breathe to stay clear.",
-      "balanced": "Balanced delivery: keep this rhythm and articulate the key ideas."
-    },
-    "advice": {
-      "reset": "Set a quick reset ritual (breathing, grounding) before your next session.",
-      "intention": "Write your intention in one sentence and say it out loud before you start.",
-      "pause": "Practice a conscious pause—stop as soon as you feel an “uh” coming.",
-      "slowDown": "Work on pacing: read a passage slowly to get used to a calmer rhythm.",
-      "challenge": "Bonus challenge: explain a complex idea in 120 seconds next time.",
-      "structure": "Repeat the “Situation - Action - Result” structure to keep your speech fluid.",
-      "setup": "Set up in a calm environment and double-check your audio gear beforehand.",
-      "hydrate": "Hydrate about 10 minutes before the session to support your voice."
-    },
-    "emotionNames": {
-      "fallback": "Focused",
-      "stressed": "Stressed",
-      "confident": "Confident",
-      "calm": "Calm",
-      "tense": "Tense"
-    }
-  },
   "coachIAPage": {
-    "title": "AI Coach",
+    "title": "Coach AI",
     "intro": "ACI Meta Coach blends AI models with proven coaching methods to transform how you trade—strategy, mindset, and risk management aligned.",
     "loading": "Loading interactive modules…"
+  },
+  "coach3DModule": {
+    "title": "AI Coach (demo)",
+    "description": "A quick preview of the AI coach. Interactive voice, emotion and routine tracking coming soon.",
+    "scrollHint": "Scroll to start the demo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Hi 👋 I'm your AI coach. Ready to stabilise your mindset?"
+      },
+      {
+        "role": "user",
+        "label": "You",
+        "text": "Impressive! How will you personalise my routine?"
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "We analyse your goals, behaviour and stress signals to craft weekly action plans."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Training + mindset + risk control. Progress with clear metrics, rewards and reminders."
+      }
+    ]
+  },
+  "coach3DModuleFallback": {
+    "title": "AI Coach (demo)",
+    "description": "A quick preview of the AI coach. Interactive voice, emotion and routine tracking coming soon.",
+    "scrollHint": "Scroll to start the demo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Hi 👋 I'm your AI coach. Ready to stabilise your mindset?"
+      },
+      {
+        "role": "user",
+        "label": "You",
+        "text": "Impressive! How will you personalise my routine?"
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "We analyse your goals, behaviour and stress signals to craft weekly action plans."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Training + mindset + risk control. Progress with clear metrics, rewards and reminders."
+      }
+    ]
   },
   "navigation": {
     "menu": {
       "home": "Home",
       "coach": "Coach AI",
       "formations": "Trainings",
-      "token": "Tokenomics",
+      "token": "ACI Token",
       "staking": "Staking",
       "roadmap": "Roadmap",
       "whitepaper": "Whitepaper",
@@ -762,7 +606,7 @@
     "intro": "An eight-phase vision: identity, AI Coach, smart trainings, staking, DAO, MetaVerse, wellbeing app, and global launch. Each milestone strengthens the ACI ecosystem and the token value."
   },
   "tokenPage": {
-    "title": "Tokenomics",
+    "title": "Meta Coach Token (ACI)",
     "intro": "The ACI token powers the ecosystem: access to the AI Coach, training discounts, staking, and future governance. It’s at the heart of our Meta Coach vision—smart tools, human support, and incentives aligned with your progress.",
     "utilitiesTitle": "Core utilities",
     "utilities": [
@@ -1315,5 +1159,49 @@
         "gratitude": "celebratory anchor"
       }
     }
+  },
+  "coachBusinessModule": {
+    "title": "AI business coach (animated demo)",
+    "description": "Preview how the concierge analyses your profile, surfaces business ideas and coordinates the next steps.",
+    "scrollHint": "Scroll to trigger the business demo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "I've reviewed your profile and execution style. Shall we explore a fresh profitable angle or reinforce what you already run?"
+      },
+      {
+        "role": "user",
+        "label": "You",
+        "text": "I want a clear plan tuned to my energy—no wasted time or random ideas."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Great. I'll shortlist three ideas aligned with your strengths, schedule key calls and activate concierge support for payments and logistics."
+      }
+    ]
+  },
+  "coachBusinessModuleFallback": {
+    "title": "AI business coach (animated demo)",
+    "description": "Preview how the concierge analyses your profile, surfaces business ideas and coordinates the next steps.",
+    "scrollHint": "Scroll to trigger the business demo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "I've reviewed your profile and execution style. Shall we explore a fresh profitable angle or reinforce what you already run?"
+      },
+      {
+        "role": "user",
+        "label": "You",
+        "text": "I want a clear plan tuned to my energy—no wasted time or random ideas."
+      },
+      {
+        "role": "coach",
+        "label": "ACI Coach",
+        "text": "Great. I'll shortlist three ideas aligned with your strengths, schedule key calls and activate concierge support for payments and logistics."
+      }
+    ]
   }
 }
