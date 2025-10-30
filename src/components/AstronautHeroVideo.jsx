@@ -1,10 +1,62 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, useGLTF, Clone } from '@react-three/drei';
+import { useTranslation } from 'react-i18next';
 import * as THREE from 'three';
 import useIsMobile from '../hooks/useIsMobile';
 
 const GLTF_URL = process.env.REACT_APP_AVATAR_GLTF || '/assets/aci-coach.glb';
+
+const DEFAULT_VIDEO_COPY = {
+  loading: 'Chargement du coach…',
+  badge: 'ACI Coach',
+  fallback: {
+    title: 'Mode statique',
+    description:
+      'WebGL n’est pas disponible sur cet appareil. Le coach 3D sera affiché sur un navigateur compatible (ordinateur ou mobile récent).',
+    note: 'Aucun blocage : le reste de l’expérience fonctionne normalement.',
+  },
+  focus: {
+    title: 'Mode focus',
+    tag: 'Concierge IA',
+    items: [
+      { title: 'Profil', value: 'Analyse comportementale prête' },
+      { title: 'Business', value: '3 idées qualifiées' },
+      { title: 'Conciergerie', value: 'Rendez-vous en cours' },
+      { title: 'Mindset', value: 'Routine anti-stress activée' },
+    ],
+  },
+};
+
+function mergeInto(target, source) {
+  if (!source || typeof source !== 'object') {
+    return target;
+  }
+  Object.keys(source).forEach(key => {
+    const value = source[key];
+    if (Array.isArray(value)) {
+      target[key] = value.map(item =>
+        item && typeof item === 'object' ? mergeInto({}, item) : item,
+      );
+    } else if (value && typeof value === 'object') {
+      if (!target[key] || typeof target[key] !== 'object' || Array.isArray(target[key])) {
+        target[key] = {};
+      }
+      mergeInto(target[key], value);
+    } else if (value !== undefined) {
+      target[key] = value;
+    }
+  });
+  return target;
+}
+
+function mergeVideoCopy(overrides) {
+  const base = JSON.parse(JSON.stringify(DEFAULT_VIDEO_COPY));
+  if (overrides && typeof overrides === 'object') {
+    mergeInto(base, overrides);
+  }
+  return base;
+}
 
 function isWebGLAvailable() {
   if (typeof window === 'undefined') {
@@ -25,11 +77,11 @@ function AstronautModel({ url }) {
   return <Clone object={scene} />;
 }
 
-function LoadingFallback() {
+function LoadingFallback({ label }) {
   return (
     <Html center>
       <div className="rounded-2xl border border-white/10 bg-black/50 px-3 py-2 text-xs text-white/70">
-        Loading coach…
+        {label || DEFAULT_VIDEO_COPY.loading}
       </div>
     </Html>
   );
@@ -96,6 +148,24 @@ function AnimatedAstronaut({ url, orientation = 'right' }) {
 }
 
 export default function AstronautHeroVideo({ width = 520, className = '', orientation = 'right' }) {
+  const { t, i18n } = useTranslation();
+  const rawCopyResult = t('astronautVideo', { returnObjects: true });
+  const rawCopy = (rawCopyResult && typeof rawCopyResult === 'object') ? rawCopyResult : {};
+  const copy = useMemo(() => mergeVideoCopy(rawCopy), [i18n.language, rawCopy]);
+  const badgeLabel = copy.badge || DEFAULT_VIDEO_COPY.badge;
+  const fallbackCopy = copy.fallback || DEFAULT_VIDEO_COPY.fallback;
+  const focusCopy = copy.focus || DEFAULT_VIDEO_COPY.focus;
+  const focusItems =
+    Array.isArray(focusCopy.items) && focusCopy.items.length > 0
+      ? focusCopy.items
+      : DEFAULT_VIDEO_COPY.focus.items;
+  const focusTitle = focusCopy.title || DEFAULT_VIDEO_COPY.focus.title;
+  const focusTag = focusCopy.tag || DEFAULT_VIDEO_COPY.focus.tag;
+  const fallbackTitle = fallbackCopy.title || DEFAULT_VIDEO_COPY.fallback.title;
+  const fallbackDescription = fallbackCopy.description || DEFAULT_VIDEO_COPY.fallback.description;
+  const fallbackNote = fallbackCopy.note || DEFAULT_VIDEO_COPY.fallback.note;
+  const loadingLabel = copy.loading || DEFAULT_VIDEO_COPY.loading;
+
   const maxWidthValue = typeof width === 'number' ? `${width}px` : width;
   const [webglSupported, setWebglSupported] = useState(() => isWebGLAvailable());
   const isMobile = useIsMobile(768);
@@ -114,15 +184,10 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
         <div className="pointer-events-none absolute inset-[6%] -z-30 rounded-[48px] border border-white/5" />
         <div className="relative flex aspect-square w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-[22px] border border-emerald-200/35 bg-[radial-gradient(65%_60%_at_50%_15%,rgba(255,220,128,0.18),rgba(6,10,18,0.95))] p-6 text-center text-sm text-white/70 shadow-[0_25px_70px_-28px_rgba(16,185,129,0.65)]">
           <span className="rounded-full border border-white/20 bg-black/60 px-4 py-1 text-[0.65rem] uppercase tracking-[0.3em] text-emerald-200">
-            Mode statique
+            {fallbackTitle}
           </span>
-          <p className="max-w-[220px] leading-relaxed">
-            WebGL n’est pas disponible sur cet appareil. Le coach 3D sera affiché sur un
-            navigateur compatible (ordinateur ou mobile récent).
-          </p>
-          <p className="text-xs text-white/50">
-            Aucun blocage : le reste de l’expérience fonctionne normalement.
-          </p>
+          <p className="max-w-[220px] leading-relaxed">{fallbackDescription}</p>
+          <p className="text-xs text-white/50">{fallbackNote}</p>
         </div>
       </div>
     );
@@ -141,7 +206,7 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
 
         <div className="pointer-events-none absolute left-6 top-6 z-20 flex items-center gap-3 rounded-full border border-white/15 bg-black/55 px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-emerald-100 shadow-[0_12px_30px_-18px_rgba(59,130,246,0.65)] backdrop-blur-md">
           <span className="h-2.5 w-2.5 rounded-full bg-[radial-gradient(circle,rgba(250,204,21,1)_0%,rgba(190,149,34,0.4)_60%,rgba(250,204,21,0)_100%)] shadow-[0_0_12px_rgba(250,204,21,0.9)]" />
-          ACI Coach
+          {badgeLabel}
         </div>
 
         <Canvas
@@ -161,7 +226,7 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
           <ambientLight intensity={0.8} />
           <directionalLight intensity={1.35} position={[2.2, 3.8, 1.6]} color="#fbe18c" />
           <directionalLight intensity={0.6} position={[-2, 3, -1]} color="#34d399" />
-          <React.Suspense fallback={<LoadingFallback />}>
+          <React.Suspense fallback={<LoadingFallback label={loadingLabel} />}>
             <AnimatedAstronaut url={GLTF_URL} orientation={orientation} />
           </React.Suspense>
         </Canvas>
@@ -172,28 +237,22 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
           }`}
         >
           <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.3em] text-emerald-100/80">
-            Mode focus
+            {focusTitle}
             <span className="rounded-full bg-emerald-300/15 px-3 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-emerald-100">
-              Concierge IA
+              {focusTag}
             </span>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-3 text-xs text-white/80">
-            <div>
-              <p className="text-[0.65rem] uppercase tracking-[0.2em] text-emerald-200/70">Profil</p>
-              <p className="mt-1 font-semibold text-white">Analyse comportementale prête</p>
-            </div>
-            <div>
-              <p className="text-[0.65rem] uppercase tracking-[0.2em] text-emerald-200/70">Business</p>
-              <p className="mt-1 font-semibold text-white">3 idées qualifiées</p>
-            </div>
-            <div>
-              <p className="text-[0.65rem] uppercase tracking-[0.2em] text-emerald-200/70">Conciergerie</p>
-              <p className="mt-1 font-semibold text-white">Rendez-vous en cours</p>
-            </div>
-            <div>
-              <p className="text-[0.65rem] uppercase tracking-[0.2em] text-emerald-200/70">Mindset</p>
-              <p className="mt-1 font-semibold text-white">Routine anti-stress activée</p>
-            </div>
+            {focusItems.map((item, index) => {
+              const title = item?.title || '';
+              const value = item?.value || '';
+              return (
+                <div key={`${index}-${title}`}>
+                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-emerald-200/70">{title}</p>
+                  <p className="mt-1 font-semibold text-white">{value}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

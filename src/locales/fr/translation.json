@@ -188,16 +188,227 @@
       "token": "Découvrir le Meta Coach Token"
     }
   },
+  "coachBusinessModule": {
+    "title": "Coach IA business pro (démo animée)",
+    "description": "Aperçu du mode business : l’IA analyse votre profil, identifie les opportunités adaptées et active la conciergerie pour organiser paiements, rendez-vous et déplacements.",
+    "scrollHint": "Faites défiler pour lancer la démo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Je viens d’analyser ton profil et ta façon de travailler : tu veux que je cible un business rentable ou que je renforce ta présence actuelle ?"
+      },
+      {
+        "role": "user",
+        "label": "Toi",
+        "text": "Je veux un plan clair et un business qui correspond à mon énergie, sans perdre de temps."
+      },
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Je sélectionne trois idées alignées sur tes compétences, je réserve les rendez-vous nécessaires et j’active la conciergerie paiement et déplacement."
+      }
+    ]
+  },
+  "coach3DModule": {
+    "title": "Coach IA (démo animée)",
+    "description": "Aperçu du Coach IA : l’astronaute échange un court dialogue automatique pour illustrer l’expérience à venir. La version interactive (voix, émotions, routines) sera bientôt disponible.",
+    "scrollHint": "Faites défiler pour lancer la démo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Salut, je suis ton coach IA ACI. On démarre ensemble pour stabiliser ton mindset ?"
+      },
+      {
+        "role": "user",
+        "label": "Toi",
+        "text": "Impressionnant ! Comment vas-tu personnaliser ma routine ?"
+      },
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Je détecte ton énergie, j’analyse ta voix et je choisis ton prochain défi précis. La version interactive arrive très vite, on se retrouve pour la suite."
+      }
+    ]
+  },
+  "astronautVideo": {
+    "loading": "Chargement du coach…",
+    "badge": "Coach ACI",
+    "fallback": {
+      "title": "Mode statique",
+      "description": "WebGL n’est pas disponible sur cet appareil. Le coach 3D sera affiché sur un navigateur compatible (ordinateur ou mobile récent).",
+      "note": "Aucun blocage : le reste de l’expérience fonctionne normalement."
+    },
+    "focus": {
+      "title": "Mode focus",
+      "tag": "Concierge IA",
+      "items": [
+        {
+          "title": "Profil",
+          "value": "Analyse comportementale prête"
+        },
+        {
+          "title": "Business",
+          "value": "3 idées qualifiées"
+        },
+        {
+          "title": "Conciergerie",
+          "value": "Rendez-vous en cours"
+        },
+        {
+          "title": "Mindset",
+          "value": "Routine anti-stress activée"
+        }
+      ]
+    }
+  },
+  "emotionDetection": {
+    "placeholder": {
+      "title": "Module de détection d’émotions",
+      "description": "Cette démo est actuellement disponible en français. Les versions localisées arrivent très bientôt : voix, caméra et analyse dynamique totalement traduites.",
+      "cta": "Demander un accès prioritaire",
+      "note": "Besoin d’une démo guidée ? Contacte-nous et nous te montrons le module en direct."
+    },
+    "labels": {
+      "angry": "Colère",
+      "disgusted": "Dégoût",
+      "disgust": "Dégoût",
+      "fear": "Craintif",
+      "fearful": "Craintif",
+      "happy": "Joyeux",
+      "sad": "Triste",
+      "surprise": "Surpris",
+      "surprised": "Surpris",
+      "neutral": "Neutre",
+      "calm": "Calme",
+      "bored": "Distrait",
+      "sleepy": "Somnolent",
+      "serious": "Sérieux",
+      "confused": "Perplexe",
+      "excited": "Enthousiaste",
+      "smile": "Sourire"
+    },
+    "fillerWords": ["euh", "heu", "uh", "hum", "hmm"],
+    "ui": {
+      "badge": "ACI Meta Coach",
+      "title": "Module de détection d’émotions (voix + caméra)",
+      "description": "Analyse en direct de la voix pour aider le coach à adapter ses messages : émotion dominante, niveau de stress, confiance, rythme de parole et hésitations. Active aussi la caméra pour enrichir l’analyse via les expressions faciales (traitement 100% local dans le navigateur).",
+      "voiceHint": "Analyse vocale active pour mieux t’adapter en temps réel.",
+      "toggle": {
+        "tooltipSession": "Arrête la session pour modifier l’analyse vidéo.",
+        "tooltipActive": "Désactiver l’analyse vidéo",
+        "tooltipInactive": "Activer l’analyse vidéo",
+        "textChecking": "Autorisation caméra...",
+        "textEnabled": "Analyse vidéo activée",
+        "textDisabled": "Activer l’analyse vidéo"
+      },
+      "consent": {
+        "title": "Consentement requis",
+        "description": "Pour lancer la détection d’émotions, autorise l’accès au microphone. Le flux audio reste local, seules les métriques calculées sont affichées.",
+        "button": "Autoriser l’analyse vocale"
+      },
+      "preSession": {
+        "intro": "Tout est prêt pour une session voix. Clique sur démarrer et parle comme en situation réelle. Tu peux stopper à tout moment pour consulter le bilan de fin de session.",
+        "startButton": "Commencer une session",
+        "previousSummaryNote": "Résultat précédent disponible plus bas."
+      },
+      "session": {
+        "title": "Session en cours",
+        "description": "Les métriques sont mises à jour toutes les 750 ms pour garder un affichage fluide.",
+        "stopButton": "Arrêter et afficher le bilan",
+        "videoConfidence": "{{value}}% confiance",
+        "metricEmotion": "Émotion",
+        "metricSpeechRate": "Vitesse de parole",
+        "metricFillers": "“Euh” par minute",
+        "metricVoiceAi": "Analyse vocale IA",
+        "voiceInsightsHint": "Je mesure ton ton, ton énergie et ta stabilité pour ajuster ton coaching en direct.",
+        "coachLabel": "Coach"
+      },
+      "summary": {
+        "title": "Bilan de la session",
+        "legend": "Stress (rose) • Confiance (vert) sur {{points}} points",
+        "stress": "Stress moyen",
+        "confidence": "Confiance moyenne",
+        "pace": "Rythme global",
+        "paceUnit": "mots/min",
+        "fillers": "“Euh” moyen",
+        "fillersUnit": "par minute",
+        "videoTitle": "Émotions visuelles détectées",
+        "dominant": "Dominante : {{label}}",
+        "adviceTitle": "3 conseils pour la prochaine fois",
+        "restartButton": "Relancer une session",
+        "restartNote": "Les données restent côté navigateur. Relance la détection quand tu veux."
+      },
+      "chart": {
+        "empty": "Aucune donnée disponible pour cette session."
+      },
+      "coachMessageLabel": "Message du coach",
+      "sessionStatus": "Session en cours"
+    },
+    "errors": {
+      "micUnavailable": "Le microphone n’est pas disponible sur ce navigateur.",
+      "micDenied": "Impossible d’accéder au microphone. Vérifie les permissions de ton navigateur.",
+      "cameraUnavailable": "La caméra n’est pas disponible sur ce navigateur.",
+      "cameraDenied": "Accès caméra refusé. Vérifie les permissions de ton navigateur.",
+      "analysisUnavailable": "Analyse indisponible. Vérifie que le micro est bien accessible.",
+      "videoModelsFailed": "Impossible de charger les modèles d’analyse vidéo.",
+      "videoFallback": "Impossible d’activer la caméra. Passage en mode vocal uniquement.",
+      "voiceAiFallback": "Analyse IA de la voix indisponible. Utilisation des métriques locales."
+    },
+    "status": {
+      "videoChecking": "Autorisation caméra...",
+      "videoReady": "Caméra prête",
+      "videoEnabled": "Caméra activée",
+      "videoDisabled": "Activer la caméra",
+      "videoAnalysis": "Analyse vidéo en cours...",
+      "videoReminder": "Caméra prête, maintien ton visage face à l’objectif."
+    },
+    "coachCue": {
+      "highStress": "On respire 10 secondes, relâche les épaules et reprends avec un rythme posé.",
+      "lowConfidenceFillers": "Formule un objectif simple en une phrase avant de continuer. Ça clarifie le message.",
+      "energetic": "Super énergie ! Propose-toi un mini-challenge de 2 minutes pour pousser un argument.",
+      "lowConfidence": "Prends 2 inspirations profondes et recentre ton message sur une idée maîtresse.",
+      "balanced": "Maintiens ce ton clair. Garde le regard sur ton plan et avance étape par étape."
+    },
+    "voiceSummary": {
+      "awaiting": "Je capte ta voix, continue à parler pour une analyse complète.",
+      "highStressLowConfidence": "Tension élevée détectée : on ralentit et on relâche les épaules avant de poursuivre.",
+      "highStress": "Beaucoup d’énergie ! Canalise-la en clarifiant ce que tu veux exprimer maintenant.",
+      "highConfidence": "Voix stable et assurée, parfait pour dérouler ton plan.",
+      "lowConfidence": "Ton ton est calme mais hésitant : formule ta prochaine idée en une phrase forte.",
+      "highPitch": "La voix monte beaucoup, signe d’émotion. Ralentis et respire pour garder la clarté.",
+      "balanced": "Voix équilibrée : reste sur ce rythme et articule tes idées principales."
+    },
+    "advice": {
+      "reset": "Prépare un rituel de reset (respiration, ancrage) avant ta prochaine session.",
+      "intention": "Écris ton intention en une phrase clé et répète-la à voix haute avant de démarrer.",
+      "pause": "Pratique un silence conscient : marque une pause dès que tu sens venir un “euh”.",
+      "slowDown": "Travaille ton rythme : lis un passage lentement pour t’habituer à ralentir.",
+      "challenge": "Challenge bonus : expose une idée complexe en 120 secondes lors de la prochaine séance.",
+      "structure": "Répète la structure “Situation - Action - Résultat” pour fluidifier ton discours.",
+      "setup": "Installe-toi dans un environnement calme et vérifie ton matériel audio à l’avance.",
+      "hydrate": "Hydrate-toi 10 minutes avant la session pour soutenir la qualité de ta voix."
+    },
+    "emotionNames": {
+      "fallback": "Concentré",
+      "stressed": "Stressé",
+      "confident": "Confiant",
+      "calm": "Calme",
+      "tense": "Tendu"
+    }
+  },
   "coachIAPage": {
     "title": "Coach IA",
-    "intro": "ACI Meta Coach devient un copilote global : il analyse vos trades, vos idées business, vos émotions et diminue le stress grâce à un accompagnement stratégique et à sa conciergerie intégrée."
+    "intro": "ACI Meta Coach devient un copilote global : il analyse vos trades, vos idées business, vos émotions et diminue le stress grâce à un accompagnement stratégique et à sa conciergerie intégrée.",
+    "loading": "Chargement des modules interactifs…"
   },
   "navigation": {
     "menu": {
       "home": "Accueil",
       "coach": "Coach IA",
       "formations": "Formations",
-      "token": "Token ACI",
+      "token": "Tokenomics",
       "staking": "Staking",
       "roadmap": "Roadmap",
       "whitepaper": "Whitepaper",
@@ -551,7 +762,7 @@
     "intro": "Une vision en huit phases : identité, Coach IA, formations intelligentes, staking, DAO, MetaVerse, application bien-être et lancement mondial. Chaque jalon consolide l’écosystème ACI et la valeur du token."
   },
   "tokenPage": {
-    "title": "Meta Coach Token (ACI)",
+    "title": "Tokenomics",
     "intro": "Le token ACI alimente l’écosystème : accès au Coach IA, réductions sur les formations, staking et gouvernance future. Il est au cœur de notre vision ACI Meta Coach : des outils intelligents, un accompagnement humain et des incitations alignées sur votre progression.",
     "utilitiesTitle": "Utilités principales",
     "utilities": [

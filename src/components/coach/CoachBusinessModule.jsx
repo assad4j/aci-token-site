@@ -1,34 +1,60 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AstronautHeroVideo from '../AstronautHeroVideo';
 
 export default function CoachBusinessModule() {
   const sectionRef = useRef(null);
   const hasStartedRef = useRef(false);
   const [isActive, setIsActive] = useState(false);
+  const { t } = useTranslation();
+
+  const ROLE_ACCENTS = {
+    coach: 'text-emerald-300',
+    user: 'text-amber-300',
+  };
+
+  const localizedMessages = t('coachBusinessModule.messages', { returnObjects: true }) ?? [];
 
   const messageSequence = useMemo(
+    () =>
+      localizedMessages.map(entry => ({
+        role: entry.role ?? 'coach',
+        label: entry.label ?? '',
+        text: entry.text ?? '',
+        accent: ROLE_ACCENTS[entry.role] ?? ROLE_ACCENTS.coach,
+      })),
+    [localizedMessages],
+  );
+
+  const moduleTitle = t('coachBusinessModule.title');
+  const moduleDescription = t('coachBusinessModule.description');
+  const scrollHint = t('coachBusinessModule.scrollHint');
+
+  const fallbackSequence = useMemo(
     () => [
       {
         role: 'coach',
         label: 'Coach ACI',
-        accent: 'text-emerald-300',
         text: "Je viens d’analyser ton profil et ta façon de travailler : tu veux que je cible un business rentable ou que je renforce ta présence actuelle ?",
+        accent: ROLE_ACCENTS.coach,
       },
       {
         role: 'user',
         label: 'Toi',
-        accent: 'text-amber-300',
-        text: "Je veux un plan clair et un business qui correspond à mon énergie, sans perdre de temps.",
+        text: 'Je veux un plan clair et un business qui correspond à mon énergie, sans perdre de temps.',
+        accent: ROLE_ACCENTS.user,
       },
       {
         role: 'coach',
         label: 'Coach ACI',
-        accent: 'text-emerald-300',
-        text: "Je sélectionne trois idées alignées sur tes compétences, je réserve les rendez-vous nécessaires et j’active la conciergerie paiement et déplacement.",
+        text: 'Je sélectionne trois idées alignées sur tes compétences, je réserve les rendez-vous nécessaires et j’active la conciergerie paiement et déplacement.',
+        accent: ROLE_ACCENTS.coach,
       },
     ],
     [],
   );
+
+  const resolvedMessages = messageSequence.length > 0 ? messageSequence : fallbackSequence;
 
   const [messages, setMessages] = useState([]);
   const [step, setStep] = useState(0);
@@ -56,13 +82,13 @@ export default function CoachBusinessModule() {
   useEffect(() => {
     if (!isActive) return undefined;
     let cancelled = false;
-    if (step >= messageSequence.length) {
+    if (step >= resolvedMessages.length) {
       setTypingRole(null);
       setPartial('');
       return undefined;
     }
 
-    const currentMessage = messageSequence[step];
+    const currentMessage = resolvedMessages[step];
     const fullText = currentMessage.text;
     let index = 0;
     setTypingRole(currentMessage);
@@ -88,7 +114,7 @@ export default function CoachBusinessModule() {
       cancelled = true;
       clearInterval(interval);
     };
-  }, [messageSequence, isActive, step]);
+  }, [resolvedMessages, isActive, step]);
 
   return (
     <section
@@ -96,11 +122,8 @@ export default function CoachBusinessModule() {
       className="mt-16 grid gap-8 lg:grid-cols-[1fr_520px] lg:items-start"
     >
       <div className="space-y-4 text-white/80">
-        <h2 className="text-2xl font-semibold text-white">Coach IA business pro (démo animée)</h2>
-        <p className="leading-relaxed">
-          Aperçu du mode business : l’IA analyse votre profil, identifie les opportunités adaptées et
-          active la conciergerie pour organiser paiements, rendez-vous et déplacements.
-        </p>
+        <h2 className="text-2xl font-semibold text-white">{moduleTitle}</h2>
+        <p className="leading-relaxed">{moduleDescription}</p>
         <div className="rounded-2xl border border-white/10 bg-black/40 p-4 text-sm leading-relaxed text-white/80">
           <div className="flex flex-col gap-4">
             {messages.map(message => (
@@ -120,7 +143,7 @@ export default function CoachBusinessModule() {
             )}
             {!typingRole && messages.length === 0 && (
               <p className="text-xs uppercase tracking-[0.22em] text-white/40">
-                Faites défiler pour lancer la démo
+                {scrollHint}
               </p>
             )}
           </div>

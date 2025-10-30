@@ -1,5 +1,6 @@
 // src/components/EmotionDetectionModule.jsx
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const INITIAL_METRICS = {
   emotion: '—',
@@ -11,35 +12,190 @@ const INITIAL_METRICS = {
 
 const AUDIO_AI_URL = process.env.REACT_APP_AUDIO_AI_URL;
 
-const FILLER_WORDS = ['euh', 'heu', 'uh', 'hum', 'hmm'];
-
-const VIDEO_EMOTION_LABELS = {
-  angry: 'Colère',
-  disgusted: 'Dégoût',
-  disgust: 'Dégoût',
-  fear: 'Craintif',
-  fearful: 'Craintif',
-  happy: 'Joyeux',
-  sad: 'Triste',
-  surprise: 'Surpris',
-  surprised: 'Surpris',
-  neutral: 'Neutre',
-  calm: 'Calme',
-  bored: 'Distrait',
-  sleepy: 'Somnolent',
-  serious: 'Sérieux',
-  confused: 'Perplexe',
-  excited: 'Enthousiaste',
-  smile: 'Sourire',
+const DEFAULT_TRANSLATIONS = {
+  recognitionLang: 'fr-FR',
+  fillerWords: ['euh', 'heu', 'uh', 'hum', 'hmm'],
+  labels: {
+    angry: 'Colère',
+    disgusted: 'Dégoût',
+    disgust: 'Dégoût',
+    fear: 'Craintif',
+    fearful: 'Craintif',
+    happy: 'Joyeux',
+    sad: 'Triste',
+    surprise: 'Surpris',
+    surprised: 'Surpris',
+    neutral: 'Neutre',
+    calm: 'Calme',
+    bored: 'Distrait',
+    sleepy: 'Somnolent',
+    serious: 'Sérieux',
+    confused: 'Perplexe',
+    excited: 'Enthousiaste',
+    smile: 'Sourire',
+  },
+  ui: {
+    badge: 'ACI Meta Coach',
+    title: 'Module de détection d’émotions (voix + caméra)',
+    description:
+      'Analyse en direct de la voix pour aider le coach à adapter ses messages : émotion dominante, niveau de stress, confiance, rythme de parole et hésitations. Active aussi la caméra pour enrichir l’analyse via les expressions faciales (traitement 100% local dans le navigateur).',
+    voiceHint: 'Analyse vocale active pour mieux t’adapter en temps réel.',
+    toggle: {
+      tooltipSession: 'Arrête la session pour modifier l’analyse vidéo.',
+      tooltipActive: 'Désactiver l’analyse vidéo',
+      tooltipInactive: 'Activer l’analyse vidéo',
+      indicatorOn: 'bg-emerald-400',
+      indicatorOff: 'bg-white/30',
+      indicatorChecking: 'bg-amber-300',
+      textChecking: 'Autorisation caméra...',
+      textEnabled: 'Analyse vidéo activée',
+      textDisabled: 'Activer l’analyse vidéo',
+    },
+    consent: {
+      title: 'Consentement requis',
+      description:
+        'Pour lancer la détection d’émotions, autorise l’accès au microphone. Le flux audio reste local, seules les métriques calculées sont affichées.',
+      button: 'Autoriser l’analyse vocale',
+    },
+    preSession: {
+      intro:
+        'Tout est prêt pour une session voix. Clique sur démarrer et parle comme en situation réelle. Tu peux stopper à tout moment pour consulter le bilan de fin de session.',
+      startButton: 'Commencer une session',
+      videoOn: 'Caméra activée',
+      videoReady: 'Caméra prête',
+      videoOff: 'Activer la caméra',
+      videoChecking: 'Autorisation caméra...',
+      previousSummaryNote: 'Résultat précédent disponible plus bas.',
+    },
+    session: {
+      title: 'Session en cours',
+      description:
+        'Les métriques sont mises à jour toutes les 750 ms pour garder un affichage fluide.',
+      stopButton: 'Arrêter et afficher le bilan',
+      videoConfidence: '{{value}}% confiance',
+      metricEmotion: 'Émotion',
+      metricSpeechRate: 'Vitesse de parole',
+      metricFillers: '“Euh” par minute',
+      metricVoiceAi: 'Analyse vocale IA',
+      voiceInsightsHint:
+        'Je mesure ton ton, ton énergie et ta stabilité pour ajuster ton coaching en direct.',
+      coachLabel: 'Coach',
+    },
+    summary: {
+      title: 'Bilan de la session',
+      legend: 'Stress (rose) • Confiance (vert) sur {{points}} points',
+      stress: 'Stress moyen',
+      confidence: 'Confiance moyenne',
+      pace: 'Rythme global',
+      paceUnit: 'mots/min',
+      fillers: '“Euh” moyen',
+      fillersUnit: 'par minute',
+      videoTitle: 'Émotions visuelles détectées',
+      dominant: 'Dominante : {{label}}',
+      adviceTitle: '3 conseils pour la prochaine fois',
+      restartButton: 'Relancer une session',
+      restartNote: 'Les données restent côté navigateur. Relance la détection quand tu veux.',
+    },
+    chart: {
+      empty: 'Aucune donnée disponible pour cette session.',
+    },
+    coachMessageLabel: 'Message du coach',
+    sessionStatus: 'Session en cours',
+  },
+  errors: {
+    micUnavailable: 'Le microphone n’est pas disponible sur ce navigateur.',
+    micDenied: 'Impossible d’accéder au microphone. Vérifie les permissions de ton navigateur.',
+    cameraUnavailable: 'La caméra n’est pas disponible sur ce navigateur.',
+    cameraDenied: 'Accès caméra refusé. Vérifie les permissions de ton navigateur.',
+    analysisUnavailable: 'Analyse indisponible. Vérifie que le micro est bien accessible.',
+    videoModelsFailed: 'Impossible de charger les modèles d’analyse vidéo.',
+    videoFallback: 'Impossible d’activer la caméra. Passage en mode vocal uniquement.',
+    voiceAiFallback: 'Analyse IA de la voix indisponible. Utilisation des métriques locales.',
+  },
+  status: {
+    videoChecking: 'Autorisation caméra...',
+    videoReady: 'Caméra prête',
+    videoEnabled: 'Caméra activée',
+    videoDisabled: 'Activer la caméra',
+    videoAnalysis: 'Analyse vidéo en cours...',
+    videoReminder: 'Caméra prête, maintien ton visage face à l’objectif.',
+  },
+  coachCue: {
+    highStress: 'On respire 10 secondes, relâche les épaules et reprends avec un rythme posé.',
+    lowConfidenceFillers:
+      'Formule un objectif simple en une phrase avant de continuer. Ça clarifie le message.',
+    energetic:
+      'Super énergie ! Propose-toi un mini-challenge de 2 minutes pour pousser un argument.',
+    lowConfidence:
+      'Prends 2 inspirations profondes et recentre ton message sur une idée maîtresse.',
+    balanced:
+      'Maintiens ce ton clair. Garde le regard sur ton plan et avance étape par étape.',
+  },
+  voiceSummary: {
+    awaiting: 'Je capte ta voix, continue à parler pour une analyse complète.',
+    highStressLowConfidence:
+      'Tension élevée détectée : on ralentit et on relâche les épaules avant de poursuivre.',
+    highStress:
+      'Beaucoup d’énergie ! Canalise-la en clarifiant ce que tu veux exprimer maintenant.',
+    highConfidence:
+      'Voix stable et assurée, parfait pour dérouler ton plan.',
+    lowConfidence:
+      'Ton ton est calme mais hésitant : formule ta prochaine idée en une phrase forte.',
+    highPitch:
+      'La voix monte beaucoup, signe d’émotion. Ralentis et respire pour garder la clarté.',
+    balanced:
+      'Voix équilibrée : reste sur ce rythme et articule tes idées principales.',
+  },
+  advice: {
+    reset: 'Prépare un rituel de reset (respiration, ancrage) avant ta prochaine session.',
+    intention:
+      'Écris ton intention en une phrase clé et répète-la à voix haute avant de démarrer.',
+    pause: 'Pratique un silence conscient : marque une pause dès que tu sens venir un “euh”.',
+    slowDown: 'Travaille ton rythme : lis un passage lentement pour t’habituer à ralentir.',
+    challenge: 'Challenge bonus : expose une idée complexe en 120 secondes lors de la prochaine séance.',
+    structure:
+      'Répète la structure “Situation - Action - Résultat” pour fluidifier ton discours.',
+    setup:
+      'Installe-toi dans un environnement calme et vérifie ton matériel audio à l’avance.',
+    hydrate: 'Hydrate-toi 10 minutes avant la session pour soutenir la qualité de ta voix.',
+  },
+  emotionNames: {
+    fallback: 'Concentré',
+    stressed: 'Stressé',
+    confident: 'Confiant',
+    calm: 'Calme',
+    tense: 'Tendu',
+  },
 };
 
-function translateVideoEmotion(raw = '') {
+function deepMerge(target, source) {
+  if (!source || typeof source !== 'object') {
+    return target;
+  }
+  Object.keys(source).forEach(key => {
+    const sourceValue = source[key];
+    if (
+      sourceValue &&
+      typeof sourceValue === 'object' &&
+      !Array.isArray(sourceValue) &&
+      typeof target[key] === 'object' &&
+      !Array.isArray(target[key])
+    ) {
+      target[key] = deepMerge({ ...target[key] }, sourceValue);
+    } else {
+      target[key] = Array.isArray(sourceValue) ? [...sourceValue] : sourceValue;
+    }
+  });
+  return target;
+}
+
+function translateVideoEmotion(raw = '', labelsMap = DEFAULT_TRANSLATIONS.labels) {
   if (!raw) {
     return null;
   }
   const key = raw.toLowerCase();
-  if (VIDEO_EMOTION_LABELS[key]) {
-    return VIDEO_EMOTION_LABELS[key];
+  if (labelsMap && labelsMap[key]) {
+    return labelsMap[key];
   }
   return raw.charAt(0).toUpperCase() + raw.slice(1);
 }
@@ -96,20 +252,25 @@ function formatRate(value, decimals = 0) {
   return Number(value).toFixed(decimals);
 }
 
-function resolveEmotion(stress, confidence) {
+function resolveEmotion(stress, confidence, names = {}) {
+  const fallback = names.fallback || 'Concentré';
+  const labelStressed = names.stressed || 'Stressé';
+  const labelConfident = names.confident || 'Confiant';
+  const labelCalm = names.calm || 'Calme';
+  const labelTense = names.tense || 'Tendu';
   if (stress > 0.75) {
-    return 'Stressé';
+    return labelStressed;
   }
   if (confidence > 0.72 && stress < 0.55) {
-    return 'Confiant';
+    return labelConfident;
   }
   if (stress < 0.32 && confidence >= 0.5) {
-    return 'Calme';
+    return labelCalm;
   }
   if (confidence < 0.35 && stress > 0.5) {
-    return 'Tendu';
+    return labelTense;
   }
-  return 'Concentré';
+  return fallback;
 }
 
 function normalizeEmotionLabel(raw) {
@@ -144,20 +305,20 @@ function normalizeEmotionLabel(raw) {
   return 'neutral';
 }
 
-function deriveCoachCue({ stress, confidence, fillersPerMin, wpm }) {
+function deriveCoachCue({ stress, confidence, fillersPerMin, wpm }, cues = DEFAULT_TRANSLATIONS.coachCue) {
   if (stress > 0.72 || (Number.isFinite(fillersPerMin) && fillersPerMin > 6)) {
-    return 'On respire 10 secondes, relâche les épaules et reprends avec un rythme posé.';
+    return cues.highStress || DEFAULT_TRANSLATIONS.coachCue.highStress;
   }
   if (confidence < 0.4 && Number.isFinite(fillersPerMin) && fillersPerMin >= 3) {
-    return 'Formule un objectif simple en une phrase avant de continuer. Ça clarifie le message.';
+    return cues.lowConfidenceFillers || DEFAULT_TRANSLATIONS.coachCue.lowConfidenceFillers;
   }
   if (confidence > 0.7 && stress < 0.6 && Number.isFinite(wpm) && wpm >= 90) {
-    return 'Super énergie ! Propose-toi un mini-challenge de 2 minutes pour pousser un argument.';
+    return cues.energetic || DEFAULT_TRANSLATIONS.coachCue.energetic;
   }
   if (confidence < 0.45) {
-    return 'Prends 2 inspirations profondes et recentre ton message sur une idée maîtresse.';
+    return cues.lowConfidence || DEFAULT_TRANSLATIONS.coachCue.lowConfidence;
   }
-  return 'Maintiens ce ton clair. Garde le regard sur ton plan et avance étape par étape.';
+  return cues.balanced || DEFAULT_TRANSLATIONS.coachCue.balanced;
 }
 
 function estimatePitch(buffer, sampleRate) {
@@ -209,60 +370,60 @@ function estimatePitch(buffer, sampleRate) {
   return null;
 }
 
-function summarizeVoice(stress, confidence, pitch) {
+function summarizeVoice(stress, confidence, pitch, summaryStrings = DEFAULT_TRANSLATIONS.voiceSummary) {
   if (!Number.isFinite(stress) || !Number.isFinite(confidence)) {
-    return "Je capte ta voix, continue à parler pour une analyse complète.";
+    return summaryStrings.awaiting || DEFAULT_TRANSLATIONS.voiceSummary.awaiting;
   }
   if (stress > 0.7 && confidence < 0.45) {
-    return "Tension élevée détectée : on ralentit et on relâche les épaules avant de poursuivre.";
+    return summaryStrings.highStressLowConfidence || DEFAULT_TRANSLATIONS.voiceSummary.highStressLowConfidence;
   }
   if (stress > 0.6 && confidence >= 0.45) {
-    return "Beaucoup d'énergie ! Canalise-la en clarifiant ce que tu veux exprimer maintenant.";
+    return summaryStrings.highStress || DEFAULT_TRANSLATIONS.voiceSummary.highStress;
   }
   if (confidence > 0.7 && stress < 0.5) {
-    return "Voix stable et assurée, parfait pour dérouler ton plan.";
+    return summaryStrings.highConfidence || DEFAULT_TRANSLATIONS.voiceSummary.highConfidence;
   }
   if (confidence < 0.45 && stress < 0.5) {
-    return "Ton ton est calme mais hésitant : formule ta prochaine idée en une phrase forte.";
+    return summaryStrings.lowConfidence || DEFAULT_TRANSLATIONS.voiceSummary.lowConfidence;
   }
   if (pitch && pitch > 280 && stress > 0.5) {
-    return "La voix monte beaucoup, signe d'émotion. Ralentis et respire pour garder la clarté.";
+    return summaryStrings.highPitch || DEFAULT_TRANSLATIONS.voiceSummary.highPitch;
   }
-  return "Voix équilibrée : reste sur ce rythme et articule tes idées principales.";
+  return summaryStrings.balanced || DEFAULT_TRANSLATIONS.voiceSummary.balanced;
 }
 
-function computeSummaryAdvice(averages) {
+function computeSummaryAdvice(averages, adviceStrings = DEFAULT_TRANSLATIONS.advice) {
   const suggestions = [];
 
   if (averages.stress > 0.65) {
-    suggestions.push('Prépare un rituel de reset (respiration, ancrage) avant ta prochaine session.');
+    suggestions.push(adviceStrings.reset || DEFAULT_TRANSLATIONS.advice.reset);
   }
   if (averages.confidence < 0.45) {
-    suggestions.push('Écris ton intention en une phrase clé et répète-la à voix haute avant de démarrer.');
+    suggestions.push(adviceStrings.intention || DEFAULT_TRANSLATIONS.advice.intention);
   }
   if (averages.fillers > 4) {
-    suggestions.push('Pratique un silence conscient : marque une pause dès que tu sens venir un “euh”.');
+    suggestions.push(adviceStrings.pause || DEFAULT_TRANSLATIONS.advice.pause);
   }
   if (averages.wpm > 110) {
-    suggestions.push('Travaille ton rythme : lis un passage lentement pour t’habituer à ralentir.');
+    suggestions.push(adviceStrings.slowDown || DEFAULT_TRANSLATIONS.advice.slowDown);
   }
   if (averages.confidence > 0.7 && averages.stress < 0.55) {
-    suggestions.push('Challenge bonus : expose une idée complexe en 120 secondes lors de la prochaine séance.');
+    suggestions.push(adviceStrings.challenge || DEFAULT_TRANSLATIONS.advice.challenge);
   }
   if (suggestions.length < 3) {
-    suggestions.push('Répète la structure “Situation - Action - Résultat” pour fluidifier ton discours.');
+    suggestions.push(adviceStrings.structure || DEFAULT_TRANSLATIONS.advice.structure);
   }
   if (suggestions.length < 3) {
-    suggestions.push('Installe-toi dans un environnement calme et vérifie ton matériel audio à l’avance.');
+    suggestions.push(adviceStrings.setup || DEFAULT_TRANSLATIONS.advice.setup);
   }
   if (suggestions.length < 3) {
-    suggestions.push('Hydrate-toi 10 minutes avant la session pour soutenir la qualité de ta voix.');
+    suggestions.push(adviceStrings.hydrate || DEFAULT_TRANSLATIONS.advice.hydrate);
   }
 
   return suggestions.slice(0, 3);
 }
 
-function DualLineChart({ history }) {
+function DualLineChart({ history, emptyLabel }) {
   const chartData = useMemo(() => {
     if (!history.length) {
       return null;
@@ -290,7 +451,7 @@ function DualLineChart({ history }) {
   if (!chartData) {
     return (
       <div className="h-40 w-full rounded-2xl border border-white/10 bg-black/40 flex items-center justify-center text-white/60">
-        Aucune donnée disponible pour cette session.
+        {emptyLabel}
       </div>
     );
   }
@@ -340,6 +501,34 @@ export default function EmotionDetectionModule({
   onEmotionStateChange,
   onSessionToggle,
 } = {}) {
+  const { t, i18n } = useTranslation();
+  const dictionary = useMemo(
+    () => t('emotionDetection', { returnObjects: true }) || {},
+    [i18n.language, t]
+  );
+  const strings = useMemo(
+    () => deepMerge(JSON.parse(JSON.stringify(DEFAULT_TRANSLATIONS)), dictionary),
+    [dictionary]
+  );
+  const {
+    recognitionLang,
+    fillerWords,
+    labels,
+    ui,
+    errors,
+    status,
+    coachCue,
+    voiceSummary,
+    advice,
+    emotionNames,
+  } = strings;
+  const fillerWordsSet = useMemo(
+    () => new Set((fillerWords || []).map(word => word.toLowerCase())),
+    [fillerWords]
+  );
+  const placeholderContent = dictionary?.placeholder || null;
+  const showPlaceholder = Boolean(placeholderContent && !dictionary?.ui);
+
   const [consentGranted, setConsentGranted] = useState(false);
   const [sessionRunning, setSessionRunning] = useState(false);
   const [metrics, setMetrics] = useState(INITIAL_METRICS);
@@ -447,12 +636,12 @@ export default function EmotionDetectionModule({
       return human;
     } catch (err) {
       console.error('Impossible de charger Human', err);
-      setVideoError('Impossible de charger les modèles d’analyse vidéo.');
+      setVideoError(errors.videoModelsFailed || DEFAULT_TRANSLATIONS.errors.videoModelsFailed);
       setVideoEnabled(false);
       setVideoStatus('idle');
       return null;
     }
-  }, [setVideoEnabled, setVideoStatus]);
+  }, [errors, setVideoEnabled, setVideoError, setVideoStatus]);
 
   const stopVideoProcessing = useCallback(() => {
     if (videoAnimationRef.current) {
@@ -473,20 +662,24 @@ export default function EmotionDetectionModule({
   }, [videoEnabled]);
 
   const updateVideoEmotionState = useCallback(payload => {
-    if (!payload || !payload.label) {
+    if (!payload || (!payload.label && !payload.raw)) {
       videoEmotionRef.current = null;
       setVideoEmotion(null);
       return;
     }
-
-    const mappedDistribution = (payload.distribution || []).map(item => ({
-      label: translateVideoEmotion(item.emotion || item.label || ''),
-      score: item.score ?? 0,
-    }));
-
+    const rawLabel = (payload.raw || payload.label || '').toString();
+    const mappedDistribution = (payload.distribution || []).map(item => {
+      const rawEmotion = (item.emotion || item.label || '').toString();
+      return {
+        label: translateVideoEmotion(rawEmotion, labels),
+        raw: rawEmotion,
+        score: item.score ?? 0,
+      };
+    });
+    const translatedLabel = translateVideoEmotion(rawLabel, labels);
     const data = {
-      label: payload.label,
-      raw: payload.raw || null,
+      label: translatedLabel,
+      raw: rawLabel || null,
       score: clamp(payload.score ?? 0, 0, 1),
       distribution: mappedDistribution,
     };
@@ -497,11 +690,17 @@ export default function EmotionDetectionModule({
     const stats = videoStatsRef.current;
     const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
     if (!stats.lastTimestamp || now - stats.lastTimestamp > 900) {
-      stats.counts[data.label] = (stats.counts[data.label] || 0) + 1;
+      const key = rawLabel.toLowerCase();
+      if (key) {
+        const current = stats.counts[key] || { raw: rawLabel, count: 0 };
+        current.raw = rawLabel;
+        current.count += 1;
+        stats.counts[key] = current;
+      }
       stats.total = (stats.total || 0) + 1;
       stats.lastTimestamp = now;
     }
-  }, []);
+  }, [labels]);
 
   const startVideoProcessing = useCallback(async () => {
     if (!videoEnabled || !videoRef.current) {
@@ -534,7 +733,7 @@ export default function EmotionDetectionModule({
               emotions[0]
             );
             updateVideoEmotionState({
-              label: translateVideoEmotion(top.emotion || top.label),
+              label: translateVideoEmotion(top.emotion || top.label, labels),
               raw: top.emotion || top.label,
               score: top.score,
               distribution: emotions,
@@ -553,7 +752,7 @@ export default function EmotionDetectionModule({
     };
 
     videoAnimationRef.current = requestAnimationFrame(analyse);
-  }, [ensureHumanInstance, updateVideoEmotionState, videoEnabled]);
+  }, [ensureHumanInstance, labels, updateVideoEmotionState, videoEnabled]);
 
   const toggleVideoMode = useCallback(async () => {
     if (sessionRunning) {
@@ -575,7 +774,7 @@ export default function EmotionDetectionModule({
       !navigator.mediaDevices ||
       typeof navigator.mediaDevices.getUserMedia !== 'function'
     ) {
-      setVideoError('La caméra n’est pas disponible sur ce navigateur.');
+      setVideoError(errors.cameraUnavailable || DEFAULT_TRANSLATIONS.errors.cameraUnavailable);
       return;
     }
 
@@ -590,11 +789,11 @@ export default function EmotionDetectionModule({
       setVideoStatus('ready');
     } catch (err) {
       console.error(err);
-      setVideoError('Accès caméra refusé. Vérifie les permissions de ton navigateur.');
+      setVideoError(errors.cameraDenied || DEFAULT_TRANSLATIONS.errors.cameraDenied);
       setVideoStatus('idle');
       setVideoEnabled(false);
     }
-  }, [resetVideoStats, sessionRunning, stopVideoProcessing, videoEnabled]);
+  }, [errors, resetVideoStats, sessionRunning, stopVideoProcessing, videoEnabled]);
 
   const requestConsent = async () => {
     setError(null);
@@ -603,7 +802,7 @@ export default function EmotionDetectionModule({
       !navigator.mediaDevices ||
       typeof navigator.mediaDevices.getUserMedia !== 'function'
     ) {
-      setError('Le microphone n’est pas disponible sur ce navigateur.');
+      setError(errors.micUnavailable || DEFAULT_TRANSLATIONS.errors.micUnavailable);
       return;
     }
 
@@ -613,7 +812,7 @@ export default function EmotionDetectionModule({
       setConsentGranted(true);
     } catch (err) {
       console.error(err);
-      setError('Impossible d’accéder au microphone. Vérifie les permissions de ton navigateur.');
+      setError(errors.micDenied || DEFAULT_TRANSLATIONS.errors.micDenied);
     }
   };
 
@@ -624,7 +823,7 @@ export default function EmotionDetectionModule({
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
-    recognition.lang = 'fr-FR';
+    recognition.lang = recognitionLang || DEFAULT_TRANSLATIONS.recognitionLang;
     recognition.continuous = true;
     recognition.interimResults = true;
 
@@ -638,9 +837,11 @@ export default function EmotionDetectionModule({
       }
 
       if (finalTranscript) {
-        const cleaned = finalTranscript.toLowerCase().replace(/[^a-zàâçéèêëîïôûùüÿñæœ\s]/gi, ' ');
+        const cleaned = finalTranscript
+          .toLocaleLowerCase(i18n.language || undefined)
+          .replace(/[^\p{L}\s'-]/gu, ' ');
         const words = cleaned.split(/\s+/).filter(Boolean);
-        const fillers = words.filter(word => FILLER_WORDS.includes(word));
+        const fillers = words.filter(word => fillerWordsSet.has(word));
 
         wordsStatsRef.current.totalWords += words.length;
         wordsStatsRef.current.fillerCount += fillers.length;
@@ -779,7 +980,7 @@ export default function EmotionDetectionModule({
       !navigator.mediaDevices ||
       typeof navigator.mediaDevices.getUserMedia !== 'function'
     ) {
-      setError('Le microphone n’est pas disponible sur ce navigateur.');
+      setError(errors.micUnavailable || DEFAULT_TRANSLATIONS.errors.micUnavailable);
       return;
     }
 
@@ -795,7 +996,7 @@ export default function EmotionDetectionModule({
       } catch (videoErr) {
         if (videoActive) {
           console.error('Video capture unavailable, fallback to audio only', videoErr);
-          setVideoError('Impossible d’activer la caméra. Passage en mode vocal uniquement.');
+          setVideoError(errors.videoFallback || DEFAULT_TRANSLATIONS.errors.videoFallback);
           setVideoStatus('idle');
           setVideoEnabled(false);
           videoActive = false;
@@ -835,7 +1036,7 @@ export default function EmotionDetectionModule({
       scheduleAnalysis();
     } catch (err) {
       console.error(err);
-      setError('Analyse indisponible. Vérifie que le micro est bien accessible.');
+      setError(errors.analysisUnavailable || DEFAULT_TRANSLATIONS.errors.analysisUnavailable);
       releaseResources();
       setSessionRunning(false);
     }
@@ -987,10 +1188,10 @@ export default function EmotionDetectionModule({
         }
       } catch (error) {
         console.warn('[emotion/audio] ai analysis failed', error);
-        setVoiceAiError('AI voice analysis unavailable, falling back to local metrics.');
+        setVoiceAiError(errors.voiceAiFallback || DEFAULT_TRANSLATIONS.errors.voiceAiFallback);
       }
     },
-    [setVoiceAiError, setVoiceInsights],
+    [errors],
   );
 
   const scheduleAnalysis = () => {
@@ -1048,7 +1249,7 @@ export default function EmotionDetectionModule({
         }
 
         const overrideEmotion = videoEmotionRef.current?.label;
-        const emotion = overrideEmotion || resolveEmotion(stress, confidence);
+        const emotion = overrideEmotion || resolveEmotion(stress, confidence, emotionNames);
 
         const currentMetrics = {
           emotion,
@@ -1090,7 +1291,12 @@ export default function EmotionDetectionModule({
           return current;
         }
         return {
-          summary: summarizeVoice(combinedVoiceStress, combinedVoiceConfidence, signal.pitch),
+          summary: summarizeVoice(
+            combinedVoiceStress,
+            combinedVoiceConfidence,
+            signal.pitch,
+            voiceSummary,
+          ),
           stress: combinedVoiceStress,
           confidence: combinedVoiceConfidence,
           source: 'local',
@@ -1132,33 +1338,87 @@ export default function EmotionDetectionModule({
     };
 
     const videoStats = videoStatsRef.current;
-    const entries = Object.entries(videoStats?.counts || {});
+    const entries = Object.values(videoStats?.counts || {});
     const totalVideoSamples =
       videoStats?.total ??
-      entries.reduce((acc, [, count]) => acc + count, 0);
+      entries.reduce((acc, item) => acc + (item?.count ?? 0), 0);
     let videoMeta = null;
 
     if (entries.length && totalVideoSamples > 0) {
-      const sorted = [...entries].sort((a, b) => b[1] - a[1]);
+      const sorted = [...entries].sort((a, b) => (b?.count ?? 0) - (a?.count ?? 0));
+      const dominantRaw = sorted[0]?.raw || '';
       videoMeta = {
-        dominant: sorted[0][0],
+        dominantRaw,
+        dominant: translateVideoEmotion(dominantRaw, labels),
         total: totalVideoSamples,
-        distribution: sorted.slice(0, 4).map(([label, count]) => ({
-          label,
-          ratio: count / totalVideoSamples,
+        distribution: sorted.slice(0, 4).map(item => ({
+          raw: item?.raw || '',
+          label: translateVideoEmotion(item?.raw || '', labels),
+          ratio: (item?.count ?? 0) / totalVideoSamples,
         })),
       };
     }
 
     setSummary({
       averages,
-      advice: computeSummaryAdvice(averages),
+      advice: computeSummaryAdvice(averages, advice),
       history: [...targetHistory],
       video: videoMeta,
     });
   };
 
-  const coachMessage = useMemo(() => deriveCoachCue(metrics), [metrics]);
+  const coachMessage = useMemo(() => deriveCoachCue(metrics, coachCue), [coachCue, metrics]);
+
+  const videoToggleTitle = sessionRunning
+    ? ui.toggle.tooltipSession || DEFAULT_TRANSLATIONS.ui.toggle.tooltipSession
+    : videoEnabled
+      ? ui.toggle.tooltipActive || DEFAULT_TRANSLATIONS.ui.toggle.tooltipActive
+      : ui.toggle.tooltipInactive || DEFAULT_TRANSLATIONS.ui.toggle.tooltipInactive;
+
+  const videoToggleText =
+    videoStatus === 'checking'
+      ? ui.toggle.textChecking || status.videoChecking || DEFAULT_TRANSLATIONS.status.videoChecking
+      : videoEnabled
+        ? ui.toggle.textEnabled || DEFAULT_TRANSLATIONS.ui.toggle.textEnabled
+        : ui.toggle.textDisabled || DEFAULT_TRANSLATIONS.ui.toggle.textDisabled;
+
+  const indicatorClass =
+    videoStatus === 'checking'
+      ? 'bg-amber-300'
+      : videoEnabled
+        ? 'bg-emerald-400'
+        : 'bg-white/30';
+
+  const cameraButtonLabel =
+    videoEnabled
+      ? videoStatus === 'ready'
+        ? status.videoReady || DEFAULT_TRANSLATIONS.status.videoReady || ui.toggle.textEnabled
+        : status.videoEnabled || DEFAULT_TRANSLATIONS.status.videoEnabled || ui.toggle.textEnabled
+      : videoStatus === 'checking'
+        ? status.videoChecking || DEFAULT_TRANSLATIONS.status.videoChecking
+        : status.videoDisabled || DEFAULT_TRANSLATIONS.status.videoDisabled || ui.toggle.textDisabled;
+
+  const videoStatusMessage =
+    videoStatus === 'analysis'
+      ? status.videoAnalysis || DEFAULT_TRANSLATIONS.status.videoAnalysis
+      : status.videoReminder || DEFAULT_TRANSLATIONS.status.videoReminder;
+
+  const summaryLegendText = summary
+    ? (ui.summary.legend || DEFAULT_TRANSLATIONS.ui.summary.legend).replace(
+        '{{points}}',
+        summary.history.length,
+      )
+    : '';
+
+  const dominantLabel = summary?.video
+    ? (ui.summary.dominant || DEFAULT_TRANSLATIONS.ui.summary.dominant).replace(
+        '{{label}}',
+        summary.video.dominant,
+      )
+    : '';
+
+  const paceUnit = ui.summary.paceUnit || DEFAULT_TRANSLATIONS.ui.summary.paceUnit;
+  const fillersUnit = ui.summary.fillersUnit || DEFAULT_TRANSLATIONS.ui.summary.fillersUnit;
 
   useEffect(() => {
     voiceInsightsRef.current = voiceInsights;
@@ -1182,25 +1442,42 @@ export default function EmotionDetectionModule({
     }
   }, [sessionRunning, onSessionToggle]);
 
+  if (showPlaceholder && placeholderContent) {
+    return (
+      <section className="mt-16">
+        <div className="rounded-3xl border border-emerald-500/30 bg-black/70 p-8 text-white shadow-xl shadow-emerald-500/10 backdrop-blur">
+          <header className="space-y-2">
+            <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">{ui.badge}</p>
+            <h2 className="text-3xl font-bold md:text-4xl">{placeholderContent.title}</h2>
+            <p className="max-w-2xl text-base leading-relaxed text-white/70">
+              {placeholderContent.description}
+            </p>
+          </header>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400"
+            >
+              {placeholderContent.cta}
+            </a>
+          </div>
+          <p className="mt-6 text-sm text-white/60">{placeholderContent.note}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="mt-16">
       <div className="rounded-3xl border border-emerald-500/30 bg-black/70 p-8 shadow-xl shadow-emerald-500/10 backdrop-blur">
         <header className="space-y-2 text-white">
-          <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">ACI Meta Coach</p>
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Module de détection d’émotions (voix + caméra)
-          </h2>
-          <p className="max-w-2xl text-base text-white/70 leading-relaxed">
-            Analyse en direct de la voix pour aider le coach à adapter ses messages : émotion dominante,
-            niveau de stress, confiance, rythme de parole et hésitations. Active aussi la caméra pour enrichir
-            l’analyse via les expressions faciales (traitement 100% local dans le navigateur).
-          </p>
+          <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">{ui.badge}</p>
+          <h2 className="text-3xl font-bold md:text-4xl">{ui.title}</h2>
+          <p className="max-w-2xl text-base text-white/70 leading-relaxed">{ui.description}</p>
         </header>
 
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-emerald-200/90">
-          <span className="rounded-full bg-emerald-500/10 px-4 py-1">
-            Analyse vocale active pour mieux t’adapter en temps réel.
-          </span>
+          <span className="rounded-full bg-emerald-500/10 px-4 py-1">{ui.voiceHint}</span>
           <button
             type="button"
             onClick={toggleVideoMode}
@@ -1216,45 +1493,24 @@ export default function EmotionDetectionModule({
                   ? 'cursor-progress opacity-60'
                   : ''
             }`}
-            title={
-              sessionRunning
-                ? 'Arrête la session pour modifier l’analyse vidéo.'
-                : videoEnabled
-                  ? 'Désactiver l’analyse vidéo'
-                  : 'Activer l’analyse vidéo'
-            }
+            title={videoToggleTitle}
           >
             <span className="inline-flex h-3 w-6 items-center rounded-full bg-white/10 px-0.5">
-              <span
-                className={`h-2 w-2 rounded-full transition ${
-                  videoStatus === 'checking'
-                    ? 'bg-amber-300'
-                    : videoEnabled
-                      ? 'bg-emerald-400'
-                      : 'bg-white/30'
-                }`}
-              />
+              <span className={`h-2 w-2 rounded-full transition ${indicatorClass}`} />
             </span>
-            {videoStatus === 'checking'
-              ? 'Autorisation caméra...'
-              : videoEnabled
-                ? 'Analyse vidéo activée'
-                : 'Activer l’analyse vidéo'}
+            {videoToggleText}
           </button>
         </div>
 
         {!consentGranted && (
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-white">
-            <h3 className="text-lg font-semibold">Consentement requis</h3>
-            <p className="mt-2 text-sm text-white/70">
-              Pour lancer la détection d’émotions, autorise l’accès au microphone. Le flux audio reste local,
-              seules les métriques calculées sont affichées.
-            </p>
+            <h3 className="text-lg font-semibold">{ui.consent.title}</h3>
+            <p className="mt-2 text-sm text-white/70">{ui.consent.description}</p>
             <button
               onClick={requestConsent}
               className="mt-4 inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400"
             >
-              Autoriser l’analyse vocale
+              {ui.consent.button}
             </button>
             {error && <p className="mt-3 text-sm text-rose-300">{error}</p>}
           </div>
@@ -1262,16 +1518,13 @@ export default function EmotionDetectionModule({
 
         {consentGranted && !sessionRunning && (
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-white space-y-4">
-            <p className="text-sm text-white/70">
-              Tout est prêt pour une session voix. Clique sur démarrer et parle comme en situation réelle.
-              Tu peux stopper à tout moment pour consulter le bilan de fin de session.
-            </p>
+            <p className="text-sm text-white/70">{ui.preSession.intro}</p>
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={startSession}
                 className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400"
               >
-                Commencer une session
+                {ui.preSession.startButton}
               </button>
               <button
                 onClick={toggleVideoMode}
@@ -1282,19 +1535,11 @@ export default function EmotionDetectionModule({
                     : 'border border-white/20 text-white/70 hover:border-emerald-400/60 hover:text-emerald-200'
                 } ${videoStatus === 'checking' ? 'opacity-60 cursor-not-allowed' : ''}`}
               >
-                {videoEnabled
-                  ? videoStatus === 'ready'
-                    ? 'Caméra prête'
-                    : 'Caméra activée'
-                  : videoStatus === 'checking'
-                    ? 'Autorisation caméra...'
-                    : 'Activer la caméra'}
+                {cameraButtonLabel}
               </button>
             </div>
             {summary && (
-              <p className="text-xs text-white/50">
-                Résultat précédent disponible plus bas.
-              </p>
+              <p className="text-xs text-white/50">{ui.preSession.previousSummaryNote}</p>
             )}
             {error && <p className="mt-2 text-sm text-rose-300">{error}</p>}
             {videoError && <p className="text-xs text-rose-300">{videoError}</p>}
@@ -1318,79 +1563,70 @@ export default function EmotionDetectionModule({
                       <div className="flex items-center justify-between gap-3">
                         <span className="text-base font-semibold">{videoEmotion.label}</span>
                         <span className="text-xs text-white/60">
-                          {(videoEmotion.score * 100).toFixed(0)}% confiance
+                          {(ui.session.videoConfidence || DEFAULT_TRANSLATIONS.ui.session.videoConfidence).replace(
+                            '{{value}}',
+                            (videoEmotion.score * 100).toFixed(0),
+                          )}
                         </span>
                       </div>
                     ) : (
-                      <span className="text-xs text-white/60">
-                        {videoStatus === 'analysis'
-                          ? 'Analyse vidéo en cours...'
-                          : 'Caméra prête, maintien ton visage face à l’objectif.'}
-                      </span>
+                      <span className="text-xs text-white/60">{videoStatusMessage}</span>
                     )}
                   </div>
                 </div>
               )}
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                  <p className="text-xs uppercase text-white/50 tracking-wide">Émotion</p>
-                  <p className="mt-2 text-2xl font-semibold text-white">{metrics.emotion}</p>
+                  <p className="text-xs uppercase text-white/50 tracking-wide">{ui.session.metricEmotion}</p>
+                  <p className="mt-2 text-2xl font-semibold text-white">{metrics.emotion || '—'}</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                  <p className="text-xs uppercase text-white/50 tracking-wide">Vitesse de parole</p>
+                  <p className="text-xs uppercase text-white/50 tracking-wide">{ui.session.metricSpeechRate}</p>
                   <p className="mt-2 text-2xl font-semibold text-white">
-                    {formatRate(metrics.wpm, 0)} <span className="text-sm text-white/60">mots/min</span>
+                    {formatRate(metrics.wpm, 0)}{' '}
+                    <span className="text-sm text-white/60">{paceUnit}</span>
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                  <p className="text-xs uppercase text-white/50 tracking-wide">“Euh” par minute</p>
+                  <p className="text-xs uppercase text-white/50 tracking-wide">{ui.session.metricFillers}</p>
                   <p className="mt-2 text-2xl font-semibold text-white">
-                    {formatRate(metrics.fillersPerMin, 1)}
+                    {formatRate(metrics.fillersPerMin, 1)}{' '}
+                    <span className="text-sm text-white/60">{fillersUnit}</span>
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                  <p className="text-xs uppercase text-white/50 tracking-wide">Analyse vocale IA</p>
+                  <p className="text-xs uppercase text-white/50 tracking-wide">{ui.session.metricVoiceAi}</p>
                   <p className="mt-2 text-sm text-white/70 leading-relaxed">
                     {voiceInsights?.summary
                       ? voiceInsights.summary
                       : voiceAiError
                         ? voiceAiError
-                        : "Je mesure ton ton, ton énergie et ta stabilité pour ajuster ton coaching en direct."}
+                        : ui.session.voiceInsightsHint}
                   </p>
                 </div>
               </div>
 
-              <MetricBar label="Stress" value={metrics.stress} />
-              <MetricBar label="Confiance" value={metrics.confidence} />
+              <MetricBar label={ui.summary.stress} value={metrics.stress} />
+              <MetricBar label={ui.summary.confidence} value={metrics.confidence} />
 
               <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-white">
-                <p className="text-xs uppercase text-emerald-200 tracking-wide">Coach</p>
+                <p className="text-xs uppercase text-emerald-200 tracking-wide">{ui.session.coachLabel}</p>
                 <p className="mt-2 text-base leading-relaxed text-emerald-50">{coachMessage}</p>
               </div>
             </div>
 
             <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 text-white">
               <div className="space-y-2">
-                <p className="text-sm uppercase text-white/60 tracking-wide">Session en cours</p>
-                <p className="text-base text-white/70">
-                  Les métriques sont mises à jour toutes les 750 ms pour garder un affichage fluide.
-                </p>
-                {videoError && (
-                  <p className="text-xs text-rose-300">
-                    {videoError}
-                  </p>
-                )}
-                {voiceAiError && (
-                  <p className="text-xs text-amber-300">
-                    {voiceAiError}
-                  </p>
-                )}
+                <p className="text-sm uppercase text-white/60 tracking-wide">{ui.session.title}</p>
+                <p className="text-base text-white/70">{ui.session.description}</p>
+                {videoError && <p className="text-xs text-rose-300">{videoError}</p>}
+                {voiceAiError && <p className="text-xs text-amber-300">{voiceAiError}</p>}
               </div>
               <button
                 onClick={() => stopSession()}
                 className="mt-6 inline-flex items-center justify-center rounded-full bg-rose-500 px-6 py-2 text-sm font-semibold text-black transition hover:bg-rose-400"
               >
-                Arrêter et afficher le bilan
+                {ui.session.stopButton}
               </button>
             </div>
           </div>
@@ -1399,46 +1635,45 @@ export default function EmotionDetectionModule({
         {summary && (
           <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 text-white space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <h3 className="text-2xl font-semibold">Bilan de la session</h3>
-              <span className="text-sm text-white/60">
-                Stress (rose) • Confiance (vert) sur {summary.history.length} points
-              </span>
+              <h3 className="text-2xl font-semibold">{ui.summary.title}</h3>
+              <span className="text-sm text-white/60">{summaryLegendText}</span>
             </div>
 
-            <DualLineChart history={summary.history} />
+            <DualLineChart
+              history={summary.history}
+              emptyLabel={ui.chart?.empty || DEFAULT_TRANSLATIONS.ui.chart.empty}
+            />
 
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                <p className="text-xs uppercase text-white/50 tracking-wide">Stress moyen</p>
+                <p className="text-xs uppercase text-white/50 tracking-wide">{ui.summary.stress}</p>
                 <p className="mt-2 text-xl font-semibold text-white">
                   {formatRate(summary.averages.stress * 100, 0)}%
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                <p className="text-xs uppercase text-white/50 tracking-wide">Confiance moyenne</p>
+                <p className="text-xs uppercase text-white/50 tracking-wide">{ui.summary.confidence}</p>
                 <p className="mt-2 text-xl font-semibold text-white">
                   {formatRate(summary.averages.confidence * 100, 0)}%
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                <p className="text-xs uppercase text-white/50 tracking-wide">Rythme global</p>
+                <p className="text-xs uppercase text-white/50 tracking-wide">{ui.summary.pace}</p>
                 <p className="mt-2 text-xl font-semibold text-white">
-                  {formatRate(summary.averages.wpm, 0)} mots/min
+                  {formatRate(summary.averages.wpm, 0)} {paceUnit}
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/40 p-4 sm:col-span-3">
-                <p className="text-xs uppercase text-white/50 tracking-wide">“Euh” moyen</p>
+                <p className="text-xs uppercase text-white/50 tracking-wide">{ui.summary.fillers}</p>
                 <p className="mt-2 text-xl font-semibold text-white">
-                  {formatRate(summary.averages.fillers, 1)} par minute
+                  {formatRate(summary.averages.fillers, 1)} {fillersUnit}
                 </p>
               </div>
               {summary.video && (
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4 sm:col-span-3">
-                  <p className="text-xs uppercase text-white/50 tracking-wide">Émotions visuelles détectées</p>
+                  <p className="text-xs uppercase text-white/50 tracking-wide">{ui.summary.videoTitle}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-white/80">
-                    <span className="rounded-full bg-white/10 px-3 py-1">
-                      Dominante : {summary.video.dominant}
-                    </span>
+                    <span className="rounded-full bg-white/10 px-3 py-1">{dominantLabel}</span>
                     {summary.video.distribution.map(item => (
                       <span
                         key={item.label}
@@ -1453,7 +1688,7 @@ export default function EmotionDetectionModule({
             </div>
 
             <div>
-              <p className="text-sm uppercase text-white/60 tracking-wide">3 conseils pour la prochaine fois</p>
+              <p className="text-sm uppercase text-white/60 tracking-wide">{ui.summary.adviceTitle}</p>
               <ul className="mt-3 space-y-2 text-sm text-white/80">
                 {summary.advice.map((tip, index) => (
                   <li key={index} className="rounded-2xl border border-white/10 bg-black/40 p-3">
@@ -1468,10 +1703,10 @@ export default function EmotionDetectionModule({
                 onClick={startSession}
                 className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400"
               >
-                Relancer une session
+                {ui.summary.restartButton}
               </button>
               <p className="text-xs text-white/50">
-                Les données restent côté navigateur. Relance la détection quand tu veux.
+                {ui.summary.restartNote}
               </p>
             </div>
           </div>

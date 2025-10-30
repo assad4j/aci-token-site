@@ -188,16 +188,100 @@
       "token": "Conhecer o Meta Coach Token"
     }
   },
+  "coachBusinessModule": {
+    "title": "Coach IA de negócios (demo animada)",
+    "description": "Prévia do modo business: a IA analisa seu perfil, encontra oportunidades sob medida e ativa a concierge para cuidar de pagamentos, reuniões e logística.",
+    "scrollHint": "Role para iniciar a demo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Acabo de analisar seu perfil e seu estilo de trabalho. Quer que eu foque em um negócio lucrativo ou em fortalecer sua operação atual?"
+      },
+      {
+        "role": "user",
+        "label": "Você",
+        "text": "Quero um plano claro e um negócio que combine com minha energia, sem perder tempo."
+      },
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Perfeito. Vou selecionar três ideias alinhadas às suas forças, agendar as reuniões principais e ativar a concierge para pagamentos e viagens."
+      }
+    ]
+  },
+  "coach3DModule": {
+    "title": "Coach IA (demo animada)",
+    "description": "Uma prévia do Coach IA: o astronauta realiza um diálogo automatizado para ilustrar a experiência que estamos construindo. A versão interativa (voz, emoções, rotinas) chega em breve.",
+    "scrollHint": "Role para iniciar a demo",
+    "messages": [
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Olá, sou o seu coach IA ACI. Vamos estabilizar seu mindset?"
+      },
+      {
+        "role": "user",
+        "label": "Você",
+        "text": "Impressionante! Como você vai personalizar minha rotina?"
+      },
+      {
+        "role": "coach",
+        "label": "Coach ACI",
+        "text": "Detecto sua energia, analiso sua voz e escolho o próximo desafio preciso. A versão interativa chega muito em breve."
+      }
+    ]
+  },
+  "astronautVideo": {
+    "loading": "Carregando o coach…",
+    "badge": "Coach ACI",
+    "fallback": {
+      "title": "Modo estático",
+      "description": "O WebGL não está disponível neste dispositivo. O coach 3D aparece em um navegador compatível (computador ou celular recente).",
+      "note": "Sem bloqueios: o restante da experiência continua funcionando."
+    },
+    "focus": {
+      "title": "Modo foco",
+      "tag": "Concierge IA",
+      "items": [
+        {
+          "title": "Perfil",
+          "value": "Análise comportamental pronta"
+        },
+        {
+          "title": "Negócios",
+          "value": "3 ideias qualificadas"
+        },
+        {
+          "title": "Concierge",
+          "value": "Reuniões em andamento"
+        },
+        {
+          "title": "Mindset",
+          "value": "Rotina antistresse ativa"
+        }
+      ]
+    }
+  },
+  "emotionDetection": {
+    "placeholder": {
+      "title": "Módulo de detecção de emoções",
+      "description": "Esta demo está disponível em francês por enquanto. Em breve você terá versões localizadas com voz, câmera e insights em português.",
+      "cta": "Pedir acesso antecipado",
+      "note": "Quer uma apresentação guiada? Fale com a gente e mostramos o módulo ao vivo."
+    }
+  },
   "coachIAPage": {
     "title": "Coach IA",
-    "intro": "O ACI Meta Coach combina modelos de inteligência artificial com metodologia de coaching para transformar sua forma de operar: estratégia, mindset e gestão de risco alinhados."
+    "intro": "O ACI Meta Coach combina modelos de inteligência artificial com metodologia de coaching para transformar sua forma de operar: estratégia, mindset e gestão de risco alinhados.",
+    "loading": "Carregando módulos interativos…"
   },
   "navigation": {
     "menu": {
       "home": "Início",
       "coach": "Coach IA",
       "formations": "Formações",
-      "token": "Token ACI",
+      "token": "Tokenomics",
       "staking": "Staking",
       "roadmap": "Roadmap",
       "whitepaper": "Whitepaper",
@@ -539,7 +623,7 @@
     "intro": "Uma visão em oito fases: identidade, Coach IA, treinamentos inteligentes, staking, DAO, MetaVerse, app de bem-estar e lançamento global. Cada marco fortalece o ecossistema ACI e o valor do token."
   },
   "tokenPage": {
-    "title": "Meta Coach Token (ACI)",
+    "title": "Tokenomics",
     "intro": "O token ACI movimenta o ecossistema: acesso ao Coach IA, descontos nas formações, staking e governança futura. Ele está no centro da visão Meta Coach — ferramentas inteligentes, suporte humano e incentivos alinhados à sua evolução.",
     "utilitiesTitle": "Principais utilidades",
     "utilities": [
