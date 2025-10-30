@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -11,7 +11,7 @@ import {
   FiExternalLink,
 } from 'react-icons/fi';
 
-function SectionGrid({ title, items, accent }) {
+const SectionGrid = React.memo(function SectionGrid({ title, items, accent }) {
   if (!Array.isArray(items) || items.length === 0) return null;
 
   const accentClass =
@@ -37,30 +37,69 @@ function SectionGrid({ title, items, accent }) {
       </div>
     </div>
   );
-}
+});
+SectionGrid.displayName = 'SectionGrid';
 
 export default function TokenPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const economicsSections = t('tokenPage.sections.economics.items', { returnObjects: true }) ?? [];
-  const economicsTitle = t('tokenPage.sections.economics.title');
+  const tokenContent = useMemo(() => {
+    const base = t('tokenPage', { returnObjects: true }) ?? {};
+    const economics = base.sections?.economics ?? {};
+    const governance = base.sections?.governance ?? {};
+    const tokenomicsBreakdown = base.tokenomicsBreakdown ?? {};
+    const cta = base.cta ?? {};
+    return {
+      title: base.title ?? 'Meta Coach Token (ACI)',
+      intro: base.intro ?? '',
+      sections: {
+        economics: {
+          title: economics.title ?? '',
+          items: Array.isArray(economics.items) ? economics.items : [],
+        },
+        governance: {
+          title: governance.title ?? '',
+          items: Array.isArray(governance.items) ? governance.items : [],
+        },
+      },
+      cta: {
+        title: cta.title ?? '',
+        subtitle: cta.subtitle ?? '',
+        buttons: {
+          whitepaper: cta.buttons?.whitepaper ?? t('tokenPage.cta.buttons.whitepaper', { defaultValue: 'Whitepaper' }),
+          buy: cta.buttons?.buy ?? t('tokenPage.cta.buttons.buy', { defaultValue: 'Buy' }),
+          contact: cta.buttons?.contact ?? t('tokenPage.cta.buttons.contact', { defaultValue: 'Contact' }),
+        },
+      },
+      tokenomicsBreakdown: {
+        tagline: tokenomicsBreakdown.tagline ?? '',
+        title: tokenomicsBreakdown.title ?? '',
+        subtitle: tokenomicsBreakdown.subtitle ?? '',
+        totalSupplyLabel: tokenomicsBreakdown.totalSupplyLabel ?? '',
+        totalSupplyValue: tokenomicsBreakdown.totalSupplyValue ?? '',
+        headers: tokenomicsBreakdown.headers ?? {
+          segment: t('tokenPage.tokenomicsBreakdown.headers.segment'),
+          percentage: t('tokenPage.tokenomicsBreakdown.headers.percentage'),
+          amount: t('tokenPage.tokenomicsBreakdown.headers.amount'),
+        },
+        rows: Array.isArray(tokenomicsBreakdown.rows) ? tokenomicsBreakdown.rows : [],
+      },
+    };
+  }, [t, i18n.language]);
 
-  const governanceSections = t('tokenPage.sections.governance.items', { returnObjects: true }) ?? [];
-  const governanceTitle = t('tokenPage.sections.governance.title');
-
-  const ctaTitle = t('tokenPage.cta.title');
-  const ctaSubtitle = t('tokenPage.cta.subtitle');
-  const ctaButtons = t('tokenPage.cta.buttons', { returnObjects: true }) ?? {};
-
-  const tokenomicsBreakdown = t('tokenPage.tokenomicsBreakdown', { returnObjects: true }) ?? {};
-  const tokenomicsRowsRaw = tokenomicsBreakdown.rows;
-  const tokenomicsRows = Array.isArray(tokenomicsRowsRaw) ? tokenomicsRowsRaw : [];
-  const tokenomicsBreakdownTitle = tokenomicsBreakdown.title ?? '';
-  const tokenomicsBreakdownSubtitle = tokenomicsBreakdown.subtitle ?? '';
-  const tokenomicsTotalLabel = tokenomicsBreakdown.totalSupplyLabel ?? '';
-  const tokenomicsTotalValue = tokenomicsBreakdown.totalSupplyValue ?? '';
-  const tokenomicsTagline = tokenomicsBreakdown.tagline ?? '';
-
+  const economicsSections = tokenContent.sections.economics.items;
+  const economicsTitle = tokenContent.sections.economics.title;
+  const governanceSections = tokenContent.sections.governance.items;
+  const governanceTitle = tokenContent.sections.governance.title;
+  const tokenomicsRows = tokenContent.tokenomicsBreakdown.rows;
+  const {
+    tagline: tokenomicsTagline,
+    title: tokenomicsBreakdownTitle,
+    subtitle: tokenomicsBreakdownSubtitle,
+    totalSupplyLabel: tokenomicsTotalLabel,
+    totalSupplyValue: tokenomicsTotalValue,
+    headers: tokenomicsHeaders,
+  } = tokenContent.tokenomicsBreakdown;
   const tokenIconMap = {
     presale: FiTrendingUp,
     community: FiUsers,
@@ -73,9 +112,9 @@ export default function TokenPage() {
   return (
     <div className="py-20 text-white">
       <header className="space-y-4 text-center">
-        <h1 className="text-4xl font-bold sm:text-5xl">{t('tokenPage.title')}</h1>
+        <h1 className="text-4xl font-bold sm:text-5xl">{tokenContent.title}</h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/70">
-          {t('tokenPage.intro')}
+          {tokenContent.intro}
         </p>
       </header>
 
@@ -95,9 +134,9 @@ export default function TokenPage() {
 
           <div className="mt-10 space-y-4">
             <div className="hidden rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-xs uppercase tracking-[0.2em] text-white/50 sm:grid sm:grid-cols-[1.6fr_repeat(2,1fr)]">
-              <span>{t('tokenPage.tokenomicsBreakdown.headers.segment')}</span>
-              <span>{t('tokenPage.tokenomicsBreakdown.headers.percentage')}</span>
-              <span className="text-right">{t('tokenPage.tokenomicsBreakdown.headers.amount')}</span>
+              <span>{tokenomicsHeaders.segment}</span>
+              <span>{tokenomicsHeaders.percentage}</span>
+              <span className="text-right">{tokenomicsHeaders.amount}</span>
             </div>
 
             {tokenomicsRows.map(row => {
@@ -130,9 +169,9 @@ export default function TokenPage() {
       )}
 
       <section className="mt-16 rounded-3xl border border-emerald-500/20 bg-black/60 p-8 text-center shadow-xl shadow-emerald-500/10">
-        <h3 className="text-2xl font-semibold">{t('tokenPage.accessTitle')}</h3>
+        <h3 className="text-2xl font-semibold">{tokenContent.accessTitle}</h3>
         <p className="mt-4 text-sm leading-relaxed text-white/75">
-          {t('tokenPage.accessDescription')}
+          {tokenContent.accessDescription}
         </p>
       </section>
 
@@ -142,26 +181,26 @@ export default function TokenPage() {
       </section>
 
       <section className="mt-16 rounded-3xl border border-white/15 bg-white/5 p-10 text-center shadow-2xl shadow-black/30 backdrop-blur">
-        <h3 className="text-3xl font-semibold text-emerald-200">{ctaTitle}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-white/70">{ctaSubtitle}</p>
+        <h3 className="text-3xl font-semibold text-emerald-200">{tokenContent.cta.title}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-white/70">{tokenContent.cta.subtitle}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
           <Link
             to="/whitepaper"
             className="rounded-full border border-emerald-400/70 px-6 py-2 font-semibold text-emerald-200 transition hover:border-emerald-200 hover:text-emerald-50"
           >
-            {ctaButtons.whitepaper}
+            {tokenContent.cta.buttons.whitepaper}
           </Link>
           <Link
             to="/buy-token"
             className="rounded-full bg-emerald-500 px-6 py-2 font-semibold text-black transition hover:bg-emerald-400"
           >
-            {ctaButtons.buy}
+            {tokenContent.cta.buttons.buy}
           </Link>
           <Link
             to="/contact"
             className="rounded-full border border-white/30 px-6 py-2 font-semibold text-white transition hover:border-white/60"
           >
-            {ctaButtons.contact}
+            {tokenContent.cta.buttons.contact}
           </Link>
         </div>
       </section>
