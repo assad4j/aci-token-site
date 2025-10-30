@@ -194,14 +194,14 @@
     "loading": "Loading interactive modules…"
   },
   "coach3DModule": {
-    "title": "AI Coach (demo)",
-    "description": "A quick preview of the AI coach. Interactive voice, emotion and routine tracking coming soon.",
+    "title": "AI Coach (animated demo)",
+    "description": "A quick scripted preview of the upcoming experience: interactive voice, emotion insights and routine planning.",
     "scrollHint": "Scroll to start the demo",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Hi 👋 I'm your AI coach. Ready to stabilise your mindset?"
+        "text": "Hi! I’m your ACI coach. Ready to stabilise your mindset?"
       },
       {
         "role": "user",
@@ -211,24 +211,24 @@
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "We analyse your goals, behaviour and stress signals to craft weekly action plans."
+        "text": "I analyse your goals, habits and stress then craft weekly roadmaps you can follow."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Training + mindset + risk control. Progress with clear metrics, rewards and reminders."
+        "text": "Strategy + mindset + risk. Progress with clear metrics, rewards and reminders."
       }
     ]
   },
   "coach3DModuleFallback": {
-    "title": "AI Coach (demo)",
-    "description": "A quick preview of the AI coach. Interactive voice, emotion and routine tracking coming soon.",
+    "title": "AI Coach (animated demo)",
+    "description": "A quick scripted preview of the upcoming experience: interactive voice, emotion insights and routine planning.",
     "scrollHint": "Scroll to start the demo",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Hi 👋 I'm your AI coach. Ready to stabilise your mindset?"
+        "text": "Hi! I’m your ACI coach. Ready to stabilise your mindset?"
       },
       {
         "role": "user",
@@ -238,12 +238,12 @@
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "We analyse your goals, behaviour and stress signals to craft weekly action plans."
+        "text": "I analyse your goals, habits and stress then craft weekly roadmaps you can follow."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Training + mindset + risk control. Progress with clear metrics, rewards and reminders."
+        "text": "Strategy + mindset + risk. Progress with clear metrics, rewards and reminders."
       }
     ]
   },
@@ -607,173 +607,114 @@
   },
   "tokenPage": {
     "title": "Meta Coach Token (ACI)",
-    "intro": "The ACI token powers the ecosystem: access to the AI Coach, training discounts, staking, and future governance. It’s at the heart of our Meta Coach vision—smart tools, human support, and incentives aligned with your progress.",
-    "utilitiesTitle": "Core utilities",
-    "utilities": [
-      "Access & credits for the AI Coach",
-      "Discounts on premium trainings",
-      "Rewards through staking",
-      "Governance (DAO) coming soon"
-    ],
-    "progressTag": "The token that powers your progression",
-    "tokenomicsTitle": "Tokenomics",
-    "tokenomics": [
-      {
-        "label": "Presale (ICO)",
-        "value": "10%"
-      },
-      {
-        "label": "Staking & Community",
-        "value": "15%"
-      },
-      {
-        "label": "Team & AI Development",
-        "value": "20%"
-      },
-      {
-        "label": "Marketing & Partnerships",
-        "value": "25%"
-      },
-      {
-        "label": "Reserve & Liquidity (DEX/CEX)",
-        "value": "25%"
-      },
-      {
-        "label": "DAO & Future Ecosystem",
-        "value": "5%"
-      }
-    ],
-    "tokenomicsNote": "This allocation balances go-to-market growth, community rewards, AI innovation, and long-term liquidity so the project can scale responsibly.",
+    "intro": "The ACI token powers the Meta Coach ecosystem: unlock AI coaching modules, premium training, staking rewards and future community governance.",
     "tokenomicsBreakdown": {
-      "tagline": "Strategic allocation",
-      "title": "Distribution of the 120 billion ACI tokens",
-      "subtitle": "A clear breakdown showing how the supply is aligned across growth, community, innovation, and long-term reserves.",
+      "tagline": "ACI Tokenomics",
+      "title": "Balanced distribution for long-term growth",
+      "subtitle": "120 billion ACI tokens allocated to scale the AI coach, reward the community and secure sustainable liquidity.",
       "totalSupplyLabel": "Total supply",
       "totalSupplyValue": "120,000,000,000 ACI",
       "headers": {
         "segment": "Segment",
-        "percentage": "Allocation",
-        "amount": "Volume"
+        "percentage": "Share",
+        "amount": "Allocation"
       },
       "rows": [
         {
           "id": "presale",
           "icon": "presale",
           "label": "Presale (ICO)",
+          "description": "Early believers and strategic partners bootstrap the ecosystem.",
           "percentage": "10%",
-          "amount": "12,000,000,000 ACI",
-          "description": "Launch financing and onboarding the earliest supporters."
+          "amount": "12,000,000,000 ACI"
         },
         {
           "id": "community",
           "icon": "community",
           "label": "Staking & Community",
+          "description": "Rewards for stakers, ambassadors, quests and community impact.",
           "percentage": "15%",
-          "amount": "18,000,000,000 ACI",
-          "description": "Rewards, staking incentives, and ambassador initiatives."
+          "amount": "18,000,000,000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
           "label": "Team & AI Development",
+          "description": "Funding for AI research, product squads and long-term incentives.",
           "percentage": "20%",
-          "amount": "24,000,000,000 ACI",
-          "description": "Compensation, AI R&D, infrastructure, and security."
+          "amount": "24,000,000,000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
           "label": "Marketing & Partnerships",
+          "description": "Global growth, events, enterprise onboarding and strategic alliances.",
           "percentage": "25%",
-          "amount": "30,000,000,000 ACI",
-          "description": "User acquisition, influence, media exposure, and B2B deals."
+          "amount": "30,000,000,000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserve & Liquidity (DEX/CEX)",
+          "label": "Reserve & Liquidity",
+          "description": "Liquidity provisioning on DEX/CEX and treasury buffers for stability.",
           "percentage": "25%",
-          "amount": "30,000,000,000 ACI",
-          "description": "Exchange liquidity, listings support, and treasury management."
+          "amount": "30,000,000,000 ACI"
         },
         {
           "id": "dao",
           "icon": "dao",
           "label": "DAO & Future Ecosystem",
+          "description": "Capital reserved for decentralized governance, grants and new modules.",
           "percentage": "5%",
-          "amount": "6,000,000,000 ACI",
-          "description": "Seeding the future DAO and ecosystem partnerships."
+          "amount": "6,000,000,000 ACI"
         }
       ]
     },
-    "accessTitle": "Priority access to the AI Coach",
-    "accessDescription": "Holding ACI activates the AI Coach, unlocks personalised plans, and grants exclusive perks during the upcoming Meta Track and DAO phases. No financial advice—stay in control of your exposure.",
-    "deepDiveTitle": "Why the ACI token exists",
-    "deepDive": [
-      "A utility asset powering access to the proprietary AI coach, funding continuous upgrades, and rewarding contributors.",
-      "A bridge between training, trading psychology, and governance: the more you progress, the more influence you gain over the roadmap.",
-      "An aligned economy: staking and learning missions feed the AI treasury and community redistribution."
-    ],
+    "accessTitle": "Accessing ACI",
+    "accessDescription": "Stake ACI, hold it for governance and unlock premium voice, camera and automation modules inside Meta Coach.",
     "sections": {
-      "utility": {
-        "title": "Utility & access",
-        "items": [
-          {
-            "title": "Proprietary AI coach",
-            "text": "Tokens activate the ACI voice/emotion coach. Holders receive conversation credits, exclusive modules, and advanced emotional tracking."
-          },
-          {
-            "title": "Marketplace & trainings",
-            "text": "Paying in ACI unlocks discounts, premium packs, and new tracks. Purchases feed the AI model and improve emotional management."
-          },
-          {
-            "title": "Gamified missions",
-            "text": "Weekly quests (voice journal, breathing drill, trading debrief) reward users in ACI and fuel their Meta Track progression."
-          }
-        ]
-      },
       "economics": {
-        "title": "Economics & R&D",
+        "title": "Utility and liquidity pillars",
         "items": [
           {
-            "title": "AI treasury",
-            "text": "Part of staking and sales flows into a fund dedicated to improving the proprietary model (datasets, fine-tuning, audio infrastructure)."
+            "title": "AI access token",
+            "text": "Stake or hold ACI to unlock advanced modules, dashboards and automation layers."
           },
           {
-            "title": "Smart staking",
-            "text": "Dynamic APR based on participation (missions, feedback) encourages usage instead of passive speculation."
+            "title": "Incentivised learning",
+            "text": "Learn-to-earn quests, ambassador programs and governance rewards recycle value to the community."
           },
           {
-            "title": "Strategic reserves",
-            "text": "10% reserved for partnerships (trading platforms, wellbeing actors), liquidity, and new market expansion."
+            "title": "Sustainable liquidity",
+            "text": "Dedicated allocations keep DEX/CEX pools liquid without hurting long-term holders."
           }
         ]
       },
       "governance": {
-        "title": "Governance & community",
+        "title": "Governance & growth roadmap",
         "items": [
           {
-            "title": "Progressive DAO",
-            "text": "Staked holders vote on new modules (training, psychology), AI orientation, and treasury usage."
+            "title": "Progressive decentralisation",
+            "text": "Token holders decide on AI upgrades, partner integrations and treasury allocation."
           },
           {
-            "title": "Voice & emotions",
-            "text": "Anonymised vocal feedback informs proposals: collective stress signals can trigger special programmes (mindset coaching, live workshops)."
+            "title": "Security first",
+            "text": "Audits, proof-of-reserves and compliance milestones protect stakers and enterprises."
           },
           {
-            "title": "Ambassador pool",
-            "text": "A token pool rewards mentors, creators, and partners who grow the community (events, onboarding, AI beta tests)."
+            "title": "Global expansion",
+            "text": "Translations, ambassadors and pro APIs bring Meta Coach to new regions."
           }
         ]
       }
     },
     "cta": {
-      "title": "Ready to dive deeper?",
-      "subtitle": "Trader, coach, creator—see how ACI can accelerate your growth.",
+      "title": "Ready to join the ACI movement?",
+      "subtitle": "Read the whitepaper, acquire ACI or talk with the team to deploy the AI coach for your community.",
       "buttons": {
         "whitepaper": "Read the whitepaper",
         "buy": "Buy ACI",
-        "contact": "Talk to the team"
+        "contact": "Talk with the team"
       }
     }
   },
@@ -1161,47 +1102,219 @@
     }
   },
   "coachBusinessModule": {
-    "title": "AI business coach (animated demo)",
-    "description": "Preview how the concierge analyses your profile, surfaces business ideas and coordinates the next steps.",
+    "title": "What the coach does for you",
+    "description": "The AI concierge analyses your profile, surfaces tailored business ideas and coordinates the next steps (calls, payments, logistics).",
     "scrollHint": "Scroll to trigger the business demo",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "I've reviewed your profile and execution style. Shall we explore a fresh profitable angle or reinforce what you already run?"
+        "text": "I’ve reviewed your profile and execution style. Shall we explore a fresh profitable angle or strengthen your current activity?"
       },
       {
         "role": "user",
         "label": "You",
-        "text": "I want a clear plan tuned to my energy—no wasted time or random ideas."
+        "text": "I want a clear plan aligned with my energy—no wasted time or random ideas."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Great. I'll shortlist three ideas aligned with your strengths, schedule key calls and activate concierge support for payments and logistics."
+        "text": "Perfect. I’ll shortlist three ideas that fit your strengths, schedule the key calls and activate concierge for payments and travel."
       }
     ]
   },
   "coachBusinessModuleFallback": {
-    "title": "AI business coach (animated demo)",
-    "description": "Preview how the concierge analyses your profile, surfaces business ideas and coordinates the next steps.",
+    "title": "What the coach does for you",
+    "description": "The AI concierge analyses your profile, surfaces tailored business ideas and coordinates the next steps (calls, payments, logistics).",
     "scrollHint": "Scroll to trigger the business demo",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "I've reviewed your profile and execution style. Shall we explore a fresh profitable angle or reinforce what you already run?"
+        "text": "I’ve reviewed your profile and execution style. Shall we explore a fresh profitable angle or strengthen your current activity?"
       },
       {
         "role": "user",
         "label": "You",
-        "text": "I want a clear plan tuned to my energy—no wasted time or random ideas."
+        "text": "I want a clear plan aligned with my energy—no wasted time or random ideas."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Great. I'll shortlist three ideas aligned with your strengths, schedule key calls and activate concierge support for payments and logistics."
+        "text": "Perfect. I’ll shortlist three ideas that fit your strengths, schedule the key calls and activate concierge for payments and travel."
       }
     ]
-  }
+  },
+  "emotionDetection": {
+    "recognitionLang": "en-US",
+    "fillerWords": [
+      "uh",
+      "um",
+      "hmm",
+      "er",
+      "like"
+    ],
+    "labels": {
+      "angry": "Angry",
+      "disgusted": "Disgusted",
+      "disgust": "Disgust",
+      "fear": "Fearful",
+      "fearful": "Fearful",
+      "happy": "Happy",
+      "sad": "Sad",
+      "surprise": "Surprised",
+      "surprised": "Surprised",
+      "neutral": "Neutral",
+      "calm": "Calm",
+      "bored": "Bored",
+      "sleepy": "Sleepy",
+      "serious": "Serious",
+      "confused": "Confused",
+      "excited": "Excited",
+      "smile": "Smile"
+    },
+    "ui": {
+      "badge": "ACI Meta Coach",
+      "title": "Emotion detection module (voice + camera)",
+      "description": "Real-time voice analysis to help you adapt: dominant emotion, stress, confidence, speech rhythm and filler words. Enable the camera for facial emotion tracking (data processed locally).",
+      "voiceHint": "Live voice insights for adaptive coaching.",
+      "toggle": {
+        "tooltipSession": "Stop the session before changing video analysis.",
+        "tooltipActive": "Disable video analysis",
+        "tooltipInactive": "Enable video analysis",
+        "textChecking": "Checking camera permission…",
+        "textEnabled": "Video analysis enabled",
+        "textDisabled": "Enable video analysis"
+      },
+      "consent": {
+        "title": "Microphone permission required",
+        "description": "Allow microphone access to launch emotion detection. Audio stays on this device—only the computed metrics are displayed.",
+        "button": "Allow voice analysis"
+      },
+      "preSession": {
+        "intro": "Everything is ready. Click start and speak exactly as in a real situation. You can stop anytime to review the summary.",
+        "startButton": "Start a session",
+        "previousSummaryNote": "Previous summary available below."
+      },
+      "session": {
+        "title": "Live session",
+        "description": "Metrics refresh every 750 ms for a smooth experience.",
+        "stopButton": "Stop and show summary",
+        "videoConfidence": "{{value}}% confidence",
+        "metricEmotion": "Emotion",
+        "metricSpeechRate": "Speech pace",
+        "metricFillers": "Fillers per minute",
+        "metricVoiceAi": "AI voice insights",
+        "voiceInsightsHint": "I analyse tone, energy and stability to support you in real time.",
+        "coachLabel": "Coach"
+      },
+      "summary": {
+        "title": "Session summary",
+        "legend": "Stress (pink) • Confidence (green) across {{points}} samples",
+        "stress": "Average stress",
+        "confidence": "Average confidence",
+        "pace": "Overall pace",
+        "paceUnit": "wpm",
+        "fillers": "Average fillers",
+        "fillersUnit": "per minute",
+        "videoTitle": "Detected facial emotions",
+        "dominant": "Dominant: {{label}}",
+        "adviceTitle": "Suggestions for next time",
+        "restartButton": "Start another session",
+        "restartNote": "Data remains in your browser. Restart the module whenever you like."
+      },
+      "chart": {
+        "empty": "No data recorded for this session."
+      },
+      "coachMessageLabel": "Coach insight",
+      "sessionStatus": "Session running"
+    },
+    "errors": {
+      "micUnavailable": "Microphone unavailable on this device.",
+      "micDenied": "Microphone access denied. Check your browser permissions.",
+      "cameraUnavailable": "Camera unavailable on this device.",
+      "cameraDenied": "Camera access denied. Update your browser permissions.",
+      "analysisUnavailable": "Analysis unavailable. Verify microphone access.",
+      "videoModelsFailed": "Unable to load the video analysis models.",
+      "videoFallback": "Camera could not be activated. Switching to voice-only mode.",
+      "voiceAiFallback": "AI voice analysis unavailable. Using local metrics instead."
+    },
+    "status": {
+      "videoChecking": "Camera permission…",
+      "videoReady": "Camera ready",
+      "videoEnabled": "Camera on",
+      "videoDisabled": "Enable camera",
+      "videoAnalysis": "Video analysis in progress…",
+      "videoReminder": "Camera ready—keep your face centred."
+    },
+    "coachCue": {
+      "highStress": "Take 10 seconds to breathe, drop your shoulders and resume at a calmer pace.",
+      "lowConfidenceFillers": "State your core idea in one sentence before continuing.",
+      "energetic": "Great energy! Push one argument for two minutes.",
+      "lowConfidence": "Take two deep breaths, focus on your key message before you continue.",
+      "balanced": "Keep this clear tone. Follow your plan step by step."
+    },
+    "voiceSummary": {
+      "awaiting": "I’m listening—keep speaking for a complete analysis.",
+      "highStressLowConfidence": "High tension detected: slow down, reset and resume.",
+      "highStress": "Lots of energy! Channel it by clarifying your next point.",
+      "highConfidence": "Stable, confident voice—perfect to deliver your plan.",
+      "lowConfidence": "Calm but hesitant: craft your next point in a strong sentence.",
+      "highPitch": "Pitch rising—slow down and breathe for clarity.",
+      "balanced": "Balanced delivery: keep this rhythm and emphasise key ideas."
+    },
+    "advice": {
+      "reset": "Create a short reset ritual (breathing, grounding) before your next session.",
+      "intention": "Write your intention in one sentence and say it aloud before starting.",
+      "pause": "Practise conscious pauses—stop whenever a filler word comes.",
+      "slowDown": "Train yourself to slow down by reading a short passage slowly.",
+      "challenge": "Challenge: explain a complex idea in 120 seconds next time.",
+      "structure": "Use “Situation - Action - Result” to keep your speech structured.",
+      "setup": "Choose a calm environment and test your microphone ahead of time.",
+      "hydrate": "Hydrate around 10 minutes before speaking."
+    },
+    "emotionNames": {
+      "fallback": "Focused",
+      "stressed": "Stressed",
+      "confident": "Confident",
+      "calm": "Calm",
+      "tense": "Tense"
+    }
+  },
+  "astronautVideo": {
+    "loading": "Loading coach…",
+    "badge": "ACI Coach",
+    "fallback": {
+      "title": "Static mode",
+      "description": "WebGL is not available on this device. The 3D coach will display on a compatible browser (recent desktop or mobile).",
+      "note": "No worries: the rest of the experience still works."
+    },
+    "focus": {
+      "title": "Focus mode",
+      "tag": "AI Concierge",
+      "items": [
+        {
+          "title": "Profile",
+          "value": "Behaviour analysis ready"
+        },
+        {
+          "title": "Business",
+          "value": "3 qualified ideas"
+        },
+        {
+          "title": "Concierge",
+          "value": "Meetings in progress"
+        },
+        {
+          "title": "Mindset",
+          "value": "Anti-stress routine active"
+        }
+      ]
+    }
+  },
+  "stakingTokenTicker": "ACI",
+  "stakingMiniBalanceTitle": "Available ACI balance",
+  "stakingMiniAllowanceTitle": "Allowance approved",
+  "stakingMiniStakedTitle": "Staked balance",
+  "stakingAmountPlaceholder": "0.00"
 }

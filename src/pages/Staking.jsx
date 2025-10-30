@@ -397,6 +397,8 @@ export default function StakingScreen() {
     }
   }, [contractBalanceReady, contractBalanceWei, decimalsSafe]);
 
+  const tokenTicker = t('stakingTokenTicker', { defaultValue: 'ACI' });
+
   const rewardHighlightSub = useMemo(() => {
     const parts = [t('statCurrentRewardSub', { daily: dailyRewards })];
     if (contractBalanceReady) {
@@ -419,14 +421,14 @@ export default function StakingScreen() {
   const stakedTokenValue = useMemo(() => formattedStaked, [formattedStaked]);
 
   const formatToken = useCallback((value) => {
-    if (value == null || value === '') return '0 ACI';
+    if (value == null || value === '') return `0\u202f${tokenTicker}`;
     const numeric = Number(value);
     if (Number.isFinite(numeric)) {
       const formatted = numeric.toLocaleString(undefined, { maximumFractionDigits: 4 });
-      return `${formatted.replace(/\s/g, '\u202f')}\u202fACI`;
+      return `${formatted.replace(/\s/g, '\u202f')}\u202f${tokenTicker}`;
     }
-    return `${String(value).replace(/\s/g, '\u202f')}\u202fACI`;
-  }, []);
+    return `${String(value).replace(/\s/g, '\u202f')}\u202f${tokenTicker}`;
+  }, [tokenTicker]);
 
   const refetchAll = useCallback(() => {
     refetchStake?.();
@@ -846,15 +848,15 @@ export default function StakingScreen() {
               </div>
               {isConnected && (
                 <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
-                  <MiniStat title="Solde ACI disponible" value={formatToken(balanceTokenValue)} />
-                  <MiniStat title="Allowance" value={formatToken(allowanceTokenValue)} />
-                  <MiniStat title="Solde staké" value={formatToken(stakedTokenValue)} />
+                  <MiniStat title={t('stakingMiniBalanceTitle')} value={formatToken(balanceTokenValue)} />
+                  <MiniStat title={t('stakingMiniAllowanceTitle')} value={formatToken(allowanceTokenValue)} />
+                  <MiniStat title={t('stakingMiniStakedTitle')} value={formatToken(stakedTokenValue)} />
                 </div>
               )}
               <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
                 <HighlightCard
                   label={t('statStakedTitle')}
-                  value={`${formattedStakedDisplay} ACI`}
+                  value={formatToken(formattedStakedDisplay)}
                   sub={
                     poolPercent
                       ? t('statPoolPercentSub', {
@@ -866,7 +868,7 @@ export default function StakingScreen() {
                 />
                 <HighlightCard
                   label={t('statTotalRewardTitle')}
-                  value={`${formattedPendingDisplay} ACI`}
+                  value={formatToken(formattedPendingDisplay)}
                   sub={rewardHighlightSub}
                 />
                 <HighlightCard
@@ -957,7 +959,7 @@ export default function StakingScreen() {
                 type="number"
                 min="0"
                 step="0.0001"
-                placeholder="0.00"
+                placeholder={t('stakingAmountPlaceholder', { defaultValue: '0.00' })}
                 value={stakeAmount}
                 onChange={e => setStakeAmount(e.target.value)}
                 disabled={!isConnected || actionPending}

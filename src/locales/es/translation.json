@@ -195,13 +195,13 @@
   },
   "coach3DModule": {
     "title": "Coach IA (demo animada)",
-    "description": "Vista previa rápida del coach IA. Versión interactiva con voz, emociones y rutinas muy pronto.",
+    "description": "Vista guiada del coach IA: voz interactiva, emociones y planificación de rutinas.",
     "scrollHint": "Desplázate para iniciar la demo",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "¡Hola 👋! Soy tu coach IA. ¿Listo para estabilizar tu mentalidad?"
+        "text": "¡Hola! Soy tu coach IA ACI. ¿Listo para estabilizar tu mentalidad?"
       },
       {
         "role": "user",
@@ -211,24 +211,24 @@
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Analizamos tus objetivos, tu comportamiento y tu estrés para crear planes semanales."
+        "text": "Analizo tus objetivos, tu comportamiento y tu estrés para crear planes semanales claros."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas claras, recompensas y recordatorios."
+        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas, recompensas y recordatorios."
       }
     ]
   },
   "coach3DModuleFallback": {
     "title": "Coach IA (demo animada)",
-    "description": "Vista previa rápida del coach IA. Versión interactiva con voz, emociones y rutinas muy pronto.",
+    "description": "Vista guiada del coach IA: voz interactiva, emociones y planificación de rutinas.",
     "scrollHint": "Desplázate para iniciar la demo",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "¡Hola 👋! Soy tu coach IA. ¿Listo para estabilizar tu mentalidad?"
+        "text": "¡Hola! Soy tu coach IA ACI. ¿Listo para estabilizar tu mentalidad?"
       },
       {
         "role": "user",
@@ -238,12 +238,12 @@
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Analizamos tus objetivos, tu comportamiento y tu estrés para crear planes semanales."
+        "text": "Analizo tus objetivos, tu comportamiento y tu estrés para crear planes semanales claros."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas claras, recompensas y recordatorios."
+        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas, recompensas y recordatorios."
       }
     ]
   },
@@ -337,8 +337,8 @@
   "alertPurchaseSuccess": "Purchase of ${{amount}} (≈ {{tokens}} ACI) sent to your wallet.",
   "alertBuyAndStake": "You are about to buy {{count}} ACI for ${{amount}}. Staking is coming soon.",
   "networkWarning": "Incompatible network detected. Select {{network}}.",
-  "networkSwitch": "Switch now",
-  "networkSwitching": "Switching…",
+  "networkSwitch": "Cambiar de red",
+  "networkSwitching": "Cambiando de red…",
   "buyProcessing": "Processing…",
   "participationLabel": "{{participants}} investors have already joined the presale.",
   "statsLoading": "Loading live presale data…",
@@ -594,174 +594,115 @@
     "intro": "Una visión en ocho fases: identidad, Coach IA, formaciones inteligentes, staking, DAO, MetaVerse, app de bienestar y lanzamiento global. Cada hito fortalece el ecosistema ACI y el valor del token."
   },
   "tokenPage": {
-    "title": "Meta Coach Token (ACI)",
-    "intro": "El token ACI alimenta el ecosistema: acceso al Coach IA, descuentos en formaciones, staking y gobernanza futura. Es el corazón de nuestra visión Meta Coach: herramientas inteligentes, acompañamiento humano e incentivos alineados con tu progresión.",
-    "utilitiesTitle": "Utilidades principales",
-    "utilities": [
-      "Acceso y créditos al Coach IA",
-      "Descuentos en formaciones premium",
-      "Recompensas mediante staking",
-      "Gobernanza (DAO) próximamente"
-    ],
-    "progressTag": "El token que impulsa tu progreso",
-    "tokenomicsTitle": "Tokenomics",
-    "tokenomics": [
-      {
-        "label": "Preventa (ICO)",
-        "value": "10 %"
-      },
-      {
-        "label": "Staking y comunidad",
-        "value": "15 %"
-      },
-      {
-        "label": "Equipo y desarrollo IA",
-        "value": "20 %"
-      },
-      {
-        "label": "Marketing y alianzas",
-        "value": "25 %"
-      },
-      {
-        "label": "Reserva y liquidez (DEX/CEX)",
-        "value": "25 %"
-      },
-      {
-        "label": "DAO y ecosistema futuro",
-        "value": "5 %"
-      }
-    ],
-    "tokenomicsNote": "Esta asignación equilibra el crecimiento del proyecto, las recompensas a la comunidad, la innovación en IA y la liquidez a largo plazo para escalar con solidez.",
+    "title": "Token Meta Coach (ACI)",
+    "intro": "El token ACI impulsa el ecosistema Meta Coach: acceso a módulos IA, formación premium, recompensas de staking y futura gobernanza comunitaria.",
     "tokenomicsBreakdown": {
-      "tagline": "Asignación estratégica",
-      "title": "Distribución de los 120 mil millones de tokens ACI",
-      "subtitle": "Una tabla clara que muestra cómo se reparte la oferta entre crecimiento, comunidad, innovación y reservas a largo plazo.",
-      "totalSupplyLabel": "Supply total",
-      "totalSupplyValue": "120 000 000 000 ACI",
+      "tagline": "Tokenomics de ACI",
+      "title": "Distribución equilibrada para un crecimiento sostenible",
+      "subtitle": "120 mil millones de ACI destinados a escalar el coach IA, premiar a la comunidad y asegurar liquidez permanente.",
+      "totalSupplyLabel": "Suministro total",
+      "totalSupplyValue": "120,000,000,000 ACI",
       "headers": {
         "segment": "Segmento",
-        "percentage": "Asignación",
-        "amount": "Volumen"
+        "percentage": "Porcentaje",
+        "amount": "Asignación"
       },
       "rows": [
         {
           "id": "presale",
           "icon": "presale",
           "label": "Preventa (ICO)",
-          "percentage": "10 %",
-          "amount": "12 000 000 000 ACI",
-          "description": "Financiación inicial y onboarding de los primeros seguidores."
+          "description": "Distribución inicial para early adopters y socios estratégicos.",
+          "percentage": "10%",
+          "amount": "12,000,000,000 ACI"
         },
         {
           "id": "community",
           "icon": "community",
-          "label": "Staking y comunidad",
-          "percentage": "15 %",
-          "amount": "18 000 000 000 ACI",
-          "description": "Recompensas de staking, incentivos y programas de embajadores."
+          "label": "Staking y Comunidad",
+          "description": "Recompensas para stakers, embajadores y misiones comunitarias.",
+          "percentage": "15%",
+          "amount": "18,000,000,000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
-          "label": "Equipo y desarrollo IA",
-          "percentage": "20 %",
-          "amount": "24 000 000 000 ACI",
-          "description": "Compensación, I+D de IA, infraestructura y seguridad."
+          "label": "Equipo y Desarrollo IA",
+          "description": "Financiación para investigación, producto y planes de incentivos.",
+          "percentage": "20%",
+          "amount": "24,000,000,000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
-          "label": "Marketing y alianzas",
-          "percentage": "25 %",
-          "amount": "30 000 000 000 ACI",
-          "description": "Adquisición de usuarios, influencia y acuerdos B2B."
+          "label": "Marketing y Alianzas",
+          "description": "Crecimiento global, eventos y alianzas empresariales.",
+          "percentage": "25%",
+          "amount": "30,000,000,000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserva y liquidez (DEX/CEX)",
-          "percentage": "25 %",
-          "amount": "30 000 000 000 ACI",
-          "description": "Liquidez en exchanges, apoyo a listings y tesorería."
+          "label": "Reserva y Liquidez",
+          "description": "Provisión de liquidez en DEX/CEX y colchón de tesorería.",
+          "percentage": "25%",
+          "amount": "30,000,000,000 ACI"
         },
         {
           "id": "dao",
           "icon": "dao",
-          "label": "DAO y ecosistema futuro",
-          "percentage": "5 %",
-          "amount": "6 000 000 000 ACI",
-          "description": "Fondo para la futura DAO e iniciativas del ecosistema."
+          "label": "DAO y Futuro Ecosistema",
+          "description": "Fondo reservado para gobernanza descentralizada, grants y nuevos módulos.",
+          "percentage": "5%",
+          "amount": "6,000,000,000 ACI"
         }
       ]
     },
-    "accessTitle": "Acceso prioritario al Coach IA",
-    "accessDescription": "Tener ACI permite activar el Coach IA, desbloquear planes personalizados y disfrutar de ventajas exclusivas durante las fases Meta Track y DAO. Sin consejo financiero: controla tu exposición y mantén tus decisiones.",
-    "deepDiveTitle": "Why the ACI token exists",
-    "deepDive": [
-      "A utility asset powering access to the proprietary AI coach, funding continuous upgrades, and rewarding contributors.",
-      "A bridge between training, trading psychology, and governance: the more you progress, the more influence you gain over the roadmap.",
-      "An aligned economy: staking and learning missions feed the AI treasury and community redistribution."
-    ],
+    "accessTitle": "Cómo acceder a ACI",
+    "accessDescription": "Staquear o mantener ACI desbloquea módulos IA avanzados, automatizaciones y gobernanza Meta Coach.",
     "sections": {
-      "utility": {
-        "title": "Utility & access",
-        "items": [
-          {
-            "title": "Proprietary AI coach",
-            "text": "Tokens activate the ACI voice/emotion coach. Holders receive conversation credits, exclusive modules, and advanced emotional tracking."
-          },
-          {
-            "title": "Marketplace & trainings",
-            "text": "Paying in ACI unlocks discounts, premium packs, and new tracks. Purchases feed the AI model and improve emotional management."
-          },
-          {
-            "title": "Gamified missions",
-            "text": "Weekly quests (voice journal, breathing drill, trading debrief) reward users in ACI and fuel their Meta Track progression."
-          }
-        ]
-      },
       "economics": {
-        "title": "Economics & R&D",
+        "title": "Pilares de utilidad y liquidez",
         "items": [
           {
-            "title": "AI treasury",
-            "text": "Part of staking and sales flows into a fund dedicated to improving the proprietary model (datasets, fine-tuning, audio infrastructure)."
+            "title": "Token de acceso IA",
+            "text": "Staquear o conservar ACI abre módulos avanzados, paneles y automatizaciones."
           },
           {
-            "title": "Smart staking",
-            "text": "Dynamic APR based on participation (missions, feedback) encourages usage instead of passive speculation."
+            "title": "Aprendizaje incentivado",
+            "text": "Quests learn-to-earn, embajadores y recompensas de gobernanza reciclan valor en la comunidad."
           },
           {
-            "title": "Strategic reserves",
-            "text": "10% reserved for partnerships (trading platforms, wellbeing actors), liquidity, and new market expansion."
+            "title": "Liquidez sostenible",
+            "text": "Asignaciones dedicadas mantienen la liquidez en DEX/CEX sin presionar a largo plazo."
           }
         ]
       },
       "governance": {
-        "title": "Governance & community",
+        "title": "Gobernanza y crecimiento",
         "items": [
           {
-            "title": "Progressive DAO",
-            "text": "Staked holders vote on new modules (training, psychology), AI orientation, and treasury usage."
+            "title": "Descentralización progresiva",
+            "text": "Los holders de ACI votan mejoras IA, integraciones y el uso de la tesorería."
           },
           {
-            "title": "Voice & emotions",
-            "text": "Anonymised vocal feedback informs proposals: collective stress signals can trigger special programmes (mindset coaching, live workshops)."
+            "title": "Seguridad primero",
+            "text": "Auditorías, pruebas de reservas y cumplimiento protegen a stakers y empresas."
           },
           {
-            "title": "Ambassador pool",
-            "text": "A token pool rewards mentors, creators, and partners who grow the community (events, onboarding, AI beta tests)."
+            "title": "Expansión global",
+            "text": "Traducciones, embajadores y APIs profesionales llevan Meta Coach a nuevos mercados."
           }
         ]
       }
     },
     "cta": {
-      "title": "Ready to dive deeper?",
-      "subtitle": "Trader, coach, creator—see how ACI can accelerate your growth.",
+      "title": "¿Listo para unirte al movimiento ACI?",
+      "subtitle": "Lee el whitepaper, adquiere ACI o habla con el equipo para lanzar el coach IA en tu comunidad.",
       "buttons": {
-        "whitepaper": "Read the whitepaper",
-        "buy": "Buy ACI",
-        "contact": "Talk to the team"
+        "whitepaper": "Ver el whitepaper",
+        "buy": "Comprar ACI",
+        "contact": "Hablar con el equipo"
       }
     }
   },
@@ -970,50 +911,50 @@
       "answer": "No, crypto only (ETH)."
     }
   ],
-  "stakingTitle": "Welcome to ACI Staking",
-  "stakingDesc": "Stake your ACI tokens to earn passive rewards. The longer you stake, the more you earn.",
-  "stakingConnectPrompt": "Connect your wallet to access ACI staking.",
+  "stakingTitle": "Staking de ACI",
+  "stakingDesc": "Bloquea tus tokens ACI para generar recompensas pasivas. Cuanto más tiempo permanezcan en staking, mayor será el rendimiento.",
+  "stakingConnectPrompt": "Conecta tu wallet para empezar a hacer staking.",
   "stakingWrongNetwork": "Switch your wallet to {{network}} before staking ACI.",
-  "stakingNetworkMismatch": "Red incorrecta — conéctate a Ethereum Mainnet.",
-  "stakingConfigErrorContract": "Invalid staking contract address. Check REACT_APP_STAKING_CONTRACT_ADDRESS.",
-  "stakingConfigErrorToken": "Invalid ACI token address. Check REACT_APP_STAKING_TOKEN_ADDRESS.",
-  "stakingError": "Something went wrong. Please try again or check your wallet.",
+  "stakingNetworkMismatch": "Estás en la red equivocada. Cambia a la red oficial de staking.",
+  "stakingConfigErrorContract": "Contrato de staking no configurado.",
+  "stakingConfigErrorToken": "Dirección del token inválida en la configuración.",
+  "stakingError": "Ha ocurrido un error. Vuelve a intentarlo.",
   "stakingApprovePrompt": "Approve the staking contract to use your ACI before depositing.",
-  "stakingApproveButton": "Approve staking",
-  "stakingApproving": "Approving...",
-  "stakingProcessing": "Processing...",
-  "stakingApproveSuccess": "Approval confirmed. You can stake your ACI now.",
-  "stakingStakeSuccess": "Staking confirmed! Your ACI is now earning rewards.",
-  "stakingUnstakeSuccess": "Unstake completed. Your ACI is back in your wallet.",
-  "stakingClaimSuccess": "Rewards claimed successfully.",
-  "stakingTxSubmitted": "Transaction sent. Waiting for confirmation...",
+  "stakingApproveButton": "Autorizar staking",
+  "stakingApproving": "Enviando aprobación…",
+  "stakingProcessing": "Procesando…",
+  "stakingApproveSuccess": "Allowance aprobada. Ya puedes hacer staking.",
+  "stakingStakeSuccess": "Staking realizado con éxito.",
+  "stakingUnstakeSuccess": "Fondos retirados del staking.",
+  "stakingClaimSuccess": "Recompensas reclamadas correctamente.",
+  "stakingTxSubmitted": "Transacción enviada. Confírmala en tu wallet.",
   "stakingInsufficientAmount": "Enter an amount above zero (and meet the minimum).",
-  "stakingBalanceTitle": "💼 Available ACI balance",
-  "stakingBalanceValue": "{{balance}} ACI available",
-  "stakingBalanceLoading": "Obteniendo saldo…",
-  "stakingBalanceUnknown": "Balance unavailable. Check your wallet.",
-  "stakingInsufficientBalance": "Saldo insuficiente.",
-  "stakingSignerMissing": "La wallet no está lista para firmar transacciones. Vuelve a conectarte e inténtalo de nuevo.",
-  "stakingPoolInvalid": "Pool de staking no compatible.",
-  "stakingEnterAmount": "Introduce un monto ≥ {{min}} ACI.",
-  "stakingMinLabel": "Minimum: {{min}} ACI",
-  "stakingMinNotice": "Minimum required amount: {{min}} ACI.",
-  "stakingLockPeriod": "Lock period: {{days}} days",
-  "statStakedTitle": "💰 Amount Staked",
-  "statPoolPercentTitle": "📊 Pool Percentage",
-  "statPoolPercentSub": "Total staked: {{staked}} / {{cap}} ACI",
-  "statRateTitle": "🎯 Estimated Rewards",
-  "statRateSub": "{{rateYear}}% / año · {{rateThree}}% en 3 años",
-  "statCurrentRewardTitle": "🔥 Current Reward",
-  "statCurrentRewardSub": "{{daily}} ACI / day",
-  "statTotalRewardTitle": "🏆 Total Rewards",
-  "statTotalRewardSub": "{{pending}} ACI",
-  "statContractBalanceSub": "Balance del pool de recompensas: {{balance}} ACI disponibles.",
-  "stakingContractBalanceWarning": "El pool de recompensas solo tiene {{balance}} ACI. Las recompensas pendientes podrían retrasarse hasta que se recargue el contrato.",
-  "unstakeButton": "Unstake ACI",
-  "claimButton": "Claim Rewards",
+  "stakingBalanceTitle": "Resumen de tu wallet",
+  "stakingBalanceValue": "Saldo disponible: {{balance}} ACI",
+  "stakingBalanceLoading": "Consultando saldo…",
+  "stakingBalanceUnknown": "No se pudo leer el saldo. Revisa tu wallet.",
+  "stakingInsufficientBalance": "Saldo insuficiente para completar el staking.",
+  "stakingSignerMissing": "No se detectó un signer. Vuelve a conectar tu wallet.",
+  "stakingPoolInvalid": "Pool de staking inválido.",
+  "stakingEnterAmount": "Introduce un monto válido (mínimo {{min}} ACI).",
+  "stakingMinLabel": "Depósito mínimo: {{min}} ACI",
+  "stakingMinNotice": "Debes bloquear al menos {{min}} ACI.",
+  "stakingLockPeriod": "Bloqueo: {{days}} días",
+  "statStakedTitle": "ACI bloqueados",
+  "statPoolPercentTitle": "% del pool",
+  "statPoolPercentSub": "{{staked}} ACI bloqueados / {{cap}} ACI disponibles",
+  "statRateTitle": "Rentabilidad",
+  "statRateSub": "{{rateYear}}% anual • {{rateThree}}% a 3 años",
+  "statCurrentRewardTitle": "Recompensa diaria",
+  "statCurrentRewardSub": "{{daily}} ACI al día",
+  "statTotalRewardTitle": "Recompensas acumuladas",
+  "statTotalRewardSub": "Pendiente: {{pending}} ACI",
+  "statContractBalanceSub": "Fondo de recompensas: {{balance}} ACI disponibles",
+  "stakingContractBalanceWarning": "Fondo de recompensas bajo: solo quedan {{balance}} ACI.",
+  "unstakeButton": "Retirar",
+  "claimButton": "Reclamar",
   "stakeInputPlaceholder": "Enter amount to stake",
-  "stakeButton": "Stake ACI",
+  "stakeButton": "Staking",
   "coach3d": {
     "title": "Coach IA (Avatar 3D)",
     "subtitle": "Habla con tu coach IA en tiempo real. El avatar 3D reacciona a tu voz y a tus emociones.",
@@ -1149,47 +1090,219 @@
     }
   },
   "coachBusinessModule": {
-    "title": "Coach IA para negocios (demo animada)",
-    "description": "Vista previa del modo business: la IA analiza tu perfil, detecta oportunidades y activa la concierge para los siguientes pasos.",
-    "scrollHint": "Desplázate para iniciar la demo de negocios",
+    "title": "Lo que hará el coach por ti",
+    "description": "La concierge IA analiza tu perfil, sugiere ideas de negocio a medida y coordina las siguientes acciones.",
+    "scrollHint": "Desplázate para lanzar la demo de negocios",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Acabo de revisar tu perfil y tu forma de ejecutar. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
+        "text": "Acabo de revisar tu perfil y tu estilo de ejecución. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "Quiero un plan claro adaptado a mi energía, sin perder tiempo ni ideas al azar."
+        "text": "Quiero un plan claro y alineado con mi energía, sin perder tiempo."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Perfecto. Seleccionaré tres ideas alineadas con tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
+        "text": "Perfecto. Seleccionaré tres ideas acordes a tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
       }
     ]
   },
   "coachBusinessModuleFallback": {
-    "title": "Coach IA para negocios (demo animada)",
-    "description": "Vista previa del modo business: la IA analiza tu perfil, detecta oportunidades y activa la concierge para los siguientes pasos.",
-    "scrollHint": "Desplázate para iniciar la demo de negocios",
+    "title": "Lo que hará el coach por ti",
+    "description": "La concierge IA analiza tu perfil, sugiere ideas de negocio a medida y coordina las siguientes acciones.",
+    "scrollHint": "Desplázate para lanzar la demo de negocios",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Acabo de revisar tu perfil y tu forma de ejecutar. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
+        "text": "Acabo de revisar tu perfil y tu estilo de ejecución. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "Quiero un plan claro adaptado a mi energía, sin perder tiempo ni ideas al azar."
+        "text": "Quiero un plan claro y alineado con mi energía, sin perder tiempo."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Perfecto. Seleccionaré tres ideas alineadas con tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
+        "text": "Perfecto. Seleccionaré tres ideas acordes a tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
       }
     ]
-  }
+  },
+  "emotionDetection": {
+    "recognitionLang": "es-ES",
+    "fillerWords": [
+      "eh",
+      "em",
+      "mmm",
+      "este",
+      "pues"
+    ],
+    "labels": {
+      "angry": "Enfadado",
+      "disgusted": "Disgustado",
+      "disgust": "Disgusto",
+      "fear": "Temeroso",
+      "fearful": "Temeroso",
+      "happy": "Feliz",
+      "sad": "Triste",
+      "surprise": "Sorprendido",
+      "surprised": "Sorprendido",
+      "neutral": "Neutral",
+      "calm": "Calmado",
+      "bored": "Aburrido",
+      "sleepy": "Soñoliento",
+      "serious": "Serio",
+      "confused": "Confundido",
+      "excited": "Entusiasmado",
+      "smile": "Sonrisa"
+    },
+    "ui": {
+      "badge": "ACI Meta Coach",
+      "title": "Módulo de detección de emociones (voz + cámara)",
+      "description": "Analiza tu voz en tiempo real para adaptar el coaching: emoción dominante, estrés, confianza, ritmo y muletillas. Activa la cámara para sumar las expresiones faciales (procesado 100% local).",
+      "voiceHint": "Análisis de voz en vivo para un coaching adaptativo.",
+      "toggle": {
+        "tooltipSession": "Detén la sesión antes de cambiar la cámara.",
+        "tooltipActive": "Desactivar análisis de vídeo",
+        "tooltipInactive": "Activar análisis de vídeo",
+        "textChecking": "Comprobando permiso de cámara…",
+        "textEnabled": "Análisis de vídeo activado",
+        "textDisabled": "Activar análisis de vídeo"
+      },
+      "consent": {
+        "title": "Se necesita permiso de micrófono",
+        "description": "Autoriza el micrófono para iniciar la detección. El audio permanece local; sólo se muestran las métricas calculadas.",
+        "button": "Permitir análisis de voz"
+      },
+      "preSession": {
+        "intro": "Todo listo. Pulsa iniciar y habla como en una sesión real. Puedes detenerte en cualquier momento para revisar el resumen.",
+        "startButton": "Iniciar sesión",
+        "previousSummaryNote": "Resumen anterior disponible abajo."
+      },
+      "session": {
+        "title": "Sesión en vivo",
+        "description": "Las métricas se actualizan cada 750 ms para una visualización fluida.",
+        "stopButton": "Detener y ver resumen",
+        "videoConfidence": "{{value}}% de confianza",
+        "metricEmotion": "Emoción",
+        "metricSpeechRate": "Ritmo del habla",
+        "metricFillers": "Muletillas por minuto",
+        "metricVoiceAi": "Insights de voz IA",
+        "voiceInsightsHint": "Analizo tono, energía y estabilidad para ayudarte en tiempo real.",
+        "coachLabel": "Coach"
+      },
+      "summary": {
+        "title": "Resumen de la sesión",
+        "legend": "Estrés (rosa) • Confianza (verde) en {{points}} muestras",
+        "stress": "Estrés medio",
+        "confidence": "Confianza media",
+        "pace": "Ritmo general",
+        "paceUnit": "ppm",
+        "fillers": "Muletillas medias",
+        "fillersUnit": "por minuto",
+        "videoTitle": "Emociones faciales detectadas",
+        "dominant": "Emoción dominante: {{label}}",
+        "adviceTitle": "Sugerencias para la próxima vez",
+        "restartButton": "Iniciar nueva sesión",
+        "restartNote": "Los datos permanecen en tu navegador. Reinicia cuando quieras."
+      },
+      "chart": {
+        "empty": "No hay datos registrados en esta sesión."
+      },
+      "coachMessageLabel": "Mensaje del coach",
+      "sessionStatus": "Sesión en progreso"
+    },
+    "errors": {
+      "micUnavailable": "Micrófono no disponible en este dispositivo.",
+      "micDenied": "Acceso al micrófono denegado. Revisa los permisos del navegador.",
+      "cameraUnavailable": "Cámara no disponible.",
+      "cameraDenied": "Acceso a la cámara denegado.",
+      "analysisUnavailable": "Análisis no disponible. Verifica el acceso al micrófono.",
+      "videoModelsFailed": "No se pudieron cargar los modelos de análisis de vídeo.",
+      "videoFallback": "No se pudo activar la cámara. Se usará solo el modo voz.",
+      "voiceAiFallback": "Análisis de voz IA no disponible. Se usan métricas locales."
+    },
+    "status": {
+      "videoChecking": "Permiso de cámara…",
+      "videoReady": "Cámara lista",
+      "videoEnabled": "Cámara encendida",
+      "videoDisabled": "Activar cámara",
+      "videoAnalysis": "Analizando vídeo…",
+      "videoReminder": "Mantén el rostro centrado en la cámara."
+    },
+    "coachCue": {
+      "highStress": "Tomemos 10 segundos para respirar, relaja los hombros y retoma con calma.",
+      "lowConfidenceFillers": "Formula tu idea clave en una frase antes de continuar.",
+      "energetic": "¡Gran energía! Refuerza un argumento durante dos minutos.",
+      "lowConfidence": "Respira dos veces y céntrate en un mensaje principal antes de seguir.",
+      "balanced": "Mantén este tono claro. Sigue tu plan paso a paso."
+    },
+    "voiceSummary": {
+      "awaiting": "Te escucho. Continúa para completar el análisis.",
+      "highStressLowConfidence": "Detecto mucha tensión: baja el ritmo, reinicia y continúa.",
+      "highStress": "Mucha energía. Canalízala aclarando el siguiente punto.",
+      "highConfidence": "Voz estable y segura; es momento de desplegar tu plan.",
+      "lowConfidence": "Voz calmada pero vacilante: formula tu próximo punto con firmeza.",
+      "highPitch": "El tono sube: reduce la velocidad y respira para mantener claridad.",
+      "balanced": "Entrega equilibrada. Mantén este ritmo y enfatiza las ideas clave."
+    },
+    "advice": {
+      "reset": "Diseña un ritual breve (respiración, enraizamiento) antes de cada sesión.",
+      "intention": "Escribe tu intención en una frase y dilo en voz alta antes de empezar.",
+      "pause": "Practica pausas conscientes: detente cuando aparezca una muletilla.",
+      "slowDown": "Entrena a hablar más despacio leyendo un texto lentamente.",
+      "challenge": "Reto: explica una idea compleja en 120 segundos la próxima vez.",
+      "structure": "Usa “Situación - Acción - Resultado” para estructurar tu mensaje.",
+      "setup": "Busca un entorno tranquilo y prueba tu equipo antes de hablar.",
+      "hydrate": "Hidrátate unos 10 minutos antes de la sesión."
+    },
+    "emotionNames": {
+      "fallback": "Concentrado",
+      "stressed": "Estresado",
+      "confident": "Seguro",
+      "calm": "Calmado",
+      "tense": "Tenso"
+    }
+  },
+  "astronautVideo": {
+    "loading": "Cargando al coach…",
+    "badge": "Coach ACI",
+    "fallback": {
+      "title": "Modo estático",
+      "description": "WebGL no está disponible en este dispositivo. El coach 3D aparecerá en un navegador compatible.",
+      "note": "El resto de la experiencia sigue funcionando."
+    },
+    "focus": {
+      "title": "Modo enfoque",
+      "tag": "Conserje IA",
+      "items": [
+        {
+          "title": "Perfil",
+          "value": "Análisis de comportamiento listo"
+        },
+        {
+          "title": "Negocio",
+          "value": "3 ideas cualificadas"
+        },
+        {
+          "title": "Conserjería",
+          "value": "Reuniones en marcha"
+        },
+        {
+          "title": "Mentalidad",
+          "value": "Rutina antiestrés activa"
+        }
+      ]
+    }
+  },
+  "stakingTokenTicker": "ACI",
+  "stakingMiniBalanceTitle": "Saldo ACI disponible",
+  "stakingMiniAllowanceTitle": "Allowance aprobada",
+  "stakingMiniStakedTitle": "ACI bloqueados",
+  "stakingAmountPlaceholder": "0.00"
 }
