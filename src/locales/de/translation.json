@@ -398,13 +398,13 @@
   },
   "homePage": {
     "ribbon": {
-      "label": "🎯 ACI-Vorverkauf läuft",
+      "label": "🎯 ACI-Vorverkauf",
       "details": " — Aktueller Preis: ${{price}} — Endet in: {{countdown}}",
       "cta": "Jetzt ACI kaufen"
     },
     "hero": {
-      "badge": "ACI-VORVERKAUF LÄUFT",
-      "title": "ACI-Vorverkauf läuft",
+      "badge": "ACI-VORVERKAUF",
+      "title": "ACI-Vorverkauf",
       "description": "Kaufe deine ACI-Token und tritt dem Meta-Coach-Ökosystem bei: KI-Coach, adaptive Trainings, Staking und Rewards.",
       "priceLabel": "Token-Preis",
       "timeLabel": "Restzeit",
