@@ -31,7 +31,7 @@ function NavigationBar() {
   const handleNavigate = useCallback(() => setIsOpen(false), []);
 
   return (
-    <nav className="fixed top-0 w-full bg-[#1a1a2e] bg-opacity-80 border-b-2 border-[#10b981] px-4 py-2 z-50">
+    <nav className="fixed top-0 w-full bg-black bg-opacity-90 border-b-2 border-[#10b981] px-4 py-2 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/">

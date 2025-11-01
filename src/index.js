@@ -6,12 +6,32 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { WalletProvider } from './walletConfig';
 
+const isIgnorableWalletConnectError = message => {
+  if (!message) return false;
+  return (
+    message.includes('WalletConnect Cloud projectId') ||
+    message.includes('Socket stalled when trying to connect to wss://relay.walletconnect.org')
+  );
+};
+
 if (typeof window !== 'undefined') {
   window.addEventListener('error', event => {
-    if (event?.message && event.message.includes('WalletConnect Cloud projectId')) {
+    if (event?.message && isIgnorableWalletConnectError(event.message)) {
       event.preventDefault();
       // eslint-disable-next-line no-console
-      console.warn('[walletConfig] Ignoring WalletConnect projectId error (fallback mode).');
+      console.warn('[walletConfig] Ignoring known WalletConnect warning:', event.message);
+    }
+  });
+
+  window.addEventListener('unhandledrejection', event => {
+    const reasonMessage =
+      (event?.reason && typeof event.reason === 'object' && 'message' in event.reason && event.reason.message) ||
+      (typeof event?.reason === 'string' ? event.reason : null);
+
+    if (reasonMessage && isIgnorableWalletConnectError(reasonMessage)) {
+      event.preventDefault();
+      // eslint-disable-next-line no-console
+      console.warn('[walletConfig] Ignoring known WalletConnect warning:', reasonMessage);
     }
   });
 }
