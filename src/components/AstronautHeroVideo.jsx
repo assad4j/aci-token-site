@@ -139,8 +139,8 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
     setWebglSupported(isWebGLAvailable());
   }, []);
 
-  const shouldRenderWebgl = webglSupported && !isMobile;
-  const fallbackNote = isMobile && webglSupported ? fallbackMobileNote : fallbackDefaultNote;
+  const shouldRenderWebgl = webglSupported;
+  const fallbackNote = isMobile ? fallbackMobileNote : fallbackDefaultNote;
 
   if (!shouldRenderWebgl) {
     return (

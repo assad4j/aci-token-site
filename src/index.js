@@ -23,14 +23,45 @@ if (!container) {
 
 const root = createRoot(container);
 
+class AppBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { err: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { err: error };
+  }
+
+  componentDidCatch(error, info) {
+    // eslint-disable-next-line no-console
+    console.error('[app] boundary captured error', error, info);
+  }
+
+  render() {
+    const { err } = this.state;
+    const { children } = this.props;
+    if (err) {
+      return (
+        <div style={{ color: '#fff', padding: 24, background: '#0b1220', minHeight: '100vh' }}>
+          Une erreur est survenue. Actualise la page ou réessaie plus tard.
+        </div>
+      );
+    }
+    return children;
+  }
+}
+
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<div>Chargement…</div>}>
-      <WalletProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </WalletProvider>
-    </Suspense>
+    <AppBoundary>
+      <Suspense fallback={<div style={{ color: '#fff', padding: 24 }}>Chargement…</div>}>
+        <WalletProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </WalletProvider>
+      </Suspense>
+    </AppBoundary>
   </React.StrictMode>,
 );
