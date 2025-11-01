@@ -87,6 +87,7 @@ export default function Coach3DModule({
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           hasStartedRef.current = true;
           setIsActive(true);
+          setShouldRenderVideo(true);
         }
       });
     }
