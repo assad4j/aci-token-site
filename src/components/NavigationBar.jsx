@@ -1,31 +1,34 @@
 // src/components/NavigationBar.jsx
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { HiMenu, HiX } from 'react-icons/hi';
 import logo from '../assets/logo.png';
-import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
-export default function NavigationBar() {
+function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
-  const menuItems = [
-    { labelKey: 'navigation.menu.home', to: '/' },
-    { labelKey: 'navigation.menu.coach', to: '/coach-ia' },
-    { labelKey: 'navigation.menu.formations', to: '/formations' },
-    { labelKey: 'navigation.menu.token', to: '/token' },
-    { labelKey: 'navigation.menu.staking', to: '/staking' },
-    { labelKey: 'navigation.menu.roadmap', to: '/roadmap' },
-    { labelKey: 'navigation.menu.whitepaper', to: '/whitepaper' },
-    { labelKey: 'navigation.menu.faq', to: '/faq' },
-    { labelKey: 'navigation.menu.contact', to: '/contact' },
-  ];
+  const menuItems = useMemo(
+    () => [
+      { labelKey: 'navigation.menu.home', to: '/' },
+      { labelKey: 'navigation.menu.coach', to: '/coach-ia' },
+      { labelKey: 'navigation.menu.formations', to: '/formations' },
+      { labelKey: 'navigation.menu.token', to: '/token' },
+      { labelKey: 'navigation.menu.staking', to: '/staking' },
+      { labelKey: 'navigation.menu.roadmap', to: '/roadmap' },
+      { labelKey: 'navigation.menu.whitepaper', to: '/whitepaper' },
+      { labelKey: 'navigation.menu.faq', to: '/faq' },
+      { labelKey: 'navigation.menu.contact', to: '/contact' },
+    ],
+    [],
+  );
 
-  const handleNavigate = () => setIsOpen(false);
+  const handleNavigate = useCallback(() => setIsOpen(false), []);
 
   return (
     <nav className="fixed top-0 w-full bg-[#1a1a2e] bg-opacity-80 border-b-2 border-[#10b981] px-4 py-2 z-50">
@@ -130,3 +133,5 @@ export default function NavigationBar() {
     </nav>
   );
 }
+
+export default React.memo(NavigationBar);

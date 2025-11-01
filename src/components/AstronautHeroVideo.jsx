@@ -4,59 +4,9 @@ import { Html, useGLTF, Clone } from '@react-three/drei';
 import { useTranslation } from 'react-i18next';
 import * as THREE from 'three';
 import useIsMobile from '../hooks/useIsMobile';
+import { DEFAULT_VIDEO_COPY, mergeVideoCopy } from './astronautCopy';
 
 const GLTF_URL = process.env.REACT_APP_AVATAR_GLTF || '/assets/aci-coach.glb';
-
-const DEFAULT_VIDEO_COPY = {
-  loading: 'Chargement du coach…',
-  badge: 'ACI Coach',
-  fallback: {
-    title: 'Mode statique',
-    description:
-      'WebGL n’est pas disponible sur cet appareil. Le coach 3D sera affiché sur un navigateur compatible (ordinateur ou mobile récent).',
-    note: 'Aucun blocage : le reste de l’expérience fonctionne normalement.',
-  },
-  focus: {
-    title: 'Mode focus',
-    tag: 'Concierge IA',
-    items: [
-      { title: 'Profil', value: 'Analyse comportementale prête' },
-      { title: 'Business', value: '3 idées qualifiées' },
-      { title: 'Conciergerie', value: 'Rendez-vous en cours' },
-      { title: 'Mindset', value: 'Routine anti-stress activée' },
-    ],
-  },
-};
-
-function mergeInto(target, source) {
-  if (!source || typeof source !== 'object') {
-    return target;
-  }
-  Object.keys(source).forEach(key => {
-    const value = source[key];
-    if (Array.isArray(value)) {
-      target[key] = value.map(item =>
-        item && typeof item === 'object' ? mergeInto({}, item) : item,
-      );
-    } else if (value && typeof value === 'object') {
-      if (!target[key] || typeof target[key] !== 'object' || Array.isArray(target[key])) {
-        target[key] = {};
-      }
-      mergeInto(target[key], value);
-    } else if (value !== undefined) {
-      target[key] = value;
-    }
-  });
-  return target;
-}
-
-function mergeVideoCopy(overrides) {
-  const base = JSON.parse(JSON.stringify(DEFAULT_VIDEO_COPY));
-  if (overrides && typeof overrides === 'object') {
-    mergeInto(base, overrides);
-  }
-  return base;
-}
 
 function isWebGLAvailable() {
   if (typeof window === 'undefined') {
@@ -75,6 +25,19 @@ function isWebGLAvailable() {
 function AstronautModel({ url }) {
   const { scene } = useGLTF(url);
   return <Clone object={scene} />;
+}
+
+function shouldPreloadGltf() {
+  if (typeof window === 'undefined') {
+    return true;
+  }
+  if (typeof window.matchMedia === 'function') {
+    return !window.matchMedia('(max-width: 768px)').matches;
+  }
+  if (typeof navigator !== 'undefined') {
+    return !/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+  return true;
 }
 
 function LoadingFallback({ label }) {
@@ -163,7 +126,9 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
   const focusTag = focusCopy.tag || DEFAULT_VIDEO_COPY.focus.tag;
   const fallbackTitle = fallbackCopy.title || DEFAULT_VIDEO_COPY.fallback.title;
   const fallbackDescription = fallbackCopy.description || DEFAULT_VIDEO_COPY.fallback.description;
-  const fallbackNote = fallbackCopy.note || DEFAULT_VIDEO_COPY.fallback.note;
+  const fallbackDefaultNote = fallbackCopy.note || DEFAULT_VIDEO_COPY.fallback.note;
+  const fallbackMobileNote =
+    fallbackCopy.mobileNote || DEFAULT_VIDEO_COPY.fallback.mobileNote || fallbackDefaultNote;
   const loadingLabel = copy.loading || DEFAULT_VIDEO_COPY.loading;
 
   const maxWidthValue = typeof width === 'number' ? `${width}px` : width;
@@ -174,7 +139,10 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
     setWebglSupported(isWebGLAvailable());
   }, []);
 
-  if (!webglSupported) {
+  const shouldRenderWebgl = webglSupported && !isMobile;
+  const fallbackNote = isMobile && webglSupported ? fallbackMobileNote : fallbackDefaultNote;
+
+  if (!shouldRenderWebgl) {
     return (
       <div
         className={`relative w-full ${className}`}
@@ -260,4 +228,6 @@ export default function AstronautHeroVideo({ width = 520, className = '', orient
   );
 }
 
-useGLTF.preload(GLTF_URL);
+if (shouldPreloadGltf()) {
+  useGLTF.preload(GLTF_URL);
+}
