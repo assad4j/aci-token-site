@@ -34,21 +34,7 @@
         overflow-x: hidden;
       }
 
-      video#background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
-      }
-
       @media (max-width: 768px) {
-        video#background-video {
-          opacity: 0.55;
-        }
         body {
           background-color: #07090c;
           color: #ffffff;
@@ -73,18 +59,6 @@
     </script>
   </head>
   <body>
-    <!-- ✅ Fond vidéo permanent, hors React -->
-    <video
-      id="background-video"
-      autoplay
-      muted
-      loop
-      playsinline
-    >
-      <source src="/videos/background.mp4" type="video/mp4" />
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
-
     <!-- React root -->
     <div id="root"></div>
   </body>
