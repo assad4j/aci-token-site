@@ -45,17 +45,6 @@
       },
       {
         "phase": "Phase 4",
-        "title": "Staking (live)",
-        "description": "Launch ACI staking so holders support the ecosystem, earn rewards, and access exclusive perks (trainings, AI, Meta Track).",
-        "objectives": [
-          "Secure staking smart contract",
-          "Rewards + perks in ACI",
-          "New staking UI design",
-          "Enhanced transparent liquidity"
-        ]
-      },
-      {
-        "phase": "Phase 5",
         "title": "DAO + International Expansion",
         "description": "Launch the ACI DAO so token holders can vote and steer strategic decisions. Deploy the AI Coach worldwide with translated trainings.",
         "objectives": [
@@ -66,7 +55,7 @@
         ]
       },
       {
-        "phase": "Phase 6",
+        "phase": "Phase 5",
         "title": "ACI Metaverse & Advanced AI",
         "description": "Create an immersive ACI world where users interact with their AI Coach inside a virtual learning universe. Performance unlocks progression badges and advanced access tiers.",
         "objectives": [
@@ -77,7 +66,7 @@
         ]
       },
       {
-        "phase": "Phase 7",
+        "phase": "Phase 6",
         "title": "Global AI Companion App (R&D → Beta)",
         "description": "Develop a wellbeing and trading AI companion app focused on emotional support. Users can enable camera/mic to talk to the AI when stress, fear, or panic appears. The AI listens, observes, and suggests tailored routines with no unconsented data storage.",
         "objectives": [
@@ -90,7 +79,7 @@
         ]
       },
       {
-        "phase": "Phase 8",
+        "phase": "Phase 7",
         "title": "Public Launch of the AI App",
         "description": "Official release of the app on stores (iOS / Android / desktop). Full integration with the ACI ecosystem (token, staking, Meta Track). Wellbeing partnerships and collaborations with educational institutions.",
         "objectives": [
@@ -402,12 +391,6 @@
   "homeValueCommunityDesc": "Join a worldwide network of coached investors.",
   "homeValueSecurityTitle": "Security & transparency",
   "homeValueSecurityDesc": "Audited contracts, public dashboards, and community oversight.",
-  "founderMessageTitle": "Founder’s Message",
-  "founderMessageText": "ACI was born from a simple conviction: mass adoption demands three pillars. First, education, with premium training available from day one. Second, performance, thanks to our proprietary trading bot. Third, financial freedom, through a private yet transparent payment rail. Joining ACI means joining a global community that truly masters its tools.",
-  "founderMessage": {
-    "title": "Founder’s Message",
-    "body": "ACI Meta Coach was born from a simple belief: sustainable performance doesn’t rely on miracle bots or luck. It happens when artificial intelligence, ongoing training, and mental discipline work together. We are building an ecosystem where every Meta Coach Token holder progresses with real tools, measurable plans, and a demanding community. No unrealistic promises—only structured guidance to invest with clarity."
-  },
   "homePage": {
     "ribbon": {
       "label": "🎯 ACI Presale",

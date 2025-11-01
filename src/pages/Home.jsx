@@ -3,9 +3,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { parseEther } from 'ethers';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import FounderMessage from '../components/FounderMessage';
 import PageWrapper from '../components/PageWrapper';
-import RoadmapSection from '../components/RoadmapSection';
 import AlertBanner from '../components/AlertBanner';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useSendTransaction, useNetwork, useSwitchNetwork } from 'wagmi';
@@ -652,10 +650,6 @@ export default function Home() {
           <div className="mt-20">
             <CoachIASection variant="home" />
           </div>
-
-          <RoadmapSection />
-
-          <FounderMessage />
 
           <section className="mt-20">
             <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 rounded-3xl border border-[#10b981]/25 bg-black/60 px-6 py-10 text-center text-white shadow-2xl shadow-[#10b981]/15">
