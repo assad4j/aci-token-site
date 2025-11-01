@@ -122,6 +122,9 @@ export default function NavigationBar() {
           <div className="mt-2 flex justify-center">
             <ConnectButton showBalance={false} chainStatus="icon" />
           </div>
+          <div className="mt-2 flex justify-center text-white">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </nav>
