@@ -689,7 +689,21 @@
         "buy": "Acheter de l’ACI",
         "contact": "Contacter l’équipe"
       }
-    }
+    },
+    "accessFeatures": [
+      {
+        "title": "Staker pour débloquer le coach avancé",
+        "text": "Détenir le seuil requis d'ACI ouvre les modules premium (voix, caméra, automatisations)."
+      },
+      {
+        "title": "Récompenses communautaires",
+        "text": "Profite des rendements de staking, des quêtes learn-to-earn et des incentives de gouvernance tout en soutenant la liquidité."
+      },
+      {
+        "title": "Droits de gouvernance futurs",
+        "text": "Conserve tes ACI pour participer aux votes de la DAO Meta Coach et orienter les priorités de roadmap."
+      }
+    ]
   },
   "whitepaperPage": {
     "hero": {

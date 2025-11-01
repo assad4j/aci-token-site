@@ -8,7 +8,6 @@ import {
   FiVolume2,
   FiShield,
   FiGlobe,
-  FiExternalLink,
 } from 'react-icons/fi';
 
 const SectionGrid = React.memo(function SectionGrid({ title, items, accent }) {
@@ -49,6 +48,7 @@ export default function TokenPage() {
     const governance = base.sections?.governance ?? {};
     const tokenomicsBreakdown = base.tokenomicsBreakdown ?? {};
     const cta = base.cta ?? {};
+    const accessFeatures = Array.isArray(base.accessFeatures) ? base.accessFeatures : [];
     return {
       title: base.title ?? 'Meta Coach Token (ACI)',
       intro: base.intro ?? '',
@@ -61,6 +61,11 @@ export default function TokenPage() {
           title: governance.title ?? '',
           items: Array.isArray(governance.items) ? governance.items : [],
         },
+      },
+      access: {
+        title: base.accessTitle ?? '',
+        description: base.accessDescription ?? '',
+        features: accessFeatures,
       },
       cta: {
         title: cta.title ?? '',
@@ -91,6 +96,10 @@ export default function TokenPage() {
   const economicsTitle = tokenContent.sections.economics.title;
   const governanceSections = tokenContent.sections.governance.items;
   const governanceTitle = tokenContent.sections.governance.title;
+  const accessSection = tokenContent.access ?? {};
+  const accessTitle = accessSection.title ?? '';
+  const accessDescription = accessSection.description ?? '';
+  const accessFeatures = Array.isArray(accessSection.features) ? accessSection.features : [];
   const tokenomicsRows = tokenContent.tokenomicsBreakdown.rows;
   const {
     tagline: tokenomicsTagline,
@@ -108,6 +117,10 @@ export default function TokenPage() {
     reserve: FiShield,
     dao: FiGlobe,
   };
+  const showAccessSection =
+    (accessTitle && accessTitle.trim().length > 0) ||
+    (accessDescription && accessDescription.trim().length > 0) ||
+    accessFeatures.length > 0;
 
   return (
     <div className="py-20 text-white">
@@ -168,12 +181,33 @@ export default function TokenPage() {
         </section>
       )}
 
-      <section className="mt-16 rounded-3xl border border-emerald-500/20 bg-black/60 p-8 text-center shadow-xl shadow-emerald-500/10">
-        <h3 className="text-2xl font-semibold">{tokenContent.accessTitle}</h3>
-        <p className="mt-4 text-sm leading-relaxed text-white/75">
-          {tokenContent.accessDescription}
-        </p>
-      </section>
+      {showAccessSection ? (
+        <section className="mt-16 rounded-3xl border border-emerald-500/20 bg-black/70 p-8 text-center shadow-xl shadow-emerald-500/10">
+          {accessTitle ? <h3 className="text-2xl font-semibold text-white/90">{accessTitle}</h3> : null}
+          {accessDescription ? (
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              {accessDescription}
+            </p>
+          ) : null}
+          {accessFeatures.length > 0 ? (
+            <div className="mt-8 grid gap-4 text-left sm:grid-cols-3">
+              {accessFeatures.map((feature, index) => (
+                <article
+                  key={feature.title ?? feature.text ?? index}
+                  className="rounded-2xl border border-white/10 bg-white/5 px-5 py-6 shadow-lg shadow-black/20"
+                >
+                  {feature.title ? (
+                    <h4 className="text-base font-semibold text-white/90">{feature.title}</h4>
+                  ) : null}
+                  {feature.text ? (
+                    <p className="mt-2 text-sm leading-relaxed text-white/70">{feature.text}</p>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          ) : null}
+        </section>
+      ) : null}
 
       <section className="mt-16 space-y-12">
         <SectionGrid title={economicsTitle} items={economicsSections} accent="cyan" />

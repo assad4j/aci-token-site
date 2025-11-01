@@ -699,7 +699,21 @@
         "buy": "Buy ACI",
         "contact": "Talk with the team"
       }
-    }
+    },
+    "accessFeatures": [
+      {
+        "title": "Stake & unlock advanced coaching",
+        "text": "Holding the required ACI threshold grants access to premium voice, camera and automation modules."
+      },
+      {
+        "title": "Community rewards",
+        "text": "Earn staking yields, quest rewards and governance incentives while supporting liquidity."
+      },
+      {
+        "title": "Future governance rights",
+        "text": "Keep ACI to participate in Meta Coach DAO votes and influence roadmap priorities."
+      }
+    ]
   },
   "whitepaperPage": {
     "hero": {

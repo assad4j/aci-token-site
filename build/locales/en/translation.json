@@ -256,7 +256,7 @@
   "footer": {
     "tagline": "AI + Trading + Mindset: the winning equation.",
     "disclaimer": "© ACI Meta Coach · Security & Privacy · Terms. No performance guarantee. Do your own research and manage your risk.",
-    "email": "support@aci-token.net"
+    "email": "support@aci-meta.coach"
   },
   "buyWidget": {
     "title": "Buy ACI Tokens",
@@ -699,7 +699,21 @@
         "buy": "Buy ACI",
         "contact": "Talk with the team"
       }
-    }
+    },
+    "accessFeatures": [
+      {
+        "title": "Stake & unlock advanced coaching",
+        "text": "Holding the required ACI threshold grants access to premium voice, camera and automation modules."
+      },
+      {
+        "title": "Community rewards",
+        "text": "Earn staking yields, quest rewards and governance incentives while supporting liquidity."
+      },
+      {
+        "title": "Future governance rights",
+        "text": "Keep ACI to participate in Meta Coach DAO votes and influence roadmap priorities."
+      }
+    ]
   },
   "whitepaperPage": {
     "hero": {
