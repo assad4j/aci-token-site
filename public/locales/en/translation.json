@@ -400,7 +400,7 @@
     "hero": {
       "badge": "ACI PRESALE",
       "title": "ACI Presale",
-      "description": "Purchase your ACI tokens and join the Meta Coach ecosystem: AI coaching, adaptive trainings, staking, and rewards.",
+      "description": "Acquire your ACI tokens and join the MetaCoach ecosystem, an intelligent assistant technology inspired by Jarvis.",
       "priceLabel": "Token price",
       "timeLabel": "Time left",
       "raised": "Raised: {{raised}} / {{goal}}",
