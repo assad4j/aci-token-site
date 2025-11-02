@@ -10,6 +10,32 @@ import { useAccount, useSendTransaction, useNetwork, useSwitchNetwork } from 'wa
 import { PRESALE_CONFIG, TARGET_CHAIN_MESSAGE } from '../config/presale';
 import CoachIASection from '../components/CoachIASection';
 
+function useCountdown(end) {
+  const target = useMemo(() => (end instanceof Date ? end : new Date(end)), [end]);
+  const [now, setNow] = useState(() => Date.now());
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setNow(Date.now());
+    }, 1000);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  const diff = Math.max(0, target.getTime() - now);
+  const total = Math.floor(diff / 1000);
+  const days = Math.floor(total / 86400);
+  const hours = Math.floor((total % 86400) / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const seconds = total % 60;
+
+  return { days, hours, minutes, seconds, finished: total <= 0 };
+}
+
 export default function Home() {
   const { t } = useTranslation();
   const purchaseRef = useRef(null);
@@ -30,13 +56,6 @@ export default function Home() {
   const [participantCount, setParticipantCount] = useState(null);
   const [statsUpdatedAt, setStatsUpdatedAt] = useState(null);
   const [statsStatus, setStatsStatus] = useState('idle');
-  const [timeLeft, setTimeLeft] = useState({
-    months: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
   const [ethToUsd, setEthToUsd] = useState(3000);
 
   const tokenPrice = 0.001; // USD par token
@@ -48,13 +67,25 @@ export default function Home() {
     maxGoalEur > 0 ? (totalRaisedEur / maxGoalEur) * 100 : 0
   );
 
-  // ✅ Fin de prévente = aujourd'hui + 5 mois
-  const presaleEnd = useMemo(() => {
-    const end = new Date();
-    end.setMonth(end.getMonth() + 5);
-    end.setHours(23, 59, 59, 999);
-    return end;
-  }, []);
+  const FALLBACK_END = '2026-03-31T23:59:59Z';
+  const END =
+    (typeof process !== 'undefined' && process.env && process.env.REACT_APP_PRESALE_END) ||
+    FALLBACK_END;
+  const { days, hours, minutes, seconds, finished } = useCountdown(END);
+  const two = value => String(value).padStart(2, '0');
+  const label = finished
+    ? t('countdown.finished', { defaultValue: 'Terminé' })
+    : `${days}j ${two(hours)}h ${two(minutes)}m ${two(seconds)}s`;
+  const countdownContext = useMemo(
+    () => ({
+      months: Math.floor(days / 30),
+      days: days % 30,
+      hours,
+      minutes,
+      seconds,
+    }),
+    [days, hours, minutes, seconds],
+  );
 
   const { isConnected } = useAccount();
   const { chain } = useNetwork();
@@ -72,17 +103,6 @@ export default function Home() {
   const statsEndpoint = PRESALE_CONFIG.statsEndpoint;
   const minContributionEth = PRESALE_CONFIG.minContributionEth;
   const maxContributionEth = PRESALE_CONFIG.maxContributionEth;
-
-  const pad = value => String(Math.max(0, Math.floor(value))).padStart(2, '0');
-
-  const countdownShort = useMemo(() => {
-    const totalDays = Math.max(0, timeLeft.days + timeLeft.months * 30);
-    return `${pad(totalDays)}j ${pad(timeLeft.hours)}h ${pad(timeLeft.minutes)}m`;
-  }, [timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.months]);
-
-  const countdownWithSeconds = useMemo(() => {
-    return `${countdownShort} ${pad(timeLeft.seconds)}s`;
-  }, [countdownShort, timeLeft.seconds]);
 
   const formattedTokenPrice = useMemo(
     () =>
@@ -122,52 +142,6 @@ export default function Home() {
   const contractUrl = hasContractAddress
     ? `https://etherscan.io/address/${PRESALE_CONFIG.contractAddress}`
     : '#';
-
-  // Timer de fin de prévente
-  useEffect(() => {
-    const tick = () => {
-      const now = new Date();
-      let monthsDiff =
-        (presaleEnd.getFullYear() - now.getFullYear()) * 12 +
-        (presaleEnd.getMonth() - now.getMonth());
-
-      const monthAnchor = new Date(now);
-      monthAnchor.setDate(1);
-      monthAnchor.setHours(0, 0, 0, 0);
-      monthAnchor.setMonth(monthAnchor.getMonth() + monthsDiff);
-
-      if (monthAnchor > presaleEnd) {
-        monthsDiff = Math.max(0, monthsDiff - 1);
-        monthAnchor.setMonth(monthAnchor.getMonth() - 1);
-      }
-
-      const anchor = new Date(monthAnchor);
-      anchor.setDate(Math.min(
-        presaleEnd.getDate(),
-        new Date(anchor.getFullYear(), anchor.getMonth() + 1, 0).getDate()
-      ));
-      anchor.setHours(
-        presaleEnd.getHours(),
-        presaleEnd.getMinutes(),
-        presaleEnd.getSeconds(),
-        presaleEnd.getMilliseconds()
-      );
-
-      const diff = Math.max(0, presaleEnd - anchor);
-
-      setTimeLeft({
-        months: monthsDiff,
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor((diff % 86400000) / 3600000),
-        minutes: Math.floor((diff % 3600000) / 60000),
-        seconds: Math.floor((diff % 60000) / 1000),
-      });
-    };
-
-    tick(); // premier calcul immédiat
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
-  }, [presaleEnd]);
 
   // Prix ETH → USD
   useEffect(() => {
@@ -324,7 +298,7 @@ export default function Home() {
               </span>
               {t('homePage.ribbon.details', {
                 price: formattedTokenPrice,
-                countdown: countdownShort,
+                countdown: label,
               })}
             </p>
             <button
@@ -357,7 +331,7 @@ export default function Home() {
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs text-white/80">
                     <span className="text-white/60">{t('homePage.hero.timeLabel')}</span>
-                    <span className="font-semibold text-white">{countdownWithSeconds}</span>
+                    <span className="font-semibold text-white">{label}</span>
                   </div>
                 </div>
 
@@ -430,7 +404,7 @@ export default function Home() {
                   {t('homePage.purchase.title')}
                 </h2>
                 <p className="mt-4 text-sm text-white/70">
-                  {t('presaleEnds', timeLeft)}
+                  {t('presaleEnds', countdownContext)}
                 </p>
                 <p className="mt-1 text-sm text-white/60">
                   {t('priceInfo', { price: tokenPrice })}
