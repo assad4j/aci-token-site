@@ -256,7 +256,7 @@
   "footer": {
     "tagline": "ذكاء اصطناعي + تداول + ذهنية: المعادلة الرابحة.",
     "disclaimer": "© ACI Meta Coach · الأمان والخصوصية · الشروط. لا توجد أي ضمانات للأداء. قم بأبحاثك الخاصة وأدِر مخاطرَك.",
-    "email": "support@aci-meta.coach"
+    "email": "support@aci-token.net"
   },
   "buyWidget": {
     "title": "شراء توكنات ACI",
@@ -487,8 +487,8 @@
     "direct": [
       {
         "label": "البريد الإلكتروني",
-        "value": "support@aci-meta.coach",
-        "href": "mailto:support@aci-meta.coach"
+        "value": "support@aci-token.net",
+        "href": "mailto:support@aci-token.net"
       },
       {
         "label": "تيليغرام",

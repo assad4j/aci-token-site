@@ -256,7 +256,7 @@
   "footer": {
     "tagline": "AI + Trading + Mindset: the winning equation.",
     "disclaimer": "© ACI Meta Coach · Security & Privacy · Terms. No performance guarantee. Do your own research and manage your risk.",
-    "email": "support@aci-meta.coach"
+    "email": "support@aci-token.net"
   },
   "buyWidget": {
     "title": "Buy ACI Tokens",
@@ -499,8 +499,8 @@
     "direct": [
       {
         "label": "Email",
-        "value": "support@aci-meta.coach",
-        "href": "mailto:support@aci-meta.coach"
+        "value": "support@aci-token.net",
+        "href": "mailto:support@aci-token.net"
       },
       {
         "label": "Telegram",

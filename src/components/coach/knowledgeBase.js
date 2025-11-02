@@ -116,7 +116,7 @@ const KNOWLEDGE_BASE = {
       id: 'support-contact',
       keywords: ['support', 'contact', 'aide', 'problème', 'issue', 'bug', 'question'],
       reply:
-        "Besoin d’un humain ? support@aci-meta.coach ou le chat officiel sont là. Dis-moi aussi ce qui bloque : je logge l’info pour la team et je te propose un contournement en attendant.",
+        "Besoin d’un humain ? support@aci-token.net ou le chat officiel sont là. Dis-moi aussi ce qui bloque : je logge l’info pour la team et je te propose un contournement en attendant.",
       mood: 'neutral',
       intention: 'supportive',
     },
@@ -238,7 +238,7 @@ const KNOWLEDGE_BASE = {
       id: 'support-contact',
       keywords: ['support', 'contact', 'help', 'issue', 'problem', 'bug', 'question'],
       reply:
-        "Need a human touch? Ping support@aci-meta.coach or the official chat. Tell me here as well: I’ll log it for the team and suggest a workaround meanwhile.",
+        "Need a human touch? Ping support@aci-token.net or the official chat. Tell me here as well: I’ll log it for the team and suggest a workaround meanwhile.",
       mood: 'neutral',
       intention: 'supportive',
     },
