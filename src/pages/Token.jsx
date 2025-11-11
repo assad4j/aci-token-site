@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   FiTrendingUp,
+  FiLock,
+  FiAward,
+  FiDroplet,
   FiUsers,
-  FiCpu,
   FiVolume2,
   FiShield,
-  FiGlobe,
+  FiZap,
 } from 'react-icons/fi';
 
 const SectionGrid = React.memo(function SectionGrid({ title, items, accent }) {
@@ -48,6 +50,8 @@ export default function TokenPage() {
     const governance = base.sections?.governance ?? {};
     const tokenomicsBreakdown = base.tokenomicsBreakdown ?? {};
     const cta = base.cta ?? {};
+    const stakingSection = base.stakingSection ?? {};
+    const stakingSimulation = stakingSection.simulation ?? {};
     const accessFeatures = Array.isArray(base.accessFeatures) ? base.accessFeatures : [];
     return {
       title: base.title ?? 'Meta Coach Token (ACI)',
@@ -60,6 +64,23 @@ export default function TokenPage() {
         governance: {
           title: governance.title ?? '',
           items: Array.isArray(governance.items) ? governance.items : [],
+        },
+      },
+      staking: {
+        title: stakingSection.title ?? '',
+        description: stakingSection.description ?? '',
+        stats: Array.isArray(stakingSection.stats) ? stakingSection.stats : [],
+        simulation: {
+          title: stakingSimulation.title ?? '',
+          subtitle: stakingSimulation.subtitle ?? '',
+          headers: stakingSimulation.headers ?? {
+            participation: 'Participation',
+            tokens: 'Tokens',
+            reserve: 'Reserve',
+            yield: 'Yield',
+          },
+          rows: Array.isArray(stakingSimulation.rows) ? stakingSimulation.rows : [],
+          footnote: stakingSimulation.footnote ?? '',
         },
       },
       access: {
@@ -100,6 +121,16 @@ export default function TokenPage() {
   const accessTitle = accessSection.title ?? '';
   const accessDescription = accessSection.description ?? '';
   const accessFeatures = Array.isArray(accessSection.features) ? accessSection.features : [];
+  const stakingSection = tokenContent.staking ?? {};
+  const stakingStats = Array.isArray(stakingSection.stats) ? stakingSection.stats : [];
+  const stakingSimulation = stakingSection.simulation ?? {};
+  const stakingRows = Array.isArray(stakingSimulation.rows) ? stakingSimulation.rows : [];
+  const stakingHeaders = stakingSimulation.headers ?? {};
+  const stakingTitle = stakingSection.title ?? '';
+  const stakingDescription = stakingSection.description ?? '';
+  const stakingSimTitle = stakingSimulation.title ?? '';
+  const stakingSimSubtitle = stakingSimulation.subtitle ?? '';
+  const stakingFootnote = stakingSimulation.footnote ?? '';
   const tokenomicsRows = tokenContent.tokenomicsBreakdown.rows;
   const {
     tagline: tokenomicsTagline,
@@ -110,17 +141,24 @@ export default function TokenPage() {
     headers: tokenomicsHeaders,
   } = tokenContent.tokenomicsBreakdown;
   const tokenIconMap = {
-    presale: FiTrendingUp,
-    community: FiUsers,
-    team: FiCpu,
+    publicPresale: FiTrendingUp,
+    privateSale: FiLock,
+    staking: FiAward,
+    liquidity: FiDroplet,
+    team: FiUsers,
     marketing: FiVolume2,
     reserve: FiShield,
-    dao: FiGlobe,
+    burn: FiZap,
   };
   const showAccessSection =
     (accessTitle && accessTitle.trim().length > 0) ||
     (accessDescription && accessDescription.trim().length > 0) ||
     accessFeatures.length > 0;
+  const showStakingSection =
+    stakingStats.length > 0 ||
+    stakingRows.length > 0 ||
+    (stakingTitle && stakingTitle.trim().length > 0) ||
+    (stakingDescription && stakingDescription.trim().length > 0);
 
   return (
     <div className="py-20 text-white">
@@ -180,6 +218,82 @@ export default function TokenPage() {
           </div>
         </section>
       )}
+
+      {showStakingSection ? (
+        <section className="mt-16 rounded-3xl border border-emerald-400/20 bg-black/70 p-8 shadow-2xl shadow-emerald-500/10">
+          <div className="text-center">
+            {stakingTitle ? <h2 className="text-3xl font-semibold text-emerald-200">{stakingTitle}</h2> : null}
+            {stakingDescription ? (
+              <p className="mt-3 text-sm leading-relaxed text-white/70">{stakingDescription}</p>
+            ) : null}
+          </div>
+
+          {stakingStats.length > 0 ? (
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {stakingStats.map(stat => (
+                <div
+                  key={stat.label ?? stat.value}
+                  className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center shadow-lg shadow-black/20"
+                >
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/60">{stat.label}</p>
+                  <p className="mt-2 text-xl font-semibold text-white">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
+
+          {stakingRows.length > 0 ? (
+            <div className="mt-10">
+              {stakingSimTitle ? (
+                <h3 className="text-2xl font-semibold text-white/90 text-center">{stakingSimTitle}</h3>
+              ) : null}
+              {stakingSimSubtitle ? (
+                <p className="mt-2 text-sm text-white/70 text-center">
+                  {stakingSimSubtitle}
+                </p>
+              ) : null}
+
+              <div className="mt-6 space-y-4">
+                <div className="hidden rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-xs uppercase tracking-[0.2em] text-white/50 sm:grid sm:grid-cols-[1.2fr_repeat(3,1fr)]">
+                  <span>{stakingHeaders.participation}</span>
+                  <span>{stakingHeaders.tokens}</span>
+                  <span>{stakingHeaders.reserve}</span>
+                  <span className="text-right">{stakingHeaders.yield}</span>
+                </div>
+
+                {stakingRows.map(row => (
+                  <div
+                    key={row.id ?? row.participation}
+                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 shadow-lg shadow-black/30 sm:grid sm:grid-cols-[1.2fr_repeat(3,1fr)] sm:items-center sm:gap-4"
+                  >
+                    <div>
+                      <p className="text-sm font-semibold text-white">{row.participation}</p>
+                      <p className="mt-1 text-xs text-white/60 sm:hidden">
+                        {stakingHeaders.tokens}: {row.tokens}
+                      </p>
+                      <p className="text-xs text-white/60 sm:hidden">
+                        {stakingHeaders.reserve}: {row.reserve}
+                      </p>
+                      <p className="text-xs text-white/60 sm:hidden">
+                        {stakingHeaders.yield}: {row.yield}
+                      </p>
+                    </div>
+                    <div className="hidden text-sm text-white/70 sm:block">{row.tokens}</div>
+                    <div className="hidden text-sm text-white/70 sm:block">{row.reserve}</div>
+                    <div className="hidden text-sm font-semibold text-emerald-200 sm:flex sm:justify-end">
+                      {row.yield}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {stakingFootnote ? (
+                <p className="mt-4 text-xs text-white/50 text-center">{stakingFootnote}</p>
+              ) : null}
+            </div>
+          ) : null}
+        </section>
+      ) : null}
 
       {showAccessSection ? (
         <section className="mt-16 rounded-3xl border border-emerald-500/20 bg-black/70 p-8 text-center shadow-xl shadow-emerald-500/10">

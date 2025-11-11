@@ -7,7 +7,7 @@ import PageWrapper from '../components/PageWrapper';
 import AlertBanner from '../components/AlertBanner';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useSendTransaction, useNetwork, useSwitchNetwork } from 'wagmi';
-import { PRESALE_CONFIG, TARGET_CHAIN_MESSAGE } from '../config/presale';
+import { PRESALE_CONFIG, TARGET_CHAIN_MESSAGE, PRESALE_PRICE_TIERS } from '../config/presale';
 import CoachIASection from '../components/CoachIASection';
 
 function useCountdown(end) {
@@ -33,8 +33,38 @@ function useCountdown(end) {
   const minutes = Math.floor((total % 3600) / 60);
   const seconds = total % 60;
 
-  return { days, hours, minutes, seconds, finished: total <= 0 };
+  return { days, hours, minutes, seconds, finished: total <= 0, now };
 }
+
+const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000;
+const PRESALE_START_MS =
+  PRESALE_CONFIG.presaleStart instanceof Date
+    ? PRESALE_CONFIG.presaleStart.getTime()
+    : new Date(PRESALE_CONFIG.presaleStart).getTime();
+const PRESALE_END_MS =
+  PRESALE_CONFIG.presaleEnd instanceof Date
+    ? PRESALE_CONFIG.presaleEnd.getTime()
+    : new Date(PRESALE_CONFIG.presaleEnd).getTime();
+const DEFAULT_TOKEN_PRICE = PRESALE_PRICE_TIERS[0].price;
+
+const getTokenPriceForTimestamp = timestamp => {
+  if (!Number.isFinite(timestamp)) {
+    return DEFAULT_TOKEN_PRICE;
+  }
+  if (!Number.isFinite(PRESALE_START_MS)) {
+    return DEFAULT_TOKEN_PRICE;
+  }
+  if (timestamp <= PRESALE_START_MS) {
+    return DEFAULT_TOKEN_PRICE;
+  }
+
+  const diff = timestamp - PRESALE_START_MS;
+  const weekIndex = Math.min(
+    Math.floor(diff / MS_PER_WEEK),
+    PRESALE_PRICE_TIERS.length - 1
+  );
+  return PRESALE_PRICE_TIERS[weekIndex].price;
+};
 
 export default function Home() {
   const { t } = useTranslation();
@@ -58,20 +88,28 @@ export default function Home() {
   const [statsStatus, setStatsStatus] = useState('idle');
   const [ethToUsd, setEthToUsd] = useState(3000);
 
-  const tokenPrice = 0.001; // USD par token
-  const dollarToEur = 0.92;
-  const maxGoalEur = 12000000;
+  const dollarToEur = 1; // display values in USD for consistency
+  const maxGoalEur = 50000000;
   const totalRaisedEur = totalRaisedUsd * dollarToEur;
   const progressPercent = Math.min(
     100,
     maxGoalEur > 0 ? (totalRaisedEur / maxGoalEur) * 100 : 0
   );
 
-  const FALLBACK_END = '2026-03-31T23:59:59Z';
-  const END =
-    (typeof process !== 'undefined' && process.env && process.env.REACT_APP_PRESALE_END) ||
-    FALLBACK_END;
-  const { days, hours, minutes, seconds, finished } = useCountdown(END);
+  const endDate = useMemo(() => {
+    if (Number.isFinite(PRESALE_END_MS)) {
+      return new Date(PRESALE_END_MS);
+    }
+    if (Number.isFinite(PRESALE_START_MS)) {
+      return new Date(PRESALE_START_MS + 56 * 24 * 60 * 60 * 1000);
+    }
+    return new Date('2026-01-10T00:00:00Z');
+  }, []);
+  const { days, hours, minutes, seconds, finished, now: currentTimestamp } = useCountdown(endDate);
+  const tokenPrice = useMemo(
+    () => getTokenPriceForTimestamp(currentTimestamp),
+    [currentTimestamp]
+  );
   const two = value => String(value).padStart(2, '0');
   const label = finished
     ? t('countdown.finished', { defaultValue: 'Terminé' })
@@ -104,14 +142,13 @@ export default function Home() {
   const minContributionEth = PRESALE_CONFIG.minContributionEth;
   const maxContributionEth = PRESALE_CONFIG.maxContributionEth;
 
-  const formattedTokenPrice = useMemo(
-    () =>
-      tokenPrice.toLocaleString('fr-FR', {
-        minimumFractionDigits: 3,
-        maximumFractionDigits: 6,
-      }),
-    [tokenPrice]
-  );
+  const formattedTokenPrice = useMemo(() => {
+    const minDigits = tokenPrice < 0.01 ? 3 : 2;
+    return tokenPrice.toLocaleString('fr-FR', {
+      minimumFractionDigits: minDigits,
+      maximumFractionDigits: 6,
+    });
+  }, [tokenPrice]);
 
   const raisedDisplay = useMemo(
     () =>
@@ -162,7 +199,7 @@ export default function Home() {
   // Conversion USD → ETH + calcul ACI reçu
   useEffect(() => {
     const numericUsd = parseFloat(usdAmount);
-    if (!isNaN(numericUsd) && ethToUsd > 0) {
+    if (!isNaN(numericUsd) && ethToUsd > 0 && tokenPrice > 0) {
       const eth = (numericUsd / ethToUsd).toFixed(6);
       setEthAmount(eth);
       const aci = (numericUsd / tokenPrice).toFixed(0);
@@ -171,7 +208,7 @@ export default function Home() {
       setEthAmount('');
       setAciReceived(0);
     }
-  }, [usdAmount, ethToUsd]);
+  }, [usdAmount, ethToUsd, tokenPrice]);
 
   // Chargement des métriques depuis l'API facultative
   useEffect(() => {
@@ -337,10 +374,10 @@ export default function Home() {
 
                 <div className="space-y-2">
                   <p className="text-xs text-white/60">
-                    {t('homePage.hero.raised', {
-                      raised: `${raisedDisplay} €`,
-                      goal: `${goalDisplay} €`,
-                    })}
+                  {t('homePage.hero.raised', {
+                    raised: `${raisedDisplay} $`,
+                    goal: `${goalDisplay} $`,
+                  })}
                   </p>
                   <div className="h-[6px] w-full overflow-hidden rounded-full bg-white/10">
                     <div

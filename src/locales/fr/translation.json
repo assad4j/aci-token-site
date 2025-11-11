@@ -579,14 +579,14 @@
     "intro": "Une vision en huit phases : identité, Coach IA, formations intelligentes, staking, DAO, MetaVerse, application bien-être et lancement mondial. Chaque jalon consolide l’écosystème ACI et la valeur du token."
   },
   "tokenPage": {
-    "title": "Token Meta Coach (ACI)",
-    "intro": "Le token ACI alimente l’écosystème Meta Coach : accès aux modules IA, formations premium, récompenses de staking et gouvernance communautaire.",
+    "title": "Token Advanced Capital International (ACI)",
+    "intro": "ACI est le cœur ERC-20 d’Advanced Capital International : un actif déflationniste et transparent qui propulse la formation, les paiements, les récompenses de staking et la gouvernance long terme.",
     "tokenomicsBreakdown": {
-      "tagline": "Tokenomics ACI",
-      "title": "Une répartition équilibrée pour une croissance durable",
-      "subtitle": "120 milliards d’ACI pour accélérer le coach IA, récompenser la communauté et sécuriser la liquidité.",
-      "totalSupplyLabel": "Quantité totale",
-      "totalSupplyValue": "120 000 000 000 ACI",
+      "tagline": "Allocation officielle ACI",
+      "title": "1 milliard d’ACI pour la croissance, la liquidité et les burns",
+      "subtitle": "Le supply est entièrement minté au déploiement, sans taxe, sans fonction de mint et avec des burns manuels effectués par la trésorerie multisig.",
+      "totalSupplyLabel": "Supply total",
+      "totalSupplyValue": "1 000 000 000 ACI",
       "headers": {
         "segment": "Segment",
         "percentage": "Part",
@@ -594,116 +594,184 @@
       },
       "rows": [
         {
-          "id": "presale",
-          "icon": "presale",
-          "label": "Prévente (ICO)",
-          "description": "Distribution initiale aux premiers soutiens et partenaires stratégiques.",
-          "percentage": "10%",
-          "amount": "12 000 000 000 ACI"
+          "id": "publicPresale",
+          "icon": "publicPresale",
+          "label": "Prévente publique",
+          "description": "30 % répartis sur huit semaines avec un prix progressif (0,05 $ → 0,30 $).",
+          "percentage": "30%",
+          "amount": "300 000 000 ACI"
         },
         {
-          "id": "community",
-          "icon": "community",
-          "label": "Staking & Communauté",
-          "description": "Récompenses pour les stakers, ambassadeurs et quêtes communautaires.",
+          "id": "privateSale",
+          "icon": "privateSale",
+          "label": "Vente privée",
+          "description": "Investisseurs stratégiques avec lock-up de 6 à 12 mois.",
+          "percentage": "10%",
+          "amount": "100 000 000 ACI"
+        },
+        {
+          "id": "stakingRewards",
+          "icon": "staking",
+          "label": "Récompenses de staking",
+          "description": "15 % (150 000 000 ACI) libérés progressivement sur 24 mois pour financer les récompenses de staking.",
           "percentage": "15%",
-          "amount": "18 000 000 000 ACI"
+          "amount": "150 000 000 ACI"
+        },
+        {
+          "id": "liquidity",
+          "icon": "liquidity",
+          "label": "Liquidité DEX / CEX",
+          "description": "Provision de liquidité Uniswap et CEX verrouillée 12 mois.",
+          "percentage": "10%",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
-          "label": "Équipe & Développement IA",
-          "description": "Financement de la R&D IA, des squads produit et des incentives long terme.",
-          "percentage": "20%",
-          "amount": "24 000 000 000 ACI"
+          "label": "Équipe & Fondateurs",
+          "description": "Vesting sur 24 mois avec déblocage progressif pour les builders et la direction.",
+          "percentage": "10%",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
           "label": "Marketing & Partenariats",
-          "description": "Croissance mondiale, événements, onboarding entreprises et alliances.",
-          "percentage": "25%",
-          "amount": "30 000 000 000 ACI"
+          "description": "Campagnes, influence, listings et partenariats écosystème.",
+          "percentage": "10%",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Réserve & Liquidité",
-          "description": "Liquidité DEX/CEX et trésorerie pour stabiliser les échanges.",
-          "percentage": "25%",
-          "amount": "30 000 000 000 ACI"
+          "label": "Réserve / Buyback / Burn",
+          "description": "Trésorerie pour stabilisation du prix, burns trimestriels et buybacks.",
+          "percentage": "10%",
+          "amount": "100 000 000 ACI"
         },
         {
-          "id": "dao",
-          "icon": "dao",
-          "label": "DAO & Écosystème futur",
-          "description": "Budget réservé à la gouvernance décentralisée, aux grants et futurs modules.",
+          "id": "burn",
+          "icon": "burn",
+          "label": "Burn initial",
+          "description": "50 000 000 ACI brûlés au lancement pour enclencher le modèle déflationniste.",
           "percentage": "5%",
-          "amount": "6 000 000 000 ACI"
+          "amount": "50 000 000 ACI"
         }
       ]
     },
-    "accessTitle": "Accéder au token ACI",
-    "accessDescription": "Staker ou conserver de l’ACI débloque les modules IA avancés, les automatisations et la gouvernance Meta Coach.",
+    "accessTitle": "Utiliser l’ACI dans l’écosystème",
+    "accessDescription": "Détiens ou stake de l’ACI pour rejoindre la prévente, accéder au staking, soutenir la liquidité et préparer la future gouvernance.",
     "sections": {
       "economics": {
-        "title": "Piliers utilité & liquidité",
+        "title": "Piliers utilité, staking & liquidité",
         "items": [
           {
-            "title": "Token d’accès IA",
-            "text": "Staker ou détenir de l’ACI ouvre les modules, tableaux de bord et automatisations avancés."
+            "title": "ERC-20 fixe",
+            "text": "1 000 000 000 ACI mintés une seule fois, 0 % de taxe, pas de fonction de mint et burns manuels ouverts à tous les détenteurs."
           },
           {
-            "title": "Apprentissage récompensé",
-            "text": "Quêtes learn-to-earn, ambassadeurs et votes redistribuent la valeur à la communauté."
+            "title": "Prévente sur huit semaines",
+            "text": "300 000 000 ACI vendus en ETH avec un prix progressif (0,05 $ → 0,30 $). Les tokens sont livrés après la vente et les invendus sont brûlés automatiquement."
           },
           {
-            "title": "Liquidité pérenne",
-            "text": "Des allocations dédiées maintiennent la liquidité DEX/CEX sans diluer les holders long terme."
+            "title": "Réserve staking dédiée",
+            "text": "15 % du supply est placé dans la réserve de staking et distribué sur 24 mois, récompensant les portefeuilles engagés sur la durée."
           }
         ]
       },
       "governance": {
-        "title": "Gouvernance & croissance",
+        "title": "Sécurité & gouvernance",
         "items": [
           {
-            "title": "Décentralisation progressive",
-            "text": "Les détenteurs d’ACI votent les évolutions IA, les intégrations partenaires et l’allocation de trésorerie."
+            "title": "Multisig Gnosis Safe",
+            "text": "La propriété est transférée au multisig après le déploiement ; il exécute les burns et actions de trésorerie avec preuves publiques."
           },
           {
-            "title": "Sécurité prioritaire",
-            "text": "Audits, proof-of-reserves et conformité protègent stakers et entreprises."
+            "title": "Stack OpenZeppelin audité",
+            "text": "Contrat basé sur ERC20 + Burnable + Ownable, sans proxy ni taxes, déjà préparé pour les audits CertiK, Hacken et SolidProof."
           },
           {
-            "title": "Expansion internationale",
-            "text": "Traductions, ambassadeurs et APIs pro amènent Meta Coach dans de nouveaux marchés."
+            "title": "Trésorerie transparente",
+            "text": "0 % de frais, burns trimestriels + événement annuel et réserve dédiée aux buybacks et à la liquidité DEX/CEX."
           }
         ]
       }
     },
     "cta": {
-      "title": "Prêt à rejoindre le mouvement ACI ?",
-      "subtitle": "Consulte le whitepaper, acquiers de l’ACI ou contacte l’équipe pour déployer le coach IA dans ta communauté.",
+      "title": "Construis avec Advanced Capital International",
+      "subtitle": "Consulte la tokenomics, rejoins la prévente ou contacte l’équipe pour les listings, campagnes de staking ou intégrations entreprises.",
       "buttons": {
         "whitepaper": "Lire le whitepaper",
-        "buy": "Acheter de l’ACI",
-        "contact": "Contacter l’équipe"
+        "buy": "Rejoindre la prévente",
+        "contact": "Parler à l’équipe"
       }
     },
     "accessFeatures": [
       {
-        "title": "Staker pour débloquer le coach avancé",
-        "text": "Détenir le seuil requis d'ACI ouvre les modules premium (voix, caméra, automatisations)."
+        "title": "Staking à verrouillages flexibles",
+        "text": "Verrouille 1, 3 ou 6 mois et reçois 5 %–20 % d’APR financés par la réserve staking."
       },
       {
-        "title": "Récompenses communautaires",
-        "text": "Profite des rendements de staking, des quêtes learn-to-earn et des incentives de gouvernance tout en soutenant la liquidité."
+        "title": "Programme de burns manuels",
+        "text": "Des burns trimestriels retirent 10 à 25 M d’ACI et l’« ACI Annual Burn Event » peut détruire jusqu’à 50 M avec preuves sur Etherscan."
       },
       {
-        "title": "Droits de gouvernance futurs",
-        "text": "Conserve tes ACI pour participer aux votes de la DAO Meta Coach et orienter les priorités de roadmap."
+        "title": "Liquidité & buybacks",
+        "text": "100 M d’ACI sont bloqués 12 mois pour Uniswap et les CEX, et 100 M supplémentaires couvrent les buybacks et les burns de trésorerie."
       }
-    ]
+    ],
+    "stakingSection": {
+      "title": "Modèle de staking ACI",
+      "description": "Le staking impose un verrouillage minimum de 24 mois et distribue les récompenses depuis la réserve dédiée de 15 % (150 000 000 ACI). L’objectif est d’aligner la liquidité sur les bâtisseurs long terme.",
+      "stats": [
+        {
+          "label": "Supply total",
+          "value": "1 000 000 000 ACI"
+        },
+        {
+          "label": "Réserve staking",
+          "value": "15 % (150 000 000 ACI)"
+        },
+        {
+          "label": "Blocage minimum",
+          "value": "24 mois"
+        }
+      ],
+      "simulation": {
+        "title": "Impact de la participation sur les rendements",
+        "subtitle": "Les 150 M d’ACI sont alloués sur deux ans. Moins il y a de participants, plus le multiple de récompense par staker augmente.",
+        "headers": {
+          "participation": "Participation",
+          "tokens": "Tokens stakés",
+          "reserve": "Réserve récompenses",
+          "yield": "Rendement projeté"
+        },
+        "rows": [
+          {
+            "id": "fullPresale",
+            "participation": "100 % des tokens de la prévente",
+            "tokens": "≈300 000 000 ACI (30 % du supply)",
+            "reserve": "150 000 000 ACI",
+            "yield": "+50 % sur 2 ans (~25 %/an)"
+          },
+          {
+            "id": "halfPresale",
+            "participation": "50 % des tokens de la prévente",
+            "tokens": "≈150 000 000 ACI (15 % du supply)",
+            "reserve": "150 000 000 ACI",
+            "yield": "+100 % sur 2 ans (~50 %/an)"
+          },
+          {
+            "id": "quarterPresale",
+            "participation": "25 % des tokens de la prévente",
+            "tokens": "≈75 000 000 ACI (7,5 % du supply)",
+            "reserve": "150 000 000 ACI",
+            "yield": "+200 % sur 2 ans (~100 %/an)"
+          }
+        ],
+        "footnote": "Ces simulations sont indicatives et supposent une distribution linéaire des 150 M d’ACI sur 24 mois."
+      }
+    }
   },
   "whitepaperPage": {
     "hero": {
@@ -784,44 +852,52 @@
   ],
   "aboutCommunityTitle": "Un projet porté par la communauté",
   "aboutCommunityDesc": "ACI n’est pas seulement une crypto : c’est une vision nouvelle du web3 où chaque détenteur devient aussi acteur. Grâce à notre système de formation, les utilisateurs qui détiennent un certain nombre de tokens peuvent accéder à des cours exclusifs sur le trading, la sécurité et les cryptomonnaies. Ensemble, construisons une alternative sécurisée, libre, et éducative pour le monde de demain.",
-  "tokenomicsTitle": "Tokenomics",
-  "tokenomicsDesc": "Voici les informations complètes sur la répartition du token ACI, le total supply, les allocations etc.",
-  "raiseGoalTitle": "Objectif de levée",
-  "raiseGoalAmount": "12 000 000 $",
-  "raiseGoalText": "Nous visons une levée de {{amount}} pour financer l'intégralité du projet ACI.",
-  "founderRemunerationTitle": "Rémunération fondatrice",
-  "founderRemunerationPercent": "15 %",
-  "founderRemunerationText": "En tant que fondateur, une rémunération de {{percent}} est prévue. Cette somme couvre le développement, la direction stratégique, le branding, la gestion et la création complète du projet.",
-  "fundAllocationTitle": "Répartition des fonds",
+  "tokenomicsTitle": "Tokenomics ACI 2025",
+  "tokenomicsDesc": "Version officielle du modèle ACI : planning de prévente, supply fixe, burns manuels et garanties techniques.",
+  "raiseGoalTitle": "Objectif de prévente",
+  "raiseGoalAmount": "50 000 000 $",
+  "raiseGoalText": "La prévente publique dure huit semaines pour céder 300 000 000 ACI contre environ {{amount}} de contributions en USD (paiement exclusivement en ETH). Les tokens sont livrés à la fin et chaque token invendu est automatiquement brûlé.",
+  "founderRemunerationTitle": "Directives du contrat",
+  "founderRemunerationPercent": "0 % mint & 0 % taxe",
+  "founderRemunerationText": "ACI est un ERC-20 sur Ethereum avec {{percent}}, 18 décimales et le socle OpenZeppelin (ERC20 + Burnable + Ownable). Tous les détenteurs peuvent brûler leurs tokens et le multisig peut brûler depuis le contrat ou la trésorerie.",
+  "fundAllocationTitle": "Calendrier de prévente (8 semaines)",
   "fundAllocationPoints": [
     {
-      "percentage": "25 %",
-      "text": "Développement technique (smart contracts, sécurité, infrastructure web, IA)"
+      "percentage": "Semaine 1",
+      "text": "0,05 $ | 0,0000167 ETH — 30 000 000 ACI"
     },
     {
-      "percentage": "30 %",
-      "text": "Marketing, partenariats, influenceurs, réseaux sociaux"
+      "percentage": "Semaine 2",
+      "text": "0,075 $ | 0,0000250 ETH — 30 000 000 ACI"
     },
     {
-      "percentage": "15 %",
-      "text": "Réserve de liquidité pour exchanges"
+      "percentage": "Semaine 3",
+      "text": "0,10 $ | 0,0000330 ETH — 30 000 000 ACI"
     },
     {
-      "percentage": "10 %",
-      "text": "Audits, bug bounty, conformité sécurité"
+      "percentage": "Semaine 4",
+      "text": "0,125 $ | 0,0000417 ETH — 30 000 000 ACI"
     },
     {
-      "percentage": "3 %",
-      "text": "Frais juridiques (avocats, enregistrement légal, litiges éventuels)"
+      "percentage": "Semaine 5",
+      "text": "0,15 $ | 0,0000500 ETH — 30 000 000 ACI"
     },
     {
-      "percentage": "2 %",
-      "text": "Divers (hébergement, services SaaS, imprévus)"
+      "percentage": "Semaine 6",
+      "text": "0,20 $ | 0,0000667 ETH — 50 000 000 ACI"
+    },
+    {
+      "percentage": "Semaine 7",
+      "text": "0,25 $ | 0,0000833 ETH — 50 000 000 ACI"
+    },
+    {
+      "percentage": "Semaine 8",
+      "text": "0,30 $ | 0,0001000 ETH — 50 000 000 ACI"
     }
   ],
-  "tokenSupplyTitle": "Token Supply",
-  "tokenSupplyTotal": "120 000 000 000 ACI",
-  "tokenSupplyText": "Le total de tokens ACI créés est de {{total}}. Ils seront distribués selon des règles strictes pour garantir la transparence et la stabilité.",
+  "tokenSupplyTitle": "Supply total & burns",
+  "tokenSupplyTotal": "1 000 000 000 ACI",
+  "tokenSupplyText": "Un supply fixe de {{total}} est minté au déploiement. 50 000 000 ACI sont brûlés au lancement, des burns trimestriels retirent 10 à 25 millions d’ACI et l’« ACI Annual Burn Event » peut retirer jusqu’à 50 millions, le tout exécuté manuellement par le multisig Gnosis Safe avec preuve publique.",
   "howtoTitle": "Comment acheter",
   "howtoStepsTitle": "Étapes pour acheter le token ACI",
   "howtoSteps": [
@@ -875,7 +951,7 @@
   "faqItems": [
     {
       "question": "Quel est le prix d’un ACI pendant la prévente ?",
-      "answer": "🟡 1 ACI = 0.001 $"
+      "answer": "🟡 1 ACI = 0,05 $"
     },
     {
       "question": "Puis-je participer depuis n’importe quel pays ?",
