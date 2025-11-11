@@ -643,17 +643,9 @@
           "id": "reserve",
           "icon": "reserve",
           "label": "Reserve / Buyback / Burn",
-          "description": "Treasury buffer for price stabilization, quarterly burns, and buybacks.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
-        },
-        {
-          "id": "burn",
-          "icon": "burn",
-          "label": "Initial Burn",
-          "description": "50,000,000 ACI burned at launch to kickstart the deflationary model.",
-          "percentage": "5%",
-          "amount": "50,000,000 ACI"
+          "description": "Treasury dedicated to price stabilization, progressive burns, and buyback programs. Includes the initial 50,000,000 ACI burn and quarterly burns coordinated by the ACI DAO.",
+          "percentage": "15%",
+          "amount": "150,000,000 ACI"
         }
       ]
     },

@@ -645,17 +645,9 @@
           "id": "reserve",
           "icon": "reserve",
           "label": "Réserve / Buyback / Burn",
-          "description": "Trésorerie pour stabilisation du prix, burns trimestriels et buybacks.",
-          "percentage": "10%",
-          "amount": "100 000 000 ACI"
-        },
-        {
-          "id": "burn",
-          "icon": "burn",
-          "label": "Burn initial",
-          "description": "50 000 000 ACI brûlés au lancement pour enclencher le modèle déflationniste.",
-          "percentage": "5%",
-          "amount": "50 000 000 ACI"
+          "description": "Trésorerie pour stabilisation du prix, buybacks et burns trimestriels (dont 50 M ACI brûlés au lancement).",
+          "percentage": "15%",
+          "amount": "150 000 000 ACI"
         }
       ]
     },
