@@ -52,6 +52,18 @@
         ]
       },
       {
+        "phase": "المرحلة 4",
+        "title": "تطوير شبكة ACI (2026)",
+        "description": "تهيئة البلوكشين الخاصة بـ ACI لتناسب الذكاء الاصطناعي والتداول عالي السرعة.",
+        "objectives": [
+          "بدء تطوير بلوكشين ACI.",
+          "ضمان التوافق الكامل مع EVM.",
+          "تحسين الشبكة لأحمال الذكاء الاصطناعي + التداول منخفضة الكمون.",
+          "إطلاق شبكة اختبار عامة (Testnet).",
+          "نقل المنظومة تدريجياً إلى شبكة ACI."
+        ]
+      },
+      {
         "phase": "المرحلة 5",
         "title": "الـ DAO والتوسعات",
         "description": "فتح الحوكمة وتوسيع الشراكات.",
@@ -537,198 +549,199 @@
     "intro": "خمس مراحل مركّزة لإطلاق ACI Learn و ACI Risk AI والمنصّة الموحدة و DAO SmartTrader."
   },
   "tokenPage": {
-    "title": "Advanced Capital International Token (ACI)",
-    "intro": "ACI is the ERC-20 heart of Advanced Capital International—a deflationary, transparent asset powering education, payments, staking rewards, and long-term governance.",
+    "title": "رمز Advanced Capital International (ACI)",
+    "intro": "يُعد ACI قلب Advanced Capital International على شبكة ERC-20: أصل انكماشي وشفاف يموّل التعليم والمدفوعات ومكافآت التخزين والحوكمة طويلة الأجل.",
     "tokenomicsBreakdown": {
-      "tagline": "Official ACI Allocation",
-      "title": "1 billion ACI distributed for growth, liquidity, and burns",
-      "subtitle": "Supply is fully minted at deployment, with zero taxes, no mint function, and manual burns executed by the multisig treasury.",
-      "totalSupplyLabel": "Total supply",
+      "tagline": "التوزيع الرسمي لرمز ACI",
+      "title": "مليار رمز ACI مخصص للنمو والسيولة وحملات الحرق",
+      "subtitle": "تم سك المعروض كاملاً عند النشر، بلا ضرائب أو وظيفة سك إضافية، والحرق يتم يدوياً من خلال الخزانة المتعددة التوقيع.",
+      "totalSupplyLabel": "إجمالي المعروض",
       "totalSupplyValue": "1,000,000,000 ACI",
       "headers": {
-        "segment": "Segment",
-        "percentage": "Share",
-        "amount": "Allocation"
+        "segment": "الفئة",
+        "percentage": "النسبة",
+        "amount": "الكمية"
       },
       "rows": [
         {
           "id": "publicPresale",
           "icon": "publicPresale",
-          "label": "Public Presale",
-          "description": "30% allocation sold across eight weeks with progressive pricing ($0.05 → $0.30).",
-          "percentage": "30%",
+          "label": "الطرح العام المسبق",
+          "description": "30٪ موزعة على ثمانية أسابيع بأسعار تصاعدية (0.05 → 0.30 دولار).",
+          "percentage": "30٪",
           "amount": "300,000,000 ACI"
         },
         {
           "id": "privateSale",
           "icon": "privateSale",
-          "label": "Private Sale",
-          "description": "Strategic investors with 6–12 month lockups.",
-          "percentage": "10%",
+          "label": "الطرح الخاص",
+          "description": "مستثمرون استراتيجيون مع فترات قفل من 6 إلى 12 شهراً.",
+          "percentage": "10٪",
           "amount": "100,000,000 ACI"
         },
         {
           "id": "stakingRewards",
           "icon": "staking",
-          "label": "Staking Rewards",
-          "description": "15% reserve (150,000,000 ACI) released linearly across a 24-month staking lock.",
-          "percentage": "15%",
+          "label": "مكافآت التخزين",
+          "description": "احتياطي 15٪ (150,000,000 ACI) يُصرف تدريجياً خلال 24 شهراً.",
+          "percentage": "15٪",
           "amount": "150,000,000 ACI"
         },
         {
           "id": "liquidity",
           "icon": "liquidity",
-          "label": "DEX / CEX Liquidity",
-          "description": "Provisioning Uniswap and CEX pools with a 12-month lock.",
-          "percentage": "10%",
+          "label": "سيولة DEX / CEX",
+          "description": "توفير السيولة على Uniswap والبورصات المركزية مع قفل لمدة 12 شهراً.",
+          "percentage": "10٪",
           "amount": "100,000,000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
-          "label": "Team & Founders",
-          "description": "24-month vesting with progressive unlocks for builders and leadership.",
-          "percentage": "10%",
+          "label": "الفريق والمؤسسون",
+          "description": "جدولة استحقاق لمدة 24 شهراً مع فتح تدريجي.",
+          "percentage": "10٪",
           "amount": "100,000,000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
-          "label": "Marketing & Partnerships",
-          "description": "Campaigns, influence, listings, and ecosystem partnerships.",
-          "percentage": "10%",
+          "label": "التسويق والشراكات",
+          "description": "حملات، تأثير، إدراجات وشراكات داخل المنظومة.",
+          "percentage": "10٪",
           "amount": "100,000,000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserve / Buyback / Burn",
-          "description": "Treasury dedicated to price stabilization, progressive burns, and buyback programs. Includes the initial 50,000,000 ACI burn and quarterly burns coordinated by the ACI DAO.",
-          "percentage": "15%",
+          "label": "الاحتياطي / إعادة الشراء / الحرق",
+          "description": "خزانة مخصصة لتثبيت السعر، عمليات الحرق التدريجي وبرامج إعادة الشراء، وتشمل الحرق الأولي لـ50 مليون ACI والحرق ربع السنوي عبر DAO.",
+          "percentage": "15٪",
           "amount": "150,000,000 ACI"
         }
       ]
     },
-    "accessTitle": "Using ACI in the ecosystem",
-    "accessDescription": "Hold or stake ACI to join the presale, unlock staking yields, provide liquidity, and prepare for the future governance rollout.",
+    "accessTitle": "استخدام رمز ACI في المنظومة",
+    "accessDescription": "احتفظ بـ ACI أو قم بتخزينه للمشاركة في الطرح المسبق، والحصول على العوائد، وتوفير السيولة والاستعداد للحوكمة.",
     "sections": {
       "economics": {
-        "title": "Utility, staking, and liquidity pillars",
+        "title": "أعمدة الاستخدام والتخزين والسيولة",
         "items": [
           {
-            "title": "Fixed ERC-20 design",
-            "text": "1,000,000,000 ACI minted once, zero taxes, no mint function, and manual burns available to every holder. رموز ACI تفتح ACI Learn و ACI Risk AI، تموّل مكافآت المتداولين المنضبطين وتغذي DAO SmartTrader."
+            "title": "تصميم ERC-20 ثابت",
+            "text": "مليار رمز ACI تم سكّه مرة واحدة، دون ضرائب أو سك إضافي. يفتح ACI الوصول إلى ACI Learn وACI Risk AI ويموّل مكافآت المتداولين الملتزمين وDAO."
           },
           {
-            "title": "Eight-week presale",
-            "text": "300,000,000 ACI sold for ETH with progressive pricing ($0.05 → $0.30). Tokens are delivered after the sale, and leftovers are burned automatically."
+            "title": "طرح مسبق لمدة ثمانية أسابيع",
+            "text": "300 مليون ACI مقابل ETH بأسعار متصاعدة؛ يتم تسليم الرموز بعد البيع، ويُحرق ما يتبقى."
           },
           {
-            "title": "Dedicated staking reserve",
-            "text": "15% of supply is escrowed inside the staking reserve and streamed over 24 months, rewarding wallets that commit to the full lock."
+            "title": "احتياطي مخصص للتخزين",
+            "text": "15٪ من المعروض موجود في الاحتياطي ويُصرف خلال 24 شهراً لمكافأة المحافظ طويلة الأجل."
           }
         ]
       },
       "governance": {
-        "title": "Security & governance commitments",
+        "title": "التزامات الأمان والحوكمة",
         "items": [
           {
-            "title": "Multisig ownership",
-            "text": "Ownership is transferred to a Gnosis Safe after deployment; the multisig executes burns and treasury actions with published proofs."
+            "title": "ملكية متعددة التوقيع",
+            "text": "يُنقل العقد إلى Gnosis Safe بعد النشر؛ يتم تنفيذ الحرق والتحركات المالية مع براهين علنية."
           },
           {
-            "title": "Audited OpenZeppelin stack",
-            "text": "The contract inherits ERC20, Burnable, and Ownable modules with no proxy, no taxes, and audit preparation with CertiK, Hacken, and SolidProof."
+            "title": "بنية OpenZeppelin مُدققة",
+            "text": "العقد يعتمد ERC20 وBurnable وOwnable دون بروكسي أو ضرائب، مع خطط تدقيق (CertiK، Hacken، SolidProof)."
           },
           {
-            "title": "Transparent treasury",
-            "text": "0% transaction fees, manual burn events (quarterly + annual) and a reserve dedicated to buybacks and liquidity across DEX/CEX pools."
+            "title": "خزانة شفافة",
+            "text": "0٪ رسوم، حملات حرق (ربع سنوي + سنوي) واحتياطي مخصص لإعادة الشراء عبر DEX/CEX."
           }
         ]
       }
     },
     "cta": {
-      "title": "Build with Advanced Capital International",
-      "subtitle": "Review the tokenomics, join the presale, or reach out to coordinate listings, staking campaigns, or enterprise integrations.",
+      "title": "ابنِ مع Advanced Capital International",
+      "subtitle": "استعرض الاقتصاد الرمزي، انضم للطرح المسبق أو تواصل معنا لعمليات الإدراج، حملات التخزين أو تكاملات المؤسسات.",
       "buttons": {
-        "whitepaper": "Read the whitepaper",
-        "buy": "Join the presale",
-        "contact": "Talk with the team"
+        "whitepaper": "قراءة الورقة البيضاء",
+        "buy": "الانضمام للطرح المسبق",
+        "contact": "التواصل مع الفريق"
       }
     },
     "accessFeatures": [
       {
-        "title": "Stake with flexible locks",
-        "text": "Lock ACI for 1, 3, or 6 months to receive 5%–20% APR rewards funded by the staking reserve."
+        "title": "تخزين بمدد مرنة",
+        "text": "أقفل الرموز لمدة 1 أو 3 أو 6 أشهر واحصل على 5%-20% APR ممول من احتياطي التخزين."
       },
       {
-        "title": "Manual burn program",
-        "text": "Quarterly burns remove 10–25M ACI, plus the Annual Burn Event (up to 50M) executed by the multisig with Etherscan proofs."
+        "title": "برنامج حرق يدوي",
+        "text": "حملات حرق ربع سنوية من 10–25 مليون ACI إضافة إلى حدث سنوي (حتى 50 مليون) مع إثباتات على السلسلة."
       },
       {
-        "title": "Liquidity & buybacks",
-        "text": "100M ACI is locked for 12 months on Uniswap & CEX partners, and an extra 100M reserve covers buybacks and treasury burns."
+        "title": "سيولة وعمليات إعادة شراء",
+        "text": "100 مليون ACI مغلقة لمدة 12 شهراً على Uniswap والبورصات، مع 100 مليون إضافية لإعادة الشراء والحرق."
       }
     ],
     "stakingSection": {
-      "title": "ACI Staking Model",
-      "description": "Staking locks tokens for 24 months and distributes rewards from the dedicated 15% reserve (150,000,000 ACI). This keeps liquidity aligned with long-term builders.",
+      "title": "نموذج التخزين ACI",
+      "description": "تخزين الرموز لمدة 24 شهراً يوزع احتياطي 15٪ (150 مليون ACI) لضمان السيولة للمستثمرين طويلي الأمد.",
       "stats": [
         {
-          "label": "Total supply",
+          "label": "إجمالي المعروض",
           "value": "1,000,000,000 ACI"
         },
         {
-          "label": "Staking reserve",
-          "value": "15% (150,000,000 ACI)"
+          "label": "احتياطي التخزين",
+          "value": "15٪ (150,000,000 ACI)"
         },
         {
-          "label": "Minimum lock",
-          "value": "24 months"
+          "label": "أدنى مدة قفل",
+          "value": "24 شهراً"
         }
       ],
       "simulation": {
-        "title": "Participation impact on rewards",
-        "subtitle": "The entire 150M ACI reserve is allocated over two years. Fewer participants means a higher reward multiple per staker.",
+        "title": "أثر المشاركة على العوائد",
+        "subtitle": "يتم توزيع 150 مليون ACI خلال عامين؛ كلما قل عدد المشاركين زادت حصة كل مستثمر.",
         "headers": {
-          "participation": "Participation",
-          "tokens": "Tokens staked",
-          "reserve": "Reward reserve",
-          "yield": "Projected return"
+          "participation": "المشاركة",
+          "tokens": "الرموز المخزَّنة",
+          "reserve": "الاحتياطي",
+          "yield": "العائد المتوقع"
         },
         "rows": [
           {
             "id": "fullPresale",
-            "participation": "100% of presale tokens",
-            "tokens": "≈300,000,000 ACI (30% of supply)",
+            "participation": "100٪ من رموز الطرح المسبق",
+            "tokens": "≈300,000,000 ACI (30٪ من المعروض)",
             "reserve": "150,000,000 ACI",
-            "yield": "+50% over 2 years (~25% APR)"
+            "yield": "+50٪ خلال عامين (~25٪ APR)"
           },
           {
             "id": "halfPresale",
-            "participation": "50% of presale tokens",
-            "tokens": "≈150,000,000 ACI (15% of supply)",
+            "participation": "50٪ من رموز الطرح المسبق",
+            "tokens": "≈150,000,000 ACI (15٪ من المعروض)",
             "reserve": "150,000,000 ACI",
-            "yield": "+100% over 2 years (~50% APR)"
+            "yield": "+100٪ خلال عامين (~50٪ APR)"
           },
           {
             "id": "quarterPresale",
-            "participation": "25% of presale tokens",
-            "tokens": "≈75,000,000 ACI (7.5% of supply)",
+            "participation": "25٪ من رموز الطرح المسبق",
+            "tokens": "≈75,000,000 ACI (7.5٪ من المعروض)",
             "reserve": "150,000,000 ACI",
-            "yield": "+200% over 2 years (~100% APR)"
+            "yield": "+200٪ خلال عامين (~100٪ APR)"
           }
         ],
-        "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
+        "footnote": "النتائج تقديرية وتفترض توزيعاً خطياً للاحتياطي (150M) خلال 24 شهراً."
       }
     },
     "futureUtility": {
+      "badge": "شبكة ACI",
       "title": "الاستخدام المستقبلي لرمز ACI",
-      "intro": "ماذا سيحدث لرمز ACI بعد إطلاق شبكة ACI.",
+      "intro": "كيف سيتطور الرمز عند إطلاق شبكة ACI.",
       "points": [
-        "ACI سيصبح رمز الغاز لشبكة ACI.",
-        "مدفوعات للذكاء الاصطناعي + خدمات التداول في منظومة SmartTrader.",
-        "الستيكينغ لتأمين الشبكة والمصادقين المدعومين بالذكاء الاصطناعي.",
+        "سيصبح ACI رمز الغاز للشبكة الجديدة.",
+        "مدفوعات خدمات الذكاء الاصطناعي + التداول عبر SmartTrader.",
+        "التخزين لتأمين الشبكة والمصادقين المدعومين بالذكاء الاصطناعي.",
         "استخدام أوسع داخل DAO SmartTrader."
       ]
     }

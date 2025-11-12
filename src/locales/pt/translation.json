@@ -52,6 +52,18 @@
         ]
       },
       {
+        "phase": "Fase 4",
+        "title": "Desenvolvimento da ACI Network (2026)",
+        "description": "Preparar a blockchain nativa pensada para IA e trading em alta velocidade.",
+        "objectives": [
+          "Iniciar o desenvolvimento da blockchain ACI.",
+          "Garantir compatibilidade total com EVM.",
+          "Otimizar a rede para cargas de IA + trading com baixa latência.",
+          "Lançar um testnet público.",
+          "Migrar o ecossistema gradualmente para a ACI Network."
+        ]
+      },
+      {
         "phase": "Fase 5",
         "title": "DAO & expansões",
         "description": "Abrir governança e ampliar o ecossistema.",
@@ -537,198 +549,199 @@
     "intro": "Cinco fases focadas para entregar ACI Learn, ACI Risk AI, a plataforma unificada e a DAO SmartTrader."
   },
   "tokenPage": {
-    "title": "Advanced Capital International Token (ACI)",
-    "intro": "ACI is the ERC-20 heart of Advanced Capital International—a deflationary, transparent asset powering education, payments, staking rewards, and long-term governance.",
+    "title": "Token Advanced Capital International (ACI)",
+    "intro": "ACI é o token ERC-20 da Advanced Capital International – um ativo deflacionário e transparente que sustenta educação, pagamentos, recompensas de staking e governança de longo prazo.",
     "tokenomicsBreakdown": {
-      "tagline": "Official ACI Allocation",
-      "title": "1 billion ACI distributed for growth, liquidity, and burns",
-      "subtitle": "Supply is fully minted at deployment, with zero taxes, no mint function, and manual burns executed by the multisig treasury.",
-      "totalSupplyLabel": "Total supply",
-      "totalSupplyValue": "1,000,000,000 ACI",
+      "tagline": "Alocação oficial de ACI",
+      "title": "1 bilhão de ACI distribuídos para crescimento, liquidez e burns",
+      "subtitle": "Toda a oferta é cunhada no deploy, sem taxas, sem função de mint e com burns manuais coordenados pelo multisig.",
+      "totalSupplyLabel": "Oferta total",
+      "totalSupplyValue": "1.000.000.000 ACI",
       "headers": {
-        "segment": "Segment",
-        "percentage": "Share",
-        "amount": "Allocation"
+        "segment": "Segmento",
+        "percentage": "Participação",
+        "amount": "Alocação"
       },
       "rows": [
         {
           "id": "publicPresale",
           "icon": "publicPresale",
-          "label": "Public Presale",
-          "description": "30% allocation sold across eight weeks with progressive pricing ($0.05 → $0.30).",
-          "percentage": "30%",
-          "amount": "300,000,000 ACI"
+          "label": "Pré-venda pública",
+          "description": "30 % vendidos ao longo de oito semanas com preço progressivo (US$ 0,05 → US$ 0,30).",
+          "percentage": "30 %",
+          "amount": "300.000.000 ACI"
         },
         {
           "id": "privateSale",
           "icon": "privateSale",
-          "label": "Private Sale",
-          "description": "Strategic investors with 6–12 month lockups.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Venda privada",
+          "description": "Investidores estratégicos com locks de 6–12 meses.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "stakingRewards",
           "icon": "staking",
-          "label": "Staking Rewards",
-          "description": "15% reserve (150,000,000 ACI) released linearly across a 24-month staking lock.",
-          "percentage": "15%",
-          "amount": "150,000,000 ACI"
+          "label": "Recompensas de staking",
+          "description": "Reserva de 15 % (150M ACI) liberada linearmente por 24 meses.",
+          "percentage": "15 %",
+          "amount": "150.000.000 ACI"
         },
         {
           "id": "liquidity",
           "icon": "liquidity",
-          "label": "DEX / CEX Liquidity",
-          "description": "Provisioning Uniswap and CEX pools with a 12-month lock.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Liquidez DEX / CEX",
+          "description": "Fornecimento de liquidez em Uniswap e CEX com lock de 12 meses.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
-          "label": "Team & Founders",
-          "description": "24-month vesting with progressive unlocks for builders and leadership.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Time & fundadores",
+          "description": "Vesting de 24 meses com desbloqueios progressivos.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
-          "label": "Marketing & Partnerships",
-          "description": "Campaigns, influence, listings, and ecosystem partnerships.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Marketing & parcerias",
+          "description": "Campanhas, influência, listings e parcerias do ecossistema.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserve / Buyback / Burn",
-          "description": "Treasury dedicated to price stabilization, progressive burns, and buyback programs. Includes the initial 50,000,000 ACI burn and quarterly burns coordinated by the ACI DAO.",
-          "percentage": "15%",
-          "amount": "150,000,000 ACI"
+          "label": "Reserva / Buyback / Burn",
+          "description": "Tesouraria dedicada à estabilização de preço, burns progressivos e programas de recompra (inclui burn inicial de 50M e eventos trimestrais da DAO).",
+          "percentage": "15 %",
+          "amount": "150.000.000 ACI"
         }
       ]
     },
-    "accessTitle": "Using ACI in the ecosystem",
-    "accessDescription": "Hold or stake ACI to join the presale, unlock staking yields, provide liquidity, and prepare for the future governance rollout.",
+    "accessTitle": "Uso do ACI no ecossistema",
+    "accessDescription": "Segura ou coloca o ACI em staking para entrar na pré-venda, liberar rendimentos, prover liquidez e preparar a governança.",
     "sections": {
       "economics": {
-        "title": "Utility, staking, and liquidity pillars",
+        "title": "Pilares de utilidade, staking e liquidez",
         "items": [
           {
-            "title": "Fixed ERC-20 design",
-            "text": "1,000,000,000 ACI minted once, zero taxes, no mint function, and manual burns available to every holder. Os tokens ACI desbloqueiam as IAs ACI Learn e ACI Risk AI, financiam as recompensas dos traders disciplinados e alimentam a DAO SmartTrader."
+            "title": "Design ERC-20 fixo",
+            "text": "1.000.000.000 ACI cunhados uma vez, sem impostos ou função de mint. ACI abre ACI Learn/Risk AI, financia traders disciplinados e a DAO."
           },
           {
-            "title": "Eight-week presale",
-            "text": "300,000,000 ACI sold for ETH with progressive pricing ($0.05 → $0.30). Tokens are delivered after the sale, and leftovers are burned automatically."
+            "title": "Pré-venda de oito semanas",
+            "text": "300M ACI vendidos por ETH com preço crescente; tokens entregues após a venda e excedentes queimados."
           },
           {
-            "title": "Dedicated staking reserve",
-            "text": "15% of supply is escrowed inside the staking reserve and streamed over 24 months, rewarding wallets that commit to the full lock."
+            "title": "Reserva dedicada de staking",
+            "text": "15 % da oferta em escrow, liberada em 24 meses para recompensar locks longos."
           }
         ]
       },
       "governance": {
-        "title": "Security & governance commitments",
+        "title": "Compromissos de segurança e governança",
         "items": [
           {
-            "title": "Multisig ownership",
-            "text": "Ownership is transferred to a Gnosis Safe after deployment; the multisig executes burns and treasury actions with published proofs."
+            "title": "Ownership multisig",
+            "text": "Controle transferido para um Gnosis Safe; burns e movimentos de tesouraria publicados."
           },
           {
-            "title": "Audited OpenZeppelin stack",
-            "text": "The contract inherits ERC20, Burnable, and Ownable modules with no proxy, no taxes, and audit preparation with CertiK, Hacken, and SolidProof."
+            "title": "Stack OpenZeppelin auditado",
+            "text": "Contrato ERC20 + Burnable + Ownable, sem proxy/taxas, com auditorias CertiK/Hacken/SolidProof."
           },
           {
-            "title": "Transparent treasury",
-            "text": "0% transaction fees, manual burn events (quarterly + annual) and a reserve dedicated to buybacks and liquidity across DEX/CEX pools."
+            "title": "Tesouraria transparente",
+            "text": "0 % de taxas, eventos de queima (trimestrais + anuais) e reserva para buybacks em DEX/CEX."
           }
         ]
       }
     },
     "cta": {
-      "title": "Build with Advanced Capital International",
-      "subtitle": "Review the tokenomics, join the presale, or reach out to coordinate listings, staking campaigns, or enterprise integrations.",
+      "title": "Construa com a Advanced Capital International",
+      "subtitle": "Revise a tokenomics, participe da pré-venda ou fale conosco para listings, campanhas de staking ou integrações enterprise.",
       "buttons": {
-        "whitepaper": "Read the whitepaper",
-        "buy": "Join the presale",
-        "contact": "Talk with the team"
+        "whitepaper": "Ler o whitepaper",
+        "buy": "Entrar na pré-venda",
+        "contact": "Falar com a equipe"
       }
     },
     "accessFeatures": [
       {
-        "title": "Stake with flexible locks",
-        "text": "Lock ACI for 1, 3, or 6 months to receive 5%–20% APR rewards funded by the staking reserve."
+        "title": "Staking com locks flexíveis",
+        "text": "Bloqueie por 1, 3 ou 6 meses e receba 5%–20% APR da reserva de staking."
       },
       {
-        "title": "Manual burn program",
-        "text": "Quarterly burns remove 10–25M ACI, plus the Annual Burn Event (up to 50M) executed by the multisig with Etherscan proofs."
+        "title": "Programa de queima manual",
+        "text": "Queimas trimestrais de 10–25M ACI + evento anual (até 50M) com provas on-chain."
       },
       {
-        "title": "Liquidity & buybacks",
-        "text": "100M ACI is locked for 12 months on Uniswap & CEX partners, and an extra 100M reserve covers buybacks and treasury burns."
+        "title": "Liquidez e buybacks",
+        "text": "100M ACI bloqueados 12 meses em Uniswap/CEX + 100M extras para buybacks e queimas."
       }
     ],
     "stakingSection": {
-      "title": "ACI Staking Model",
-      "description": "Staking locks tokens for 24 months and distributes rewards from the dedicated 15% reserve (150,000,000 ACI). This keeps liquidity aligned with long-term builders.",
+      "title": "Modelo de staking ACI",
+      "description": "Staking bloqueia os tokens por 24 meses e distribui a reserva de 15 % (150M) alinhando a liquidez a builders de longo prazo.",
       "stats": [
         {
-          "label": "Total supply",
-          "value": "1,000,000,000 ACI"
+          "label": "Oferta total",
+          "value": "1.000.000.000 ACI"
         },
         {
-          "label": "Staking reserve",
-          "value": "15% (150,000,000 ACI)"
+          "label": "Reserva de staking",
+          "value": "15 % (150.000.000 ACI)"
         },
         {
-          "label": "Minimum lock",
-          "value": "24 months"
+          "label": "Lock mínimo",
+          "value": "24 meses"
         }
       ],
       "simulation": {
-        "title": "Participation impact on rewards",
-        "subtitle": "The entire 150M ACI reserve is allocated over two years. Fewer participants means a higher reward multiple per staker.",
+        "title": "Impacto da participação nos rewards",
+        "subtitle": "Os 150M ACI são alocados em dois anos. Menos participantes ⇒ maior múltiplo por staker.",
         "headers": {
-          "participation": "Participation",
-          "tokens": "Tokens staked",
-          "reserve": "Reward reserve",
-          "yield": "Projected return"
+          "participation": "Participação",
+          "tokens": "Tokens em staking",
+          "reserve": "Reserva de rewards",
+          "yield": "Retorno projetado"
         },
         "rows": [
           {
             "id": "fullPresale",
-            "participation": "100% of presale tokens",
-            "tokens": "≈300,000,000 ACI (30% of supply)",
-            "reserve": "150,000,000 ACI",
-            "yield": "+50% over 2 years (~25% APR)"
+            "participation": "100 % dos tokens da pré-venda",
+            "tokens": "≈300.000.000 ACI (30 % supply)",
+            "reserve": "150.000.000 ACI",
+            "yield": "+50 % em 2 anos (~25 % APR)"
           },
           {
             "id": "halfPresale",
-            "participation": "50% of presale tokens",
-            "tokens": "≈150,000,000 ACI (15% of supply)",
-            "reserve": "150,000,000 ACI",
-            "yield": "+100% over 2 years (~50% APR)"
+            "participation": "50 % dos tokens da pré-venda",
+            "tokens": "≈150.000.000 ACI (15 % supply)",
+            "reserve": "150.000.000 ACI",
+            "yield": "+100 % em 2 anos (~50 % APR)"
           },
           {
             "id": "quarterPresale",
-            "participation": "25% of presale tokens",
-            "tokens": "≈75,000,000 ACI (7.5% of supply)",
-            "reserve": "150,000,000 ACI",
-            "yield": "+200% over 2 years (~100% APR)"
+            "participation": "25 % dos tokens da pré-venda",
+            "tokens": "≈75.000.000 ACI (7,5 % supply)",
+            "reserve": "150.000.000 ACI",
+            "yield": "+200 % em 2 anos (~100 % APR)"
           }
         ],
-        "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
+        "footnote": "Simulações indicativas assumindo distribuição linear da reserva de 150M em 24 meses."
       }
     },
     "futureUtility": {
+      "badge": "ACI Network",
       "title": "Utilidade futura do token ACI",
-      "intro": "O que acontece com o ACI quando a ACI Network estiver online.",
+      "intro": "O que acontece com ACI quando a ACI Network estiver ativa.",
       "points": [
-        "ACI será o token de gas da rede ACI.",
-        "Pagamentos de IA + trading em todo o SmartTrader.",
-        "Staking para proteger a rede e os validadores IA.",
+        "ACI será o token de gas da ACI Network.",
+        "Pagamentos IA + trading em todos os serviços SmartTrader.",
+        "Staking para proteger a rede e validadores IA.",
         "Uso ampliado dentro da DAO SmartTrader."
       ]
     }

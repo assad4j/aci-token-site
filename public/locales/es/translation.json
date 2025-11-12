@@ -52,6 +52,18 @@
         ]
       },
       {
+        "phase": "Fase 4",
+        "title": "Desarrollo de ACI Network (2026)",
+        "description": "Preparar la blockchain nativa diseñada para IA y trading de alta velocidad.",
+        "objectives": [
+          "Iniciar el desarrollo de la blockchain ACI.",
+          "Garantizar compatibilidad total con EVM.",
+          "Optimizar la red para cargas de IA + trading de baja latencia.",
+          "Lanzar un testnet público.",
+          "Migrar progresivamente el ecosistema hacia ACI Network."
+        ]
+      },
+      {
         "phase": "Fase 5",
         "title": "DAO y expansiones",
         "description": "Abrir la gobernanza y ampliar el ecosistema.",
@@ -153,56 +165,46 @@
     "loading": "Cargando los módulos interactivos…"
   },
   "coach3DModule": {
-    "title": "Coach IA (demo animada)",
-    "description": "Vista guiada del coach IA: voz interactiva, emociones y planificación de rutinas.",
-    "scrollHint": "Desplázate para iniciar la demo",
+    "title": "ACI SmartRisk",
+    "description": "SmartRisk es el guardián de riesgo que calcula el tamaño de posición, bloquea la sobreexposición y alimenta los reportes Safe Academy.",
+    "scrollHint": "Desplázate para experimentar SmartRisk",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "¡Hola 👋! Soy tu coach IA ACI. ¿Listo para estabilizar tu mentalidad?"
+        "text": "Acabo de evaluar tu riesgo actual: ¿bloqueo el tamaño de posición en el umbral óptimo o te aviso si hay sobreexposición?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "¡Impresionante! ¿Cómo personalizarás mi rutina?"
+        "text": "Activa el bloqueo automático y envíame un informe al final de cada jornada."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Analizo tus objetivos, tu comportamiento y tu estrés para crear planes semanales claros."
-      },
-      {
-        "role": "coach",
-        "label": "Coach ACI",
-        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas, recompensas y recordatorios."
+        "text": "Listo ✅ Tu riesgo diario queda limitado."
       }
     ]
   },
   "coach3DModuleFallback": {
-    "title": "Coach IA (demo animada)",
-    "description": "Vista guiada del coach IA: voz interactiva, emociones y planificación de rutinas.",
-    "scrollHint": "Desplázate para iniciar la demo",
+    "title": "ACI SmartRisk",
+    "description": "SmartRisk es el guardián de riesgo que calcula el tamaño de posición, bloquea la sobreexposición y alimenta los reportes Safe Academy.",
+    "scrollHint": "Desplázate para experimentar SmartRisk",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "¡Hola 👋! Soy tu coach IA ACI. ¿Listo para estabilizar tu mentalidad?"
+        "text": "Acabo de evaluar tu riesgo actual: ¿bloqueo el tamaño de posición en el umbral óptimo o te aviso si hay sobreexposición?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "¡Impresionante! ¿Cómo personalizarás mi rutina?"
+        "text": "Activa el bloqueo automático y envíame un informe al final de cada jornada."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Analizo tus objetivos, tu comportamiento y tu estrés para crear planes semanales claros."
-      },
-      {
-        "role": "coach",
-        "label": "Coach ACI",
-        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas, recompensas y recordatorios."
+        "text": "Listo ✅ Tu riesgo diario queda limitado."
       }
     ]
   },
@@ -547,190 +549,201 @@
     "intro": "Cinco fases enfocadas para entregar ACI Learn, ACI Risk AI, la plataforma unificada y la DAO SmartTrader."
   },
   "tokenPage": {
-    "title": "Advanced Capital International Token (ACI)",
-    "intro": "ACI is the ERC-20 heart of Advanced Capital International—a deflationary, transparent asset powering education, payments, staking rewards, and long-term governance.",
+    "title": "Token Advanced Capital International (ACI)",
+    "intro": "ACI es el corazón ERC-20 de Advanced Capital International: un activo deflacionario y transparente que impulsa educación, pagos, recompensas de staking y gobernanza a largo plazo.",
     "tokenomicsBreakdown": {
-      "tagline": "Official ACI Allocation",
-      "title": "1 billion ACI distributed for growth, liquidity, and burns",
-      "subtitle": "Supply is fully minted at deployment, with zero taxes, no mint function, and manual burns executed by the multisig treasury.",
-      "totalSupplyLabel": "Total supply",
-      "totalSupplyValue": "1,000,000,000 ACI",
+      "tagline": "Asignación oficial de ACI",
+      "title": "1.000 millones de ACI distribuidos para crecimiento, liquidez y burns",
+      "subtitle": "La oferta se acuña íntegramente al desplegar el contrato, sin impuestos, sin función de mint y con burns manuales ejecutados por el multisig.",
+      "totalSupplyLabel": "Oferta total",
+      "totalSupplyValue": "1.000.000.000 ACI",
       "headers": {
-        "segment": "Segment",
-        "percentage": "Share",
-        "amount": "Allocation"
+        "segment": "Segmento",
+        "percentage": "Participación",
+        "amount": "Asignación"
       },
       "rows": [
         {
           "id": "publicPresale",
           "icon": "publicPresale",
-          "label": "Public Presale",
-          "description": "30% allocation sold across eight weeks with progressive pricing ($0.05 → $0.30).",
-          "percentage": "30%",
-          "amount": "300,000,000 ACI"
+          "label": "Preventa pública",
+          "description": "30 % vendido en ocho semanas con precio progresivo (0,05 $ → 0,30 $).",
+          "percentage": "30 %",
+          "amount": "300.000.000 ACI"
         },
         {
           "id": "privateSale",
           "icon": "privateSale",
-          "label": "Private Sale",
-          "description": "Strategic investors with 6–12 month lockups.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Venta privada",
+          "description": "Inversores estratégicos con bloqueos de 6-12 meses.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "stakingRewards",
           "icon": "staking",
-          "label": "Staking Rewards",
-          "description": "15% reserve (150,000,000 ACI) released linearly across a 24-month staking lock.",
-          "percentage": "15%",
-          "amount": "150,000,000 ACI"
+          "label": "Recompensas de staking",
+          "description": "Reserva del 15 % (150.000.000 ACI) liberada linealmente en 24 meses.",
+          "percentage": "15 %",
+          "amount": "150.000.000 ACI"
         },
         {
           "id": "liquidity",
           "icon": "liquidity",
-          "label": "DEX / CEX Liquidity",
-          "description": "Provisioning Uniswap and CEX pools with a 12-month lock.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Liquidez DEX / CEX",
+          "description": "Provisión en Uniswap y CEX con bloqueo de 12 meses.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
-          "label": "Team & Founders",
-          "description": "24-month vesting with progressive unlocks for builders and leadership.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Equipo y fundadores",
+          "description": "Vesting de 24 meses con desbloqueos progresivos.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
-          "label": "Marketing & Partnerships",
-          "description": "Campaigns, influence, listings, and ecosystem partnerships.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
+          "label": "Marketing y partnerships",
+          "description": "Campañas, influencia, listings y alianzas de ecosistema.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserve / Buyback / Burn",
-          "description": "Treasury dedicated to price stabilization, progressive burns, and buyback programs. Includes the initial 50,000,000 ACI burn and quarterly burns coordinated by the ACI DAO.",
-          "percentage": "15%",
-          "amount": "150,000,000 ACI"
+          "label": "Reserva / Buyback / Burn",
+          "description": "Tesorería dedicada a estabilizar el precio, ejecutar burns progresivos y programas de recompra. Incluye el burn inicial de 50 M y eventos trimestrales coordinados por la DAO.",
+          "percentage": "15 %",
+          "amount": "150.000.000 ACI"
         }
       ]
     },
-    "accessTitle": "Using ACI in the ecosystem",
-    "accessDescription": "Hold or stake ACI to join the presale, unlock staking yields, provide liquidity, and prepare for the future governance rollout.",
+    "accessTitle": "Uso del ACI dentro del ecosistema",
+    "accessDescription": "Mantén o haz stake de ACI para unirte a la preventa, desbloquear yields, aportar liquidez y preparar la gobernanza futura.",
     "sections": {
       "economics": {
-        "title": "Utility, staking, and liquidity pillars",
+        "title": "Pilares de utilidad, staking y liquidez",
         "items": [
           {
-            "title": "Fixed ERC-20 design",
-            "text": "1,000,000,000 ACI minted once, zero taxes, no mint function, and manual burns available to every holder. Los tokens ACI desbloquean las IA ACI Learn y ACI Risk AI, financian las recompensas de los traders disciplinados y alimentan la DAO SmartTrader."
+            "title": "Diseño ERC-20 fijo",
+            "text": "1.000.000.000 ACI acuñados una sola vez, sin impuestos ni función de mint. Los tokens desbloquean ACI Learn + Risk AI, financian a los traders disciplinados y alimentan la DAO."
           },
           {
-            "title": "Eight-week presale",
-            "text": "300,000,000 ACI sold for ETH with progressive pricing ($0.05 → $0.30). Tokens are delivered after the sale, and leftovers are burned automatically."
+            "title": "Preventa de ocho semanas",
+            "text": "300.000.000 ACI vendidos por ETH con precio creciente (0,05 $ → 0,30 $). Tokens entregados tras la venta; excedentes quemados."
           },
           {
-            "title": "Dedicated staking reserve",
-            "text": "15% of supply is escrowed inside the staking reserve and streamed over 24 months, rewarding wallets that commit to the full lock."
+            "title": "Reserva dedicada al staking",
+            "text": "15 % de la oferta en escrow y liberada en 24 meses, premiando a quienes mantienen el lock completo."
           }
         ]
       },
       "governance": {
-        "title": "Security & governance commitments",
+        "title": "Compromisos de seguridad y gobernanza",
         "items": [
           {
-            "title": "Multisig ownership",
-            "text": "Ownership is transferred to a Gnosis Safe after deployment; the multisig executes burns and treasury actions with published proofs."
+            "title": "Propiedad multisig",
+            "text": "La propiedad pasa a un Gnosis Safe; el multisig ejecuta burns y movimientos de tesorería con pruebas públicas."
           },
           {
-            "title": "Audited OpenZeppelin stack",
-            "text": "The contract inherits ERC20, Burnable, and Ownable modules with no proxy, no taxes, and audit preparation with CertiK, Hacken, and SolidProof."
+            "title": "Stack OpenZeppelin auditado",
+            "text": "El contrato usa ERC20, Burnable y Ownable sin proxy ni tasas, con auditorías CertiK/Hacken/SolidProof."
           },
           {
-            "title": "Transparent treasury",
-            "text": "0% transaction fees, manual burn events (quarterly + annual) and a reserve dedicated to buybacks and liquidity across DEX/CEX pools."
+            "title": "Tesorería transparente",
+            "text": "0 % de comisiones, eventos de burn (trimestral + anual) y reserva para buybacks en DEX/CEX."
           }
         ]
       }
     },
     "cta": {
-      "title": "Build with Advanced Capital International",
-      "subtitle": "Review the tokenomics, join the presale, or reach out to coordinate listings, staking campaigns, or enterprise integrations.",
+      "title": "Construye con Advanced Capital International",
+      "subtitle": "Revisa la tokenomics, únete a la preventa o contáctanos para listings, campañas de staking o integraciones enterprise.",
       "buttons": {
-        "whitepaper": "Read the whitepaper",
-        "buy": "Join the presale",
-        "contact": "Talk with the team"
+        "whitepaper": "Leer el whitepaper",
+        "buy": "Unirme a la preventa",
+        "contact": "Hablar con el equipo"
       }
     },
     "accessFeatures": [
       {
-        "title": "Stake with flexible locks",
-        "text": "Lock ACI for 1, 3, or 6 months to receive 5%–20% APR rewards funded by the staking reserve."
+        "title": "Staking con locks flexibles",
+        "text": "Bloquea 1, 3 o 6 meses y recibe 5%-20% APR financiado por la reserva de staking."
       },
       {
-        "title": "Manual burn program",
-        "text": "Quarterly burns remove 10–25M ACI, plus the Annual Burn Event (up to 50M) executed by the multisig with Etherscan proofs."
+        "title": "Programa de burns manuales",
+        "text": "Burns trimestrales de 10-25M ACI más un evento anual (hasta 50M) con pruebas on-chain."
       },
       {
-        "title": "Liquidity & buybacks",
-        "text": "100M ACI is locked for 12 months on Uniswap & CEX partners, and an extra 100M reserve covers buybacks and treasury burns."
+        "title": "Liquidez y buybacks",
+        "text": "100M ACI bloqueados 12 meses en Uniswap/CEX más 100M adicionales para recompras y burns."
       }
     ],
     "stakingSection": {
-      "title": "ACI Staking Model",
-      "description": "Staking locks tokens for 24 months and distributes rewards from the dedicated 15% reserve (150,000,000 ACI). This keeps liquidity aligned with long-term builders.",
+      "title": "Modelo de staking ACI",
+      "description": "El staking bloquea los tokens 24 meses y distribuye la reserva del 15 % (150M ACI) para alinear la liquidez con los constructores a largo plazo.",
       "stats": [
         {
-          "label": "Total supply",
-          "value": "1,000,000,000 ACI"
+          "label": "Oferta total",
+          "value": "1.000.000.000 ACI"
         },
         {
-          "label": "Staking reserve",
-          "value": "15% (150,000,000 ACI)"
+          "label": "Reserva de staking",
+          "value": "15 % (150.000.000 ACI)"
         },
         {
-          "label": "Minimum lock",
-          "value": "24 months"
+          "label": "Lock mínimo",
+          "value": "24 meses"
         }
       ],
       "simulation": {
-        "title": "Participation impact on rewards",
-        "subtitle": "The entire 150M ACI reserve is allocated over two years. Fewer participants means a higher reward multiple per staker.",
+        "title": "Impacto de la participación en las recompensas",
+        "subtitle": "Los 150M ACI se distribuyen en dos años. Menos participantes = mayor multiplicador por staker.",
         "headers": {
-          "participation": "Participation",
-          "tokens": "Tokens staked",
-          "reserve": "Reward reserve",
-          "yield": "Projected return"
+          "participation": "Participación",
+          "tokens": "Tokens en staking",
+          "reserve": "Reserva de rewards",
+          "yield": "Retorno proyectado"
         },
         "rows": [
           {
             "id": "fullPresale",
-            "participation": "100% of presale tokens",
-            "tokens": "≈300,000,000 ACI (30% of supply)",
-            "reserve": "150,000,000 ACI",
-            "yield": "+50% over 2 years (~25% APR)"
+            "participation": "100 % de los tokens de preventa",
+            "tokens": "≈300.000.000 ACI (30 % supply)",
+            "reserve": "150.000.000 ACI",
+            "yield": "+50 % en 2 años (~25 % APR)"
           },
           {
             "id": "halfPresale",
-            "participation": "50% of presale tokens",
-            "tokens": "≈150,000,000 ACI (15% of supply)",
-            "reserve": "150,000,000 ACI",
-            "yield": "+100% over 2 years (~50% APR)"
+            "participation": "50 % de los tokens de preventa",
+            "tokens": "≈150.000.000 ACI (15 % supply)",
+            "reserve": "150.000.000 ACI",
+            "yield": "+100 % en 2 años (~50 % APR)"
           },
           {
             "id": "quarterPresale",
-            "participation": "25% of presale tokens",
-            "tokens": "≈75,000,000 ACI (7.5% of supply)",
-            "reserve": "150,000,000 ACI",
-            "yield": "+200% over 2 years (~100% APR)"
+            "participation": "25 % de los tokens de preventa",
+            "tokens": "≈75.000.000 ACI (7,5 % supply)",
+            "reserve": "150.000.000 ACI",
+            "yield": "+200 % en 2 años (~100 % APR)"
           }
         ],
-        "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
+        "footnote": "Simulaciones indicativas suponiendo distribución lineal de 150M ACI en 24 meses."
       }
+    },
+    "futureUtility": {
+      "badge": "ACI Network",
+      "title": "Utilidad futura del token ACI",
+      "intro": "Lo que ocurrirá con ACI cuando la ACI Network esté activa.",
+      "points": [
+        "ACI será el gas token del ACI Network.",
+        "Pagos de IA + trading en todo SmartTrader.",
+        "Staking para asegurar la red y sus validadores IA.",
+        "Uso ampliado dentro de la DAO SmartTrader."
+      ]
     }
   },
   "whitepaperPage": {
@@ -1125,46 +1138,46 @@
     }
   },
   "coachBusinessModule": {
-    "title": "Lo que hará el coach por ti",
-    "description": "La concierge IA analiza tu perfil, sugiere ideas de negocio a medida y coordina las siguientes acciones.",
-    "scrollHint": "Desplázate para lanzar la demo de negocios",
+    "title": "Coach IA Trader Pro",
+    "description": "Modo Trader Pro: la IA analiza tu perfil, detecta setups de alta probabilidad y sincroniza planes de acción, recordatorios y disciplina.",
+    "scrollHint": "Desplázate para iniciar la demo Trader Pro",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Acabo de revisar tu perfil y tu estilo de ejecución. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
+        "text": "Acabo de analizar tu historial de trades: ¿quieres que te ayude a detectar los setups más rentables o a mejorar tu disciplina de trading?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "Quiero un plan claro y alineado con mi energía, sin perder tiempo."
+        "text": "Quiero reforzar mi disciplina y subir mi tasa de acierto."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Perfecto. Seleccionaré tres ideas acordes a tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
+        "text": "Perfecto. Sincronizo tu plan de acción y te recordaré las rutinas necesarias antes de cada sesión."
       }
     ]
   },
   "coachBusinessModuleFallback": {
-    "title": "Lo que hará el coach por ti",
-    "description": "La concierge IA analiza tu perfil, sugiere ideas de negocio a medida y coordina las siguientes acciones.",
-    "scrollHint": "Desplázate para lanzar la demo de negocios",
+    "title": "Coach IA Trader Pro",
+    "description": "Modo Trader Pro: la IA analiza tu perfil, detecta setups de alta probabilidad y sincroniza planes de acción, recordatorios y disciplina.",
+    "scrollHint": "Desplázate para iniciar la demo Trader Pro",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Acabo de revisar tu perfil y tu estilo de ejecución. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
+        "text": "Acabo de analizar tu historial de trades: ¿quieres que te ayude a detectar los setups más rentables o a mejorar tu disciplina de trading?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "Quiero un plan claro y alineado con mi energía, sin perder tiempo."
+        "text": "Quiero reforzar mi disciplina y subir mi tasa de acierto."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Perfecto. Seleccionaré tres ideas acordes a tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
+        "text": "Perfecto. Sincronizo tu plan de acción y te recordaré las rutinas necesarias antes de cada sesión."
       }
     ]
   },
@@ -1197,10 +1210,10 @@
       "smile": "Sonrisa"
     },
     "ui": {
-      "badge": "ACI SmartTrader Suite",
-      "title": "Módulo de detección de emociones (voz + cámara)",
-      "description": "Analiza tu voz en tiempo real para adaptar el coaching: emoción dominante, estrés, confianza, ritmo y muletillas. Activa la cámara para sumar las expresiones faciales (procesado 100% local).",
-      "voiceHint": "Análisis de voz en vivo para un coaching adaptativo.",
+      "badge": "ACI EmotionScan",
+      "title": "ACI EmotionScan — Voz + Visión",
+      "description": "EmotionScan escucha tu voz y cámara para mapear estrés, confianza y actitud en tiempo real antes de ajustar tu plan SmartTrader.",
+      "voiceHint": "EmotionScan adapta tus rutinas según tu voz cada segundo.",
       "toggle": {
         "tooltipSession": "Detén la sesión antes de cambiar la cámara.",
         "tooltipActive": "Desactivar análisis de vídeo",
@@ -1220,7 +1233,7 @@
         "previousSummaryNote": "Resumen anterior disponible abajo."
       },
       "session": {
-        "title": "Sesión en vivo",
+        "title": "Sesión EmotionScan",
         "description": "Las métricas se actualizan cada 750 ms para una visualización fluida.",
         "stopButton": "Detener y ver resumen",
         "videoConfidence": "{{value}}% de confianza",
@@ -1228,8 +1241,8 @@
         "metricSpeechRate": "Ritmo del habla",
         "metricFillers": "Muletillas por minuto",
         "metricVoiceAi": "Insights de voz IA",
-        "voiceInsightsHint": "Analizo tono, energía y estabilidad para ayudarte en tiempo real.",
-        "coachLabel": "Coach"
+        "voiceInsightsHint": "Análisis IA en vivo: tono, energía, estabilidad emocional y recomendaciones SmartTrader.",
+        "coachLabel": "Coach IA"
       },
       "summary": {
         "title": "Resumen de la sesión",

@@ -52,6 +52,18 @@
         ]
       },
       {
+        "phase": "Phase 4",
+        "title": "ACI Network Development (2026)",
+        "description": "Prepare the native blockchain designed for high-speed AI trading.",
+        "objectives": [
+          "Kick off development of the ACI blockchain.",
+          "Ensure full EVM compatibility.",
+          "Optimize the network for low-latency AI + trading workloads.",
+          "Launch a public testnet.",
+          "Migrate the ecosystem progressively onto ACI Network."
+        ]
+      },
+      {
         "phase": "Phase 5",
         "title": "DAO & Expansion",
         "description": "Open governance and expand distribution.",
@@ -153,56 +165,46 @@
     "loading": "Loading interactive modules…"
   },
   "coach3DModule": {
-    "title": "AI Coach (animated demo)",
-    "description": "A quick scripted preview of the upcoming experience: interactive voice, emotion insights and routine planning.",
-    "scrollHint": "Scroll to start the demo",
+    "title": "ACI SmartRisk",
+    "description": "SmartRisk previews the risk guardian that auto-calculates position size, blocks over-exposure, and feeds Safe Academy reports.",
+    "scrollHint": "Scroll to experience SmartRisk",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Hi 👋 I’m your ACI coach. Ready to stabilise your mindset?"
+        "text": "I’ve evaluated your current risk: should I lock the position size at the optimal threshold or alert you whenever you exceed exposure?"
       },
       {
         "role": "user",
         "label": "You",
-        "text": "Impressive! How will you personalise my routine?"
+        "text": "Enable the automatic block and send me a report at the end of each day."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "I analyse your goals, habits and stress then craft weekly roadmaps you can follow."
-      },
-      {
-        "role": "coach",
-        "label": "ACI Coach",
-        "text": "Strategy + mindset + risk. Progress with clear metrics, rewards and reminders."
+        "text": "Done ✅ Your daily risk is now capped."
       }
     ]
   },
   "coach3DModuleFallback": {
-    "title": "AI Coach (animated demo)",
-    "description": "A quick scripted preview of the upcoming experience: interactive voice, emotion insights and routine planning.",
-    "scrollHint": "Scroll to start the demo",
+    "title": "ACI SmartRisk",
+    "description": "SmartRisk previews the risk guardian that auto-calculates position size, blocks over-exposure, and feeds Safe Academy reports.",
+    "scrollHint": "Scroll to experience SmartRisk",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Hi 👋 I’m your ACI coach. Ready to stabilise your mindset?"
+        "text": "I’ve evaluated your current risk: should I lock the position size at the optimal threshold or alert you whenever you exceed exposure?"
       },
       {
         "role": "user",
         "label": "You",
-        "text": "Impressive! How will you personalise my routine?"
+        "text": "Enable the automatic block and send me a report at the end of each day."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "I analyse your goals, habits and stress then craft weekly roadmaps you can follow."
-      },
-      {
-        "role": "coach",
-        "label": "ACI Coach",
-        "text": "Strategy + mindset + risk. Progress with clear metrics, rewards and reminders."
+        "text": "Done ✅ Your daily risk is now capped."
       }
     ]
   },
@@ -743,6 +745,17 @@
         ],
         "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
       }
+    },
+    "futureUtility": {
+      "title": "Future utility of the ACI token",
+      "intro": "What happens to ACI once the ACI Network goes live.",
+      "points": [
+        "ACI becomes the gas token of the ACI Network.",
+        "Payments for AI + trading services across SmartTrader.",
+        "Staking to secure the network and its AI validators.",
+        "Expanded usage inside the SmartTrader DAO."
+      ],
+      "badge": "ACI Network"
     }
   },
   "whitepaperPage": {
@@ -1137,46 +1150,46 @@
     }
   },
   "coachBusinessModule": {
-    "title": "What the coach does for you",
-    "description": "The AI concierge analyses your profile, surfaces tailored business ideas and coordinates the next steps (calls, payments, logistics).",
-    "scrollHint": "Scroll to trigger the business demo",
+    "title": "Coach IA Trader Pro",
+    "description": "Trader Pro mode: the AI analyses your profile, detects high-probability setups, and syncs action plans, reminders, and trading discipline.",
+    "scrollHint": "Scroll to launch the Trader Pro demo",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "I’ve reviewed your profile and execution style. Shall we explore a fresh profitable angle or strengthen your current activity?"
+        "text": "I just analysed your trading history: do you want me to help you detect the most profitable setups or improve your trading discipline?"
       },
       {
         "role": "user",
         "label": "You",
-        "text": "I want a clear plan aligned with my energy—no wasted time or random ideas."
+        "text": "I want to reinforce my discipline and lift my win rate."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Perfect. I’ll shortlist three ideas that fit your strengths, schedule the key calls and activate concierge for payments and travel."
+        "text": "Perfect. I’m syncing your action plan and I’ll remind you of the required routines before every session."
       }
     ]
   },
   "coachBusinessModuleFallback": {
-    "title": "What the coach does for you",
-    "description": "The AI concierge analyses your profile, surfaces tailored business ideas and coordinates the next steps (calls, payments, logistics).",
-    "scrollHint": "Scroll to trigger the business demo",
+    "title": "Coach IA Trader Pro",
+    "description": "Trader Pro mode: the AI analyses your profile, detects high-probability setups, and syncs action plans, reminders, and trading discipline.",
+    "scrollHint": "Scroll to launch the Trader Pro demo",
     "messages": [
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "I’ve reviewed your profile and execution style. Shall we explore a fresh profitable angle or strengthen your current activity?"
+        "text": "I just analysed your trading history: do you want me to help you detect the most profitable setups or improve your trading discipline?"
       },
       {
         "role": "user",
         "label": "You",
-        "text": "I want a clear plan aligned with my energy—no wasted time or random ideas."
+        "text": "I want to reinforce my discipline and lift my win rate."
       },
       {
         "role": "coach",
         "label": "ACI Coach",
-        "text": "Perfect. I’ll shortlist three ideas that fit your strengths, schedule the key calls and activate concierge for payments and travel."
+        "text": "Perfect. I’m syncing your action plan and I’ll remind you of the required routines before every session."
       }
     ]
   },
@@ -1209,10 +1222,10 @@
       "smile": "Smile"
     },
     "ui": {
-      "badge": "ACI SmartTrader Suite",
-      "title": "Emotion detection module (voice + camera)",
-      "description": "Real-time voice analysis to help you adapt: dominant emotion, stress, confidence, speech rhythm and filler words. Enable the camera for facial emotion tracking (data processed locally).",
-      "voiceHint": "Live voice insights for adaptive coaching.",
+      "badge": "ACI EmotionScan",
+      "title": "ACI EmotionScan — Voice + Vision",
+      "description": "EmotionScan listens to your voice and camera feed to map stress, confidence, and behaviour in real time before adjusting your SmartTrader plan.",
+      "voiceHint": "EmotionScan adapts your routines based on your voice every second.",
       "toggle": {
         "tooltipSession": "Stop the session before changing video analysis.",
         "tooltipActive": "Disable video analysis",
@@ -1232,7 +1245,7 @@
         "previousSummaryNote": "Previous summary available below."
       },
       "session": {
-        "title": "Live session",
+        "title": "EmotionScan Session",
         "description": "Metrics refresh every 750 ms for a smooth experience.",
         "stopButton": "Stop and show summary",
         "videoConfidence": "{{value}}% confidence",
@@ -1240,8 +1253,8 @@
         "metricSpeechRate": "Speech pace",
         "metricFillers": "Fillers per minute",
         "metricVoiceAi": "AI voice insights",
-        "voiceInsightsHint": "I analyse tone, energy and stability to support you in real time.",
-        "coachLabel": "Coach"
+        "voiceInsightsHint": "Live AI analysis: tone, energy, emotional stability, and SmartTrader recommendations.",
+        "coachLabel": "AI Coach"
       },
       "summary": {
         "title": "Session summary",
