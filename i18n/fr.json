@@ -1,22 +1,22 @@
 {
   "home": {
-    "title": "ACI Meta Coach",
-    "description": "Votre coach IA pour devenir un investisseur complet : stratégie, mindset, gestion du risque et progression mesurable."
+    "title": "ACI SmartTrader Suite",
+    "description": "Trade, Learn, Survive. L’IA qui t’apprend à trader et te protège de tes erreurs."
   },
   "tradingBot": {
-    "title": "Coach IA",
-    "description": "Analyse de vos performances, plans hebdomadaires personnalisés et routines mindset pour tenir vos objectifs."
+    "title": "ACI Risk AI",
+    "description": "Moteur de risque connecté à MT4/Binance : calcul de taille, blocage automatique et discipline quotidienne."
   },
   "formations": {
-    "title": "Formations intelligentes",
-    "description": "Parcours interactifs mêlant vidéo et IA : crypto, forex, risk management et psychologie du trader."
+    "title": "ACI Learn",
+    "description": "Apprentissage IA adaptatif avec suivi des erreurs, psychologie du trader et récompenses en ACI."
   },
   "axePsychologique": {
-    "title": "Meta Track",
-    "description": "Suivez votre progression semaine après semaine avec objectifs, routines et rappels pilotés par l’IA."
+    "title": "Safe Academy",
+    "description": "Dashboard unifié : stats, psychologie, performance et XP pour fusionner Learn + Risk."
   },
   "faq": {
-    "title": "FAQ",
-    "description": "Toutes les réponses sur le Coach IA, les formations et le Meta Coach Token."
+    "title": "FAQ ACI SmartTrader Suite",
+    "description": "Toutes les réponses sur ACI Learn, ACI Risk AI et le token ACI."
   }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import useIsMobile from '../hooks/useIsMobile';
 
 /**
- * ACI Meta Coach — Pulsing AI Background v2 (richer visual effects)
+ * ACI SmartTrader Suite — Pulsing AI Background v2 (richer visual effects)
  * ----------------------------------------------------------------
  * Dark, luminous, futuristic background with:
  *  - Central pulsing AI glow

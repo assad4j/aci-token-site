@@ -1,7 +1,6 @@
-import React, { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-const AstronautHeroVideo = lazy(() => import('../AstronautHeroVideo'));
+import HologramAvatar from '../HologramAvatar';
 
 export default function Coach3DModule({
   orientation = 'video-left',
@@ -13,7 +12,7 @@ export default function Coach3DModule({
   const sectionRef = useRef(null);
   const hasStartedRef = useRef(false);
   const [isActive, setIsActive] = useState(false);
-  const [shouldRenderVideo, setShouldRenderVideo] = useState(false);
+  const futuristicFont = '"Space Grotesk","Orbitron","Inter",sans-serif';
 
   const localizedDefault = useMemo(
     () => t('coach3DModule', { returnObjects: true }) ?? {},
@@ -49,13 +48,15 @@ export default function Coach3DModule({
     [messageSequence, defaultSequence, i18n.language],
   );
 
-  const resolvedTitle = title ?? localizedDefault.title ?? fallbackContent.title ?? 'Coach IA (démo animée)';
+  const resolvedTitle =
+    title ?? localizedDefault.title ?? fallbackContent.title ?? 'ACI SmartRisk';
   const resolvedDescription =
     description ??
     localizedDefault.description ??
     fallbackContent.description ??
-    'Aperçu du Coach IA : l’astronaute échange un court dialogue automatique pour illustrer l’expérience à venir. La version interactive (voix, émotions, routines) sera bientôt disponible.';
-  const scrollHint = localizedDefault.scrollHint ?? fallbackContent.scrollHint ?? 'Faites défiler pour lancer la démo';
+    'Mode SmartRisk : aperçu de l’IA qui calcule automatiquement la taille de position, bloque les dépassements et envoie des rapports Safe Academy.';
+  const scrollHint =
+    localizedDefault.scrollHint ?? fallbackContent.scrollHint ?? 'Fais défiler pour lancer SmartRisk';
   const videoLeft = orientation !== 'video-right';
 
   const [messages, setMessages] = useState([]);
@@ -70,8 +71,6 @@ export default function Coach3DModule({
     setTypingRole(null);
     hasStartedRef.current = false;
     setIsActive(false);
-    setShouldRenderVideo(false);
-
     const element = sectionRef.current;
     if (element) {
       requestAnimationFrame(() => {
@@ -79,7 +78,6 @@ export default function Coach3DModule({
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           hasStartedRef.current = true;
           setIsActive(true);
-          setShouldRenderVideo(true);
         }
       });
     }
@@ -94,9 +92,6 @@ export default function Coach3DModule({
           if (entry.isIntersecting && !hasStartedRef.current) {
             hasStartedRef.current = true;
             setIsActive(true);
-          }
-          if (entry.isIntersecting) {
-            setShouldRenderVideo(true);
           }
         });
       },
@@ -144,94 +139,90 @@ export default function Coach3DModule({
   }, [resolvedSequence, isActive, step]);
 
   const textBlock = (
-    <div className="space-y-4 text-white/80">
-      <h2 className="text-2xl font-semibold text-white">{resolvedTitle}</h2>
-      <p className="leading-relaxed">{resolvedDescription}</p>
-      <div className="rounded-2xl border border-white/10 bg-black/40 p-4 text-sm leading-relaxed text-white/80">
+    <div className="space-y-5 text-white/85">
+      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-white/60">
+        <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+        IA • SmartRisk
+      </div>
+      <h2 className="text-3xl font-semibold text-white drop-shadow-[0_0_25px_rgba(59,130,246,0.6)]">
+        {resolvedTitle}
+      </h2>
+      <p className="leading-relaxed text-white/70">{resolvedDescription}</p>
+
+      <div className="rounded-[28px] border border-cyan-500/30 bg-white/5 p-5 shadow-[0_20px_50px_-30px_rgba(16,185,129,0.9)] backdrop-blur">
+        <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/40">
+          <span>Flux IA</span>
+          <span className="flex items-center gap-1 text-cyan-300">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-300" />
+            Online
+          </span>
+        </div>
         <div className="flex flex-col gap-4">
           {messages.map(message => (
-            <div key={`${message.role}-${message.text}`}>
-              <span className={`font-semibold ${message.accent}`}>{message.label}</span>
-              <p className="mt-1 text-white/75">{message.text}</p>
+            <div key={`${message.role}-${message.text}`} className="rounded-2xl bg-black/30 p-4 shadow-inner shadow-black/30">
+              <span className={`text-xs uppercase tracking-[0.3em] ${message.accent}`}>
+                {message.label}
+              </span>
+              <p className="mt-2 text-base leading-relaxed text-white/80">{message.text}</p>
             </div>
           ))}
           {typingRole && (
-            <div>
-              <span className={`font-semibold ${typingRole.accent}`}>{typingRole.label}</span>
-              <p className="mt-1 text-white/70">
+            <div className="rounded-2xl bg-black/30 p-4 shadow-inner shadow-black/30">
+              <span className={`text-xs uppercase tracking-[0.3em] ${typingRole.accent}`}>
+                {typingRole.label}
+              </span>
+              <p className="mt-2 text-base leading-relaxed text-white/80">
                 {partial}
-                <span className="ml-1 animate-pulse">▮</span>
+                <span className="ml-1 animate-pulse text-cyan-300">▮</span>
               </p>
             </div>
           )}
           {!typingRole && messages.length === 0 && (
-            <p className="text-xs uppercase tracking-[0.22em] text-white/40">
-              {scrollHint}
-            </p>
+            <p className="text-xs uppercase tracking-[0.4em] text-white/35">{scrollHint}</p>
           )}
         </div>
       </div>
     </div>
   );
 
-  const astronautOrientation = videoLeft ? 'right' : 'left';
-
-  const videoBlock = (
-    <div className="mx-auto w-full max-w-[520px] min-[320px]:max-w-[420px] sm:max-w-[480px]">
-      {shouldRenderVideo ? (
-        <Suspense fallback={<VideoPlaceholder />}>
-          <AstronautHeroVideo width={520} orientation={astronautOrientation} />
-        </Suspense>
-      ) : (
-        <VideoPlaceholder />
-      )}
-    </div>
+  const holoBlock = (
+    <HologramAvatar
+      variant="risk"
+      title="ACI SmartRisk"
+      subtitle="Sizing automatique • Blocage des dérives • Safe Academy"
+      className="mx-auto w-full max-w-[420px]"
+    />
   );
 
   return (
     <section
       ref={sectionRef}
-      className={`mt-16 grid gap-8 lg:items-start ${videoLeft ? 'lg:grid-cols-[520px_1fr]' : 'lg:grid-cols-[1fr_520px]'}`}
+      className="relative mt-16 overflow-hidden rounded-[40px] border border-sky-400/20 bg-gradient-to-br from-[#020d18] via-[#030b20] to-[#011425] p-8 text-white shadow-[0_40px_120px_-60px_rgba(56,189,248,0.9)]"
+      style={{ fontFamily: futuristicFont }}
     >
-      {videoLeft ? (
-        <>
-          {videoBlock}
-          {textBlock}
-        </>
-      ) : (
-        <>
-          {textBlock}
-          {videoBlock}
-        </>
-      )}
-    </section>
-  );
-}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#38bdf8,transparent_60%)] opacity-30" />
+      <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0px,transparent_2px,transparent_120px)] opacity-20 animate-[smartScan_8s_linear_infinite]" />
 
-function VideoPlaceholder() {
-  return (
-    <div
-      className="relative w-full"
-      style={{ maxWidth: '520px', minWidth: 'min(280px, 100%)' }}
-    >
-      <div className="pointer-events-none absolute inset-0 -z-20 rounded-[28px] bg-gradient-to-br from-[#52ffe6]/20 via-transparent to-[#fcd34d]/25 blur-[38px]" />
-      <div className="pointer-events-none absolute inset-[6%] -z-30 rounded-[48px] border border-white/5" />
-      <div className="relative aspect-square w-full overflow-hidden rounded-[22px] border border-emerald-200/35 bg-[radial-gradient(65%_60%_at_50%_15%,rgba(255,220,128,0.22),rgba(6,10,18,0.9))] shadow-[0_25px_70px_-28px_rgba(16,185,129,0.65)]">
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0)_35%,rgba(255,255,255,0.08)_70%)] opacity-50 mix-blend-screen" />
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(45%_45%_at_50%_20%,rgba(250,204,21,0.25),rgba(15,23,42,0))]" />
-
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 bg-black/35 px-6 text-center text-sm text-white/75 backdrop-blur">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-emerald-200/30 bg-black/60">
-            <span className="h-6 w-6 animate-spin rounded-full border-2 border-emerald-300 border-t-transparent" />
-          </div>
-          <p className="max-w-[240px] text-sm text-white/80">
-            Chargement de la démo 3D…
-          </p>
-          <p className="text-xs text-white/55">
-            Initialisation du coach interactif
-          </p>
-        </div>
+      <div className="relative grid gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
+        {videoLeft ? (
+          <>
+            {textBlock}
+            {holoBlock}
+          </>
+        ) : (
+          <>
+            {holoBlock}
+            {textBlock}
+          </>
+        )}
       </div>
-    </div>
+
+      <style>{`
+        @keyframes smartScan {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-120px); }
+        }
+      `}</style>
+    </section>
   );
 }

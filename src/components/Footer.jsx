@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-emerald-200/80">
-              ACI Meta Coach
+              ACI SmartTrader Suite
             </p>
             <p className="mt-2 text-lg font-semibold text-balance">
               {t('footer.tagline')}

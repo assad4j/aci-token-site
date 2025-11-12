@@ -35,11 +35,11 @@ const DEFAULT_TRANSLATIONS = {
     smile: 'Sourire',
   },
   ui: {
-    badge: 'ACI Meta Coach',
-    title: 'Module de détection d’émotions (voix + caméra)',
+    badge: 'ACI EmotionScan',
+    title: 'ACI EmotionScan — Voix + Vision',
     description:
-      'Analyse en direct de la voix pour aider le coach à adapter ses messages : émotion dominante, niveau de stress, confiance, rythme de parole et hésitations. Active aussi la caméra pour enrichir l’analyse via les expressions faciales (traitement 100% local dans le navigateur).',
-    voiceHint: 'Analyse vocale active pour mieux t’adapter en temps réel.',
+      'EmotionScan capte la voix, la vidéo et le rythme pour cartographier stress, confiance et posture mentale en temps réel. Tout est traité côté navigateur avant d’alimenter ton plan SmartTrader.',
+    voiceHint: 'EmotionScan ajuste tes routines en fonction de ta voix à chaque seconde.',
     toggle: {
       tooltipSession: 'Arrête la session pour modifier l’analyse vidéo.',
       tooltipActive: 'Désactiver l’analyse vidéo',
@@ -68,7 +68,7 @@ const DEFAULT_TRANSLATIONS = {
       previousSummaryNote: 'Résultat précédent disponible plus bas.',
     },
     session: {
-      title: 'Session en cours',
+      title: 'Session EmotionScan',
       description:
         'Les métriques sont mises à jour toutes les 750 ms pour garder un affichage fluide.',
       stopButton: 'Arrêter et afficher le bilan',
@@ -78,8 +78,8 @@ const DEFAULT_TRANSLATIONS = {
       metricFillers: '“Euh” par minute',
       metricVoiceAi: 'Analyse vocale IA',
       voiceInsightsHint:
-        'Je mesure ton ton, ton énergie et ta stabilité pour ajuster ton coaching en direct.',
-      coachLabel: 'Coach',
+        'Analyse IA live : ton, énergie, stabilité émotionnelle et recommandations SmartTrader.',
+      coachLabel: 'IA Coach',
     },
     summary: {
       title: 'Bilan de la session',
@@ -488,7 +488,7 @@ function MetricBar({ label, value }) {
       </div>
       <div className="h-2 rounded-full bg-white/10">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-rose-500 transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-emerald-400 to-emerald-600 transition-all duration-500"
           style={{ width: widthPercent }}
         />
       </div>
@@ -502,6 +502,7 @@ export default function EmotionDetectionModule({
   onSessionToggle,
 } = {}) {
   const { t, i18n } = useTranslation();
+  const futuristicFont = '"Space Grotesk","Orbitron","Inter",sans-serif';
   const dictionary = useMemo(
     () => t('emotionDetection', { returnObjects: true }) || {},
     [i18n.language, t]
@@ -1444,48 +1445,64 @@ export default function EmotionDetectionModule({
 
   if (showPlaceholder && placeholderContent) {
     return (
-      <section className="mt-16">
-        <div className="rounded-3xl border border-emerald-500/30 bg-black/70 p-8 text-white shadow-xl shadow-emerald-500/10 backdrop-blur">
-          <header className="space-y-2">
-            <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">{ui.badge}</p>
-            <h2 className="text-3xl font-bold md:text-4xl">{placeholderContent.title}</h2>
-            <p className="max-w-2xl text-base leading-relaxed text-white/70">
+      <section className="relative mt-16" style={{ fontFamily: futuristicFont }}>
+        <div className="relative overflow-hidden rounded-[40px] border border-cyan-400/20 bg-gradient-to-br from-[#030b1f] via-[#050d22] to-[#021327] p-10 text-white shadow-[0_40px_120px_-55px_rgba(59,130,246,0.85)]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#38bdf8,transparent_60%),radial-gradient(circle_at_bottom,#10b981,transparent_45%)] opacity-45" />
+          <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08)_0px,transparent_2px,transparent_140px)] opacity-20 animate-[emotionScan_10s_linear_infinite]" />
+
+          <header className="relative space-y-3">
+            <p className="text-xs uppercase tracking-[0.45em] text-white/70">{ui.badge}</p>
+            <h2 className="text-3xl font-semibold text-white drop-shadow-[0_0_25px_rgba(56,189,248,0.7)]">
+              {placeholderContent.title}
+            </h2>
+            <p className="max-w-2xl text-base leading-relaxed text-white/75">
               {placeholderContent.description}
             </p>
           </header>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="relative mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-black transition hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-emerald-400 to-emerald-500 px-6 py-2 text-sm font-semibold text-black transition hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]"
             >
               {placeholderContent.cta}
             </a>
+            <p className="text-sm text-white/60">{placeholderContent.note}</p>
           </div>
-          <p className="mt-6 text-sm text-white/60">{placeholderContent.note}</p>
         </div>
+        <style>{`
+          @keyframes emotionScan {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-140px); }
+          }
+        `}</style>
       </section>
     );
   }
 
   return (
-    <section className="mt-16">
-      <div className="rounded-3xl border border-emerald-500/30 bg-black/70 p-8 shadow-xl shadow-emerald-500/10 backdrop-blur">
-        <header className="space-y-2 text-white">
-          <p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">{ui.badge}</p>
-          <h2 className="text-3xl font-bold md:text-4xl">{ui.title}</h2>
-          <p className="max-w-2xl text-base text-white/70 leading-relaxed">{ui.description}</p>
+    <section className="relative mt-16" style={{ fontFamily: futuristicFont }}>
+      <div className="relative overflow-hidden rounded-[40px] border border-cyan-400/20 bg-gradient-to-br from-[#020b18] via-[#050f23] to-[#02132b] p-8 text-white shadow-[0_45px_130px_-60px_rgba(16,185,129,0.8)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#38bdf8,transparent_60%),radial-gradient(circle_at_bottom,#10b981,transparent_50%)] opacity-35" />
+        <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.08)_0px,transparent_2px,transparent_120px)] opacity-15 animate-[emotionScan_12s_linear_infinite]" />
+
+        <header className="relative space-y-2 text-white">
+          <p className="text-xs uppercase tracking-[0.45em] text-white/60">{ui.badge}</p>
+          <h2 className="text-3xl font-semibold md:text-4xl">{ui.title}</h2>
+          <p className="max-w-2xl text-base text-white/75 leading-relaxed">{ui.description}</p>
         </header>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-emerald-200/90">
-          <span className="rounded-full bg-emerald-500/10 px-4 py-1">{ui.voiceHint}</span>
+        <div className="relative mt-6 flex flex-wrap items-center gap-4 text-sm text-white/80">
+          <span className="rounded-full border border-white/15 bg-white/5 px-4 py-1 text-white/70">
+            {ui.voiceHint}
+          </span>
           <button
             type="button"
             onClick={toggleVideoMode}
             disabled={sessionRunning || videoStatus === 'checking'}
             className={`flex items-center gap-2 rounded-full border px-3 py-1 text-white/70 transition ${
               videoEnabled
-                ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-200 hover:border-emerald-300/60'
-                : 'border-white/10 hover:border-emerald-400/60 hover:text-emerald-200'
+                ? 'border-cyan-400/60 bg-cyan-400/10 text-cyan-200 hover:border-cyan-200/80'
+                : 'border-white/10 hover:border-cyan-300/70 hover:text-cyan-200'
             } ${
               sessionRunning
                 ? 'cursor-not-allowed opacity-60'
@@ -1712,6 +1729,12 @@ export default function EmotionDetectionModule({
           </div>
         )}
       </div>
+      <style>{`
+        @keyframes emotionScan {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-120px); }
+        }
+      `}</style>
     </section>
   );
 }

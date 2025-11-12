@@ -1,135 +1,203 @@
-<html><head><meta charset='utf-8'><title>ACI Meta Coach Whitepaper</title></head><body><pre># ACI Meta Coach — Whitepaper
+<html><head><meta charset='utf-8'><title>ACI SmartTrader Suite Whitepaper</title></head><body><pre># ACI SmartTrader Suite — Whitepaper
 
 ## 0. Résumé exécutif
 
-ACI Meta Coach est un assistant 3D intelligent qui accompagne chaque investisseur comme un coach personnel : il écoute la voix, comprend l’état émotionnel, adapte les parcours d’apprentissage et récompense la discipline via le token ACI. Ce document détaille la vision, les mécanismes techniques et économiques, ainsi que la feuille de route pour déployer l’écosystème ACI.
+ACI SmartTrader Suite est la première plateforme « Trade, Learn, Survive » articulée autour de deux intelligences artificielles propriétaires :
+* **ACI Learn** : formation adaptative qui calibre cours, quiz et psychologie en fonction du niveau réel du trader.
+* **ACI Risk AI** : moteur de discipline branché sur MT4/Binance qui calcule automatiquement la taille des positions, bloque les dépassements et génère des rapports Safe Academy.
+
+Le token ACI (supply fixe : 1 milliard) alimente ces IA, finance les récompenses Learn-to-Earn et soutient la future DAO SmartTrader. Objectif : apprendre à trader sans se ruiner, en combinant éducation, gestion du risque et gouvernance communautaire.
 
 ---
 
-## 1. Vision et problématique
+## 1. Vision & produit
+
+- Coach IA 3D émotionnel, routines personnalisées et marketplace de parcours.
+- Approche omnicanale : voix, analyse émotionnelle, conciergerie business.
 
 ### 1.1 Constat
-- Les traders particuliers sont submergés d’informations et restent souvent seuls face au stress des marchés.
-- Les plateformes de formation actuelles sont passives, peu contextualisées émotionnellement.
-- Les modèles « learn-to-earn » existants ne relient pas directement émotion et progression.
+- Les traders particuliers sont sur-exposés au risque émotionnel : plus de 70 % brûlent leur capital en moins de 12 mois.
+- Les plateformes éducatives sont linéaires, ne suivent pas les erreurs et ignorent la charge mentale.
+- Les bots de trading n’intègrent pas le contexte pédagogique ni la discipline comportementale.
 
 ### 1.2 Vision
-Créer l’entraîneur sportif des marchés financiers : un coach IA 3D empathique qui synchronise formation, staking et gouvernance.
+Créer une suite IA qui enseigne, analyse et protège : ACI Learn construit des réflexes solides tandis qu’ACI Risk AI empêche les erreurs coûteuses. La boucle Safe Academy synchronise les données d’apprentissage et de risque pour produire une progression mesurable.
 
 ### 1.3 Objectifs (24 mois)
-1. Réduire de 30 % le stress perçu.
-2. Augmenter de 40 % le taux de complétion des parcours.
-3. Atteindre 75 % du supply ACI en staking 12 mois après la prévente.
-4. Organiser au moins trois votes de gouvernance la première année.
+1. Multiplier par 2 le taux de complétion des parcours ACI Learn.
+2. Réduire de 35 % les pertes liées au non-respect des plans grâce à ACI Risk AI.
+3. Atteindre 60 % du supply ACI en staking pour financer les récompenses et la liquidité.
+4. Porter 25 000 traders actifs dans Safe Academy.
+5. Voter au moins cinq propositions DAO SmartTrader avec >35 % de participation.
 
 ---
 
-## 2. Écosystème ACI
+## 2. Économie du token
+
+- Utilité ACI : accès premium, staking, gouvernance, récompenses mission.
+- Distribution équilibrée entre prévente, R&amp;D, communauté et liquidités.
 
 ### 2.1 Token ACI
-- Rôle : carburant économique, outil de gouvernance, levier de gamification.
-- Objectif : aligner utilisateurs, coachs et partenaires en finançant l’amélioration continue de l’IA et en récompensant la discipline.
-- Utilité : accès premium, réductions marketplace, unlock tiers, staking, récompenses missions.
+- **Utilité** : accéder aux IA (ACI Learn, ACI Risk AI), financer les récompenses, voter dans la DAO, payer la marketplace.
+- **Mécaniques** : staking 1-24 mois, Learn-to-Earn, Risk-to-Earn (récompenses quand les garde-fous sont respectés), remises sur les packs pro.
+- **Économie** : supply fixe (1 Md), aucune taxe, brûlages manuels coordonnés par multisig + DAO.
 
-### 2.2 Coach IA 3D
-- Avatar animé, ton « meilleur ami » ou « tactical coach ».
-- Analyse voix/caméra, knowledge base, fallback local.
+### 2.2 ACI Learn
+- Moteur adaptatif qui ajuste modules, quiz, études de cas et routines psycho.
+- Journal des erreurs, scoring émotionnel, synthèse vocale facultative.
+- Récompenses ACI lorsqu’un trader valide une mission sans enfreindre les règles.
 
-### 2.3 Parcours Meta Coach
-- Tracks trading, mindset, gestion du risque.
-- Routines journalières, exercices vocaux, journaling.
+### 2.3 ACI Risk AI
+- Se connecte à MT4, Binance ou via API.
+- Recalcule le sizing, vérifie le risque par trade/jour, applique des cooldowns.
+- Produit un rapport Safe Academy (discipline, drawdown évité, anomalies).
 
-### 2.4 Marketplace
-- Modules IA, masterclass, packs coach humains, outils.
-- Paiement en ACI ou stablecoins (avec conversion).
-- Revenue share créateurs.
+### 2.4 Safe Academy Dashboard
+- Vue unifiée des KPIs d’apprentissage, de psychologie et de risque.
+- Gamification (badges, XP, niveaux SmartTrader).
+- Publication des scores anonymisés pour nourrir des benchmarks communautaires.
 
 ---
 
 ## 3. Architecture technique
 
 ### 3.1 Frontend
-- React 18, Tailwind, Three.js, fallback offline.
+- React 18 + Tailwind + Three.js (visuals non-intrusifs, thème sombre immuable).
+- Expérience responsive, mode hors-ligne pour modules ACI Learn.
 
 ### 3.2 Backend IA
-- Modèle propriétaire ACI (entraîné sur contenus internes), knowledge index, pipeline vocal (STT/TTS), monitoring fiabilité/sécurité.
+- Microservices Node/Nest, orchestrés via Kubernetes.
+- Pipelines ML : adaptation pédagogique (ensembles de parcours), moteur de risque (calcul VaR, ATR, corrélations), profiling psychologique.
+- Data Lake (PostgreSQL + S3 chiffré) structuré par consentement utilisateur.
 
-### 3.3 Smart contracts
-- Prévente, staking, scripts Hardhat/Foundry, audits, multisig.
+### 3.3 Connecteurs trading
+- WebSocket MT4/MetaAPI, Binance Broker Program, endpoints REST propriétaires.
+- Les clés API sont chiffrées (KMS) et ne permettent que des droits lecture + trading.
+- Moteur d’autorisations qui applique les blocages côté serveur avant transmission à l’exchange.
 
-### 3.4 Observabilité
-- Logs anonymisés, Prometheus/Grafana, Sentry, alertes latence IA.
+### 3.4 Smart contracts
+- ERC-20 ACI (OpenZeppelin, burnable, Ownable transféré à multisig).
+- Contrats de prévente + vesting, staking linéaire ou à palier.
+- DAO progressive via Governor + timelock.
 
----
-
-## 4. Coach IA — fonctionnement
-
-- Pipeline : voix → STT → features émotionnelles → contextualisation plan → réponse + nudge.
-- Persona adaptable, fallback local.
-- Analyse voix : RMS, variance, pitch, fillers/minute, baseline adaptative.
-- Caméra optionnelle (Human.js) pour expression faciale.
-
----
-
-## 5. Parcours &amp; marketplace
-
-- Construction du plan : diagnostic, onboarding, cycle hebdomadaire, review émotionnelle.
-- Marketplace : routines IA, masterclass, packs coach humains, outils.
-- KPIs : voice minutes, Net Emotional Score, progression plan, TVL staking, MRR marketplace.
+### 3.5 Observabilité & sécurité
+- Logs anonymisés (OpenTelemetry), alertes latence IA, dashboards Prometheus/Grafana.
+- Systèmes anti-abus pour éviter le farming de récompenses (proof of completion, attestation Risk AI).
 
 ---
 
-## 6. Tokenomics
+## 4. ACI Learn — moteur adaptatif
 
-- Allocation indicative : 35 % prévente, 20 % team/advisors, 15 % trésor R&amp;D, 20 % rewards staking/missions, 10 % liquidité/ops.
-- Staking : APR 10-25 %, lock 30-180 jours, bonus tiers, rewards modules premium + XP plan.
-- Utilité ACI : accès premium, réductions marketplace, gouvernance, priorité presales, récompenses missions.
-
----
-
-## 7. Roadmap
-
-- **Alpha (0-6 mois)** : prévente, coach IA voix + KB, staking pilote, marketplace MVP, tests émotion.
-- **Beta (6-12 mois)** : coach IA v2, marketplace ouverte, app mobile, sessions hybrides, votes de signal.
-- **Growth (12-24 mois)** : DAO complète, API plan IA, white-label coach, extension DeFi, buy-back, expansion internationale.
+- **Entrées** : niveau déclaré, historique de trades, réponses aux quiz, signaux de stress (facultatifs).
+- **Boucle** : diagnostic → module calibré → quiz adaptatif → routine psycho → synthèse Safe Academy.
+- **Features clés** :
+  - Ajustement automatique de la difficulté (NLP + scoring Bayesian).
+  - Détection d’erreurs récurrentes (mauvais money management, biais cognitifs…).
+  - Missions Learn-to-Earn avec preuves de complétion (capture, QCM, plan écrit).
+  - Exportation vers le coach humain ou la DAO pour obtenir du feedback ciblé.
 
 ---
 
-## 8. Gouvernance &amp; communauté
+## 5. ACI Risk AI — couche discipline
 
-- DAO progressive, delegation.
-- Conseil communautaire, rapports trimestriels.
-- Programmes ambassadeurs, AMA, hackathons.
+- **Connexion** : OAuth brokers ou API keys chiffrées via HSM.
+- **Analyse** : lecture temps réel des ordres, calcul du risque (ATR, corrélation, volatilité, levier).
+- **Actions** :
+  - Blocage ou réduction d’ordre dès qu’un seuil (trade/daily/max drawdown) est violé.
+  - Mise en place de cooldowns automatiques après trois erreurs successives.
+  - Rapports quotidiens et hebdo envoyés à Safe Academy + notification mobile.
+- **Respect de l’utilisateur** : l’IA ne prend jamais d’ordre sans validation, elle applique seulement les garde-fous préconfigurés.
 
 ---
 
-## 9. Sécurité &amp; conformité
+## 6. Tokenomics & utilité
 
-- Audits indépendants, multisig Gnosis Safe.
-- RGPD : consentement voix/cam, stockage local par défaut.
-- Limitation IA : rate limit, modération, red teaming.
-- Bug bounty (Immunefi/HackerOne).
+- **Supply total** : 1 000 000 000 ACI (mint unique, pas de taxe).
+- **Répartition indicative** :
+  - 30 % Prévente publique + privée.
+  - 20 % Trésorerie SmartTrader (R&amp;D IA + fonds de stabilité).
+  - 15 % Réserve staking (récompenses Learn/Risk).
+  - 15 % Team & advisors (vesting 24 mois, cliff 6 mois).
+  - 10 % Liquidité DEX/CEX.
+  - 10 % DAO / partenariats / growth.
+- **Utilité directe** :
+  - Débloquer ACI Learn (modules premium, psychologie avancée).
+  - Activer ACI Risk AI (guard rails + rapports Safe Academy).
+  - Financer les traders disciplinés via staking/stable rewards.
+  - Alimenter la DAO SmartTrader.
+
+---
+
+## 7. Roadmap SmartTrader
+
+- Alpha → coach IA voix + staking pilote + marketplace MVP.
+- Beta → app mobile, sessions hybrides, votes de gouvernance, DAO progressive.
+
+1. **Phase 1 – Lancement SmartTrader**
+   - Création du token ACI (ERC-20, 1 Md).
+   - Déploiement du site + prévente publique.
+   - Installation de la marque ACI SmartTrader Suite.
+2. **Phase 2 – ACI Learn (v1)**
+   - IA d’apprentissage adaptatif (cours, quiz, erreurs graphiques).
+   - Psychologie du trader + profilage comportemental.
+   - Système Learn-to-Earn avec récompenses ACI.
+3. **Phase 3 – ACI Risk AI**
+   - Connexions MT4 / Binance / API propriétaires.
+   - Calcul dynamique de taille + blocages automatiques.
+   - Rapports quotidiens de discipline (Safe Academy).
+4. **Phase 4 – Plateforme SmartTrader**
+   - Fusion Learn + Risk dans le dashboard Safe Academy.
+   - Vision 360 : stats, psychologie, XP, missions.
+   - Staking & récompenses pour traders disciplinés.
+5. **Phase 5 – DAO & expansions**
+   - Lancement DAO SmartTrader (votes, trésor, fonds communautaire).
+   - Partenariats brokers + déploiement mobile.
+   - Programmes d’expansion géographique via ambassadeurs.
+
+---
+
+## 8. Gouvernance & communauté
+
+- DAO graduelle : multisig → Governor → DAO complète.
+- Droit de vote indexé sur ACI stakés + réputation Safe Academy.
+- Conseil communautaire chargé de valider les feuilles de route trimestrielles.
+- Programmes ambassadeurs, hackathons Safe Academy, sessions AMA multilingues.
+
+---
+
+## 9. Sécurité, conformité & éthique
+
+- Audits (CertiK, Hacken, SolidProof) pour les contrats clés.
+- Gnosis Safe + timelock sur les fonds critiques.
+- RGPD : consentement explicite pour voix/caméra, stockage local par défaut.
+- Mode « texte uniquement » pour les juridictions sensibles.
+- Red teaming IA, modération en temps réel, contrôle des prompts partagés.
+- Bug bounty via Immunefi / HackerOne.
 
 ---
 
 ## 10. Indicateurs clés
 
-- Voice engagement, variation stress/confidence, TVL staking, revenus marketplace, participation gouvernance, support, fallback IA.
+- Taux de complétion ACI Learn, progression XP Safe Academy.
+- Nombre d’alertes Risk AI déclenchées vs trades bloqués.
+- TVL staking + ratio de récompenses distribuées.
+- Nombre de votes DAO et taux de participation.
+- Revenus marketplace (modules, packs, API).
+- Score « Trade, Learn, Survive » (stress, capital sauvegardé, constance).
 
 ---
 
-## 11. Risques &amp; mitigation
+## 11. Risques & stratégies d’atténuation
 
-- Dépendance IA → fallback local, multi-prestataires.
-- Volatilité token → diversification trésor, pricing adaptatif.
-- Régulation voix → mode texte-only, consentement renforcé.
-- Adoption → programmes ambassadeurs, partenariats.
-- Coût IA → optimisation prompts, caching, monitoring.
-- RGPD → anonymisation, stockage local.
+- **Adoption insuffisante** : partenariats brokers, ambassadeurs régionaux, contenus multilingues.
+- **Volatilité du token** : trésorerie diversifiée, buy-back, calendriers de vesting stricts.
+- **Dépendance IA** : fallback local, double sourcing des modèles, contrôles manuels.
+- **Réglementation** : conformité KYC/AML pour les flux fiat, audits réguliers, conseil juridique local.
+- **Abus des récompenses** : preuve cryptographique de complétion, analyse comportementale, listes d’exclusion.
 
 ---
 
 ## 12. Conclusion
 
-ACI Meta Coach fusionne intelligence émotionnelle, tokenomics et coaching interactif pour aider les traders à rester disciplinés et engagés.
+ACI SmartTrader Suite aligne deux IA complémentaires, un token utilitaire solide et une DAO ambitieuse pour apprendre à trader sans se ruiner. L’écosystème récompense la discipline, mesure la progression et protège le capital en temps réel. « Trade, Learn, Survive » devient une trajectoire concrète pour chaque membre de la communauté.
 </pre></body></html>

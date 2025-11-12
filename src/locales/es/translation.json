@@ -5,129 +5,99 @@
   "howto": "How to Buy",
   "faq": "FAQ",
   "staking": "Staking",
-  "tradingBot": "Trading Bot",
+  "tradingBot": "ACI Risk AI",
   "roadmap": {
-    "title": "ACI Meta Coach - Roadmap oficial",
-    "visionTitle": "Visión final",
-    "vision": "ACI Meta Coach reúne inteligencia artificial, psicología y finanzas en un único ecosistema. El objetivo: hacer que cada usuario sea autónomo, consciente y dueño de su rendimiento en un entorno seguro, inteligente y comunitario.",
+    "title": "ACI SmartTrader Suite – Roadmap oficial",
+    "visionTitle": "Visión",
+    "vision": "ACI SmartTrader Suite combina ACI Learn (educación adaptativa) y ACI Risk AI (motor de disciplina) para formar traders rentables sin que quemen su capital. Cada fase financia la IA, las recompensas de staking y la futura DAO SmartTrader.",
     "items": [
       {
         "phase": "Fase 1",
-        "title": "Creación del ecosistema ACI",
-        "description": "Diseño de la identidad ACI Meta Coach, desarrollo del sitio oficial y creación del token ACI (ERC-20) en Ethereum. El objetivo es construir las bases técnicas y visuales antes del lanzamiento.",
+        "title": "Lanzamiento SmartTrader",
+        "description": "Sentar las bases de la suite, el token y la preventa pública.",
         "objectives": [
-          "Identidad visual + guía de marca ACI",
-          "Sitio web + plataforma (dashboard)",
-          "Despliegue del token ACI en Ethereum",
-          "Whitepaper + smart contract de preventa"
+          "Crear el token ACI (ERC-20, suministro 1B).",
+          "Lanzar el sitio y la preventa pública.",
+          "Desplegar la marca ACI SmartTrader Suite."
         ]
       },
       {
         "phase": "Fase 2",
-        "title": "Lanzamiento del Coach IA (v1)",
-        "description": "Primera versión del Coach IA ACI, capaz de analizar la voz, el tono y la regularidad del usuario. La IA se convierte en un asistente personal que impulsa disciplina, confianza y gestión emocional.",
+        "title": "ACI Learn (v1)",
+        "description": "Desplegar la IA de aprendizaje adaptativo.",
         "objectives": [
-          "IA emocional (voz, tono, estrés) para coaching en tiempo real",
-          "Conserjería básica: recordatorios, agenda, automatizaciones simples",
-          "Business Finder (demo web): 3 ideas adaptadas + primeros planes de acción",
-          "Coach IA Trading (disciplina, rutinas, checklists de ejecución)"
+          "Cursos, quizzes y detección de errores impulsados por IA.",
+          "Psicología del trader + perfilado comportamental.",
+          "Learn-to-Earn: ganar ACI en cada progreso."
         ]
       },
       {
         "phase": "Fase 3",
-        "title": "Formaciones inteligentes + Meta Track",
-        "description": "Lanzamiento de formaciones IA interactivas: cripto, trading, seguridad y psicología. Meta Track analiza el progreso y adapta los contenidos a cada perfil. Los módulos avanzados se desbloquean a través del staking de ACI.",
+        "title": "ACI Risk AI",
+        "description": "Entregar la IA de gestión de riesgo conectada a MT4 / Binance.",
         "objectives": [
-          "Cursos interactivos (trading, negocio, psicología)",
-          "Meta Track: seguimiento IA de la progresión, XP, rutinas",
-          "Integración con staking para desbloquear módulos ACI"
+          "Integración MT4 / Binance.",
+          "Dimensionamiento automático + bloqueos al exceder límites.",
+          "Reportes diarios de disciplina."
         ]
       },
       {
         "phase": "Fase 4",
-        "title": "DAO + expansión internacional",
-        "description": "Lanzamiento de la DAO ACI para que los holders voten y participen en las decisiones estratégicas. Despliegue internacional del Coach IA y de las formaciones traducidas.",
+        "title": "Plataforma SmartTrader (Learn + Risk)",
+        "description": "Fusionar las dos IA en el dashboard Safe Academy.",
         "objectives": [
-          "DAO (votos, propuestas, fondo comunitario)",
-          "Despliegues multi-región (EN, ES, FR, AR)",
-          "Alianzas Web3 y académicas",
-          "Red de embajadores ACI"
+          "Dashboard unificado: stats, psicología, performance, XP.",
+          "Dashboard IA Safe Academy.",
+          "Staking y recompensas para traders disciplinados."
         ]
       },
       {
         "phase": "Fase 5",
-        "title": "ACI Metaverse & IA avanzada",
-        "description": "Creación de un entorno inmersivo ACI donde los usuarios interactúan con su Coach IA en un universo virtual educativo. El rendimiento desbloquea insignias de progresión y accesos avanzados.",
+        "title": "DAO y expansiones",
+        "description": "Abrir la gobernanza y ampliar el ecosistema.",
         "objectives": [
-          "Avatar IA + interacciones en tiempo real",
-          "Análisis vocales + feedback en la app",
-          "Insignias de progreso e insights IA",
-          "Ecosistema inmersivo y gamificado"
-        ]
-      },
-      {
-        "phase": "Fase 6",
-        "title": "Aplicación IA de acompañamiento global (I+D → Beta)",
-        "description": "Desarrollo de una app IA de bienestar y trading orientada al soporte emocional. El usuario puede activar cámara/micrófono para hablar con la IA cuando aparezcan estrés, miedo o pánico. La IA escucha, observa y propone rutinas personalizadas sin almacenar datos no consentidos.",
-        "objectives": [
-          "App “ACI Copiloto” (mobile/desktop)",
-          "Modo SOS: alertas de estrés, tareas prioritarias, anclajes",
-          "Conserjería: reservas, viajes, reuniones, notas, socios",
-          "Business Finder → plan interactivo de 90 días (objetivos, tareas, KPI)",
-          "Integración Meta Track + plan de trading (rutinas emocionales)",
-          "Beta cerrada + feedback de usuarios, seguridad y cumplimiento"
-        ]
-      },
-      {
-        "phase": "Fase 7",
-        "title": "Lanzamiento público de la app IA",
-        "description": "Publicación oficial de la app en tiendas (iOS / Android / escritorio). Integración completa con el ecosistema ACI (token, staking, Meta Track). Alianzas de bienestar y colaboraciones con instituciones educativas.",
-        "objectives": [
-          "Publicación iOS/Android/desktop",
-          "Sincronización cuenta ACI ↔ staking",
-          "Rutinas multiverticales: negocio, trading, mindset, conserjería",
-          "Marketplace de servicios/IA conectado al coach",
-          "Gobernanza “Secure DAO” (KYC si se requiere)",
-          "Despliegue mundial"
+          "Lanzar la DAO SmartTrader (votos, tesoro, fondo comunitario).",
+          "Integrar brokers partners.",
+          "Aplicación móvil SmartTrader."
         ]
       }
     ]
   },
   "formations": {
     "hero": {
-      "title": "Formaciones inteligentes",
-      "intro": "Recorridos interactivos que combinan video e IA: cripto, forex, gestión del riesgo y psicología del trader. Desbloquea los módulos premium con el Meta Coach Token (ACI).",
-      "stakingLine": "Al hacer staking de tus tokens ACI accedes a una formación guiada por IA que evoluciona contigo.",
-      "tokenTag": "El token que impulsa tu progreso"
+      "title": "ACI Learn",
+      "intro": "Formación IA adaptativa que analiza tu nivel, registra tus errores y ajusta cada módulo en tiempo real.",
+      "stakingLine": "Haz stake o conserva tus ACI para desbloquear todo el recorrido de ACI Learn y ganar Learn-to-Earn.",
+      "tokenTag": "Impulsado por el token ACI"
     },
     "modules": [
       {
-        "title": "Crypto & DeFi",
-        "description": "Comprende los ciclos, los tokens y los protocolos esenciales gracias a recorridos vídeo + IA."
+        "title": "Aprendizaje IA adaptativo",
+        "description": "Lecciones, cuestionarios y escenarios dinámicos que reaccionan a tus resultados."
       },
       {
-        "title": "Forex & Macro",
-        "description": "Análisis multimoneda, correlaciones y escenarios macro para estructurar tus planes de trading."
-      },
-      {
-        "title": "Gestión del riesgo",
-        "description": "Dimensionamiento de posiciones, money management y pruebas de estrés adaptadas a tu perfil."
+        "title": "Seguimiento de errores",
+        "description": "Capturas, notas y registros etiquetados automáticamente para no repetir patrones."
       },
       {
         "title": "Psicología del trader",
-        "description": "Rutinas, disciplina emocional y coaching de mindset para mantenerte alineado con tu plan."
+        "description": "Respiración, rutinas mentales y snapshots de Safe Academy para mantener el control."
+      },
+      {
+        "title": "Recompensas en ACI",
+        "description": "Las misiones Learn-to-Earn liberan ACI cada vez que completas un módulo con disciplina."
       }
     ],
-    "moduleTagline": "Mide, ajusta y progresa.",
+    "moduleTagline": "Aprende, corrige y gana.",
     "iaSection": {
-      "badge": "Formación impulsada por la IA de ACI",
-      "heading": "Aquí no eres tú quien se adapta a la formación, la formación se adapta a ti.",
-      "paragraph1": "La IA de ACI analiza tus avances, detecta tus puntos fuertes y ajusta automáticamente las secuencias de vídeo, los cuestionarios y los talleres en vivo. Cuantos más ACI hagas staking, más niveles y análisis avanzados desbloqueará tu IA, abriendo módulos premium y coaching específico.",
-      "paragraph2": "Meta Coach Token actúa como llave de acceso: haz staking de tus ACI, activa el seguimiento 24/7 y deja que la plataforma te recomiende el siguiente paso. El aprendizaje se vuelve inteligente, interactivo y totalmente personalizado: tus indicadores de rendimiento alimentan continuamente el motor de IA que hace evolucionar tu recorrido.",
+      "badge": "Motor adaptativo ACI Learn",
+      "heading": "Aquí el programa se adapta a ti.",
+      "paragraph1": "ACI Learn observa tus ganancias, pérdidas y señales de estrés para recalibrar al instante la siguiente lección, quiz o rutina.",
+      "paragraph2": "Tus notas emocionales, entradas de voz e indicadores Safe Academy enseñan a la IA a entrenarte mejor. Cuanto más stakeas, más profundo es el análisis.",
       "bullets": [
-        "Aprendizaje adaptativo que observa tu comportamiento y se ajusta en tiempo real.",
-        "Feedback de voz, rutinas mentales y seguimiento emocional ofrecidos por Meta Coach IA.",
-        "Evolución automática de contenidos, desafíos y recompensas."
+        "Lecciones adaptativas que cambian de dificultad en tiempo real.",
+        "Registro de errores + señales emocionales para evitar repeticiones.",
+        "Insignias, XP y recompensas en ACI basadas en tu disciplina."
       ]
     },
     "howItWorks": {
@@ -152,87 +122,77 @@
       ]
     },
     "ecosystem": {
-      "title": "IA + Trading + Mindset: la ecuación ganadora.",
-      "paragraph1": "Cada recorrido combina contenidos en vídeo, feedback IA y sesiones en vivo con coaches. Usa tus ACI para activar módulos avanzados, desbloquear talleres en vivo y acceder a las próximas rutinas Meta Track.",
-      "paragraph2": "Todo el ecosistema está interconectado: tu staking alimenta el aprendizaje, que desbloquea recompensas que refuerzan tu progreso. Meta Coach IA actúa como un coach personal evolutivo, capaz de captar tus señales vocales, emocionales y de comportamiento para personalizar cada sesión. Cada usuario contribuye a entrenar la IA colectiva de ACI: cuanto más practica la comunidad, más precisas se vuelven las recomendaciones."
+      "title": "Educación + riesgo + recompensas.",
+      "paragraph1": "ACI Learn y ACI Risk AI comparten los mismos datos: lo que aprendes influye en cómo reacciona el motor de riesgo.",
+      "paragraph2": "Cuando sube tu disciplina, Learn desbloquea misiones más duras y Risk AI suaviza ligeramente los bloqueos. Progresas sin quemar capital."
     },
     "cta": {
-      "button": "Activar mi formación con el staking de ACI",
+      "button": "Activar ACI Learn con staking",
       "note": "Se requiere conexión de wallet"
     }
   },
   "coachIASection": {
-    "badge": "IA + Trading + Mindset",
-    "titleHome": "Un coach inteligente que sigue tu progreso y optimiza cada decisión.",
-    "titlePage": "Un asistente inteligente que analiza tu desempeño y dirige tu plan de entrenamiento.",
-    "subtitle": "Evoluciona cada semana con un plan de acción claro. Mide, ajusta, progresa.",
+    "badge": "SmartTrader Suite",
+    "titleHome": "ACI Learn + ACI Risk AI te mantienen afilado y protegido.",
+    "titlePage": "Dos IA coordinadas para entrenarte y bloquear errores costosos.",
+    "subtitle": "Educación, psicología y riesgo alineados en un solo plan de disciplina.",
     "bullets": [
-      "Análisis de tus trades con recomendaciones personalizadas.",
-      "Planes semanales “Estrategia + Mindset + Riesgo”.",
-      "Seguimiento del progreso con objetivos, rutinas y recordatorios.",
-      "Acceso prioritario desbloqueado con el Meta Coach Token (ACI)."
+      "ACI Learn adapta lecciones, cuestionarios y rutinas a tu nivel actual.",
+      "El panel Safe Academy sigue estrés, errores y XP.",
+      "ACI Risk AI calcula el tamaño de posición y bloquea cuando superas los límites.",
+      "Ganas ACI cada vez que te mantienes disciplinado."
     ],
     "cta": {
-      "contact": "Hablar con un coach",
-      "token": "Descubrir el Meta Coach Token"
+      "contact": "Reservar sesión SmartTrader",
+      "token": "Entender el token ACI"
     }
   },
   "coachIAPage": {
-    "title": "Coach IA",
-    "intro": "ACI Meta Coach combina modelos de inteligencia artificial con metodología de coaching para transformar tu forma de operar: estrategia, mentalidad y gestión del riesgo alineadas.",
+    "title": "ACI SmartTrader Suite",
+    "intro": "Dos IA propietarias — ACI Learn y ACI Risk AI — entrenan tu mente, analizan tus trades y evitan que destruyas tu capital.",
     "loading": "Cargando los módulos interactivos…"
   },
   "coach3DModule": {
-    "title": "Coach IA (demo animada)",
-    "description": "Vista guiada del coach IA: voz interactiva, emociones y planificación de rutinas.",
-    "scrollHint": "Desplázate para iniciar la demo",
+    "title": "ACI SmartRisk",
+    "description": "SmartRisk es el guardián de riesgo que calcula el tamaño de posición, bloquea la sobreexposición y alimenta los reportes Safe Academy.",
+    "scrollHint": "Desplázate para experimentar SmartRisk",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "¡Hola 👋! Soy tu coach IA ACI. ¿Listo para estabilizar tu mentalidad?"
+        "text": "Acabo de evaluar tu riesgo actual: ¿bloqueo el tamaño de posición en el umbral óptimo o te aviso si hay sobreexposición?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "¡Impresionante! ¿Cómo personalizarás mi rutina?"
+        "text": "Activa el bloqueo automático y envíame un informe al final de cada jornada."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Analizo tus objetivos, tu comportamiento y tu estrés para crear planes semanales claros."
-      },
-      {
-        "role": "coach",
-        "label": "Coach ACI",
-        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas, recompensas y recordatorios."
+        "text": "Listo ✅ Tu riesgo diario queda limitado."
       }
     ]
   },
   "coach3DModuleFallback": {
-    "title": "Coach IA (demo animada)",
-    "description": "Vista guiada del coach IA: voz interactiva, emociones y planificación de rutinas.",
-    "scrollHint": "Desplázate para iniciar la demo",
+    "title": "ACI SmartRisk",
+    "description": "SmartRisk es el guardián de riesgo que calcula el tamaño de posición, bloquea la sobreexposición y alimenta los reportes Safe Academy.",
+    "scrollHint": "Desplázate para experimentar SmartRisk",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "¡Hola 👋! Soy tu coach IA ACI. ¿Listo para estabilizar tu mentalidad?"
+        "text": "Acabo de evaluar tu riesgo actual: ¿bloqueo el tamaño de posición en el umbral óptimo o te aviso si hay sobreexposición?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "¡Impresionante! ¿Cómo personalizarás mi rutina?"
+        "text": "Activa el bloqueo automático y envíame un informe al final de cada jornada."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Analizo tus objetivos, tu comportamiento y tu estrés para crear planes semanales claros."
-      },
-      {
-        "role": "coach",
-        "label": "Coach ACI",
-        "text": "Estrategia + mentalidad + riesgo. Avanza con métricas, recompensas y recordatorios."
+        "text": "Listo ✅ Tu riesgo diario queda limitado."
       }
     ]
   },
@@ -248,14 +208,14 @@
       "faq": "FAQ",
       "contact": "Contacto"
     },
-    "logoAlt": "Logotipo de ACI Meta Coach"
+    "logoAlt": "Logo de ACI SmartTrader Suite"
   },
   "socialLinks": {
     "title": "Síguenos en las redes"
   },
   "footer": {
-    "tagline": "IA + Trading + Mindset: la ecuación ganadora.",
-    "disclaimer": "© ACI Meta Coach · Seguridad y Confidencialidad · Términos. Sin garantía de rendimiento. Haz tu propia investigación y gestiona tu riesgo.",
+    "tagline": "IA + Trading + Disciplina: la ecuación ganadora.",
+    "disclaimer": "© ACI SmartTrader Suite · Seguridad y Privacidad · Términos. Sin garantías de rentabilidad. Haz tu propia investigación y gestiona tu riesgo.",
     "email": "support@aci-token.net"
   },
   "buyWidget": {
@@ -272,49 +232,49 @@
     "txInProgress": "Transacción en curso...",
     "connectPrompt": "Conecta tu wallet para comprar y acceder a la formación premium, al bot de trading y a los pagos privados impulsados por ACI."
   },
-  "botLabelHeadline": "TRADING",
-  "botTitle": "ACI Trading Bot",
-  "botSubtitle": "Automate your strategy with our predictive intelligence—risk management, instant execution, and live monitoring in one tool.",
-  "botSectionOverview": "Overview",
-  "botOverviewTitle": "AI built for crypto and Forex markets",
-  "botOverviewDescription": "Our proprietary bot continuously analyses 80+ technical indicators and on-chain flows to anticipate market moves. It adapts to volatility and protects your capital with built-in money management.",
-  "botLiveBadge": "Live 24/7",
-  "botAdvantageAi.title": "Adaptive intelligence",
-  "botAdvantageAi.desc": "Exclusive models trained on years of data to detect micro-trends.",
-  "botAdvantageSignals.title": "Multi-asset signals",
-  "botAdvantageSignals.desc": "Supports ETH/BTC/BNB pairs, crypto indices, and major Forex crosses.",
-  "botAdvantage24.title": "Always on",
-  "botAdvantage24.desc": "The bot watches the market even while you sleep and sends realtime alerts.",
-  "botAdvantageSecurity.title": "Security & control",
-  "botAdvantageSecurity.desc": "Private keys stay with your wallet. Stop the strategy instantly whenever you want.",
-  "botPerformanceHeading": "Key metrics",
-  "botPerformanceDesc": "Figures recorded over the last quarter (backtest + live). Past performance does not guarantee future results.",
-  "botMetricWinrate": "Average winrate",
-  "botMetricWinrateValue": "73% on swing scenarios",
-  "botMetricPairs": "Supported assets",
-  "botMetricPairsValue": "+40 crypto pairs & 12 Forex pairs",
-  "botMetricLatency": "Reaction time",
-  "botMetricLatencyValue": "< 180 ms via WebSocket",
-  "botCTAHeading": "Try the bot",
-  "botCTADesc": "Join the access list to attend private sessions and get the full documentation.",
-  "botCTAButton": "Request access",
-  "botFlowLabel": "Onboarding",
-  "botFlowTitle": "Connect the bot in 3 steps",
-  "botFlowSubtitle": "A guided setup that keeps you in full control of your funds.",
-  "botStepConnect.title": "Connect your wallet",
-  "botStepConnect.desc": "Sync MetaMask or Ledger through the secure ACI interface.",
-  "botStepConfigure.title": "Configure your strategy",
-  "botStepConfigure.desc": "Choose risk level, tracked assets, and your loss limits.",
-  "botStepMonitor.title": "Monitor live",
-  "botStepMonitor.desc": "Track performance, pause, or adjust the bot at any time.",
-  "botChecklistTitle": "Checklist before going live",
-  "botChecklistWallet": "Wallet connected to the supported network",
-  "botChecklistBalance": "Enough ETH/BUSD balance to cover the strategy",
-  "botChecklistPlan": "Risk parameters defined (stop-loss & take-profit)",
-  "botChecklistRisk": "Clear understanding of market risks and bot limits",
-  "botDisclaimer": "The bot does not guarantee profits. Manage your exposure and stay in control of your funds.",
+  "botLabelHeadline": "ACI Risk AI",
+  "botTitle": "ACI Risk AI — disciplina automatizada para cada trade.",
+  "botSubtitle": "Conecta MT4/Binance, define tus guardarraíles y deja que la IA calcule el sizing, bloquee el exceso de riesgo y envíe reportes de disciplina.",
+  "botSectionOverview": "Resumen del motor de riesgo",
+  "botOverviewTitle": "Calcular, bloquear y reportar automáticamente.",
+  "botOverviewDescription": "ACI Risk AI analiza cada orden, la compara con tu riesgo máximo por trade y bloquea cualquier posición que rompa el plan. Los datos alimentan Safe Academy a diario.",
+  "botLiveBadge": "Beta privada",
+  "botAdvantageAi.title": "Sizing adaptativo",
+  "botAdvantageAi.desc": "Tamaño, apalancamiento y stops recalculados al instante según la volatilidad y tu riesgo máximo.",
+  "botAdvantageSignals.title": "Bloqueos automáticos",
+  "botAdvantageSignals.desc": "Las órdenes fuera de las reglas se pausan, se etiquetan y vuelven con acciones correctivas.",
+  "botAdvantage24.title": "Guardarraíles 24/7",
+  "botAdvantage24.desc": "Monitorización MT4, Binance y APIs sin descanso. Los cooldowns se activan incluso cuando duermes.",
+  "botAdvantageSecurity.title": "Reportes de disciplina",
+  "botAdvantageSecurity.desc": "Informe diario Safe Academy con trades bloqueados, drawdown evitado y rachas de cumplimiento.",
+  "botPerformanceHeading": "Métricas de control de riesgo",
+  "botPerformanceDesc": "Estadísticas en vivo de trades bloqueados, exposición salvada y respeto de tus reglas.",
+  "botMetricWinrate": "Bloqueos auto",
+  "botMetricWinrateValue": "95 % de las operaciones sobre-riesgo detenidas antes de ejecutarse",
+  "botMetricPairs": "Plataformas",
+  "botMetricPairsValue": "MT4 • Binance • API",
+  "botMetricLatency": "Tiempo de reacción",
+  "botMetricLatencyValue": "< 150 ms por orden",
+  "botCTAHeading": "Reserva tu cupo Risk AI",
+  "botCTADesc": "El acceso beta es para traders que hacen stake de ACI y comparten métricas. Únete a la lista de espera para enterarte primero.",
+  "botCTAButton": "Unirme a la waitlist Risk AI",
+  "botFlowLabel": "Workflow",
+  "botFlowTitle": "Cómo ACI Risk AI te mantiene seguro",
+  "botFlowSubtitle": "Define tus límites una vez; la IA los aplica en MT4/Binance.",
+  "botStepConnect.title": "1. Conecta tus cuentas",
+  "botStepConnect.desc": "Vincula MT4, Binance o tus claves API con permisos seguros de lectura/operación.",
+  "botStepConfigure.title": "2. Configura los guardarraíles",
+  "botStepConfigure.desc": "Define riesgo por trade, pérdida diaria, cooldowns y comportamientos a bloquear.",
+  "botStepMonitor.title": "3. Monitoriza y mejora",
+  "botStepMonitor.desc": "Recibe bloqueos instantáneos + reportes Safe Academy diarios para revisar tu disciplina.",
+  "botChecklistTitle": "Antes de activar Risk AI",
+  "botChecklistWallet": "Wallet conectado + suscripción ACI activa.",
+  "botChecklistBalance": "Riesgo por trade y drawdown máximo definidos.",
+  "botChecklistPlan": "Plan de trading + timeframe compartidos con la IA.",
+  "botChecklistRisk": "Notificaciones Safe Academy activadas.",
+  "botDisclaimer": "ACI Risk AI bloquea órdenes cuando superas tus límites. Tú mantienes el control total de tu estrategia y ejecución.",
   "whitepaper": "Whitepaper",
-  "welcome": "Welcome to the Official ACI Meta Coach Presale",
+  "welcome": "Welcome to the Official ACI SmartTrader Suite Presale",
   "tagline": "ACI unlocks premium Forex & crypto training, an exclusive trading bot, and a private payment rail.",
   "presaleEnds": "Presale ends in: {{months}} mo {{days}} d {{hours}} h {{minutes}} m {{seconds}} s",
   "priceInfo": "Presale price: 1 ACI = ${{price}}",
@@ -341,11 +301,11 @@
   "inputPlaceholderUsd": "Amount in $",
   "buy": "Buy ACI",
   "buyAndStake": "Buy & Stake",
-  "featuresTitle": "Why Buy the ACI Meta Coach?",
+  "featuresTitle": "Why Buy the ACI SmartTrader Suite?",
   "featureSecurityTitle": "🔒 Security",
   "featureSecurityDesc": "Built on Ethereum with audited smart contracts. Transactions are traceable yet anonymous.",
   "featureTrainingTitle": "📚 Exclusive Training",
-  "featureTrainingDesc": "Holding ACI grants you premium Forex & crypto training powered by ACI Meta Coach.",
+  "featureTrainingDesc": "Holding ACI grants you premium Forex & crypto training powered by ACI SmartTrader Suite.",
   "featurePrivacyTitle": "💸 Untraceable Payments",
   "featurePrivacyDesc": "Use ACI as a private payment method without traditional banking supervision.",
   "featureTradingBotTitle": "🤖 AI Trading Bot",
@@ -368,7 +328,7 @@
   "phase2026": "2026 — Advanced Development",
   "phase2026Desc": "Integration of ACI payments into external tools + AI-driven education.",
   "valueTrainingTitle": "Premium Training",
-  "valueTrainingDesc": "Get ACI Meta Coach mentorship to master Forex and crypto markets.",
+  "valueTrainingDesc": "Get ACI SmartTrader Suite mentorship to master Forex and crypto markets.",
   "valueTradingBotTitle": "Exclusive Trading Bot",
   "valueTradingBotDesc": "Use an AI-driven bot tuned by our traders to surface high-potential setups.",
   "valuePrivateTitle": "Private Payments",
@@ -386,9 +346,9 @@
       "cta": "Comprar ACI ahora"
     },
     "hero": {
-      "badge": "PREVENTA ACI",
-      "title": "Preventa ACI",
-      "description": "Adquiere tus tokens ACI y únete al ecosistema MetaCoach, una tecnología de asistencia inteligente inspirada en Jarvis.",
+      "badge": "Preventa ACI SmartTrader Suite",
+      "title": "Trade, Learn, Survive.",
+      "description": "ACI SmartTrader Suite es la IA que te enseña a tradear y te protege de tus errores.",
       "priceLabel": "Precio del token",
       "timeLabel": "Tiempo restante",
       "raised": "Recaudado: {{raised}} / {{goal}}",
@@ -396,72 +356,72 @@
       "contractCta": "Ver contrato",
       "contractPending": "Contrato disponible pronto",
       "disclaimer": "Sin consejo financiero: gestiona tu exposición y respeta tu estrategia.",
-      "whyTitle": "¿Por qué unirte a la preventa?",
-      "whyFooter": "El token ACI financia los módulos de IA, las formaciones y los incentivos de la comunidad."
+      "whyTitle": "¿Por qué unirte a SmartTrader ahora?",
+      "whyFooter": "Tus tokens ACI desbloquean ACI Learn, ACI Risk AI, el staking y la SmartTrader DAO."
     },
     "purchase": {
       "badge": "Preventa en vivo",
       "title": "Compra tus tokens ACI"
     },
     "presalePoints": [
-      "Acceso exclusivo al ecosistema IA Meta Coach desde el primer día.",
-      "Ventajas en las formaciones inteligentes y rutinas guiadas.",
-      "Staking y recompensas comunitarias pagadas en ACI."
+      "Acceso inmediato a ACI Learn + ACI Risk AI.",
+      "La IA sigue tu progreso, tus errores y tu psicología para que te mantengas lúcido.",
+      "Recompensas ACI para traders disciplinados y stakers."
     ],
     "metaCoach": {
-      "badge": "Meta Coach",
-      "title": "Descubre Meta Coach, el coach IA impulsado por el token ACI.",
-      "description": "Meta Coach es tu sparring inteligente: analiza tu desempeño, ajusta tu estrategia y te ayuda a progresar sesión tras sesión gracias a la energía del token ACI.",
+      "badge": "ACI SmartTrader Suite",
+      "title": "Dos IA para progresar sin quemar tu capital.",
+      "description": "ACI Learn adapta clases, cuestionarios y rutinas a tu nivel mientras ACI Risk AI calcula la exposición, bloquea las operaciones peligrosas y mantiene tu disciplina. Un solo token alimenta toda la suite.",
       "highlights": [
-        "IA + Trading + Mindset alineados con tus objetivos.",
-        "Progresión semanal guiada y accionable.",
-        "Medición continua de tu rendimiento y mindset."
+        "ACI Learn: aprendizaje adaptativo, seguimiento de errores y rutinas de psicología.",
+        "ACI Risk AI: dimensionamiento por operación, bloqueos automáticos e informes diarios.",
+        "Gana ACI cuando avanzas con seguridad y alimenta la DAO SmartTrader."
       ],
-      "primaryCta": "Explorar Meta Coach",
-      "secondaryCta": "Comprender la utilidad del token"
+      "primaryCta": "Explorar ACI Learn",
+      "secondaryCta": "Activar ACI Risk AI"
     },
     "unlock": {
-      "title": "Lo que desbloqueas con ACI",
+      "title": "Lo que desbloquea ACI dentro de SmartTrader",
       "items": [
-        "Acceso al coach IA en tiempo real y a sus rutinas personalizadas.",
-        "Formaciones inteligentes y recorridos híbridos para operar con método.",
-        "Staking, recompensas comunitarias y futuros derechos de gobernanza."
+        "Educación adaptativa con ACI Learn: módulos, cuestionarios y seguimiento psicológico personalizado.",
+        "Guardianes de riesgo con ACI Risk AI: dimensionamiento, bloqueos y paneles Safe Academy.",
+        "Recompensas y gobernanza: rendimiento de staking + SmartTrader DAO."
       ],
-      "footer": "El token ACI es la llave de entrada: valoriza tu esfuerzo, asegura tus ventajas y financia los módulos de IA."
+      "footer": "ACI alimenta ambas IA, la reserva de staking y las decisiones de la DAO."
     },
     "featureSection": {
-      "title": "El ecosistema ACI Meta Coach",
-      "subtitle": "Un recorrido completo para avanzar: inteligencia artificial, contenido interactivo, incentivos alineados y una comunidad comprometida."
+      "title": "La suite ACI SmartTrader",
+      "subtitle": "Dos IA especializadas — ACI Learn y ACI Risk AI — trabajan juntas para entrenarte, analizarte y protegerte."
     },
     "featureCards": [
       {
-        "title": "Coach IA",
-        "description": "Analiza tu rendimiento, construye planes semanales y te ayuda a mantener el rumbo.",
-        "link": "/coach-ia",
-        "cta": "Descubrir"
+        "title": "ACI Learn",
+        "description": "Formación IA adaptativa que se ajusta a tu nivel, registra tus errores y actualiza tu plan cada semana.",
+        "cta": "Descubrir ACI Learn",
+        "link": "/formations"
       },
       {
-        "title": "Formaciones inteligentes",
-        "description": "Recorridos vídeo + IA sobre cripto, forex, gestión del riesgo y psicología del trader.",
-        "link": "/formations",
-        "cta": "Ver recorridos"
+        "title": "ACI Risk AI",
+        "description": "Motor de riesgo conectado a MT4/Binance que calcula el tamaño, bloquea la sobreexposición e impone disciplina.",
+        "cta": "Ver ACI Risk AI",
+        "link": "/coach-ia"
       },
       {
-        "title": "Meta Coach Token (ACI)",
-        "description": "El token que impulsa tu progreso: acceso al coach IA, descuentos en formaciones, staking y futura gobernanza.",
-        "link": "/token",
-        "cta": "Entender el token"
+        "title": "Token ACI (ACI)",
+        "description": "El token utilitario que desbloquea ACI Learn, ACI Risk AI, el staking y la futura DAO.",
+        "cta": "Entender el token ACI",
+        "link": "/token"
       },
       {
-        "title": "Staking & DAO",
-        "description": "Recompensas a largo plazo, estabilidad de liquidez y futuros derechos de voto en la DAO Meta Coach.",
-        "link": "/staking",
-        "cta": "Preparar el staking"
+        "title": "Staking y SmartTrader DAO",
+        "description": "Haz stake de tus ACI para obtener rendimiento, financiar a traders disciplinados y preparar tu poder de voto.",
+        "cta": "Preparar el staking",
+        "link": "/staking"
       }
     ],
     "metaTrack": {
-      "title": "Unirse a la lista Meta Track",
-      "description": "Recibe las novedades del Coach IA, de las formaciones inteligentes y del staking. Sin spam, solo insights accionables.",
+      "title": "Únete a la lista Safe Academy",
+      "description": "Recibe el briefing de SmartTrader (ACI Learn + ACI Risk AI + staking). Sin spam, solo consejos de disciplina accionables.",
       "emailPlaceholder": "Tu email profesional",
       "cta": "Inscribirme"
     }
@@ -482,7 +442,7 @@
   },
   "contactPage": {
     "title": "Contacto y acompañamiento",
-    "intro": "¿Quieres saber más sobre el Coach IA, nuestras formaciones o el Meta Coach Token? Nuestro equipo responde en menos de 24h.",
+    "intro": "¿Necesitas info sobre ACI Learn, ACI Risk AI o el token ACI? Respondemos en menos de 24h.",
     "directTitle": "Datos directos",
     "direct": [
       {
@@ -521,15 +481,15 @@
         "topics": [
           {
             "value": "coach",
-            "label": "Descubrir el Coach IA"
+            "label": "Descubrir ACI Learn"
           },
           {
             "value": "formations",
-            "label": "Formaciones & Meta Track"
+            "label": "ACI Risk AI"
           },
           {
             "value": "token",
-            "label": "Meta Coach Token (ACI)"
+            "label": "Token ACI (ACI)"
           },
           {
             "value": "partnership",
@@ -546,24 +506,24 @@
     }
   },
   "faqPage": {
-    "title": "FAQ ACI Meta Coach",
-    "intro": "Respuestas a las preguntas más frecuentes sobre el Coach IA, las formaciones y el Meta Coach Token. Siempre con transparencia, sin promesas irreales.",
+    "title": "FAQ ACI SmartTrader Suite",
+    "intro": "Respuestas a las preguntas más frecuentes sobre ACI Learn, ACI Risk AI y el token ACI. Sin humo, solo transparencia.",
     "items": [
       {
         "question": "¿El Coach IA reemplaza a un trader humano?",
-        "answer": "No. ACI Meta Coach ofrece análisis y rutinas, pero tú sigues tomando las decisiones. La IA complementa tus habilidades: no da consejo financiero ni abre posiciones por ti."
+        "answer": "No. ACI SmartTrader Suite ofrece análisis y rutinas, pero tú sigues tomando las decisiones. La IA complementa tus habilidades: no da consejo financiero ni abre posiciones por ti."
       },
       {
-        "question": "¿Qué desbloquea el Meta Coach Token (ACI)?",
-        "answer": "Da acceso a créditos del Coach IA, descuentos en formaciones, recompensas de staking y, a futuro, a la gobernanza de la DAO. Es el combustible de todo el ecosistema."
+        "question": "¿Qué desbloquea el token ACI?",
+        "answer": "Da acceso a ACI Learn, alimenta ACI Risk AI, entrega recompensas de staking y prepara tu poder de voto en la DAO SmartTrader."
       },
       {
         "question": "¿Puedo probar las formaciones antes de comprar ACI?",
-        "answer": "Sí. El acceso de descubrimiento incluye fragmentos de vídeo y plantillas gratuitas. Para activar los recorridos completos y el seguimiento Meta Track, necesitas el umbral de ACI indicado."
+        "answer": "Sí. El acceso demo incluye vídeos y plantillas gratuitas. Para activar los recorridos completos y el seguimiento Safe Academy debes tener el umbral ACI requerido."
       },
       {
         "question": "¿El staking está disponible para todos?",
-        "answer": "El staking está disponible para los holders del Meta Coach Token que cumplen el mínimo requerido. Recompensa los compromisos de largo plazo y asegura la liquidez del ecosistema."
+        "answer": "El staking está abierto a los holders del token ACI que cumplan el mínimo. Premia los compromisos a largo plazo y asegura la liquidez."
       },
       {
         "question": "¿El ecosistema ofrece consejo financiero?",
@@ -573,8 +533,8 @@
     "moreQuestions": "¿Una pregunta específica? Escríbenos desde la página de Contacto. Respondemos en menos de 24h."
   },
   "roadmapPage": {
-    "title": "ACI Meta Coach - Roadmap oficial",
-    "intro": "Una visión en ocho fases: identidad, Coach IA, formaciones inteligentes, staking, DAO, MetaVerse, app de bienestar y lanzamiento global. Cada hito fortalece el ecosistema ACI y el valor del token."
+    "title": "ACI SmartTrader Suite – Roadmap oficial",
+    "intro": "Cinco fases enfocadas para entregar ACI Learn, ACI Risk AI, la plataforma unificada y la DAO SmartTrader."
   },
   "tokenPage": {
     "title": "Advanced Capital International Token (ACI)",
@@ -657,7 +617,7 @@
         "items": [
           {
             "title": "Fixed ERC-20 design",
-            "text": "1,000,000,000 ACI minted once, zero taxes, no mint function, and manual burns available to every holder."
+            "text": "1,000,000,000 ACI minted once, zero taxes, no mint function, and manual burns available to every holder. Los tokens ACI desbloquean las IA ACI Learn y ACI Risk AI, financian las recompensas de los traders disciplinados y alimentan la DAO SmartTrader."
           },
           {
             "title": "Eight-week presale",
@@ -767,7 +727,7 @@
     "hero": {
       "badge": "Whitepaper Oficial",
       "title": {
-        "line1": "ACI Meta Coach",
+        "line1": "ACI SmartTrader Suite",
         "line2": "Estrategia y Arquitectura"
       },
       "description": "Sumérgete en la visión completa del Coach IA, su tokenomics y las bases técnicas que combinan coaching emocional, recompensas tokenizadas y gobernanza comunitaria.",
@@ -825,7 +785,7 @@
   },
   "disclaimerTitle": "Disclaimer",
   "disclaimerText": "Always do your own research. Nothing here is financial advice.",
-  "copyright": "© 2025 ACI Meta Coach. All rights reserved.",
+  "copyright": "© 2025 ACI SmartTrader Suite. All rights reserved.",
   "contact": "Contact: support@aci-token.net",
   "aboutSectionTitle": "About the ACI Project",
   "aboutMissionTitle": "ACI’s Mission",
@@ -889,7 +849,7 @@
   "tokenSupplyTotal": "1,000,000,000 ACI",
   "tokenSupplyText": "A fixed supply of {{total}} is minted at deployment. 50,000,000 ACI are burned at launch, quarterly burns remove 10–25 million ACI, and the Annual Burn Event can remove up to 50 million ACI—each burn is executed manually by the Gnosis Safe multisig with public proof on-chain.",
   "howtoTitle": "How to Buy",
-  "howtoStepsTitle": "Steps to Buy ACI Meta Coach",
+  "howtoStepsTitle": "Steps to Buy ACI SmartTrader Suite",
   "howtoSteps": [
     {
       "step": "1",
@@ -1155,46 +1115,46 @@
     }
   },
   "coachBusinessModule": {
-    "title": "Lo que hará el coach por ti",
-    "description": "La concierge IA analiza tu perfil, sugiere ideas de negocio a medida y coordina las siguientes acciones.",
-    "scrollHint": "Desplázate para lanzar la demo de negocios",
+    "title": "Coach IA Trader Pro",
+    "description": "Modo Trader Pro: la IA analiza tu perfil, detecta setups de alta probabilidad y sincroniza planes de acción, recordatorios y disciplina.",
+    "scrollHint": "Desplázate para iniciar la demo Trader Pro",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Acabo de revisar tu perfil y tu estilo de ejecución. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
+        "text": "Acabo de analizar tu historial de trades: ¿quieres que te ayude a detectar los setups más rentables o a mejorar tu disciplina de trading?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "Quiero un plan claro y alineado con mi energía, sin perder tiempo."
+        "text": "Quiero reforzar mi disciplina y subir mi tasa de acierto."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Perfecto. Seleccionaré tres ideas acordes a tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
+        "text": "Perfecto. Sincronizo tu plan de acción y te recordaré las rutinas necesarias antes de cada sesión."
       }
     ]
   },
   "coachBusinessModuleFallback": {
-    "title": "Lo que hará el coach por ti",
-    "description": "La concierge IA analiza tu perfil, sugiere ideas de negocio a medida y coordina las siguientes acciones.",
-    "scrollHint": "Desplázate para lanzar la demo de negocios",
+    "title": "Coach IA Trader Pro",
+    "description": "Modo Trader Pro: la IA analiza tu perfil, detecta setups de alta probabilidad y sincroniza planes de acción, recordatorios y disciplina.",
+    "scrollHint": "Desplázate para iniciar la demo Trader Pro",
     "messages": [
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Acabo de revisar tu perfil y tu estilo de ejecución. ¿Buscamos un nuevo ángulo rentable o reforzamos lo que ya gestionas?"
+        "text": "Acabo de analizar tu historial de trades: ¿quieres que te ayude a detectar los setups más rentables o a mejorar tu disciplina de trading?"
       },
       {
         "role": "user",
         "label": "Tú",
-        "text": "Quiero un plan claro y alineado con mi energía, sin perder tiempo."
+        "text": "Quiero reforzar mi disciplina y subir mi tasa de acierto."
       },
       {
         "role": "coach",
         "label": "Coach ACI",
-        "text": "Perfecto. Seleccionaré tres ideas acordes a tus fortalezas, agendaré las reuniones clave y activaré la concierge para pagos y logística."
+        "text": "Perfecto. Sincronizo tu plan de acción y te recordaré las rutinas necesarias antes de cada sesión."
       }
     ]
   },
@@ -1227,10 +1187,10 @@
       "smile": "Sonrisa"
     },
     "ui": {
-      "badge": "ACI Meta Coach",
-      "title": "Módulo de detección de emociones (voz + cámara)",
-      "description": "Analiza tu voz en tiempo real para adaptar el coaching: emoción dominante, estrés, confianza, ritmo y muletillas. Activa la cámara para sumar las expresiones faciales (procesado 100% local).",
-      "voiceHint": "Análisis de voz en vivo para un coaching adaptativo.",
+      "badge": "ACI EmotionScan",
+      "title": "ACI EmotionScan — Voz + Visión",
+      "description": "EmotionScan escucha tu voz y cámara para mapear estrés, confianza y actitud en tiempo real antes de ajustar tu plan SmartTrader.",
+      "voiceHint": "EmotionScan adapta tus rutinas según tu voz cada segundo.",
       "toggle": {
         "tooltipSession": "Detén la sesión antes de cambiar la cámara.",
         "tooltipActive": "Desactivar análisis de vídeo",
@@ -1250,7 +1210,7 @@
         "previousSummaryNote": "Resumen anterior disponible abajo."
       },
       "session": {
-        "title": "Sesión en vivo",
+        "title": "Sesión EmotionScan",
         "description": "Las métricas se actualizan cada 750 ms para una visualización fluida.",
         "stopButton": "Detener y ver resumen",
         "videoConfidence": "{{value}}% de confianza",
@@ -1258,8 +1218,8 @@
         "metricSpeechRate": "Ritmo del habla",
         "metricFillers": "Muletillas por minuto",
         "metricVoiceAi": "Insights de voz IA",
-        "voiceInsightsHint": "Analizo tono, energía y estabilidad para ayudarte en tiempo real.",
-        "coachLabel": "Coach"
+        "voiceInsightsHint": "Análisis IA en vivo: tono, energía, estabilidad emocional y recomendaciones SmartTrader.",
+        "coachLabel": "Coach IA"
       },
       "summary": {
         "title": "Resumen de la sesión",

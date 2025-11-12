@@ -54,7 +54,7 @@ export default function TokenPage() {
     const stakingSimulation = stakingSection.simulation ?? {};
     const accessFeatures = Array.isArray(base.accessFeatures) ? base.accessFeatures : [];
     return {
-      title: base.title ?? 'Meta Coach Token (ACI)',
+      title: base.title ?? 'ACI Token (ACI)',
       intro: base.intro ?? '',
       sections: {
         economics: {

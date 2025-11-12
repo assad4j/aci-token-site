@@ -62,7 +62,7 @@ const { chains, publicClient } = configureChains(supportedChains, providers);
 const recommendedWallets = [
   metaMaskWallet({ chains, projectId }),
   trustWallet({ chains, projectId }),
-  coinbaseWallet({ appName: 'ACI Meta Coach', chains }),
+  coinbaseWallet({ appName: 'ACI SmartTrader Suite', chains }),
   walletConnectWallet({ chains, projectId }),
 ];
 

@@ -12,7 +12,7 @@ const KNOWLEDGE_BASE = {
       id: 'identity',
       keywords: ['qui es-tu', 'tu es qui', 'coach ia', 'assistant', 'tu fais quoi'],
       reply:
-        "Je suis l’IA propriétaire d’ACI Meta Coach. J’écoute ta voix, je sens ton énergie et j’ajuste ton plan pour que tu progresse sans te griller. Bref, je suis ton coach perso dispo 24/7.",
+        "Je suis l’IA propriétaire d’ACI SmartTrader Suite. J’écoute ta voix, je sens ton énergie et j’ajuste ton plan pour que tu progresse sans te griller. Bref, je suis ton coach perso dispo 24/7.",
       mood: 'neutral',
       intention: 'clarifying focus',
     },
@@ -134,7 +134,7 @@ const KNOWLEDGE_BASE = {
       id: 'identity',
       keywords: ['who are you', 'what are you', 'coach ai', 'assistant', 'what do you do'],
       reply:
-        "I’m the proprietary ACI Meta Coach AI. I listen to your voice, catch the emotional cues, and tweak your plan so you grow without burning out. Basically, I’m your on-call training partner.",
+        "I’m the proprietary ACI SmartTrader Suite AI. I listen to your voice, catch the emotional cues, and tweak your plan so you grow without burning out. Basically, I’m your on-call training partner.",
       mood: 'neutral',
       intention: 'clarifying focus',
     },
