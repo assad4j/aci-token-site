@@ -52,6 +52,18 @@
         ]
       },
       {
+        "phase": "Phase 4",
+        "title": "ACI Network Development (2026)",
+        "description": "Prepare the native blockchain designed for high-speed AI trading.",
+        "objectives": [
+          "Kick off development of the ACI blockchain.",
+          "Ensure full EVM compatibility.",
+          "Optimize the network for low-latency AI + trading workloads.",
+          "Launch a public testnet.",
+          "Migrate the ecosystem progressively onto ACI Network."
+        ]
+      },
+      {
         "phase": "Phase 5",
         "title": "DAO & Expansion",
         "description": "Open governance and expand distribution.",
@@ -733,6 +745,16 @@
         ],
         "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
       }
+    },
+    "futureUtility": {
+      "title": "Future utility of the ACI token",
+      "intro": "What happens to ACI once the ACI Network goes live.",
+      "points": [
+        "ACI becomes the gas token of the ACI Network.",
+        "Payments for AI + trading services across SmartTrader.",
+        "Staking to secure the network and its AI validators.",
+        "Expanded usage inside the SmartTrader DAO."
+      ]
     }
   },
   "whitepaperPage": {

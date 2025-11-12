@@ -721,6 +721,16 @@
         ],
         "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
       }
+    },
+    "futureUtility": {
+      "title": "Zukünftiger Nutzen des ACI-Tokens",
+      "intro": "Was mit ACI passiert, sobald das ACI Network live ist.",
+      "points": [
+        "ACI wird zum Gas-Token des ACI Network.",
+        "Zahlungen für KI + Trading-Services im SmartTrader-Ökosystem.",
+        "Staking zur Sicherung des Netzwerks und seiner KI-Validatoren.",
+        "Erweiterte Nutzung innerhalb der SmartTrader-DAO."
+      ]
     }
   },
   "whitepaperPage": {

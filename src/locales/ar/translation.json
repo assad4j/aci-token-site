@@ -721,6 +721,16 @@
         ],
         "footnote": "Simulations are indicative and assume the full 150M ACI reserve is distributed linearly across 24 months."
       }
+    },
+    "futureUtility": {
+      "title": "الاستخدام المستقبلي لرمز ACI",
+      "intro": "ماذا سيحدث لرمز ACI بعد إطلاق شبكة ACI.",
+      "points": [
+        "ACI سيصبح رمز الغاز لشبكة ACI.",
+        "مدفوعات للذكاء الاصطناعي + خدمات التداول في منظومة SmartTrader.",
+        "الستيكينغ لتأمين الشبكة والمصادقين المدعومين بالذكاء الاصطناعي.",
+        "استخدام أوسع داخل DAO SmartTrader."
+      ]
     }
   },
   "whitepaperPage": {

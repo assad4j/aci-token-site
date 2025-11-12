@@ -168,6 +168,27 @@ export default function TokenPage() {
           {tokenContent.intro}
         </p>
       </header>
+      {tokenContent.futureUtility && (
+        <section className="mt-12 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-[#031226] via-[#050c1a] to-[#01070f] p-8 shadow-[0_25px_80px_-35px_rgba(34,211,238,0.5)]">
+          <div className="flex flex-col gap-3 text-center">
+            <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">
+              {tokenContent.futureUtility.badge || 'ACI Network'}
+            </p>
+            <h2 className="text-3xl font-semibold text-white">{tokenContent.futureUtility.title}</h2>
+            <p className="text-sm text-white/70">{tokenContent.futureUtility.intro}</p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {tokenContent.futureUtility.points?.map(point => (
+              <div
+                key={point}
+                className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/80 shadow-inner shadow-black/30"
+              >
+                {point}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {tokenomicsRows.length > 0 && (
         <section className="mt-16 rounded-3xl border border-white/15 bg-gradient-to-br from-black/80 via-[#0d1424] to-black/90 p-10 shadow-2xl shadow-emerald-500/10 backdrop-blur">
