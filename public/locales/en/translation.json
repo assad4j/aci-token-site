@@ -584,20 +584,20 @@
           "amount": "300,000,000 ACI"
         },
         {
-          "id": "privateSale",
-          "icon": "privateSale",
-          "label": "Private Sale",
-          "description": "Strategic investors with 6–12 month lockups.",
-          "percentage": "10%",
-          "amount": "100,000,000 ACI"
-        },
-        {
           "id": "stakingRewards",
           "icon": "staking",
           "label": "Staking Rewards",
           "description": "15% reserve (150,000,000 ACI) released linearly across a 24-month staking lock.",
           "percentage": "15%",
           "amount": "150,000,000 ACI"
+        },
+        {
+          "id": "privateSale",
+          "icon": "privateSale",
+          "label": "Private Sale",
+          "description": "Strategic investors with 6–12 month lockups.",
+          "percentage": "10%",
+          "amount": "100,000,000 ACI"
         },
         {
           "id": "liquidity",
@@ -626,10 +626,10 @@
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserve / Buyback / Burn",
-          "description": "Treasury dedicated to price stabilization, progressive burns, and buyback programs. Includes the initial 50,000,000 ACI burn and quarterly burns coordinated by the ACI DAO.",
-          "percentage": "15%",
-          "amount": "150,000,000 ACI"
+          "label": "Buyback & Burn Reserve",
+          "description": "Treasury dedicated to price stabilization, progressive burns, and buyback programs.",
+          "percentage": "5%",
+          "amount": "50,000,000 ACI"
         }
       ]
     },
@@ -756,6 +756,10 @@
         "Expanded usage inside the SmartTrader DAO."
       ],
       "badge": "ACI Network"
+    },
+    "initialBurn": {
+      "title": "Initial burn",
+      "description": "50,000,000 ACI were burned at launch to activate the deflationary model."
     }
   },
   "whitepaperPage": {

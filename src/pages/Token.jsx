@@ -51,6 +51,7 @@ export default function TokenPage() {
     const tokenomicsBreakdown = base.tokenomicsBreakdown ?? {};
     const cta = base.cta ?? {};
     const stakingSection = base.stakingSection ?? {};
+    const initialBurn = base.initialBurn ?? {};
     const stakingSimulation = stakingSection.simulation ?? {};
     const accessFeatures = Array.isArray(base.accessFeatures) ? base.accessFeatures : [];
     return {
@@ -110,6 +111,10 @@ export default function TokenPage() {
         },
         rows: Array.isArray(tokenomicsBreakdown.rows) ? tokenomicsBreakdown.rows : [],
       },
+      initialBurn: {
+        title: initialBurn.title ?? '',
+        description: initialBurn.description ?? '',
+      },
     };
   }, [t, i18n.language]);
 
@@ -140,6 +145,7 @@ export default function TokenPage() {
     totalSupplyValue: tokenomicsTotalValue,
     headers: tokenomicsHeaders,
   } = tokenContent.tokenomicsBreakdown;
+  const initialBurn = tokenContent.initialBurn ?? {};
   const tokenIconMap = {
     publicPresale: FiTrendingUp,
     privateSale: FiLock,
@@ -236,6 +242,14 @@ export default function TokenPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+      )}
+      {initialBurn.title?.trim() && (
+        <section className="mt-6 rounded-3xl border border-rose-500/20 bg-gradient-to-br from-[#1a0b0b] via-[#140708] to-[#090203] p-8 text-white shadow-[0_20px_60px_-30px_rgba(248,113,113,0.5)]">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <p className="text-2xl font-semibold text-white">{initialBurn.title}</p>
+            <p className="max-w-3xl text-sm text-white/75 leading-relaxed">{initialBurn.description}</p>
           </div>
         </section>
       )}

@@ -567,32 +567,32 @@
           "id": "publicPresale",
           "icon": "publicPresale",
           "label": "Öffentlicher Presale",
-          "description": "30 % über acht Wochen mit progressivem Pricing (0,05 $ → 0,30 $).",
-          "percentage": "30 %",
+          "description": "30 % über acht Wochen mit progressivem Pricing (0,05 $ → 0,30 $).",
+          "percentage": "30 %",
           "amount": "300.000.000 ACI"
-        },
-        {
-          "id": "privateSale",
-          "icon": "privateSale",
-          "label": "Private Sale",
-          "description": "Strategische Investoren mit 6–12 Monaten Lock.",
-          "percentage": "10 %",
-          "amount": "100.000.000 ACI"
         },
         {
           "id": "stakingRewards",
           "icon": "staking",
           "label": "Staking-Rewards",
-          "description": "15 %-Reserve (150.000.000 ACI) linear über 24 Monate.",
-          "percentage": "15 %",
+          "description": "15 %-Reserve (150.000.000 ACI), verteilt über 24 Monate.",
+          "percentage": "15 %",
           "amount": "150.000.000 ACI"
+        },
+        {
+          "id": "privateSale",
+          "icon": "privateSale",
+          "label": "Private Sale",
+          "description": "Strategische Investoren mit 6–12 Monaten Sperre.",
+          "percentage": "10 %",
+          "amount": "100.000.000 ACI"
         },
         {
           "id": "liquidity",
           "icon": "liquidity",
           "label": "DEX/CEX-Liquidität",
-          "description": "Liquidität auf Uniswap & CEX mit 12 Monaten Sperre.",
-          "percentage": "10 %",
+          "description": "Liquidität auf Uniswap und zentralen Börsen mit 12 Monaten Lock.",
+          "percentage": "10 %",
           "amount": "100.000.000 ACI"
         },
         {
@@ -600,24 +600,24 @@
           "icon": "team",
           "label": "Team & Gründer",
           "description": "24 Monate Vesting mit progressiven Unlocks.",
-          "percentage": "10 %",
+          "percentage": "10 %",
           "amount": "100.000.000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
           "label": "Marketing & Partnerschaften",
-          "description": "Kampagnen, Reichweite, Listings und Ecosystem-Deals.",
-          "percentage": "10 %",
+          "description": "Kampagnen, Reichweite, Listings und Partnerprogramme.",
+          "percentage": "10 %",
           "amount": "100.000.000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Reserve / Buyback / Burn",
-          "description": "Treasury für Preisstabilität, Burns und Buybacks inkl. initialem 50 M Burn + quartalsweisen DAO-Burns.",
-          "percentage": "15 %",
-          "amount": "150.000.000 ACI"
+          "label": "Buyback- & Burn-Reserve",
+          "description": "Treasury zur Preisstabilisierung, für Burns und Buyback-Programme.",
+          "percentage": "5 %",
+          "amount": "50.000.000 ACI"
         }
       ]
     },
@@ -744,6 +744,10 @@
         "Staking, um das Netzwerk und seine KI-Validatoren zu sichern.",
         "Erweitere Nutzung innerhalb der SmartTrader-DAO."
       ]
+    },
+    "initialBurn": {
+      "title": "Initial-Burn",
+      "description": "50.000.000 ACI wurden beim Launch verbrannt, um das deflationäre Modell zu starten."
     }
   },
   "whitepaperPage": {

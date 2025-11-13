@@ -579,57 +579,57 @@
           "id": "publicPresale",
           "icon": "publicPresale",
           "label": "Prévente publique",
-          "description": "30 % vendus en huit semaines avec un prix progressif (0,05 $ → 0,30 $).",
-          "percentage": "30 %",
-          "amount": "300 000 000 ACI"
+          "description": "30 % vendus sur huit semaines avec un prix progressif (0,05 $ → 0,30 $).",
+          "percentage": "30 %",
+          "amount": "300 000 000 ACI"
+        },
+        {
+          "id": "stakingRewards",
+          "icon": "staking",
+          "label": "Récompenses de staking",
+          "description": "Réserve de 15 % (150 000 000 ACI) libérée linéairement sur 24 mois.",
+          "percentage": "15 %",
+          "amount": "150 000 000 ACI"
         },
         {
           "id": "privateSale",
           "icon": "privateSale",
           "label": "Vente privée",
           "description": "Investisseurs stratégiques avec verrous de 6 à 12 mois.",
-          "percentage": "10 %",
-          "amount": "100 000 000 ACI"
-        },
-        {
-          "id": "stakingRewards",
-          "icon": "staking",
-          "label": "Récompenses de staking",
-          "description": "Réserve de 15 % (150 000 000 ACI) libérée sur 24 mois.",
-          "percentage": "15 %",
-          "amount": "150 000 000 ACI"
+          "percentage": "10 %",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "liquidity",
           "icon": "liquidity",
           "label": "Liquidité DEX / CEX",
           "description": "Provision de liquidité sur Uniswap et CEX avec un lock de 12 mois.",
-          "percentage": "10 %",
-          "amount": "100 000 000 ACI"
+          "percentage": "10 %",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "team",
           "icon": "team",
-          "label": "Équipe & fondateurs",
-          "description": "Vesting sur 24 mois avec déblocages progressifs.",
-          "percentage": "10 %",
-          "amount": "100 000 000 ACI"
+          "label": "Équipe & Fondateurs",
+          "description": "Vesting de 24 mois avec déblocages progressifs pour les builders.",
+          "percentage": "10 %",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "marketing",
           "icon": "marketing",
-          "label": "Marketing & partenariats",
+          "label": "Marketing & Partenariats",
           "description": "Campagnes, influence, listings et partenariats écosystème.",
-          "percentage": "10 %",
-          "amount": "100 000 000 ACI"
+          "percentage": "10 %",
+          "amount": "100 000 000 ACI"
         },
         {
           "id": "reserve",
           "icon": "reserve",
-          "label": "Réserve / Buyback / Burn",
-          "description": "Trésor dédié à la stabilisation du prix, aux burns progressifs et aux programmes de rachat. Inclut le burn initial de 50 000 000 ACI et les burns trimestriels coordonnés par la DAO.",
-          "percentage": "15 %",
-          "amount": "150 000 000 ACI"
+          "label": "Réserve buyback & burn",
+          "description": "Trésor dédié à la stabilisation du prix, aux burns progressifs et aux programmes de rachat.",
+          "percentage": "5 %",
+          "amount": "50 000 000 ACI"
         }
       ]
     },
@@ -756,6 +756,10 @@
         "Staking pour sécuriser le réseau et ses validateurs IA.",
         "Utilisation renforcée dans la DAO SmartTrader."
       ]
+    },
+    "initialBurn": {
+      "title": "Burn initial",
+      "description": "50 000 000 ACI ont été brûlés au lancement pour activer le modèle déflationniste."
     }
   },
   "whitepaperPage": {
